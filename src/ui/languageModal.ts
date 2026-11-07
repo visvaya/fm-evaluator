@@ -30,7 +30,6 @@ export function continueFileProcessing(): void {
     });
   } else {
     if (hasAttributes || hasStats) {
-      const singleTypePrompt = document.querySelector('#single-type-prompt');
       const promptText = document.querySelector('#single-type-prompt-text');
 
       const lastFile = processor?.fileStack?.length > 0 ? processor.fileStack[0] : null;
@@ -74,8 +73,6 @@ export function continueFileProcessing(): void {
         kind: 'success',
         message: statusMsg
       });
-
-      if (singleTypePrompt) singleTypePrompt.classList.add('hidden');
     } else {
       setImportStatus({
         canRetry: false,
@@ -83,9 +80,8 @@ export function continueFileProcessing(): void {
         kind: 'error',
         message: t('missing_both_data')
       });
-      const singleTypePrompt = document.querySelector('#single-type-prompt');
-      if (singleTypePrompt) singleTypePrompt.classList.add('hidden');
     }
+    document.querySelector('#single-type-prompt')?.classList.add('hidden');
   }
   if (els?.fileInput) els.fileInput.value = '';
   continueImportFlowProcessing();

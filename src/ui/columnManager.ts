@@ -88,12 +88,12 @@ export function bindTableHeaderListeners(): void {
 
   els.tableHead.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
-    if (target && target.closest && target.closest('.filter-popup')) {
+    if (target?.closest?.('.filter-popup')) {
       e.stopPropagation();
       return;
     }
 
-    const actionEl = target && target.closest ? target.closest('[data-action]') : null;
+    const actionEl = target?.closest?.('[data-action]');
     if (!actionEl) return;
     const action = (actionEl as HTMLElement).dataset.action;
     const colId = (actionEl as HTMLElement).dataset.colId;
@@ -116,8 +116,7 @@ export function bindTableHeaderListeners(): void {
 
   els.tableHead.addEventListener('mousedown', (e) => {
     const target = e.target as HTMLElement;
-    const handle =
-      target && target.closest ? target.closest<HTMLElement>('.resize-handle[data-col-id]') : null;
+    const handle = target?.closest?.<HTMLElement>('.resize-handle[data-col-id]');
     if (!handle) return;
     const colId = handle.dataset.colId;
     if (!colId) return;
@@ -126,7 +125,7 @@ export function bindTableHeaderListeners(): void {
 
   els.tableHead.addEventListener('dragstart', (e) => {
     const target = e.target as HTMLElement;
-    const th = target && target.closest ? target.closest<HTMLElement>('th[data-col-id]') : null;
+    const th = target?.closest?.<HTMLElement>('th[data-col-id]');
     if (!th) return;
     const colId = th.dataset.colId;
     if (!colId) return;
@@ -139,7 +138,7 @@ export function bindTableHeaderListeners(): void {
 
   els.tableHead.addEventListener('drop', (e) => {
     const target = e.target as HTMLElement;
-    const th = target && target.closest ? target.closest<HTMLElement>('th[data-col-id]') : null;
+    const th = target?.closest?.<HTMLElement>('th[data-col-id]');
     if (!th) return;
     const colId = th.dataset.colId;
     if (!colId) return;

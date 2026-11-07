@@ -3,6 +3,7 @@
  * Caches parsed structure hashes to avoid re-computing for identical file structures
  */
 import { type StructureHashCacheEntry, StructureHashCacheEntrySchema } from '../schema/contracts';
+import { compareCodeUnits } from '../utils/compareCodeUnits';
 
 export interface StructureHashCacheConfig {
   maxEntries: number;
@@ -187,7 +188,7 @@ export class StructureHashCache {
   }
 
   private generateCacheKey(headers: string[]): string {
-    return [...headers].sort().join('|');
+    return headers.toSorted(compareCodeUnits).join('|');
   }
 
   private isExpired(entry: StructureHashCacheEntry): boolean {

@@ -666,9 +666,6 @@
     },
     "no-console": {
       "count": 1
-    },
-    "unicorn/no-array-sort": {
-      "count": 1
     }
   },
   "src/components/ColumnFilterPopover.test.tsx": {
@@ -1098,7 +1095,7 @@
       "count": 8
     },
     "typescript/no-unsafe-member-access": {
-      "count": 12
+      "count": 10
     }
   },
   "src/data/computeAttributeScore.test.ts": {
@@ -1139,7 +1136,7 @@
       "count": 7
     },
     "sonarjs/no-duplicated-branches": {
-      "count": 3
+      "count": 2
     },
     "sonarjs/no-nested-conditional": {
       "count": 1
@@ -1477,9 +1474,6 @@
     "unicorn/filename-case": {
       "count": 1
     },
-    "unicorn/no-array-sort": {
-      "count": 1
-    },
     "unicorn/prefer-array-some": {
       "count": 1
     }
@@ -1595,7 +1589,7 @@
       "count": 1
     },
     "unicorn/no-array-sort": {
-      "count": 4
+      "count": 3
     },
     "unicorn/no-immediate-mutation": {
       "count": 1
@@ -2110,9 +2104,6 @@
       "count": 1
     },
     "typescript/no-unsafe-member-access": {
-      "count": 1
-    },
-    "unicorn/no-array-sort": {
       "count": 1
     },
     "unicorn/prefer-code-point": {
@@ -3665,9 +3656,6 @@
     }
   },
   "src/ui/table.ts": {
-    "no-unused-vars": {
-      "count": 3
-    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -3718,7 +3706,7 @@
       "count": 12
     },
     "unicorn/explicit-length-check": {
-      "count": 2
+      "count": 1
     }
   },
   "src/ui/types.ts": {

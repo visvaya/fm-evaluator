@@ -59,7 +59,7 @@ function createFailedFilesTransfer(files: File[]): DataTransfer {
 function wireRetryButton(onRetry: () => void): void {
   const retryContainer = document.querySelector('#retry-error-container');
   const retryBtn = document.querySelector('#retry-files-btn');
-  if (!retryContainer || !retryBtn || !retryBtn.parentNode) {
+  if (!retryContainer || !retryBtn?.parentNode) {
     return;
   }
 

@@ -5,6 +5,7 @@
 
 import * as z from 'zod';
 
+import { compareCodeUnits } from '@/utils/compareCodeUnits';
 import { escapeHtmlAttribute } from '@/utils/escapeHtmlAttribute';
 
 export const DryRunIssueSchema = z.object({
@@ -288,7 +289,7 @@ export async function runDryImport(file: File, options: DryRunOptions = {}): Pro
   }
 
   // Compute structure hash
-  const structureHash = computeSimpleHash(headers.sort().join('|'));
+  const structureHash = computeSimpleHash(headers.toSorted(compareCodeUnits).join('|'));
 
   // Check for duplicates
   let duplicateCheck: DryRunReport['duplicateCheck'];

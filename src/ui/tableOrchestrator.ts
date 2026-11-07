@@ -21,7 +21,7 @@ import { getFilteredData, getSortedData } from './filterData';
 
 export function renderEmptyState(activeCols: any[]): void {
   const els = getEls();
-  const colSpan = (activeCols && activeCols.length) || COLUMNS.length || 1;
+  const colSpan = activeCols?.length || COLUMNS.length || 1;
   if (els.tableBody) {
     els.tableBody.innerHTML = `<tr><td colspan="${colSpan}" class="p-12 text-center text-gray-400 font-mono">${t('no_data_filters')}</td></tr>`;
   }

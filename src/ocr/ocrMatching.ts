@@ -134,7 +134,7 @@ export function findBestClubMatchWithLeague(
     const otherClubsList: any[] = [];
     for (const [normalized, data] of clubMap.entries()) {
       const clubNumbers = data.club.match(/\d+/g);
-      const hasMatchingNumbers = clubNumbers && clubNumbers.some((num) => ocrNumbers.includes(num));
+      const hasMatchingNumbers = clubNumbers?.some((num) => ocrNumbers.includes(num));
       const entry = {
         id: normalized,
         league: data.league || '',
@@ -196,7 +196,7 @@ export function findBestClubMatchWithLeague(
         for (const result of searchResults) {
           const matchedData = clubMap.get(result.item.id);
           const clubNumbers = matchedData?.club.match(/\d+/g);
-          if (clubNumbers && clubNumbers.some((num: string) => ocrNumbers.includes(num))) {
+          if (clubNumbers?.some((num: string) => ocrNumbers.includes(num))) {
             best = result;
             break;
           }
@@ -214,7 +214,7 @@ export function findBestClubMatchWithLeague(
 
       if (ocrNumbers && ocrNumbers.length > 0) {
         const matchedNumbers = matchedData.club.match(/\d+/g);
-        if (matchedNumbers && matchedNumbers.some((num: string) => ocrNumbers.includes(num))) {
+        if (matchedNumbers?.some((num: string) => ocrNumbers.includes(num))) {
           similarity = Math.min(1, similarity + 0.1);
         }
       }

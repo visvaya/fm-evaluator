@@ -352,18 +352,13 @@ export function computeStatScore(
       }
       const dist = statDist[k] ?? { iqr: 1, median: 0, p50: 0, range: 1 };
       let raw: number;
-      let sc: number;
-      if (position === 'GK' && k === 'Pas %') {
+      if ((position === 'GK' && k === 'Pas %') || k === 'OP-KP %') {
         raw = (v - dist.p50) / dist.range;
-        sc = Math.max(0, Math.min(20, 10 + raw * 5));
-      } else if (k === 'OP-KP %') {
-        raw = (v - dist.p50) / dist.range;
-        sc = Math.max(0, Math.min(20, 10 + raw * 5));
       } else {
         raw = (v - dist.median) / dist.iqr;
         if ((NEGATIVE_STATS as readonly string[]).includes(k)) raw = -raw;
-        sc = Math.max(0, Math.min(20, 10 + raw * 5));
       }
+      const sc = Math.max(0, Math.min(20, 10 + raw * 5));
       sSum += sc * w;
       sW += w;
       sD.push({

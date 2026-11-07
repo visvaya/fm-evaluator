@@ -26,6 +26,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import type { BatchParseRequest } from '@/parsing/parserTypes';
+import { compareCodeUnits } from '@/utils/compareCodeUnits';
 import type { ParserApi } from '@/workers/parser.worker';
 
 // Plain paths: under jsdom the global URL is jsdom's, which node:fs rejects.
@@ -53,12 +54,6 @@ interface GoldenCase {
 const fixture = (name: string, dir = FIXTURES_DIR) => ({ name, path: path.join(dir, name) });
 
 const readText = (filePath: string): Promise<string> => readFile(filePath, 'utf8');
-
-function compareCodeUnits(left: string, right: string): number {
-  if (left < right) return -1;
-  if (left > right) return 1;
-  return 0;
-}
 
 const FIXTURE_CASES: Omit<GoldenCase, 'parsePath'>[] = [
   {
