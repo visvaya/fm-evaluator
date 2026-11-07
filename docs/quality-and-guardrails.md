@@ -32,7 +32,7 @@ This document is the active source of truth for quality expectations and their e
 - `pnpm run quality:deps` should remain separate because it depends on live registry state and security advisory feeds.
 - `pnpm run deps:report` should be treated as an informational version-drift report, not a code-quality signal.
 - `pnpm audit` and `pnpm outdated` should not be folded into the baseline `quality` script.
-- pnpm 11 runs dependency build scripts only for packages listed in `allowBuilds` in `pnpm-workspace.yaml` (`pnpm approve-builds` edits it); it ignores the `pnpm` field in `package.json`.
+- pnpm (12) runs dependency build scripts only for packages listed in `allowBuilds` in `pnpm-workspace.yaml` (`pnpm approve-builds` edits it); all pnpm settings live in that file, not in `package.json`. `pmOnFail: ignore` keeps pnpm's own version out of `pnpm-lock.yaml`, so GitHub's dependency graph can read it and Dependabot raises alerts.
 - Build-script approvals should stay explicit for native/tooling-sensitive packages rather than being approved wholesale.
 - Accepted upstream peer lag should be documented explicitly, but `pnpm peers check` may still report upstream package ranges until those packages update their own peer metadata.
 
