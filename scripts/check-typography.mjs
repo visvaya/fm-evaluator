@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Fails on the em dash (U+2014) or emoji in tracked text files (or in the files passed as
-// arguments, as lint-staged does). Exclusions live in scripts/lib/typography-core.mjs.
+// Fails on the em dash (U+2014), emoji, bidi control characters or external CDN hosts in tracked
+// text files (or in the files passed as arguments, as lint-staged does). Exclusions live in scripts/lib/typography-core.mjs.
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -38,7 +38,7 @@ function main(argv) {
   );
   if (issues.length > 0) {
     console.error(
-      `check:typography: ${issues.length} issue(s); use an en dash (U+2013) or a middle dot (U+00B7) instead of an em dash, and no emoji.`
+      `check:typography: ${issues.length} issue(s). em-dash: use an en dash (U+2013) or a middle dot (U+00B7); emoji: remove; bidi: remove the control character; cdn: self-host the file (the CSP allows only the own origin).`
     );
     return 1;
   }
