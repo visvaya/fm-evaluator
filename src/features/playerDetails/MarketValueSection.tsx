@@ -5,7 +5,9 @@ import { DetailSection } from './uiPrimitives';
 
 import type { PlayerRatioCardModel } from './models';
 
-export function MarketValueSection({ ratioCards }: { ratioCards: PlayerRatioCardModel[] }) {
+export function MarketValueSection({
+  ratioCards
+}: Readonly<{ ratioCards: PlayerRatioCardModel[] }>) {
   const t = useUiText();
 
   return (

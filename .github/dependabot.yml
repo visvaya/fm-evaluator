@@ -18,6 +18,31 @@ updates:
       prefix: build
       prefix-development: build
       include: scope
+    # ESLint and its plugins are being replaced by oxlint; their updates add findings to code
+    # that moves to the new linter. Remove this list together with ESLint. Only version updates
+    # are ignored: security updates for these packages still arrive.
+    ignore:
+      - dependency-name: 'eslint'
+        update-types:
+          [version-update:semver-major, version-update:semver-minor, version-update:semver-patch]
+      - dependency-name: 'eslint-*'
+        update-types:
+          [version-update:semver-major, version-update:semver-minor, version-update:semver-patch]
+      - dependency-name: '@eslint/*'
+        update-types:
+          [version-update:semver-major, version-update:semver-minor, version-update:semver-patch]
+      - dependency-name: 'typescript-eslint'
+        update-types:
+          [version-update:semver-major, version-update:semver-minor, version-update:semver-patch]
+      - dependency-name: '@typescript-eslint/*'
+        update-types:
+          [version-update:semver-major, version-update:semver-minor, version-update:semver-patch]
+      - dependency-name: '@html-eslint/*'
+        update-types:
+          [version-update:semver-major, version-update:semver-minor, version-update:semver-patch]
+      - dependency-name: '@vitest/eslint-plugin'
+        update-types:
+          [version-update:semver-major, version-update:semver-minor, version-update:semver-patch]
     groups:
       production-minor-patch:
         dependency-type: production

@@ -19,7 +19,7 @@ export function StatisticsAnalysisSection({
   currentPosition,
   model,
   player
-}: StatisticsAnalysisSectionProps) {
+}: Readonly<StatisticsAnalysisSectionProps>) {
   const t = useUiText();
 
   return (

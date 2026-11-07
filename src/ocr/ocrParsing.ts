@@ -175,7 +175,7 @@ export function parseOCRText(
     let possession: null | number = null;
 
     for (const [patternIndex, POSSESSION_PATTERN] of POSSESSION_PATTERNS.entries()) {
-      match = cleanLine.match(POSSESSION_PATTERN);
+      match = POSSESSION_PATTERN.exec(cleanLine);
       if (match) {
         switch (patternIndex) {
           case 0: {

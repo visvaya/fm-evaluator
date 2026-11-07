@@ -19,7 +19,7 @@ export function AttributeAnalysisSection({
   currentPosition,
   model,
   player
-}: AttributeAnalysisSectionProps) {
+}: Readonly<AttributeAnalysisSectionProps>) {
   const t = useUiText();
 
   return (

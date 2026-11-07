@@ -7,10 +7,10 @@ import { DetailSection } from './uiPrimitives';
 export function DataQualitySection({
   attrWarnings,
   statWarnings
-}: {
+}: Readonly<{
   attrWarnings: string[];
   statWarnings: string[];
-}) {
+}>) {
   const t = useUiText();
 
   if (attrWarnings.length === 0 && statWarnings.length === 0) {
