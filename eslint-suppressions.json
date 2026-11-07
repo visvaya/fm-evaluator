@@ -264,11 +264,6 @@
       "count": 2
     }
   },
-  "src/components/ImportStatusBanner.tsx": {
-    "sonarjs/void-use": {
-      "count": 1
-    }
-  },
   "src/components/PlayerTable.tsx": {
     "i18next/no-literal-string": {
       "count": 3
