@@ -23,14 +23,14 @@ export function LdcMappingTargetPicker({
   options,
   sources,
   type
-}: {
+}: Readonly<{
   currentTargetKey: null | string;
   onApply: (target: LdcMappingTarget) => void;
   onCancel: () => void;
   options: TargetLeagueOption[];
   sources: string[];
   type: 'bulk' | 'single';
-}) {
+}>) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTargetKey, setSelectedTargetKey] = useState<null | string>(currentTargetKey);
 

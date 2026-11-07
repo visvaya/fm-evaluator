@@ -48,7 +48,7 @@ function getTargetKey(name: string, nation: string) {
   return `${name}||${nation}`;
 }
 
-export function LdcMappingsModal({ isOpen, onRequestClose }: LdcMappingsModalProps) {
+export function LdcMappingsModal({ isOpen, onRequestClose }: Readonly<LdcMappingsModalProps>) {
   const settings = useLdcStore((state) => state.settings);
   const syncFromLegacy = useLdcStore((state) => state.syncFromLegacy);
   const [draftMappings, setDraftMappings] = useState<MappingRecord[]>([]);

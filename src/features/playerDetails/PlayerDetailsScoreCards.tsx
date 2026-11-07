@@ -4,11 +4,11 @@ export function PlayerDetailsScoreCards({
   attrScore,
   statScore,
   totalScore
-}: {
+}: Readonly<{
   attrScore: number;
   statScore: number;
   totalScore: number;
-}) {
+}>) {
   return (
     <div data-testid="player-details-score-cards" className="grid gap-4">
       <ScoreCard label="TOTAL" value={totalScore} accentClass="text-text-primary" />

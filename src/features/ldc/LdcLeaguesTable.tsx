@@ -7,7 +7,10 @@ import type { LdcSortColumn } from '@/config/ldcConfig';
 type LeagueEditableField = 'name' | 'nation' | 'rank' | 'stars';
 type LdcLeagueRowModel = ReturnType<typeof buildLdcLeagueRows>[number];
 
-function SortIndicator({ active, direction }: { active: boolean; direction: 'asc' | 'desc' }) {
+function SortIndicator({
+  active,
+  direction
+}: Readonly<{ active: boolean; direction: 'asc' | 'desc' }>) {
   if (!active) {
     return <ChevronsUpDown className="h-3.5 w-3.5 text-text-muted/70" />;
   }
@@ -286,7 +289,7 @@ export function LdcLeaguesTable({
   tableScrollRef,
   toggleSelectedLeagueId,
   virtualRows
-}: LdcLeaguesTableProps) {
+}: Readonly<LdcLeaguesTableProps>) {
   const highlightedLeagueIdSet = new Set(highlightedLeagueIds);
   const selectedLeagueIdSet = new Set(selectedLeagueIds);
 

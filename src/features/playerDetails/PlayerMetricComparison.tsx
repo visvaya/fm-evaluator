@@ -63,11 +63,11 @@ function FilterRangePreview({
   comparisonRuntime,
   currentPosition,
   item
-}: {
+}: Readonly<{
   comparisonRuntime: PlayerDetailsComparisonRuntime;
   currentPosition: string;
   item: RoleRequirementItem;
-}) {
+}>) {
   const distribution = useMemo(
     () => getFilterDistribution(comparisonRuntime, currentPosition, item.sourceKey),
     [comparisonRuntime, currentPosition, item.sourceKey]
@@ -149,7 +149,7 @@ export function PlayerMetricComparison({
   item,
   kind,
   player
-}: PlayerMetricComparisonProps) {
+}: Readonly<PlayerMetricComparisonProps>) {
   const t = useUiText();
   const [expanded, setExpanded] = useState(false);
   const unavailableReason = getUnavailableReason(item, kind);

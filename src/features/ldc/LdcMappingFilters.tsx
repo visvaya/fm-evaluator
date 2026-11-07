@@ -24,7 +24,10 @@ function normalizeSearchValue(value: string) {
   return normalizeDiacritics(value.toLowerCase().trim());
 }
 
-function SortIndicator({ active, direction }: { active: boolean; direction: 'asc' | 'desc' }) {
+function SortIndicator({
+  active,
+  direction
+}: Readonly<{ active: boolean; direction: 'asc' | 'desc' }>) {
   if (!active) {
     return <ChevronsUpDown className="h-3.5 w-3.5 text-text-muted/70" />;
   }
@@ -43,14 +46,14 @@ export function LdcMappingFilterTrigger({
   sortDirection,
   onOpenFilter,
   onSort
-}: {
+}: Readonly<{
   active: boolean;
   label: string;
   onOpenFilter: (event: ReactMouseEvent<HTMLButtonElement>) => void;
   onSort: () => void;
   sortActive: boolean;
   sortDirection: 'asc' | 'desc';
-}) {
+}>) {
   return (
     <div className="flex items-center gap-1">
       <button

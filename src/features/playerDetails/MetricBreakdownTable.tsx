@@ -22,7 +22,7 @@ export function MetricBreakdownTable({
   player,
   rows,
   testId
-}: MetricBreakdownTableProps) {
+}: Readonly<MetricBreakdownTableProps>) {
   const t = useUiText();
 
   return (

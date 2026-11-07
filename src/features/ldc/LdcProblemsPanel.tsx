@@ -50,7 +50,7 @@ export function LdcProblemsPanel({
   onFixIssue,
   onFocusIssue,
   onRepairTieringConflicts
-}: LdcProblemsPanelProps) {
+}: Readonly<LdcProblemsPanelProps>) {
   const [isExpanded, setIsExpanded] = useState(false);
   const totalIssues = issueGroups.reduce((sum, group) => sum + group.issues.length, 0);
   const hasComputationalIssues = issueGroups.some((group) => group.id !== 'configuration');

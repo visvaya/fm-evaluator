@@ -60,14 +60,6 @@ class OfflineIndicator {
     return this.state === 'syncing';
   }
 
-  setSyncing(syncing: boolean): void {
-    if (syncing && this.state === 'online') {
-      this.setState('syncing');
-    } else if (!syncing && this.state === 'syncing') {
-      this.setState('online');
-    }
-  }
-
   subscribe(listener: (state: NetworkState) => void): () => void {
     this.listeners.add(listener);
     return () => this.listeners.delete(listener);

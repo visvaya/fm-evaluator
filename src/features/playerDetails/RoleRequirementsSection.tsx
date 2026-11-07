@@ -32,7 +32,7 @@ export function RoleRequirementsSection({
   currentPosition,
   model,
   player
-}: RoleRequirementsSectionProps) {
+}: Readonly<RoleRequirementsSectionProps>) {
   const t = useUiText();
 
   return (

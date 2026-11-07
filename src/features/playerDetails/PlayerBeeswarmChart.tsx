@@ -237,7 +237,7 @@ export function PlayerBeeswarmChart({
   maxPlayers,
   playerValue,
   statName
-}: PlayerBeeswarmChartProps) {
+}: Readonly<PlayerBeeswarmChartProps>) {
   const model = useMemo(
     () =>
       buildBeeswarmChartModel({

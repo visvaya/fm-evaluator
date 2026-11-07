@@ -14,7 +14,7 @@ export function LdcLeaguesBulkActions({
   onBulkMoveDown,
   onBulkMoveUp,
   selectedCount
-}: LdcLeaguesBulkActionsProps) {
+}: Readonly<LdcLeaguesBulkActionsProps>) {
   if (selectedCount === 0) {
     return null;
   }

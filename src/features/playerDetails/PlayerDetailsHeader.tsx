@@ -20,7 +20,7 @@ export function PlayerDetailsHeader({
   model,
   onClose,
   onCopy
-}: PlayerDetailsHeaderProps) {
+}: Readonly<PlayerDetailsHeaderProps>) {
   const t = useUiText();
 
   return (

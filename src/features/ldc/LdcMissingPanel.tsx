@@ -33,7 +33,7 @@ const PRIMARY_BUTTON_CLASS =
 const SECONDARY_BUTTON_CLASS =
   'rounded-xl border border-border px-3 py-2 text-xs font-semibold text-text-primary transition hover:bg-surface disabled:cursor-not-allowed disabled:opacity-50';
 
-function SummaryChip({ label }: { label: string }) {
+function SummaryChip({ label }: Readonly<{ label: string }>) {
   return (
     <span className="inline-flex items-center rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-medium text-text-secondary">
       {label}
@@ -121,7 +121,7 @@ function MissingLeagueRow({
   onAutoMatch,
   onManualMatch,
   onToggleSelection
-}: MissingLeagueRowProps) {
+}: Readonly<MissingLeagueRowProps>) {
   const hasMatch = league.suggestedMatch !== null;
   const scorePercent =
     league.matchScore === null ? null : `${((1 - league.matchScore) * 100).toFixed(0)}%`;
@@ -245,7 +245,7 @@ function CountryGroupSection({
   onToggleSubGroupExpanded,
   selectedLeagueNames,
   setSelectedLeagueNames
-}: CountryGroupSectionProps) {
+}: Readonly<CountryGroupSectionProps>) {
   const isExpanded = expandedCountryKeys.includes(countryGroup.key);
   const allSelected = countryGroup.leagues.every((league) =>
     selectedLeagueNames.has(createLeagueIdentityKey(league.name, league.nation))
@@ -418,7 +418,7 @@ function SubGroupSection({
   selectedLeagueNames,
   setSelectedLeagueNames,
   subGroup
-}: SubGroupSectionProps) {
+}: Readonly<SubGroupSectionProps>) {
   if (subGroup.normalizedName === null && subGroup.leagues.length === 1) {
     const league = subGroup.leagues[0];
     return (

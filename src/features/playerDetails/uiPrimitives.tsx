@@ -6,11 +6,11 @@ export function ScoreCard({
   accentClass,
   label,
   value
-}: {
+}: Readonly<{
   accentClass: string;
   label: string;
   value: number;
-}) {
+}>) {
   const normalizedWidth = Math.min(100, Math.max(0, (value / 20) * 100));
 
   return (
@@ -37,10 +37,10 @@ export function ScoreCard({
 export function WarningBlock({
   children,
   tone = 'warning'
-}: {
+}: Readonly<{
   children: string;
   tone?: 'negative' | 'warning';
-}) {
+}>) {
   return (
     <div
       className={cn(
@@ -59,11 +59,11 @@ export function DetailSection({
   children,
   testId,
   title
-}: {
+}: Readonly<{
   children: ReactNode;
   testId?: string;
   title: string;
-}) {
+}>) {
   return (
     <section
       data-testid={testId}
