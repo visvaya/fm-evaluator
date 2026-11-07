@@ -191,7 +191,7 @@ Security is covered partly by tooling, but always needs human review on importan
 - SRI validation scripts (exist, but not run in CI or `pnpm run ci`: `sri:check` and `validate:all` are manual only, checked 2026-09-29)
 - config validation scripts (same: manual only)
 - duplication/dependency audit scripts
-- git hooks: lint-staged (ESLint and Prettier on staged files) before a commit, commitlint on the message, typecheck and `pnpm test` before a push
+- git hooks: lint-staged (ESLint and oxfmt on staged files) before a commit, commitlint on the message, typecheck and `pnpm test` before a push
 
 ### Not enforced today
 

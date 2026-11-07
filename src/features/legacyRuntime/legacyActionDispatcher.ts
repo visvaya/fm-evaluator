@@ -1,7 +1,10 @@
 import { parseInlineCopyToClipboard } from './inlineOnclickBridges';
 
 type IdActionName =
-  'applyFilter' | 'resetColumnFilter' | 'toggleAllVisible' | 'toggleShowActiveInFilter';
+  | 'applyFilter'
+  | 'resetColumnFilter'
+  | 'toggleAllVisible'
+  | 'toggleShowActiveInFilter';
 type IndexActionName = 'remapFileHeaders' | 'removeFileFromStack';
 
 type RunWindowAction = (name: string, ...args: unknown[]) => void;

@@ -152,7 +152,8 @@ export const LanguageConfigSchema = z.object({
 export type LanguageConfig = z.infer<typeof LanguageConfigSchema>;
 
 export type ValidationResult<T> =
-  { data: T; success: true } | { errors: z.ZodError; success: false };
+  | { data: T; success: true }
+  | { errors: z.ZodError; success: false };
 
 export function checkLanguageSchemaConsistency(
   languageConfig: LanguageConfig,

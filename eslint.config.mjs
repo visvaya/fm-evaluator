@@ -633,6 +633,6 @@ export default tseslint.config(
     }
   },
 
-  // ─── ALWAYS LAST – disable rules that conflict with Prettier ─────────────
+  // ─── ALWAYS LAST – disable style rules that conflict with the formatter (oxfmt) ───
   prettierConfig
 );

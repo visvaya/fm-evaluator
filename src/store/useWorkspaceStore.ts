@@ -1,7 +1,13 @@
 import { create } from 'zustand';
 
 export type WorkspaceRailSection =
-  'diagnostics' | 'files' | 'graphics' | 'language' | 'ldc' | 'none' | 'settings';
+  | 'diagnostics'
+  | 'files'
+  | 'graphics'
+  | 'language'
+  | 'ldc'
+  | 'none'
+  | 'settings';
 
 interface WorkspaceState {
   activeRailSection: WorkspaceRailSection;

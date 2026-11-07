@@ -16,7 +16,8 @@ export function parseFeet(player: null | Record<string, unknown> | undefined): F
 
   if (left === 0 && right === 0) {
     const pref = (player['Preferred Foot'] || player.Noga || player.basic_preferred_foot) as
-      string | undefined;
+      | string
+      | undefined;
     if (pref) {
       const p = pref.toString().trim();
       switch (p) {

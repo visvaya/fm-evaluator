@@ -21,7 +21,10 @@ interface BeeswarmLayoutPoint extends BeeswarmInputPoint {
 }
 
 type BeeswarmChartReason =
-  'flat_range' | 'non_numeric_player' | 'processor_unavailable' | 'too_few_points';
+  | 'flat_range'
+  | 'non_numeric_player'
+  | 'processor_unavailable'
+  | 'too_few_points';
 
 interface BeeswarmChartModel {
   max: null | number;
