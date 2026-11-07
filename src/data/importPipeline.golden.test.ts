@@ -52,7 +52,6 @@ interface GoldenCase {
 
 const fixture = (name: string, dir = FIXTURES_DIR) => ({ name, path: path.join(dir, name) });
 
-// Every path comes from the constants above, never from test input.
 const readText = (filePath: string): Promise<string> => readFile(filePath, 'utf8');
 
 function compareCodeUnits(left: string, right: string): number {

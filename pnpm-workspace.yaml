@@ -1,7 +1,6 @@
 allowBuilds:
   '@swc/core': true
   tesseract.js: true
-  unrs-resolver: true
 
 # Refuse to install on a Node.js older than engines.node in package.json (the lowest release
 # with the latest security fixes).

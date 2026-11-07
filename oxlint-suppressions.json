@@ -2923,9 +2923,6 @@
     }
   },
   "src/types/ambient.d.ts": {
-    "max-classes-per-file": {
-      "count": 1
-    },
     "typescript/no-explicit-any": {
       "count": 9
     }

@@ -288,6 +288,32 @@
     "unicorn/no-useless-iterator-to-array": "error",
     "typescript/no-useless-default-assignment": "off", // Needs strictNullChecks, which is off (tsconfig strict ratchet); turn on with strictNullChecks.
     "sonarjs/void-use": "off", // Needs type information that JS plugins do not get; `void promise` is the sanctioned pattern (no-floating-promises ignoreVoid).
+    "sonarjs/array-callback-without-return": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/deprecation": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/different-types-comparison": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/disabled-resource-integrity": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/existing-groups": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/in-operator-type-error": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/index-of-compare-to-positive-number": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/jsx-no-leaked-render": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/new-operator-misuse": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-alphabetical-sort": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-array-delete": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-associative-arrays": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-async-constructor": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-ignored-return": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-in-misuse": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-misleading-array-reverse": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-redundant-optional": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-selector-parameter": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-try-promise": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-undefined-argument": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/no-useless-intersection": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/null-dereference": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/post-message": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/prefer-read-only-props": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/prefer-regexp-exec": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
+    "sonarjs/unused-named-groups": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
     "sonarjs/class-name": "error",
     "sonarjs/no-commented-code": "error",
     "sonarjs/no-fallthrough": "error",
@@ -319,7 +345,6 @@
     "sonarjs/no-dead-store": "error",
     "sonarjs/no-identical-conditions": "error",
     "sonarjs/no-duplicated-branches": "error",
-    "sonarjs/deprecation": "error",
     "sonarjs/no-inverted-boolean-check": "error",
     "sonarjs/misplaced-loop-counter": "error",
     "sonarjs/no-nested-functions": "error",
@@ -327,68 +352,50 @@
     "sonarjs/no-useless-increment": "error",
     "sonarjs/no-globals-shadowing": "error",
     "sonarjs/no-empty-test-file": "error",
-    "sonarjs/no-ignored-return": "error",
     "sonarjs/arguments-order": "error",
     "sonarjs/pseudo-random": "error",
     "sonarjs/for-loop-increment-sign": "error",
-    "sonarjs/null-dereference": "error",
-    "sonarjs/no-selector-parameter": "error",
     "sonarjs/updated-loop-counter": "error",
     "sonarjs/block-scoped-var": "error",
     "sonarjs/no-ignored-exceptions": "error",
     "sonarjs/no-gratuitous-expressions": "error",
     "sonarjs/no-empty-character-class": "error",
     "sonarjs/no-unenclosed-multiline-block": "error",
-    "sonarjs/index-of-compare-to-positive-number": "error",
     "sonarjs/assertions-in-tests": "error",
     "sonarjs/no-implicit-global": "error",
     "sonarjs/no-useless-catch": "error",
     "sonarjs/non-existent-operator": "error",
-    "sonarjs/post-message": "error",
-    "sonarjs/no-array-delete": "error",
-    "sonarjs/no-alphabetical-sort": "error",
     "sonarjs/no-incomplete-assertions": "error",
     "sonarjs/no-global-this": "error",
-    "sonarjs/new-operator-misuse": "error",
     "sonarjs/no-delete-var": "error",
     "sonarjs/no-nested-conditional": "error",
-    "sonarjs/different-types-comparison": "error",
     "sonarjs/inverted-assertion-arguments": "error",
     "sonarjs/updated-const-var": "error",
     "sonarjs/no-invariant-returns": "error",
     "sonarjs/generator-without-yield": "error",
-    "sonarjs/no-associative-arrays": "error",
     "sonarjs/comma-or-logical-or-case": "error",
     "sonarjs/no-redundant-jump": "error",
     "sonarjs/inconsistent-function-call": "error",
     "sonarjs/no-use-of-empty-return-value": "error",
     "sonarjs/cognitive-complexity": "error",
-    "sonarjs/in-operator-type-error": "error",
-    "sonarjs/array-callback-without-return": "error",
     "sonarjs/no-all-duplicated-branches": "error",
     "sonarjs/no-same-line-conditional": "error",
     "sonarjs/no-collection-size-mischeck": "error",
     "sonarjs/no-unthrown-error": "error",
     "sonarjs/no-unused-collection": "error",
     "sonarjs/no-os-command-from-path": "error",
-    "sonarjs/no-misleading-array-reverse": "error",
     "sonarjs/no-element-overwrite": "error",
     "sonarjs/no-identical-functions": "error",
     "sonarjs/no-empty-collection": "error",
     "sonarjs/no-redundant-assignments": "error",
     "sonarjs/prefer-type-guard": "error",
     "sonarjs/use-type-alias": "error",
-    "sonarjs/no-useless-intersection": "error",
     "sonarjs/prefer-default-last": "error",
-    "sonarjs/no-in-misuse": "error",
     "sonarjs/no-duplicate-in-composite": "error",
-    "sonarjs/no-undefined-argument": "error",
     "sonarjs/no-nested-template-literals": "error",
     "sonarjs/prefer-promise-shorthand": "error",
     "sonarjs/os-command": "error",
-    "sonarjs/no-redundant-optional": "error",
     "sonarjs/hashing": "error",
-    "sonarjs/no-try-promise": "error",
     "sonarjs/link-with-target-blank": "error",
     "sonarjs/table-header": "error",
     "sonarjs/no-table-as-layout": "error",
@@ -396,14 +403,12 @@
     "sonarjs/object-alt-content": "error",
     "sonarjs/no-clear-text-protocols": "error",
     "sonarjs/no-intrusive-permissions": "error",
-    "sonarjs/disabled-resource-integrity": "error",
     "sonarjs/no-mixed-content": "error",
     "sonarjs/confidential-information-logging": "error",
     "sonarjs/empty-string-repetition": "error",
     "sonarjs/regex-complexity": "error",
     "sonarjs/anchor-precedence": "error",
     "sonarjs/no-invalid-regexp": "error",
-    "sonarjs/unused-named-groups": "error",
     "sonarjs/no-same-argument-assert": "error",
     "sonarjs/no-misleading-character-class": "error",
     "sonarjs/duplicates-in-character-class": "error",
@@ -414,7 +419,6 @@
     "sonarjs/no-empty-alternatives": "error",
     "sonarjs/no-control-regex": "error",
     "sonarjs/no-regex-spaces": "error",
-    "sonarjs/existing-groups": "error",
     "sonarjs/no-empty-group": "error",
     "sonarjs/stateful-regex": "error",
     "sonarjs/concise-regex": "error",
@@ -422,17 +426,13 @@
     "sonarjs/no-hardcoded-secrets": "error",
     "sonarjs/no-exclusive-tests": "error",
     "sonarjs/hardcoded-secret-signatures": "error",
-    "sonarjs/jsx-no-leaked-render": "error",
     "sonarjs/no-hook-setter-in-body": "error",
     "sonarjs/no-useless-react-setstate": "error",
     "sonarjs/no-uniq-key": "error",
     "sonarjs/redundant-type-aliases": "error",
-    "sonarjs/prefer-regexp-exec": "error",
     "sonarjs/no-internal-api-use": "error",
-    "sonarjs/prefer-read-only-props": "error",
     "sonarjs/no-literal-call": "error",
     "sonarjs/reduce-initial-value": "error",
-    "sonarjs/no-async-constructor": "error",
     "sonarjs/dynamically-constructed-templates": "error",
     "regexp/confusing-quantifier": "error",
     "regexp/control-character-escape": "error",
@@ -697,8 +697,7 @@
         "sonarjs/max-lines-per-function": "off", // Compatibility bridge code (see the comment above).
         "sonarjs/no-nested-conditional": "off", // Compatibility bridge code (see the comment above).
         "sonarjs/no-nested-functions": "off", // Compatibility bridge code (see the comment above).
-        "sonarjs/no-unused-collection": "off", // Compatibility bridge code (see the comment above).
-        "sonarjs/prefer-read-only-props": "off" // Compatibility bridge code (see the comment above).
+        "sonarjs/no-unused-collection": "off" // Compatibility bridge code (see the comment above).
       }
     },
     {
@@ -743,6 +742,13 @@
         "sonarjs/max-lines-per-function": "off", // Legacy JavaScript modules are migrated whole, not split in place.
         "fp/no-let": "off", // Legacy JavaScript is imperative; it is rewritten, not refactored in place.
         "fp/no-mutation": "off" // Legacy JavaScript is imperative; it is rewritten, not refactored in place.
+      }
+    },
+    {
+      // TypeScript declaration files.
+      "files": ["**/*.d.ts"],
+      "rules": {
+        "max-classes-per-file": "off" // Declaration files describe classes that are defined elsewhere (libraries).
       }
     },
     {
