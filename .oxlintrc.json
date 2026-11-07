@@ -266,6 +266,12 @@
       }
     ], // Data processing parses HTML with htmlparser2.
     "no-new-func": "error", // The strict CSP forbids eval and new Function.
+    "max-classes-per-file": [
+      "error",
+      {
+        "max": 0
+      }
+    ], // Functional over OOP: no classes (replaces the ClassDeclaration no-restricted-syntax rule).
     "id-match": [
       "error",
       "^_?([a-z][a-zA-Z0-9]*|[A-Z][a-zA-Z0-9]*|[A-Z][A-Z0-9]*(_[A-Z0-9]+)*)$",
@@ -573,6 +579,7 @@
         "vitest/prefer-to-be": "error",
         "vitest/prefer-to-have-length": "error",
         "vitest/require-mock-type-parameters": "off", // Typing every vi.fn() adds noise to tests without finding defects.
+        "max-classes-per-file": "off", // Class-based test doubles (mocks, stubs) are acceptable.
         "sonarjs/max-lines-per-function": "off", // Test suites are long by nature: describe blocks group many cases.
         "sonarjs/max-lines": "off", // Test files grow with the cases they cover.
         "fp/no-let": "off", // Tests set up and reset fixtures imperatively.
@@ -622,6 +629,7 @@
         "playwright/valid-title": "error",
         "no-empty-pattern": "off", // Playwright fixtures need an empty destructuring pattern: async ({}, testInfo).
         "typescript/no-unnecessary-type-assertion": "off", // Locator and evaluate() results are asserted on purpose.
+        "max-classes-per-file": "off", // Class-based test doubles (mocks, stubs) are acceptable.
         "fp/no-let": "off", // Tests set up and reset fixtures imperatively.
         "fp/no-mutation": "off", // Tests set up and reset fixtures imperatively.
         "fp/no-mutating-methods": "off" // Tests set up and reset fixtures imperatively.

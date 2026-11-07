@@ -168,7 +168,7 @@ Security is covered partly by tooling, but always needs human review on importan
 
 ### Already enforced or partially enforced
 
-- oxlint (`.oxlintrc.json`, `pnpm run lint`, in CI and `pnpm run quality`): type-aware through `oxlint-tsgolint`, the `correctness` category as errors, no warning budget (every rule is an error or off), unused disable directives fail; JS plugins `sonarjs`, `regexp`, `fp`, `zod`, `i18next` and `playwright`. Findings that existed on 2026-11-07 (5808 in 262 files) are frozen in `oxlint-suppressions.json`, generated once with `oxlint --suppress-all`; a new finding fails, and so does a frozen one that is gone until `pnpm run lint:prune` removes it
+- oxlint (`.oxlintrc.json`, `pnpm run lint`, in CI and `pnpm run quality`): type-aware through `oxlint-tsgolint`, the `correctness` category as errors, no warning budget (every rule is an error or off), unused disable directives fail; JS plugins `sonarjs`, `regexp`, `fp`, `zod`, `i18next` and `playwright`. Findings that existed on 2026-11-07 (5835 in 266 files) are frozen in `oxlint-suppressions.json`, generated once with `oxlint --suppress-all`; a new finding fails, and so does a frozen one that is gone until `pnpm run lint:prune` removes it
 - React Hooks rules (native `react` rules: Rules of Hooks, exhaustive deps and the React Compiler checks; 28 existing hits frozen, 2026-11-07)
 - JSX accessibility rules (native `jsx-a11y` rules on `src/**/*.tsx`; 49 existing hits frozen, 2026-11-07)
 - hard-coded UI strings in TSX (`eslint-plugin-i18next` `no-literal-string`, mode `jsx-only`: JSX text plus `aria-label`, `title`, `placeholder`, `alt`; tests excluded; 325 existing hits in 21 files frozen, 2026-11-07)
@@ -179,6 +179,7 @@ Security is covered partly by tooling, but always needs human review on importan
 - TypeScript strictness ratchet (`pnpm strict:metrics:check`, in CI and `pnpm run quality`): counts the errors `tsc --strict` would report, in total, per error code and per file, against `scripts/strict-metrics.baseline.json` (210 errors in 69 files, 2026-09-30); fails on any rise and on a fall without `pnpm strict:metrics:update`
 - focused-test protections (`vitest/no-focused-tests`, `playwright/no-focused-test`)
 - import rules and import cycles (`import/no-cycle` without a depth limit, which replaced dependency-cruiser's `no-circular`)
+- no classes outside tests (`max-classes-per-file` with a maximum of 0; existing classes frozen, one finding per file)
 - layer boundaries (`no-restricted-imports` per directory: `src/computing` imports nothing from `src/ui`; `src/config` imports nothing from `src/ui`, `src/computing`, `src/storage` or `src/processing`)
 - E2E in CI (since 2026-10-01, step "E2E tests" of the "Quality gate" job): the whole Playwright suite against `vite preview` of the build, which sends the headers from `security_headers.json`; runs on pull requests that change `src/`, `e2e/`, `public/`, `index.html`, build or test config, `package.json` or the lockfile (`.github/scripts/ci-scope.sh`), and always on `main`, weekly and on manual runs; the HTML report is uploaded as an artifact on failure
 - docs-only pull requests skip the heavy CI steps inside the job (format, `docs:check` and `check:typography` still run), so the required check always reports

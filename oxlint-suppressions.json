@@ -661,6 +661,9 @@
     }
   },
   "src/cache/structureHashCache.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-console": {
       "count": 1
     },
@@ -729,6 +732,9 @@
   "src/components/ErrorBoundary.tsx": {
     "i18next/no-literal-string": {
       "count": 2
+    },
+    "max-classes-per-file": {
+      "count": 1
     }
   },
   "src/components/FileManagerModal.test.ts": {
@@ -951,6 +957,9 @@
     }
   },
   "src/config/featureFlags.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-console": {
       "count": 3
     },
@@ -977,6 +986,9 @@
     }
   },
   "src/config/languageConfigLoader.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "preserve-caught-error": {
       "count": 1
     }
@@ -1151,6 +1163,9 @@
     }
   },
   "src/data/dataProcessor.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-console": {
       "count": 1
     },
@@ -2288,6 +2303,9 @@
     }
   },
   "src/mapping/contextResolver.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-console": {
       "count": 1
     },
@@ -2331,6 +2349,9 @@
     }
   },
   "src/mapping/smartHeaderMapper.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-console": {
       "count": 3
     },
@@ -2480,6 +2501,9 @@
     }
   },
   "src/parsing/formatInspector.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-unused-vars": {
       "count": 1
     },
@@ -2493,7 +2517,20 @@
       "count": 2
     }
   },
+  "src/parsing/normalizationConfig.js": {
+    "max-classes-per-file": {
+      "count": 1
+    }
+  },
+  "src/parsing/parsers/attributeParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    }
+  },
   "src/parsing/parsers/currencyParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "regexp/no-unused-capturing-group": {
       "count": 1
     },
@@ -2504,7 +2541,15 @@
       "count": 1
     }
   },
+  "src/parsing/parsers/dateParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    }
+  },
   "src/parsing/parsers/distanceParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "regexp/no-unused-capturing-group": {
       "count": 5
     },
@@ -2526,7 +2571,15 @@
       "count": 105
     }
   },
+  "src/parsing/parsers/statisticParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    }
+  },
   "src/parsing/parsers/wageParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-unused-vars": {
       "count": 1
     },
@@ -2535,6 +2588,9 @@
     }
   },
   "src/parsing/universalParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-fallthrough": {
       "count": 1
     }
@@ -2659,6 +2715,9 @@
     "fp/no-mutating-methods": {
       "count": 1
     },
+    "max-classes-per-file": {
+      "count": 1
+    },
     "sonarjs/max-lines": {
       "count": 1
     }
@@ -2719,6 +2778,9 @@
   },
   "src/storage/db.ts": {
     "import/no-named-as-default": {
+      "count": 1
+    },
+    "max-classes-per-file": {
       "count": 1
     },
     "no-empty-function": {
@@ -2861,6 +2923,9 @@
     }
   },
   "src/types/ambient.d.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 9
     }
@@ -2897,6 +2962,9 @@
     }
   },
   "src/ui/adapter.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-unused-vars": {
       "count": 2
     },
@@ -2983,6 +3051,9 @@
   },
   "src/ui/fileStack.ts": {
     "import/no-named-as-default-member": {
+      "count": 1
+    },
+    "max-classes-per-file": {
       "count": 1
     },
     "no-console": {
@@ -3125,6 +3196,9 @@
     }
   },
   "src/ui/formatVerificationModal.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-console": {
       "count": 1
     },
@@ -3158,6 +3232,9 @@
     }
   },
   "src/ui/headerMappingModal.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-console": {
       "count": 1
     },
@@ -3312,11 +3389,17 @@
     }
   },
   "src/ui/modalQueue.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-console": {
       "count": 8
     }
   },
   "src/ui/offlineIndicator.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
     "promise/always-return": {
       "count": 1
     },
@@ -3688,6 +3771,9 @@
     "fp/no-mutation": {
       "count": 42
     },
+    "max-classes-per-file": {
+      "count": 1
+    },
     "no-console": {
       "count": 4
     },
@@ -3727,6 +3813,9 @@
     },
     "fp/no-mutation": {
       "count": 12
+    },
+    "max-classes-per-file": {
+      "count": 1
     },
     "no-console": {
       "count": 1
