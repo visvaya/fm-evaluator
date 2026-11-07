@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/prefer-for-of, no-restricted-syntax, sonarjs/cognitive-complexity, sonarjs/max-lines-per-function, unicorn/no-for-loop */
+/* eslint-disable @typescript-eslint/prefer-for-of, no-restricted-globals, sonarjs/cognitive-complexity, sonarjs/max-lines-per-function */
 
 import { getFeetStars } from '@/utils/helpers';
 

@@ -3,7 +3,7 @@
 Status: Active  
 Scope: Documentation index, source-of-truth map, architecture reality  
 Owner: Project documentation  
-Last Reviewed: 2026-11-03  
+Last Reviewed: 2026-11-07  
 See also: `docs/ui/design.md`, `docs/ui/code.md`, `docs/quality-and-guardrails.md`, `docs/language.md`, `docs/workflows/extract-module.md`
 
 ## 1. Project Snapshot
@@ -57,7 +57,7 @@ Also true today:
 | Frontend architecture               | `docs/ui/code.md`                                                                                | `docs/ui/react-functional-parity-matrix.md`                   | Current vs target architecture and refactor direction                  |
 | Legacy bridge reduction             | `docs/workflows/extract-module.md`                                                               | `docs/ui/code.md`, `goldens/README.md`                        | Procedure for replacing one `window.*` bridge at a time                |
 | League difficulty coefficient (LDC) | `docs/domain/ldc.md`                                                                             | `src/computing/ldcStatApplication.ts`                         | Domain contract for every LDC change                                   |
-| Quality and enforcement             | `docs/quality-and-guardrails.md`                                                                 | `eslint.config.mjs`, `.github/workflows/ci.yml`               | Testing, linting, verification, enforcement map                        |
+| Quality and enforcement             | `docs/quality-and-guardrails.md`                                                                 | `.oxlintrc.json`, `.github/workflows/ci.yml`                  | Testing, linting, verification, enforcement map                        |
 | Localization                        | `docs/language.md`                                                                               | `src/i18n`, `public/i18n/messages`, `public/config/languages` | UI language, file-language configs, completeness policy                |
 | Security and self-hosting           | `docs/adr/001-runtime-isolation-and-self-hosting.md`, `docs/adr/004-csp-sri-and-local-assets.md` | `security_headers.json`                                       | Hard constraints                                                       |
 | Persistence and future sync posture | `docs/ui/code.md`                                                                                | `docs/README.md`                                              | Dexie now; Supabase later only if auth/sync is introduced deliberately |
@@ -88,7 +88,7 @@ ADR policy, the active ADRs and the removed ones: `docs/adr/README.md`.
 
 ### What is enforced automatically today
 
-- ESLint catches a range of architectural, test and code-quality issues.
+- oxlint catches a range of architectural, test and code-quality issues.
 - Git hooks run lint and format on staged files, check commit messages and run typecheck and `pnpm test` before a push.
 - CI runs `.github/workflows/ci.yml` and gitleaks in `.github/workflows/secrets.yml`; the full list of checks is in `docs/quality-and-guardrails.md` §10.
 

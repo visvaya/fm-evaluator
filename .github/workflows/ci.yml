@@ -91,10 +91,6 @@ jobs:
         if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
         run: pnpm run jscpd
 
-      - name: Dependency rules (depcruise)
-        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
-        run: pnpm run depcruise
-
       - name: Legacy metrics ratchet
         if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
         run: pnpm run legacy:metrics:check

@@ -1,4 +1,4 @@
-/* eslint-disable perfectionist/sort-union-types, sonarjs/no-nested-conditional */
+/* eslint-disable sonarjs/no-nested-conditional */
 import { useSettingsStore } from '../store/useSettingsStore';
 export interface PAdjDerivationArgs {
   defaultPossession: number;

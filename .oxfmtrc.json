@@ -23,7 +23,7 @@
     "pnpm-lock.yaml",
     "*.csv",
     "e2e/fixtures/*.html",
-    "eslint-suppressions.json",
+    "oxlint-suppressions.json",
     "goldens/"
   ]
 }

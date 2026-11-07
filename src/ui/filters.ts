@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/deprecation -- Compatibility facade for legacy inline filter handlers and DOM-owned fallback state. */
 // Phase 5B: Filter logic
 // Migrated from main.js L11549-12478
 

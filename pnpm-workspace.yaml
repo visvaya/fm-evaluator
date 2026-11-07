@@ -15,8 +15,3 @@ pmOnFail: ignore
 
 # Do not resolve package versions published less than 3 days ago (minutes).
 minimumReleaseAge: 4320
-
-overrides:
-  # eslint-plugin-boundaries 6.0.2 pins handlebars 4.7.9 (critical advisories, fixed in 4.7.10).
-  # Remove together with eslint-plugin-boundaries when the linter moves to oxlint.
-  handlebars@4.7.9: 4.7.10

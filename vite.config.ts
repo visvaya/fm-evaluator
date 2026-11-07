@@ -80,7 +80,6 @@ function stripSriInDevPlugin() {
 
 function listFiles(directory: string, prefix = ''): string[] {
   // Build-time walk of dist/; paths come from the build output, not from user input.
-  // eslint-disable-next-line security/detect-non-literal-fs-filename
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
     return entry.isDirectory() ? listFiles(path.join(directory, entry.name), relative) : [relative];
@@ -95,7 +94,6 @@ function serviceWorkerPrecachePlugin() {
       // Runs after Vite has written assets/ and copied public/, so dist/ is final.
       const distDirectory = path.resolve(currentDirectory, 'dist');
       const files = listFiles(distDirectory).map((file) => ({
-        // eslint-disable-next-line security/detect-non-literal-fs-filename -- dist/ file list
         content: fs.readFileSync(path.join(distDirectory, file)),
         path: file
       }));

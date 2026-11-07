@@ -160,7 +160,6 @@ async function performRollback(source) {
 async function prefetchVendorAssets() {
   const cache = await caches.open(STATIC_CACHE_NAME);
   await Promise.allSettled(
-    // eslint-disable-next-line sonarjs/no-empty-collection -- filled in at build time
     VENDOR_ASSETS.map(async (url) => {
       try {
         const response = await fetch(url, { cache: 'no-cache' });

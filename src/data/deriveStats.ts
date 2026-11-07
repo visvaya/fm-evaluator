@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/consistent-type-definitions, @typescript-eslint/naming-convention, perfectionist/sort-union-types, sonarjs/cognitive-complexity, sonarjs/max-lines-per-function, unicorn/prefer-ternary */
+/* eslint-disable @typescript-eslint/consistent-type-definitions, id-match, sonarjs/cognitive-complexity, sonarjs/max-lines-per-function, unicorn/prefer-ternary */
 import { useSettingsStore } from '../store/useSettingsStore';
 
 import { applyAttackingDerivations } from './deriveStatsAttacking';

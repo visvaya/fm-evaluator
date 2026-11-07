@@ -17,7 +17,7 @@ const config: KnipConfig = {
     'src/components/TableControls.tsx'
   ],
   // Node tooling in scripts/ is reached through package.json scripts.
-  project: ['src/**/*.{ts,tsx,js,css}', 'scripts/**/*.mjs']
+  project: ['src/**/*.{ts,tsx,js,css}', 'styles.css', 'scripts/**/*.mjs']
 };
 
 export default config;

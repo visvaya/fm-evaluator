@@ -1,4 +1,4 @@
-/* eslint-disable fp/no-let, fp/no-mutation, fp/no-mutating-methods, sonarjs/cognitive-complexity, regexp/no-obscure-range, security/detect-non-literal-regexp -- Legacy LDC helpers extracted from main.js keep their imperative, regex-heavy style. */
+/* eslint-disable fp/no-let, fp/no-mutation, fp/no-mutating-methods, sonarjs/cognitive-complexity, regexp/no-obscure-range -- Legacy LDC helpers extracted from main.js keep their imperative, regex-heavy style. */
 /**
  * LDC utility functions – pure computation helpers extracted from main.js (Phase 4).
  * No DOM manipulation. All state accessed via ldcConfig singletons or window globals.
