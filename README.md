@@ -37,7 +37,7 @@ The app has no server side. Imported files are parsed in the browser, settings a
 
 ## Running it locally
 
-Requirements: Node.js 24 or newer and pnpm in the version pinned by `packageManager` in `package.json` (Node.js 24 can provide it with `corepack enable`; Node.js 25 and newer no longer ship Corepack, so install it first with `npm install -g corepack`, or install that pnpm version directly).
+Requirements: Node.js 26 (at least the version in `engines` in `package.json`) and pnpm in the version pinned by `packageManager` (Node.js 26 no longer ships Corepack: run `npm install -g corepack` and `corepack enable`, or install that pnpm version directly).
 
 ```bash
 pnpm install

@@ -20,7 +20,9 @@ export default defineConfig(
       },
       globals: true,
       include: ['src/**/*.{test,spec}.{ts,tsx}', 'scripts/**/*.test.mjs'],
-      pool: 'threads'
+      pool: 'threads',
+      // Node 25+ defines its own localStorage, which hides the one jsdom provides.
+      execArgv: ['--no-experimental-webstorage']
     }
   })
 );
