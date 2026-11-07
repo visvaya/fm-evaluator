@@ -18,6 +18,17 @@ updates:
       prefix: build
       prefix-development: build
       include: scope
+    # ESLint and its plugins are being replaced by oxlint; their updates add findings to code
+    # that moves to the new linter. Remove this list together with ESLint. Security alerts for
+    # these packages still appear.
+    ignore:
+      - dependency-name: 'eslint'
+      - dependency-name: 'eslint-*'
+      - dependency-name: '@eslint/*'
+      - dependency-name: 'typescript-eslint'
+      - dependency-name: '@typescript-eslint/*'
+      - dependency-name: '@html-eslint/*'
+      - dependency-name: '@vitest/eslint-plugin'
     groups:
       production-minor-patch:
         dependency-type: production
