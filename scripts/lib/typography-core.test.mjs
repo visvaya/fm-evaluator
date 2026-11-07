@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
-import { findTypographyIssues, isCheckedPath, isProbablyText } from './typography-core.mjs';
+import {
+  CDN_HOST_SOURCES,
+  findTypographyIssues,
+  isCheckedPath,
+  isProbablyText
+} from './typography-core.mjs';
 
 const EM_DASH = '\u2014';
 
@@ -47,5 +52,44 @@ describe('findTypographyIssues', () => {
 
   it('does not flag text-presentation symbols such as digits or the copyright sign', () => {
     expect(findTypographyIssues('123 # * \u00a9 \u2713')).toEqual([]);
+  });
+});
+
+const char = (codePoint) => String.fromCodePoint(codePoint);
+
+describe('findTypographyIssues on bidi controls and CDN hosts', () => {
+  const cdnHosts = CDN_HOST_SOURCES.map((source) => source.replaceAll(String.raw`\.`, '.'));
+
+  it('reports bidi control characters (Trojan Source)', () => {
+    expect(findTypographyIssues(`a${char(0x202e)}b`)).toEqual([
+      { line: 1, column: 2, kind: 'bidi' }
+    ]);
+    const controls = [0x202a, 0x202d, 0x2066, 0x2069].map(char).join('');
+    expect(findTypographyIssues(controls)).toEqual(
+      [1, 2, 3, 4].map((column) => ({ line: 1, column, kind: 'bidi' }))
+    );
+  });
+
+  it('does not flag the left-to-right and right-to-left marks', () => {
+    expect(findTypographyIssues(`a${char(0x200e)}${char(0x200f)}b`)).toEqual([]);
+  });
+
+  it('reports external CDN hosts', () => {
+    expect(cdnHosts).toHaveLength(5);
+    cdnHosts.forEach((host) =>
+      expect(findTypographyIssues(`<script src="https://${host}/x.js">`)).toEqual([
+        { line: 1, column: 22, kind: 'cdn' }
+      ])
+    );
+  });
+
+  it('does not flag names that only contain a CDN host', () => {
+    expect(findTypographyIssues('https://example.com/unpkg-com and myunpkg.community')).toEqual([]);
+  });
+
+  it('reports issues of every kind in column order', () => {
+    expect(
+      findTypographyIssues(`${cdnHosts[0]} ${char(0x202e)}`).map((issue) => issue.kind)
+    ).toEqual(['cdn', 'bidi']);
   });
 });
