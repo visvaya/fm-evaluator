@@ -7,6 +7,12 @@ allowBuilds:
 # with the latest security fixes).
 engineStrict: true
 
+# With packageManager pinned, pnpm 12 writes its own version as a leading YAML document of
+# pnpm-lock.yaml, which GitHub's dependency graph cannot read (no Dependabot alerts).
+# "ignore" drops that document; CI still installs the pinned version through
+# pnpm/action-setup.
+pmOnFail: ignore
+
 # Do not resolve package versions published less than 3 days ago (minutes).
 minimumReleaseAge: 4320
 
