@@ -19,15 +19,6 @@ export class UniversalParser {
   }
 
   /**
-   * Escape special regex characters
-   * @param str - String to escape
-   * @returns Escaped string
-   */
-  _escapeRegex(str) {
-    return str.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`);
-  }
-
-  /**
    * Parse value based on schema type
    * @param value - Raw value string
    * @param schemaInfo - Schema information
@@ -148,8 +139,7 @@ export class UniversalParser {
     // Remove thousand separators
     const thousandSep = formatContext.thousandSeparator;
     if (thousandSep) {
-      const escapedSep = this._escapeRegex(thousandSep);
-      str = str.replaceAll(new RegExp(escapedSep, 'g'), '');
+      str = str.replaceAll(thousandSep, '');
     }
 
     // Remove non-breaking spaces

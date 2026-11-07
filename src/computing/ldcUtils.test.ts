@@ -100,6 +100,11 @@ describe('ldcUtils', () => {
       expect(normalizeRomanNumerals('I Liga vs II Liga')).toBe('1 Liga vs 2 Liga');
     });
 
+    it('should match whole words of every mapped numeral in any case', () => {
+      expect(normalizeRomanNumerals('iv V vi VII viii IX x Ii')).toBe('4 5 6 7 8 9 10 2');
+      expect(normalizeRomanNumerals('XI XX Vista IIa')).toBe('XI XX Vista IIa');
+    });
+
     it('should leave non-roman text unchanged', () => {
       expect(normalizeRomanNumerals('Premier League')).toBe('Premier League');
     });

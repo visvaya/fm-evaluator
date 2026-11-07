@@ -27,15 +27,6 @@ export class DistanceParser {
   }
 
   /**
-   * Escape special regex characters
-   * @param str - String to escape
-   * @returns Escaped string
-   */
-  _escapeRegex(str) {
-    return str.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`);
-  }
-
-  /**
    * Parse distance value with unit normalization
    * @param value - Raw distance string
    * @param formatContext - Format context
@@ -64,8 +55,7 @@ export class DistanceParser {
     // Remove thousand separators
     const thousandSep = formatContext.thousandSeparator;
     if (thousandSep) {
-      const escapedSep = this._escapeRegex(thousandSep);
-      str = str.replaceAll(new RegExp(escapedSep, 'g'), '');
+      str = str.replaceAll(thousandSep, '');
     }
 
     // Remove spaces
