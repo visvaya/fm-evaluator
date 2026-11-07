@@ -7,7 +7,8 @@ import {
   type DryRunReport,
   DryRunReportSchema,
   formatDryRunReport,
-  renderDryRunReport
+  renderDryRunReport,
+  runDryImport
 } from './dryRunImport';
 
 /**
@@ -191,5 +192,16 @@ describe('renderDryRunReport', () => {
     expect(container.querySelector('[data-injected]')).toBeNull();
     expect(container.textContent).toContain(`Dry Run: ${hostile}`);
     expect(container.querySelector('.issue-message')?.textContent).toBe(hostile);
+  });
+});
+
+describe('runDryImport', () => {
+  it('reports headers in file order', async () => {
+    const html =
+      '<table><thead><tr><th>Name</th><th>Club</th><th>Acc</th></tr></thead>' +
+      '<tbody><tr><td>A</td><td>B</td><td>10</td></tr></tbody></table>';
+    const report = await runDryImport(new File([html], 'squad.html'));
+
+    expect(report.headers).toEqual(['Name', 'Club', 'Acc']);
   });
 });

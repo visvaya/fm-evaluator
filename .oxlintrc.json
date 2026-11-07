@@ -258,6 +258,12 @@
     "typescript/no-unsafe-call": "error",
     "typescript/no-unsafe-member-access": "error",
     "typescript/no-unsafe-return": "error",
+    "typescript/prefer-optional-chain": "error", // Nursery rule; on TypeScript its findings match ESLint's (off for plain JavaScript below).
+    "typescript/require-array-sort-compare": ["error", { "ignoreStringArrays": false }], // Also string arrays: a default sort compares UTF-16 code units, not the locale (replaces sonarjs/no-alphabetical-sort).
+    "typescript/switch-exhaustiveness-check": "error",
+    "array-callback-return": "error",
+    "import/no-named-default": "error",
+    "oxc/branches-sharing-code": "error",
     "no-restricted-globals": [
       "error",
       {
@@ -627,7 +633,6 @@
         "playwright/valid-expect-in-promise": "error",
         "playwright/valid-test-tags": "error",
         "playwright/valid-title": "error",
-        "no-empty-pattern": "off", // Playwright fixtures need an empty destructuring pattern: async ({}, testInfo).
         "typescript/no-unnecessary-type-assertion": "off", // Locator and evaluate() results are asserted on purpose.
         "max-classes-per-file": "off", // Class-based test doubles (mocks, stubs) are acceptable.
         "fp/no-let": "off", // Tests set up and reset fixtures imperatively.
@@ -731,6 +736,7 @@
         "typescript/only-throw-error": "off", // Type-aware rule: plain JavaScript is not type-checked (checkJs is off).
         "typescript/prefer-find": "off", // Type-aware rule: plain JavaScript is not type-checked (checkJs is off).
         "typescript/prefer-includes": "off", // Type-aware rule: plain JavaScript is not type-checked (checkJs is off).
+        "typescript/prefer-optional-chain": "off", // Type-aware rule: plain JavaScript is not type-checked (checkJs is off).
         "typescript/prefer-promise-reject-errors": "off", // Type-aware rule: plain JavaScript is not type-checked (checkJs is off).
         "typescript/prefer-regexp-exec": "off", // Type-aware rule: plain JavaScript is not type-checked (checkJs is off).
         "typescript/prefer-string-starts-ends-with": "off", // Type-aware rule: plain JavaScript is not type-checked (checkJs is off).

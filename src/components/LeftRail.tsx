@@ -5,26 +5,9 @@ import { useUiText } from '@/hooks/useUiText';
 import { cn } from '@/lib/utils';
 import { useWorkspaceStore, type WorkspaceRailSection } from '@/store/useWorkspaceStore';
 
-function handleRailAction(section: WorkspaceRailSection) {
-  switch (section) {
-    case 'files': {
-      break;
-    }
-    case 'language': {
-      const button = document.querySelector<HTMLButtonElement>('#language-btn-header');
-      button?.click();
-      break;
-    }
-    case 'settings': {
-      const button = document.querySelector<HTMLButtonElement>('#settings-btn');
-      button?.click();
-      break;
-    }
-    default: {
-      break;
-    }
-  }
-}
+const clickButton = (selector: string) => {
+  document.querySelector<HTMLButtonElement>(selector)?.click();
+};
 
 export function LeftRail() {
   const t = useUiText();
@@ -43,6 +26,36 @@ export function LeftRail() {
   } = useWorkspaceStore();
   const items = getRailItemsModel(t);
 
+  const runRailAction = (section: WorkspaceRailSection) => {
+    switch (section) {
+      case 'diagnostics': {
+        toggleDiagnostics();
+        break;
+      }
+      case 'files': {
+        toggleFileManager();
+        break;
+      }
+      case 'language': {
+        clickButton('#language-btn-header');
+        break;
+      }
+      case 'ldc': {
+        openLdc();
+        break;
+      }
+      case 'settings': {
+        clickButton('#settings-btn');
+        break;
+      }
+      case 'graphics':
+      case 'none': {
+        // Not rail items: the graphics toggle below has its own handler.
+        break;
+      }
+    }
+  };
+
   return (
     <aside className="hidden w-[4.5rem] shrink-0 border-r border-border bg-background/95 px-3 py-4 backdrop-blur lg:flex lg:flex-col lg:items-center lg:gap-3">
       {items.map((item) => {
@@ -59,19 +72,7 @@ export function LeftRail() {
             type="button"
             onClick={() => {
               setActiveRailSection(item.id);
-              if (item.id === 'ldc') {
-                openLdc();
-                return;
-              }
-              if (item.id === 'diagnostics') {
-                toggleDiagnostics();
-                return;
-              }
-              if (item.id === 'files') {
-                toggleFileManager();
-                return;
-              }
-              handleRailAction(item.id);
+              runRailAction(item.id);
             }}
             className={cn(
               'inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-transparent text-text-muted transition',

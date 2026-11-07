@@ -1,4 +1,5 @@
 import { NormalizationConfig } from '../parsing/normalizationConfig.js';
+import { compareCodeUnits } from '../utils/compareCodeUnits';
 
 import { calculateMissingColumns } from './calculateMissingColumns';
 import { computeStructureHash } from './computeStructureHash';
@@ -485,7 +486,7 @@ export async function parseHTMLWithNewSystemData(
         const settingsToSave = {
           formatSettings: userChoices,
           hash: hashForSave,
-          headers: [...headers].sort(),
+          headers: headers.toSorted(compareCodeUnits),
           timestamp: Date.now()
         };
         localStorage.setItem(`structureHash_${hashForSave}`, JSON.stringify(settingsToSave));

@@ -96,6 +96,23 @@ describe('openLegacyColumnFilter delegated events (strict CSP, no inline handler
     expect(actions.setFilterArr).toHaveBeenCalledWith('club', CLUB_WITH_QUOTE);
   });
 
+  it('lists choice values in locale order, as the React filter does', () => {
+    setupColumn('club', 'complex');
+    const deps = {
+      ...createDeps(),
+      getProcessor: () => ({
+        calculatedScores: [{ club: 'Zagłębie' }, { club: 'Śląsk' }, { club: 'Arka' }]
+      })
+    };
+
+    openLegacyColumnFilter({ columnId: 'club' }, deps);
+    const values = [...popupOf('club').querySelectorAll<HTMLInputElement>('#list-club input')].map(
+      (input) => input.value
+    );
+
+    expect(values).toEqual(['Arka', 'Śląsk', 'Zagłębie']);
+  });
+
   it('wires the LDC matched toggle on the league filter', () => {
     setupColumn('league', 'complex');
     const actions = createActions();

@@ -271,7 +271,7 @@ export function modeLabelForVitals(mode = useDiagnosticsStore.getState().webVita
     case 'force-on': {
       return 'manual on';
     }
-    default: {
+    case 'none': {
       return 'auto';
     }
   }
@@ -623,7 +623,7 @@ export function cycleWebVitalsMode() {
       appendWebVitalsLog('Tryb zmieniony na MANUAL ON (wymuszone uruchomienie).');
       break;
     }
-    default: {
+    case 'none': {
       appendDiagnosticsLog('Web Vitals – tryb AUTO.');
       appendWebVitalsLog('Tryb zmieniony na AUTO.');
       break;
@@ -683,7 +683,7 @@ function setupServiceWorkerMessaging() {
 }
 
 function registerServiceWorker() {
-  if (import.meta !== undefined && import.meta.env !== undefined && import.meta.env.DEV) {
+  if (import.meta.env?.DEV) {
     return;
   }
   if (!('serviceWorker' in navigator)) return;

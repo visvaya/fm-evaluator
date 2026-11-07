@@ -6,6 +6,7 @@
 import * as z from 'zod';
 
 import { md5Hex } from '../data/md5Hex';
+import { compareCodeUnits } from '../utils/compareCodeUnits';
 
 export const ExportMetadataSchema = z.object({
   appVersion: z.string().trim().optional(),
@@ -294,7 +295,7 @@ function getCanonicalColumnOrder(
 
 function sortObjectKeys<T extends Record<string, unknown>>(obj: T): T {
   const sorted: Record<string, unknown> = {};
-  const keys = Object.keys(obj).sort();
+  const keys = Object.keys(obj).toSorted(compareCodeUnits);
   for (const key of keys) {
     const value = obj[key];
     sorted[key] =

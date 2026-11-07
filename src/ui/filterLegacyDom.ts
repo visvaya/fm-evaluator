@@ -1,4 +1,4 @@
-/* eslint-disable sonarjs/no-nested-conditional, unicorn/no-array-sort -- Legacy DOM fallback preserves historical popup markup until all callers are React-owned. */
+/* eslint-disable sonarjs/no-nested-conditional -- Legacy DOM fallback preserves historical popup markup until all callers are React-owned. */
 import { COLUMNS } from '../config/columns';
 import { translatePosition, translateValue } from '../i18n/translate';
 import { store } from '../store/tableStore';
@@ -74,7 +74,7 @@ function getUniqueFilterValues(processor: any, columnId: string): string[] {
       set.add(player[columnId]);
     }
   }
-  return [...set].sort();
+  return [...set].toSorted((left, right) => left.localeCompare(right));
 }
 
 function getRangeMaxAttr(columnId: string): string {

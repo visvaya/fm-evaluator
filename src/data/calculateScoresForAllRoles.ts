@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/prefer-for-of, sonarjs/cognitive-complexity, sonarjs/no-duplicated-branches */
+/* eslint-disable @typescript-eslint/prefer-for-of, sonarjs/cognitive-complexity */
 import { ALL_ROLES, ATTRIBUTE_COEFFS, NEGATIVE_STATS, STATS_CONFIG } from '../config/scoreConfig';
 
 import { ensureRoleDistributions } from './roleDistributions';
@@ -76,20 +76,15 @@ export function calculateScoresForAllRolesData({
           const v = cleanValue(p[k]);
           if (v !== null) {
             let raw;
-            let sc;
-            if (role === 'GK' && k === 'Pas %') {
+            if ((role === 'GK' && k === 'Pas %') || k === 'OP-KP %') {
               raw = (v - statDist[k].p50) / statDist[k].range;
-              sc = Math.max(0, Math.min(20, 10 + raw * 5));
-            } else if (k === 'OP-KP %') {
-              raw = (v - statDist[k].p50) / statDist[k].range;
-              sc = Math.max(0, Math.min(20, 10 + raw * 5));
             } else {
               raw = (v - statDist[k].median) / statDist[k].iqr;
               if ((NEGATIVE_STATS as readonly string[]).includes(k)) {
                 raw = -raw;
               }
-              sc = Math.max(0, Math.min(20, 10 + raw * 5));
             }
+            const sc = Math.max(0, Math.min(20, 10 + raw * 5));
             sSum += sc * w;
             sW += w;
           }

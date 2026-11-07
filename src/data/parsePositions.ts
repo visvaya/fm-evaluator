@@ -6,8 +6,8 @@ export function parsePositions(str: unknown): string[] {
     .map((p) => p.trim())
     .filter(Boolean);
   for (const part of parts) {
+    const parenthesesMatch = /\([^)]+\)/.exec(part);
     if (part.includes('/')) {
-      const parenthesesMatch = /\([^)]+\)/.exec(part);
       const parentheses = parenthesesMatch ? parenthesesMatch[0] : '';
       const slashParts = part
         .split('/')
@@ -30,22 +30,19 @@ export function parsePositions(str: unknown): string[] {
           positions.add(pos);
         }
       }
-    } else {
-      const parenthesesMatch = /\([^)]+\)/.exec(part);
-      if (parenthesesMatch) {
-        const parentheses = parenthesesMatch[0];
-        const basePos = part.replace(/\s*\([^)]+\)\s*$/, '').trim();
-        const letters = parentheses.replaceAll(/[()]/g, '');
-        if (letters.length > 1) {
-          for (const letter of letters) {
-            positions.add(`${basePos} (${letter})`);
-          }
-        } else {
-          positions.add(part);
+    } else if (parenthesesMatch) {
+      const parentheses = parenthesesMatch[0];
+      const basePos = part.replace(/\s*\([^)]+\)\s*$/, '').trim();
+      const letters = parentheses.replaceAll(/[()]/g, '');
+      if (letters.length > 1) {
+        for (const letter of letters) {
+          positions.add(`${basePos} (${letter})`);
         }
       } else {
         positions.add(part);
       }
+    } else {
+      positions.add(part);
     }
   }
   return [...positions];

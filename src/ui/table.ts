@@ -5,12 +5,7 @@ import {
   legacyOpenDetailsActionAttrs
 } from '@/features/legacyRuntime/legacyActionAttributes';
 import { translatePosition, translateValue } from '../i18n/translate';
-import {
-  formatPlayerValue,
-  getFeetStars,
-  normalizeDiacritics,
-  translateHeaderToInterfaceLang
-} from '../utils/helpers';
+import { formatPlayerValue } from '../utils/helpers';
 
 import { t } from '../lib/i18nBridge';
 import { escapeHtmlAttribute as esc } from '../utils/escapeHtmlAttribute';
@@ -88,7 +83,7 @@ export function buildRowHtml(options: BuildRowOptions): string {
 
 /**
  * Get suggestion badge HTML
- * @param s Suggestion type ('Kup', 'Scoutuj', 'Śledź', 'Pomiń')
+ * @param val Suggestion type ('Kup', 'Scoutuj', 'Śledź', 'Pomiń')
  */
 export function getBadge(val?: null | string): string {
   if (!val) return '-';

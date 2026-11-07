@@ -2,6 +2,8 @@ import { readdirSync, readFileSync } from 'node:fs';
 
 import { describe, expect, it } from 'vitest';
 
+import { compareCodeUnits } from '@/utils/compareCodeUnits';
+
 // Guards public/i18n/messages/*.json: valid JSON, keys sorted at every level, Polish with exactly
 // the English keys, and no other locale with keys that English lacks.
 const MESSAGES_DIR = new URL('../../public/i18n/messages/', import.meta.url);
@@ -22,7 +24,7 @@ const keyPaths = (messages: Messages, prefix = ''): string[] =>
 
 const unsortedObjects = (messages: Messages, path = '(root)'): string[] => {
   const keys = Object.keys(messages);
-  const own = keys.join('\n') === keys.toSorted().join('\n') ? [] : [path];
+  const own = keys.join('\n') === keys.toSorted(compareCodeUnits).join('\n') ? [] : [path];
   return [
     ...own,
     ...Object.entries(messages).flatMap(([key, value]) =>
@@ -40,7 +42,9 @@ describe('i18n message files', () => {
   });
 
   it('pl.json has exactly the keys of en.json', () => {
-    expect(keyPaths(readMessages('pl.json')).toSorted()).toEqual(englishKeys.toSorted());
+    expect(keyPaths(readMessages('pl.json')).toSorted(compareCodeUnits)).toEqual(
+      englishKeys.toSorted(compareCodeUnits)
+    );
   });
 
   it.each(files.filter((file) => file !== INDEX_FILE))(
