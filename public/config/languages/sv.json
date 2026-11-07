@@ -1,0 +1,483 @@
+{
+  "id": "sv",
+  "headers": {
+    "basic_uid": [
+      "UID"
+    ],
+    "basic_name": [
+      "Namn"
+    ],
+    "basic_position": [
+      "Position"
+    ],
+    "basic_sec_position": [
+      "Sek. Position"
+    ],
+    "basic_dob": [
+      "Född"
+    ],
+    "basic_nationality": [
+      "Nat"
+    ],
+    "basic_second_nationality": [
+      "2:a nat"
+    ],
+    "basic_eu_national": [
+      "EU-medlem"
+    ],
+    "basic_home_grown_status": [
+      "Egen produkt-status"
+    ],
+    "basic_information": [
+      "Info"
+    ],
+    "basic_left_foot": [
+      "Vänsterfot"
+    ],
+    "basic_right_foot": [
+      "Högerfot"
+    ],
+    "basic_club": [
+      "Klubb"
+    ],
+    "basic_division": [
+      "Division"
+    ],
+    "basic_based_in": [
+      "Baserad i"
+    ],
+    "basic_transfer_value": [
+      "Övergångsvärde"
+    ],
+    "basic_asking_price": [
+      "Utgångspris"
+    ],
+    "basic_wage": [
+      "Lön"
+    ],
+    "basic_contract_type": [
+      "H/DT"
+    ],
+    "basic_contract_type_detail": [
+      "Typ"
+    ],
+    "basic_expires": [
+      "Upphör"
+    ],
+    "basic_style": [
+      "Stil"
+    ],
+    "basic_personality": [
+      "Personlighet"
+    ],
+    "basic_media_handling": [
+      "Mediahantering"
+    ],
+    "statistic_apps": [
+      "Matcher"
+    ],
+    "statistic_mins": [
+      "Min"
+    ],
+    "statistic_average_rating": [
+      "Snitt"
+    ],
+    "statistic_player_of_match": [
+      "MS"
+    ],
+    "statistic_goals": [
+      "Mål"
+    ],
+    "statistic_goals_outside_box": [
+      "Mål utanför straffområdet"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "Ass"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Skott"
+    ],
+    "statistic_shots_on_target": [
+      "SkM"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Skott utanför box/90"
+    ],
+    "statistic_free_kick_shots": [
+      "FK skott"
+    ],
+    "statistic_penalties": [
+      "Str"
+    ],
+    "statistic_penalties_scored": [
+      "Str M"
+    ],
+    "statistic_distance": [
+      "Avstånd"
+    ],
+    "statistic_sprints_per_90": [
+      "Löpningar/90"
+    ],
+    "statistic_offsides": [
+      "Off"
+    ],
+    "statistic_dribbles": [
+      "Drb"
+    ],
+    "statistic_passes_attempted": [
+      "Pas F"
+    ],
+    "statistic_passes_completed": [
+      "Lck P"
+    ],
+    "statistic_progressive_passes": [
+      "Pr. passningar"
+    ],
+    "statistic_key_passes": [
+      "N Pas"
+    ],
+    "statistic_open_play_key_passes": [
+      "N pass"
+    ],
+    "statistic_chances_created_per_90": [
+      "Sk CH/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "KMc"
+    ],
+    "statistic_crosses_attempted": [
+      "Inl F"
+    ],
+    "statistic_crosses_completed": [
+      "L Inl"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "Ös-Inl."
+    ],
+    "statistic_open_play_crosses_completed": [
+      "Ös-Inl.Lck"
+    ],
+    "statistic_fouls": [
+      "Regelbr"
+    ],
+    "statistic_fouls_against": [
+      "RbM"
+    ],
+    "statistic_yellow_cards": [
+      "Gula"
+    ],
+    "statistic_red_cards": [
+      "Röda"
+    ],
+    "statistic_headers_attempted": [
+      "LD"
+    ],
+    "statistic_headers_won": [
+      "VLD"
+    ],
+    "statistic_key_headers_per_90": [
+      "Nnd/90"
+    ],
+    "statistic_pressures_attempted": [
+      "Press i."
+    ],
+    "statistic_pressures_completed": [
+      "Press l."
+    ],
+    "statistic_possession_won_per_90": [
+      "Bollerö/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "Boll tapp/90"
+    ],
+    "statistic_tackles_attempted": [
+      "Tck F"
+    ],
+    "statistic_tackles_completed": [
+      "Tck A"
+    ],
+    "statistic_key_tackles": [
+      "N Tck"
+    ],
+    "statistic_interceptions": [
+      "Bry"
+    ],
+    "statistic_shots_blocked": [
+      "Block.Skt"
+    ],
+    "statistic_blocks": [
+      "Blk"
+    ],
+    "statistic_clearances": [
+      "Rensa"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "Ml Mst"
+    ],
+    "statistic_xgp": [
+      "xRM"
+    ],
+    "statistic_goals_conceded": [
+      "Insl"
+    ],
+    "statistic_saves_tipped": [
+      "RäT"
+    ],
+    "statistic_saves_parried": [
+      "PaR"
+    ],
+    "statistic_saves_held": [
+      "GrR"
+    ],
+    "statistic_penalties_faced": [
+      "Strf mot"
+    ],
+    "statistic_penalties_saved": [
+      "Strf räddade"
+    ],
+    "statistic_clean_sheets": [
+      "Antal hållna nollor"
+    ],
+    "attribute_acceleration": [
+      "Acc"
+    ],
+    "attribute_work_rate": [
+      "Arb"
+    ],
+    "attribute_vision": [
+      "Speluppfattning"
+    ],
+    "attribute_throwing": [
+      "Kst"
+    ],
+    "attribute_technique": [
+      "Tek"
+    ],
+    "attribute_teamwork": [
+      "Lag"
+    ],
+    "attribute_tackling": [
+      "Tck"
+    ],
+    "attribute_strength": [
+      "Sty"
+    ],
+    "attribute_stamina": [
+      "Uth"
+    ],
+    "attribute_rushing_out": [
+      "BUt"
+    ],
+    "attribute_reflexes": [
+      "Rfl"
+    ],
+    "attribute_tendency_to_punch": [
+      "Box"
+    ],
+    "attribute_positioning": [
+      "Pos"
+    ],
+    "attribute_penalty_taking": [
+      "Str"
+    ],
+    "attribute_passing": [
+      "Psn"
+    ],
+    "attribute_pace": [
+      "Far"
+    ],
+    "attribute_one_on_ones": [
+      "En mot en"
+    ],
+    "attribute_off_the_ball": [
+      "SuB"
+    ],
+    "attribute_natural_fitness": [
+      "Grk"
+    ],
+    "attribute_marking": [
+      "Mrk"
+    ],
+    "attribute_long_throws": [
+      "L in"
+    ],
+    "attribute_long_shots": [
+      "Lsk"
+    ],
+    "attribute_leadership": [
+      "Led"
+    ],
+    "attribute_kicking": [
+      "Sprk"
+    ],
+    "attribute_jumping_reach": [
+      "Spä"
+    ],
+    "attribute_heading": [
+      "Huv"
+    ],
+    "attribute_handling": [
+      "Grp"
+    ],
+    "attribute_free_kicks": [
+      "Fsp"
+    ],
+    "attribute_flair": [
+      "Fin"
+    ],
+    "attribute_first_touch": [
+      "Blm"
+    ],
+    "attribute_finishing": [
+      "Avs"
+    ],
+    "attribute_eccentricity": [
+      "Org"
+    ],
+    "attribute_dribbling": [
+      "Dri"
+    ],
+    "attribute_determination": [
+      "Bsl"
+    ],
+    "attribute_decisions": [
+      "Bes"
+    ],
+    "attribute_crossing": [
+      "Inl"
+    ],
+    "attribute_corners": [
+      "Hrn"
+    ],
+    "attribute_concentration": [
+      "Knc"
+    ],
+    "attribute_composure": [
+      "Kyla"
+    ],
+    "attribute_communication": [
+      "Kom"
+    ],
+    "attribute_command_of_area": [
+      "Sto"
+    ],
+    "attribute_bravery": [
+      "Mod"
+    ],
+    "attribute_balance": [
+      "Bal"
+    ],
+    "attribute_anticipation": [
+      "För"
+    ],
+    "attribute_agility": [
+      "Smi"
+    ],
+    "attribute_aggression": [
+      "Agg"
+    ],
+    "attribute_aerial_reach": [
+      "Luf"
+    ]
+  },
+  "ambiguous": {
+    "Str": {
+      "context": {
+        "statistic_penalties": {
+          "target": "statistic_penalties",
+          "neighbors": [
+            "Avstånd",
+            "Drb",
+            "FK skott",
+            "Löpningar/90",
+            "Off",
+            "SkM",
+            "Skott",
+            "Skott utanför box/90",
+            "Str M",
+            "xA"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_penalty_taking": {
+          "target": "attribute_penalty_taking",
+          "neighbors": [
+            "BUt",
+            "Box",
+            "En mot en",
+            "Far",
+            "Grk",
+            "Pos",
+            "Psn",
+            "Rfl",
+            "SuB",
+            "Uth"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "Mål": "GK",
+      "B (V)": "D (L)",
+      "B (C)": "D (C)",
+      "B (H)": "D (R)",
+      "YB (V)": "WB (L)",
+      "YB (H)": "WB (R)",
+      "DM": "DM",
+      "M (V)": "M (L)",
+      "M (C)": "M (C)",
+      "M (H)": "M (R)",
+      "OM (V)": "AM (L)",
+      "OM (C)": "AM (C)",
+      "OM (H)": "AM (R)",
+      "A (C)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "Nej": "No",
+      "Ja": "Yes"
+    },
+    "foot_strength": {
+      "Hyfsad": "Reasonable",
+      "Dålig": "Weak",
+      "Mycket bra": "Very Strong",
+      "Mycket dålig": "Very Weak",
+      "Ganska bra": "Fairly Strong",
+      "Bra": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Månatligt": "Month To Month",
+      "Heltidskontrakt": "Full Contract",
+      "Lån": "Loan"
+    },
+    "basic_style": {
+      "Kreativ": "Creative",
+      "Fysisk": "Physical",
+      "Intelligent": "Intelligent",
+      "Linjemålvakt": "Shot Stopper",
+      "Ledare": "Leader",
+      "Teknisk": "Technical",
+      "Bestämd": "Assertive",
+      "Bollspelande": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Tränade i nationen (15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

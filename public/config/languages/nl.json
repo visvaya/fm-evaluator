@@ -1,0 +1,624 @@
+{
+  "id": "nl",
+  "headers": {
+    "basic_uid": [
+      "UID"
+    ],
+    "basic_name": [
+      "Naam"
+    ],
+    "basic_position": [
+      "Positie"
+    ],
+    "basic_sec_position": [
+      "2e positie"
+    ],
+    "basic_dob": [
+      "Geb.datum"
+    ],
+    "basic_nationality": [
+      "Nat"
+    ],
+    "basic_second_nationality": [
+      "2de nat"
+    ],
+    "basic_eu_national": [
+      "Inwoner EU"
+    ],
+    "basic_home_grown_status": [
+      "Jeugdproduct-status"
+    ],
+    "basic_information": [
+      "Inf"
+    ],
+    "basic_left_foot": [
+      "Linkervoet"
+    ],
+    "basic_right_foot": [
+      "Rechtervoet"
+    ],
+    "basic_club": [
+      "Club"
+    ],
+    "basic_division": [
+      "Divisie"
+    ],
+    "basic_based_in": [
+      "Woont in"
+    ],
+    "basic_transfer_value": [
+      "Transferwaarde"
+    ],
+    "basic_asking_price": [
+      "Vraagprijs"
+    ],
+    "basic_wage": [
+      "Salaris"
+    ],
+    "basic_contract_type": [
+      "VT/DT"
+    ],
+    "basic_contract_type_detail": [
+      "Type"
+    ],
+    "basic_expires": [
+      "Eindigt"
+    ],
+    "basic_style": [
+      "Stijl"
+    ],
+    "basic_personality": [
+      "Karakter"
+    ],
+    "basic_media_handling": [
+      "Omgang met media"
+    ],
+    "statistic_apps": [
+      "Wed"
+    ],
+    "statistic_mins": [
+      "Min"
+    ],
+    "statistic_average_rating": [
+      "Gem beo"
+    ],
+    "statistic_player_of_match": [
+      "MvW"
+    ],
+    "statistic_goals": [
+      "Dlp"
+    ],
+    "statistic_goals_outside_box": [
+      "Goals Buiten Strafschopgebied"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "Ast"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Schoten"
+    ],
+    "statistic_shots_on_target": [
+      "SoD"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Schoten Buiten Strafschopgebied/90"
+    ],
+    "statistic_free_kick_shots": [
+      "Schoten VT"
+    ],
+    "statistic_penalties": [
+      "Strf"
+    ],
+    "statistic_penalties_scored": [
+      "Strf B"
+    ],
+    "statistic_distance": [
+      "Afstand"
+    ],
+    "statistic_sprints_per_90": [
+      "Sprints/90"
+    ],
+    "statistic_offsides": [
+      "Bui"
+    ],
+    "statistic_dribbles": [
+      "Dri"
+    ],
+    "statistic_passes_attempted": [
+      "Pas"
+    ],
+    "statistic_passes_completed": [
+      "AP"
+    ],
+    "statistic_progressive_passes": [
+      "Av Passes"
+    ],
+    "statistic_key_passes": [
+      "B Pas"
+    ],
+    "statistic_open_play_key_passes": [
+      "OS-BP"
+    ],
+    "statistic_chances_created_per_90": [
+      "Ka G/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "Kan"
+    ],
+    "statistic_crosses_attempted": [
+      "G Vz"
+    ],
+    "statistic_crosses_completed": [
+      "A Vz"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "OS-vrz P"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "OS-vrz U"
+    ],
+    "statistic_fouls": [
+      "OvB"
+    ],
+    "statistic_fouls_against": [
+      "OvT"
+    ],
+    "statistic_yellow_cards": [
+      "Geel"
+    ],
+    "statistic_red_cards": [
+      "Rood"
+    ],
+    "statistic_headers_attempted": [
+      "Kopd A"
+    ],
+    "statistic_headers_won": [
+      "Kopd"
+    ],
+    "statistic_key_headers_per_90": [
+      "B Kopd/90"
+    ],
+    "statistic_pressures_attempted": [
+      "Pog. Druk"
+    ],
+    "statistic_pressures_completed": [
+      "Gesl Druk"
+    ],
+    "statistic_possession_won_per_90": [
+      "Bal Gew/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "Bal Verl/90"
+    ],
+    "statistic_tackles_attempted": [
+      "Tck"
+    ],
+    "statistic_tackles_completed": [
+      "Tck vol"
+    ],
+    "statistic_key_tackles": [
+      "B Tck"
+    ],
+    "statistic_interceptions": [
+      "Itc"
+    ],
+    "statistic_shots_blocked": [
+      "Sch Gebl"
+    ],
+    "statistic_blocks": [
+      "Blk"
+    ],
+    "statistic_clearances": [
+      "Leeg"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "Dp Fou"
+    ],
+    "statistic_xgp": [
+      "xGVk"
+    ],
+    "statistic_goals_conceded": [
+      "Tegen"
+    ],
+    "statistic_saves_tipped": [
+      "Udg"
+    ],
+    "statistic_saves_parried": [
+      "SWg"
+    ],
+    "statistic_saves_held": [
+      "SKv"
+    ],
+    "statistic_penalties_faced": [
+      "Penalties Tegen"
+    ],
+    "statistic_penalties_saved": [
+      "Penalties Tegengehouden"
+    ],
+    "statistic_clean_sheets": [
+      "De nul gehouden"
+    ],
+    "attribute_acceleration": [
+      "Ver"
+    ],
+    "attribute_work_rate": [
+      "Inz"
+    ],
+    "attribute_vision": [
+      "Inz"
+    ],
+    "attribute_throwing": [
+      "UW"
+    ],
+    "attribute_technique": [
+      "Tec"
+    ],
+    "attribute_teamwork": [
+      "Tea"
+    ],
+    "attribute_tackling": [
+      "Tck"
+    ],
+    "attribute_strength": [
+      "Kra"
+    ],
+    "attribute_stamina": [
+      "Uit"
+    ],
+    "attribute_rushing_out": [
+      "NUK"
+    ],
+    "attribute_reflexes": [
+      "Ref"
+    ],
+    "attribute_tendency_to_punch": [
+      "Stp"
+    ],
+    "attribute_positioning": [
+      "Pos"
+    ],
+    "attribute_penalty_taking": [
+      "Str"
+    ],
+    "attribute_passing": [
+      "Pas"
+    ],
+    "attribute_pace": [
+      "Snl"
+    ],
+    "attribute_one_on_ones": [
+      "1v1"
+    ],
+    "attribute_off_the_ball": [
+      "ZB"
+    ],
+    "attribute_natural_fitness": [
+      "Nat"
+    ],
+    "attribute_marking": [
+      "Dek"
+    ],
+    "attribute_long_throws": [
+      "Inw"
+    ],
+    "attribute_long_shots": [
+      "Afst"
+    ],
+    "attribute_leadership": [
+      "Ldr"
+    ],
+    "attribute_kicking": [
+      "UT"
+    ],
+    "attribute_jumping_reach": [
+      "Spr"
+    ],
+    "attribute_heading": [
+      "Kp"
+    ],
+    "attribute_handling": [
+      "Bal"
+    ],
+    "attribute_free_kicks": [
+      "VT"
+    ],
+    "attribute_flair": [
+      "Fla"
+    ],
+    "attribute_first_touch": [
+      "BA"
+    ],
+    "attribute_finishing": [
+      "Af"
+    ],
+    "attribute_eccentricity": [
+      "Exc"
+    ],
+    "attribute_dribbling": [
+      "Dri"
+    ],
+    "attribute_determination": [
+      "Vbh"
+    ],
+    "attribute_decisions": [
+      "Bes"
+    ],
+    "attribute_crossing": [
+      "Vzt"
+    ],
+    "attribute_corners": [
+      "Hs"
+    ],
+    "attribute_concentration": [
+      "Cnt"
+    ],
+    "attribute_composure": [
+      "Kal"
+    ],
+    "attribute_communication": [
+      "Com"
+    ],
+    "attribute_command_of_area": [
+      "BiS"
+    ],
+    "attribute_bravery": [
+      "Lef"
+    ],
+    "attribute_balance": [
+      "Evw"
+    ],
+    "attribute_anticipation": [
+      "Ant"
+    ],
+    "attribute_agility": [
+      "Beh"
+    ],
+    "attribute_aggression": [
+      "Fel"
+    ],
+    "attribute_aerial_reach": [
+      "HB"
+    ]
+  },
+  "ambiguous": {
+    "Nat": {
+      "context": {
+        "basic_nationality": {
+          "target": "basic_nationality",
+          "neighbors": [
+            "2de nat",
+            "2e positie",
+            "Geb.datum",
+            "Inf",
+            "Inwoner EU",
+            "Jeugdproduct-status",
+            "Linkervoet",
+            "Naam",
+            "Positie",
+            "UID"
+          ],
+          "excludesCategory": "physical"
+        },
+        "attribute_natural_fitness": {
+          "target": "attribute_natural_fitness",
+          "neighbors": [
+            "1v1",
+            "Afst",
+            "Dek",
+            "Inw",
+            "Ldr",
+            "Pas",
+            "Snl",
+            "Str",
+            "UT",
+            "ZB"
+          ],
+          "excludesCategory": "basic"
+        }
+      }
+    },
+    "Dri": {
+      "context": {
+        "statistic_dribbles": {
+          "target": "statistic_dribbles",
+          "neighbors": [
+            "AP",
+            "Afstand",
+            "Av Passes",
+            "B Pas",
+            "Bui",
+            "OS-BP",
+            "Pas",
+            "Sprints/90",
+            "Strf",
+            "Strf B"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_dribbling": {
+          "target": "attribute_dribbling",
+          "neighbors": [
+            "Af",
+            "BA",
+            "Bes",
+            "Cnt",
+            "Exc",
+            "Fla",
+            "Hs",
+            "VT",
+            "Vbh",
+            "Vzt"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Pas": {
+      "context": {
+        "statistic_passes_attempted": {
+          "target": "statistic_passes_attempted",
+          "neighbors": [
+            "AP",
+            "Afstand",
+            "Av Passes",
+            "B Pas",
+            "Bui",
+            "Dri",
+            "Ka G/90",
+            "OS-BP",
+            "Sprints/90",
+            "Strf B"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_passing": {
+          "target": "attribute_passing",
+          "neighbors": [
+            "1v1",
+            "Dek",
+            "NUK",
+            "Nat",
+            "Pos",
+            "Ref",
+            "Snl",
+            "Stp",
+            "Str",
+            "ZB"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Tck": {
+      "context": {
+        "statistic_tackles_attempted": {
+          "target": "statistic_tackles_attempted",
+          "neighbors": [
+            "B Kopd/90",
+            "B Tck",
+            "Bal Gew/90",
+            "Bal Verl/90",
+            "Blk",
+            "Gesl Druk",
+            "Itc",
+            "Pog. Druk",
+            "Sch Gebl",
+            "Tck vol"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_tackling": {
+          "target": "attribute_tackling",
+          "neighbors": [
+            "Inz",
+            "Kra",
+            "NUK",
+            "Ref",
+            "Stp",
+            "Tea",
+            "Tec",
+            "UW",
+            "Uit"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Inz": {
+      "context": {
+        "attribute_work_rate": {
+          "target": "attribute_work_rate",
+          "neighbors": [
+            "De nul gehouden",
+            "Inz",
+            "Penalties Tegen",
+            "Penalties Tegengehouden",
+            "SKv",
+            "Tck",
+            "Tea",
+            "Tec",
+            "UW",
+            "Ver"
+          ]
+        },
+        "attribute_vision": {
+          "target": "attribute_vision",
+          "neighbors": [
+            "De nul gehouden",
+            "Inz",
+            "Kra",
+            "Penalties Tegen",
+            "Penalties Tegengehouden",
+            "Tck",
+            "Tea",
+            "Tec",
+            "UW",
+            "Ver"
+          ]
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "DM": "GK",
+      "V (L)": "D (L)",
+      "V (C)": "D (C)",
+      "V (R)": "D (R)",
+      "VV (L)": "WB (L)",
+      "VV (R)": "WB (R)",
+      "VM": "DM",
+      "M (L)": "M (L)",
+      "M (C)": "M (C)",
+      "M (R)": "M (R)",
+      "AM (L)": "AM (L)",
+      "AM (C)": "AM (C)",
+      "AM (R)": "AM (R)",
+      "S (C)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "Nee": "No",
+      "Ja": "Yes"
+    },
+    "foot_strength": {
+      "Matig": "Reasonable",
+      "Zwak": "Weak",
+      "Heel goed": "Very Strong",
+      "Heel zwak": "Very Weak",
+      "Redelijk goed": "Fairly Strong",
+      "Goed": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Maandcontract": "Month To Month",
+      "Voltijdscontract": "Full Contract",
+      "Huur": "Loan"
+    },
+    "basic_style": {
+      "Creatief": "Creative",
+      "Fysiek sterk": "Physical",
+      "Intelligent": "Intelligent",
+      "Ballen Tegenhouden": "Shot Stopper",
+      "Leider": "Leader",
+      "Technisch": "Technical",
+      "Assertief": "Assertive",
+      "Afspelen": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Opgeleid in land (15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

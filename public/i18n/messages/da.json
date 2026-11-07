@@ -1,0 +1,61 @@
+{
+  "columns": {
+    "age": "Alder",
+    "club": "Klub",
+    "name": "Navn",
+    "position": "Position",
+    "suggestion": "Forslag",
+    "totalScore": "Vurdering"
+  },
+  "engines": {
+    "AsianFusion": "Asian Fusion",
+    "Default": "Standard",
+    "FMTweak": "FM Tweak"
+  },
+  "positions": {
+    "AMC": "Offensiv midtbane",
+    "AMLR": "Ving",
+    "BEST": "Bedste Rolle",
+    "DC": "Forsvarsspiller",
+    "DLR": "Back",
+    "DMC": "Defensiv midtbane",
+    "GK": "Målmand",
+    "MC": "Central midtbane",
+    "MLR": "Kant",
+    "STC": "Angriber",
+    "WBLR": "Wingback"
+  },
+  "stats": {
+    "Attr Score": "Attr Score",
+    "Stat Score": "Stat Score",
+    "Total Score": "Total Score"
+  },
+  "ui": {
+    "columns": "Administrer kolonner",
+    "drop_area_hint": "(En fil med attribut- og statistikdata)",
+    "drop_area_text": "Klik eller træk fil hertil",
+    "drop_zone_title": "Upload Zone",
+    "error": "Fejl",
+    "first_page": "Første side",
+    "language": "Sprog",
+    "language_names": {
+      "da": "Dansk",
+      "de": "Tysk",
+      "en": "Engelsk",
+      "no": "Norsk",
+      "sv": "Svensk"
+    },
+    "last_page": "Sidste side",
+    "loading": "Indlæser...",
+    "next_page": "Næste side",
+    "no_data": "Ingen data",
+    "of": "af",
+    "page": "Side",
+    "prev_page": "Forrige side",
+    "processing": "Behandler",
+    "settings": "Indstillinger",
+    "showing_results": "Viser {count} af {total} spillere",
+    "success": "Succes!",
+    "waiting": "Venter..."
+  }
+}

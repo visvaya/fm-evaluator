@@ -1,0 +1,80 @@
+{
+  "columns": {
+    "age": "Età",
+    "club": "Club",
+    "name": "Nome",
+    "position": "Posizione",
+    "suggestion": "Suggerimento",
+    "totalScore": "Valutazione",
+    "value": "Valore",
+    "wage": "Stipendio"
+  },
+  "engines": {
+    "AsianFusion": "Asian Fusion",
+    "Default": "Predefinito",
+    "FMTweak": "FM Tweak"
+  },
+  "positions": {
+    "AMC": "Trequartista",
+    "AMLR": "Attaccante esterno",
+    "BEST": "Ruolo migliore",
+    "DC": "Difensore centrale",
+    "DLR": "Terzino",
+    "DMC": "Mediano",
+    "GK": "Portiere",
+    "MC": "Centrocampista",
+    "MLR": "Ala",
+    "STC": "Centravanti",
+    "WBLR": "Esterno"
+  },
+  "stats": {
+    "Attr Score": "Punteggio Attributi",
+    "Stat Score": "Punteggio Statistiche",
+    "Total Score": "Punteggio Totale"
+  },
+  "ui": {
+    "clear_filters": "Reimposta tutti i filtri",
+    "columns": "Gestisci colonne",
+    "config_description": "File caricati. Seleziona i parametri di analisi.",
+    "config_title": "Configurazione",
+    "drop_area_hint": "(Un file con dati di attributi e statistiche)",
+    "drop_area_text": "Clicca o trascina il file qui",
+    "drop_zone_title": "Zona di caricamento",
+    "error": "Errore",
+    "first_page": "Prima pagina",
+    "language": "Lingua",
+    "language_names": {
+      "da": "Danese",
+      "de": "Tedesco",
+      "el": "Greco",
+      "en": "Inglese",
+      "es": "Spagnolo",
+      "fr": "Francese",
+      "it": "Italiano",
+      "ja": "Giapponese",
+      "ko": "Coreano",
+      "nl": "Olandese",
+      "no": "Norvegese",
+      "pl": "Polacco",
+      "pt": "Portoghese",
+      "ru": "Russo",
+      "sv": "Svedese",
+      "tr": "Turco",
+      "zh": "Cinese"
+    },
+    "last_page": "Ultima pagina",
+    "loading": "Caricamento...",
+    "next_page": "Pagina successiva",
+    "no_data": "Nessun dato",
+    "of": "di",
+    "page": "Pagina",
+    "prev_page": "Pagina precedente",
+    "processing": "Elaborazione",
+    "select_engine": "1. Seleziona Motore",
+    "select_role": "2. Seleziona Ruolo",
+    "settings": "Impostazioni",
+    "showing_results": "Mostrando {count} di {total} giocatori",
+    "success": "Successo!",
+    "waiting": "In attesa..."
+  }
+}

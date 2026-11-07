@@ -1,0 +1,555 @@
+{
+  "id": "es",
+  "headers": {
+    "basic_uid": [
+      "IU"
+    ],
+    "basic_name": [
+      "Nombre"
+    ],
+    "basic_position": [
+      "Posición"
+    ],
+    "basic_sec_position": [
+      "Posición alternativa"
+    ],
+    "basic_dob": [
+      "Nacim."
+    ],
+    "basic_nationality": [
+      "Nac"
+    ],
+    "basic_second_nationality": [
+      "2ª Nac"
+    ],
+    "basic_eu_national": [
+      "Comunitario"
+    ],
+    "basic_home_grown_status": [
+      "Situación de cantera"
+    ],
+    "basic_information": [
+      "Inf"
+    ],
+    "basic_left_foot": [
+      "Pierna izquierda"
+    ],
+    "basic_right_foot": [
+      "Pierna derecha"
+    ],
+    "basic_club": [
+      "Club"
+    ],
+    "basic_division": [
+      "División"
+    ],
+    "basic_based_in": [
+      "Juega en"
+    ],
+    "basic_transfer_value": [
+      "Valor de traspaso"
+    ],
+    "basic_asking_price": [
+      "Precio solicitado"
+    ],
+    "basic_wage": [
+      "Sueldo"
+    ],
+    "basic_contract_type": [
+      "TC/TP"
+    ],
+    "basic_contract_type_detail": [
+      "Tipo"
+    ],
+    "basic_expires": [
+      "Final"
+    ],
+    "basic_style": [
+      "Estilo"
+    ],
+    "basic_personality": [
+      "Personalidad"
+    ],
+    "basic_media_handling": [
+      "Trato con la prensa"
+    ],
+    "statistic_apps": [
+      "Part"
+    ],
+    "statistic_mins": [
+      "Min"
+    ],
+    "statistic_average_rating": [
+      "Media"
+    ],
+    "statistic_player_of_match": [
+      "JPar"
+    ],
+    "statistic_goals": [
+      "Gol"
+    ],
+    "statistic_goals_outside_box": [
+      "Goles fuera del área"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "Asis"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Disparos"
+    ],
+    "statistic_shots_on_target": [
+      "TaP"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Disparos fuera área/90"
+    ],
+    "statistic_free_kick_shots": [
+      "Disparos FD"
+    ],
+    "statistic_penalties": [
+      "Pen"
+    ],
+    "statistic_penalties_scored": [
+      "Pen M"
+    ],
+    "statistic_distance": [
+      "Distancia"
+    ],
+    "statistic_sprints_per_90": [
+      "Esprints/90"
+    ],
+    "statistic_offsides": [
+      "Fdj"
+    ],
+    "statistic_dribbles": [
+      "Reg"
+    ],
+    "statistic_passes_attempted": [
+      "Pas I"
+    ],
+    "statistic_passes_completed": [
+      "Pas C"
+    ],
+    "statistic_progressive_passes": [
+      "Pases prog"
+    ],
+    "statistic_key_passes": [
+      "Pas Cl"
+    ],
+    "statistic_open_play_key_passes": [
+      "P Clv- J Ab"
+    ],
+    "statistic_chances_created_per_90": [
+      "Oc C/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "OCG"
+    ],
+    "statistic_crosses_attempted": [
+      "Cen.In"
+    ],
+    "statistic_crosses_completed": [
+      "Cen.Com"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "Cen I-Ab"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "Cen C-Ab"
+    ],
+    "statistic_fouls": [
+      "FC"
+    ],
+    "statistic_fouls_against": [
+      "FR"
+    ],
+    "statistic_yellow_cards": [
+      "Ama"
+    ],
+    "statistic_red_cards": [
+      "Roj."
+    ],
+    "statistic_headers_attempted": [
+      "Cab Int"
+    ],
+    "statistic_headers_won": [
+      "Cab"
+    ],
+    "statistic_key_headers_per_90": [
+      "Cab Clv/90"
+    ],
+    "statistic_pressures_attempted": [
+      "Pres Int"
+    ],
+    "statistic_pressures_completed": [
+      "Pres C"
+    ],
+    "statistic_possession_won_per_90": [
+      "Pos Gan/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "Pos Perd/90"
+    ],
+    "statistic_tackles_attempted": [
+      "Ent I"
+    ],
+    "statistic_tackles_completed": [
+      "Ent C"
+    ],
+    "statistic_key_tackles": [
+      "Ent Cl"
+    ],
+    "statistic_interceptions": [
+      "Rob"
+    ],
+    "statistic_shots_blocked": [
+      "DsR"
+    ],
+    "statistic_blocks": [
+      "Rec"
+    ],
+    "statistic_clearances": [
+      "Desp"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "Gl Err"
+    ],
+    "statistic_xgp": [
+      "xGE"
+    ],
+    "statistic_goals_conceded": [
+      "Enc"
+    ],
+    "statistic_saves_tipped": [
+      "BDs"
+    ],
+    "statistic_saves_parried": [
+      "BRe"
+    ],
+    "statistic_saves_held": [
+      "BAt"
+    ],
+    "statistic_penalties_faced": [
+      "Pen. recibidos"
+    ],
+    "statistic_penalties_saved": [
+      "Pen. parados"
+    ],
+    "statistic_clean_sheets": [
+      "Portería imbatida"
+    ],
+    "attribute_acceleration": [
+      "Ace"
+    ],
+    "attribute_work_rate": [
+      "Sac"
+    ],
+    "attribute_vision": [
+      "Vis"
+    ],
+    "attribute_throwing": [
+      "Saq"
+    ],
+    "attribute_technique": [
+      "Téc"
+    ],
+    "attribute_teamwork": [
+      "JEq"
+    ],
+    "attribute_tackling": [
+      "Ent"
+    ],
+    "attribute_strength": [
+      "Fue"
+    ],
+    "attribute_stamina": [
+      "Res"
+    ],
+    "attribute_rushing_out": [
+      "SAL"
+    ],
+    "attribute_reflexes": [
+      "Ref"
+    ],
+    "attribute_tendency_to_punch": [
+      "Puñ"
+    ],
+    "attribute_positioning": [
+      "Col"
+    ],
+    "attribute_penalty_taking": [
+      "Pen"
+    ],
+    "attribute_passing": [
+      "Pas"
+    ],
+    "attribute_pace": [
+      "Vel"
+    ],
+    "attribute_one_on_ones": [
+      "1v1"
+    ],
+    "attribute_off_the_ball": [
+      "Dmq"
+    ],
+    "attribute_natural_fitness": [
+      "Fís"
+    ],
+    "attribute_marking": [
+      "Mar"
+    ],
+    "attribute_long_throws": [
+      "Sq L"
+    ],
+    "attribute_long_shots": [
+      "Lej"
+    ],
+    "attribute_leadership": [
+      "Lid"
+    ],
+    "attribute_kicking": [
+      "Pue"
+    ],
+    "attribute_jumping_reach": [
+      "Sal"
+    ],
+    "attribute_heading": [
+      "Cab"
+    ],
+    "attribute_handling": [
+      "Blo"
+    ],
+    "attribute_free_kicks": [
+      "Lib"
+    ],
+    "attribute_flair": [
+      "Tal"
+    ],
+    "attribute_first_touch": [
+      "Ctr"
+    ],
+    "attribute_finishing": [
+      "Rem"
+    ],
+    "attribute_eccentricity": [
+      "Exc"
+    ],
+    "attribute_dribbling": [
+      "Reg"
+    ],
+    "attribute_determination": [
+      "Det"
+    ],
+    "attribute_decisions": [
+      "Dec"
+    ],
+    "attribute_crossing": [
+      "Cen"
+    ],
+    "attribute_corners": [
+      "Cór"
+    ],
+    "attribute_concentration": [
+      "Cnc"
+    ],
+    "attribute_composure": [
+      "Ser"
+    ],
+    "attribute_communication": [
+      "Com"
+    ],
+    "attribute_command_of_area": [
+      "Mdo"
+    ],
+    "attribute_bravery": [
+      "Val"
+    ],
+    "attribute_balance": [
+      "Equ"
+    ],
+    "attribute_anticipation": [
+      "Ant"
+    ],
+    "attribute_agility": [
+      "Agi"
+    ],
+    "attribute_aggression": [
+      "Agr"
+    ],
+    "attribute_aerial_reach": [
+      "Aér"
+    ]
+  },
+  "ambiguous": {
+    "Pen": {
+      "context": {
+        "statistic_penalties": {
+          "target": "statistic_penalties",
+          "neighbors": [
+            "Disparos",
+            "Disparos FD",
+            "Disparos fuera área/90",
+            "Distancia",
+            "Esprints/90",
+            "Fdj",
+            "Pen M",
+            "Reg",
+            "TaP",
+            "xA"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_penalty_taking": {
+          "target": "attribute_penalty_taking",
+          "neighbors": [
+            "1v1",
+            "Col",
+            "Dmq",
+            "Fís",
+            "Pas",
+            "Puñ",
+            "Ref",
+            "Res",
+            "SAL",
+            "Vel"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Reg": {
+      "context": {
+        "statistic_dribbles": {
+          "target": "statistic_dribbles",
+          "neighbors": [
+            "Distancia",
+            "Esprints/90",
+            "Fdj",
+            "P Clv- J Ab",
+            "Pas C",
+            "Pas Cl",
+            "Pas I",
+            "Pases prog",
+            "Pen",
+            "Pen M"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_dribbling": {
+          "target": "attribute_dribbling",
+          "neighbors": [
+            "Cen",
+            "Cnc",
+            "Ctr",
+            "Cór",
+            "Dec",
+            "Det",
+            "Exc",
+            "Lib",
+            "Rem",
+            "Tal"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Cab": {
+      "context": {
+        "statistic_headers_won": {
+          "target": "statistic_headers_won",
+          "neighbors": [
+            "Ama",
+            "Cab Clv/90",
+            "Cab Int",
+            "FC",
+            "FR",
+            "Pos Gan/90",
+            "Pos Perd/90",
+            "Pres C",
+            "Pres Int",
+            "Roj."
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_heading": {
+          "target": "attribute_heading",
+          "neighbors": [
+            "Blo",
+            "Ctr",
+            "Lej",
+            "Lib",
+            "Lid",
+            "Pue",
+            "Rem",
+            "Sal",
+            "Sq L",
+            "Tal"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "POR": "GK",
+      "DF (I)": "D (L)",
+      "DF (C)": "D (C)",
+      "DF (D)": "D (R)",
+      "CR (I)": "WB (L)",
+      "CR (D)": "WB (R)",
+      "MC": "DM",
+      "ME (I)": "M (L)",
+      "ME (C)": "M (C)",
+      "ME (D)": "M (R)",
+      "MP (I)": "AM (L)",
+      "MP (C)": "AM (C)",
+      "MP (D)": "AM (R)",
+      "DL (C)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "No": "No",
+      "Sí": "Yes"
+    },
+    "foot_strength": {
+      "Razonable": "Reasonable",
+      "Débil": "Weak",
+      "Muy fuerte": "Very Strong",
+      "Muy débil": "Very Weak",
+      "Bastante fuerte": "Fairly Strong",
+      "Fuerte": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Mes a mes": "Month To Month",
+      "Contrato tiempo completo": "Full Contract",
+      "Cesión": "Loan"
+    },
+    "basic_style": {
+      "Creativo": "Creative",
+      "Físico": "Physical",
+      "Inteligente": "Intelligent",
+      "Guardameta": "Shot Stopper",
+      "Líder": "Leader",
+      "Técnico": "Technical",
+      "Con autoridad": "Assertive",
+      "Distribuidor": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Entrenados en el país (15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

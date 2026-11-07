@@ -1,0 +1,450 @@
+{
+  "id": "tr",
+  "headers": {
+    "basic_uid": [
+      "ÖID"
+    ],
+    "basic_name": [
+      "İsim"
+    ],
+    "basic_position": [
+      "Mevki"
+    ],
+    "basic_sec_position": [
+      "İki. Pozisyon"
+    ],
+    "basic_dob": [
+      "DT"
+    ],
+    "basic_nationality": [
+      "Ülke"
+    ],
+    "basic_second_nationality": [
+      "2. Uyr"
+    ],
+    "basic_eu_national": [
+      "AB Uyruklu"
+    ],
+    "basic_home_grown_status": [
+      "Yerli Oyuncu Statüsü"
+    ],
+    "basic_information": [
+      "Bilgi"
+    ],
+    "basic_left_foot": [
+      "Sol Ayak"
+    ],
+    "basic_right_foot": [
+      "Sağ Ayak"
+    ],
+    "basic_club": [
+      "Kulüp"
+    ],
+    "basic_division": [
+      "Lig"
+    ],
+    "basic_based_in": [
+      "Bulunduğu Yer"
+    ],
+    "basic_transfer_value": [
+      "Piyasa Değeri"
+    ],
+    "basic_asking_price": [
+      "İstenen Bonservis"
+    ],
+    "basic_wage": [
+      "Maaş"
+    ],
+    "basic_contract_type": [
+      "T/YZ"
+    ],
+    "basic_contract_type_detail": [
+      "Tür"
+    ],
+    "basic_expires": [
+      "Bitiş"
+    ],
+    "basic_style": [
+      "Tarz"
+    ],
+    "basic_personality": [
+      "Kişilik"
+    ],
+    "basic_media_handling": [
+      "Medya Yönetimi"
+    ],
+    "statistic_apps": [
+      "Maç"
+    ],
+    "statistic_mins": [
+      "Dk."
+    ],
+    "statistic_average_rating": [
+      "Ort P"
+    ],
+    "statistic_player_of_match": [
+      "MaçA"
+    ],
+    "statistic_goals": [
+      "Gol"
+    ],
+    "statistic_goals_outside_box": [
+      "Ceza Sahası Dışından Goller"
+    ],
+    "statistic_xg": [
+      "XG"
+    ],
+    "statistic_assists": [
+      "Ast"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Şut"
+    ],
+    "statistic_shots_on_target": [
+      "İ.Şut"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Ceza Sahası Dışından Şut/90"
+    ],
+    "statistic_free_kick_shots": [
+      "SV Şut"
+    ],
+    "statistic_penalties": [
+      "Pena"
+    ],
+    "statistic_penalties_scored": [
+      "PenGol"
+    ],
+    "statistic_distance": [
+      "Mesafe"
+    ],
+    "statistic_sprints_per_90": [
+      "Sprint/90"
+    ],
+    "statistic_offsides": [
+      "Ofs"
+    ],
+    "statistic_dribbles": [
+      "Drp"
+    ],
+    "statistic_passes_attempted": [
+      "Pas G"
+    ],
+    "statistic_passes_completed": [
+      "İs P"
+    ],
+    "statistic_progressive_passes": [
+      "Dik Klt Pas"
+    ],
+    "statistic_key_passes": [
+      "Ş Pas"
+    ],
+    "statistic_open_play_key_passes": [
+      "AO-KP"
+    ],
+    "statistic_chances_created_per_90": [
+      "YGF/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "MGP"
+    ],
+    "statistic_crosses_attempted": [
+      "Or G"
+    ],
+    "statistic_crosses_completed": [
+      "Or B"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "AO-Orta G"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "AO-İsbt O"
+    ],
+    "statistic_fouls": [
+      "YF"
+    ],
+    "statistic_fouls_against": [
+      "GF"
+    ],
+    "statistic_yellow_cards": [
+      "Sar"
+    ],
+    "statistic_red_cards": [
+      "Kır"
+    ],
+    "statistic_headers_attempted": [
+      "Kf Grş"
+    ],
+    "statistic_headers_won": [
+      "Bhv"
+    ],
+    "statistic_key_headers_per_90": [
+      "K Hava/90"
+    ],
+    "statistic_pressures_attempted": [
+      "Pres G"
+    ],
+    "statistic_pressures_completed": [
+      "Pres +"
+    ],
+    "statistic_possession_won_per_90": [
+      "Kazan Top/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "Top Kyb/90"
+    ],
+    "statistic_tackles_attempted": [
+      "Tpk G"
+    ],
+    "statistic_tackles_completed": [
+      "Bşr Müd"
+    ],
+    "statistic_key_tackles": [
+      "K Müd"
+    ],
+    "statistic_interceptions": [
+      "TKe"
+    ],
+    "statistic_shots_blocked": [
+      "Eg Ş"
+    ],
+    "statistic_blocks": [
+      "Eng"
+    ],
+    "statistic_clearances": [
+      "Uzaklaştırma"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "Gl Hta"
+    ],
+    "statistic_xgp": [
+      "xEG"
+    ],
+    "statistic_goals_conceded": [
+      "Ynl"
+    ],
+    "statistic_saves_tipped": [
+      "Pkr"
+    ],
+    "statistic_saves_parried": [
+      "Çel"
+    ],
+    "statistic_saves_held": [
+      "Tkr"
+    ],
+    "statistic_penalties_faced": [
+      "Rkp. Pen."
+    ],
+    "statistic_penalties_saved": [
+      "Kurt. Pen."
+    ],
+    "statistic_clean_sheets": [
+      "Gol Yenilmeden Tamamlanan Maç"
+    ],
+    "attribute_acceleration": [
+      "Hzl"
+    ],
+    "attribute_work_rate": [
+      "Çlş"
+    ],
+    "attribute_vision": [
+      "Viz"
+    ],
+    "attribute_throwing": [
+      "Taç"
+    ],
+    "attribute_technique": [
+      "Tek"
+    ],
+    "attribute_teamwork": [
+      "Toy"
+    ],
+    "attribute_tackling": [
+      "Tkp"
+    ],
+    "attribute_strength": [
+      "Güç"
+    ],
+    "attribute_stamina": [
+      "Day"
+    ],
+    "attribute_rushing_out": [
+      "ANİ"
+    ],
+    "attribute_reflexes": [
+      "Ref"
+    ],
+    "attribute_tendency_to_punch": [
+      "Yum"
+    ],
+    "attribute_positioning": [
+      "Poz"
+    ],
+    "attribute_penalty_taking": [
+      "Pen"
+    ],
+    "attribute_passing": [
+      "Pas"
+    ],
+    "attribute_pace": [
+      "Hız"
+    ],
+    "attribute_one_on_ones": [
+      "1'e 1"
+    ],
+    "attribute_off_the_ball": [
+      "TzA"
+    ],
+    "attribute_natural_fitness": [
+      "Vüc"
+    ],
+    "attribute_marking": [
+      "Mar"
+    ],
+    "attribute_long_throws": [
+      "U Tç"
+    ],
+    "attribute_long_shots": [
+      "Uzş"
+    ],
+    "attribute_leadership": [
+      "Lid"
+    ],
+    "attribute_kicking": [
+      "Ayk"
+    ],
+    "attribute_jumping_reach": [
+      "Zıp"
+    ],
+    "attribute_heading": [
+      "Kaf"
+    ],
+    "attribute_handling": [
+      "Elk"
+    ],
+    "attribute_free_kicks": [
+      "Srb"
+    ],
+    "attribute_flair": [
+      "Yet"
+    ],
+    "attribute_first_touch": [
+      "İKn"
+    ],
+    "attribute_finishing": [
+      "Bit"
+    ],
+    "attribute_eccentricity": [
+      "Frk"
+    ],
+    "attribute_dribbling": [
+      "TSü"
+    ],
+    "attribute_determination": [
+      "Krr"
+    ],
+    "attribute_decisions": [
+      "Kar"
+    ],
+    "attribute_crossing": [
+      "Ort"
+    ],
+    "attribute_corners": [
+      "Kor"
+    ],
+    "attribute_concentration": [
+      "Kons"
+    ],
+    "attribute_composure": [
+      "Sğk"
+    ],
+    "attribute_communication": [
+      "İle"
+    ],
+    "attribute_command_of_area": [
+      "Hkm"
+    ],
+    "attribute_bravery": [
+      "Ces"
+    ],
+    "attribute_balance": [
+      "Den"
+    ],
+    "attribute_anticipation": [
+      "Öns"
+    ],
+    "attribute_agility": [
+      "Çev"
+    ],
+    "attribute_aggression": [
+      "Agre"
+    ],
+    "attribute_aerial_reach": [
+      "Hva"
+    ]
+  },
+  "ambiguous": {},
+  "valueTranslations": {
+    "position": {
+      "K": "GK",
+      "D (S)": "D (L)",
+      "D (ğ)": "D (L)",
+      "D (M)": "D (C)",
+      "D (l)": "WB (R)",
+      "KB (S)": "WB (R)",
+      "DOS": "DM",
+      "KB (ğ)": "DM",
+      "KB (l)": "M (L)",
+      "OS (M)": "M (C)",
+      "OS (S)": "M (R)",
+      "OS (ğ)": "AM (L)",
+      "OOS (ğ)": "AM (C)",
+      "OOS (M)": "AM (C)",
+      "OOS (S)": "AM (R)",
+      "OS (l)": "ST (C)",
+      "OOS (l)": "ST (C)",
+      "ST (M)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "Hayır": "No",
+      "Evet": "Yes"
+    },
+    "foot_strength": {
+      "Orta": "Reasonable",
+      "Zayıf": "Weak",
+      "Çok Kuvvetli": "Very Strong",
+      "Çok Zayıf": "Very Weak",
+      "Kuvvetli Sayılır": "Fairly Strong",
+      "Kuvvetli": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Aydan aya": "Month To Month",
+      "Tam Zamanlı": "Full Contract",
+      "Kiralık": "Loan"
+    },
+    "basic_style": {
+      "Yaratıcı": "Creative",
+      "Fiziksel": "Physical",
+      "Zeki": "Intelligent",
+      "Şut Kurtarışı": "Shot Stopper",
+      "Lider": "Leader",
+      "Teknik": "Technical",
+      "Kendine Güveni Yüksek": "Assertive",
+      "Top Dağıtımı": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Bu ülkede yetişti (15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

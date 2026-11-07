@@ -1,0 +1,59 @@
+{
+  "columns": {
+    "age": "Yaş",
+    "club": "Kulüp",
+    "name": "İsim",
+    "position": "Pozisyon",
+    "suggestion": "Öneri",
+    "totalScore": "Değerlendirme"
+  },
+  "engines": {
+    "AsianFusion": "Asian Fusion",
+    "Default": "Varsayılan",
+    "FMTweak": "FM Tweak"
+  },
+  "positions": {
+    "AMC": "Ofansif Orta Saha",
+    "AMLR": "Kanat",
+    "BEST": "En İyi Rol",
+    "DC": "Stoper",
+    "DLR": "Bek",
+    "DMC": "Defansif Orta Saha",
+    "GK": "Kaleci",
+    "MC": "Orta Saha",
+    "MLR": "Kanat Oyuncusu",
+    "STC": "Forvet",
+    "WBLR": "Kanat Bek"
+  },
+  "stats": {
+    "Attr Score": "Özellik Puanı",
+    "Stat Score": "İstatistik Puanı",
+    "Total Score": "Toplam Puan"
+  },
+  "ui": {
+    "columns": "Sütunları yönet",
+    "drop_area_hint": "(Özellik ve istatistik verileri içeren dosya)",
+    "drop_area_text": "Dosyayı buraya tıklayın veya sürükleyin",
+    "drop_zone_title": "Yükleme Alanı",
+    "error": "Hata",
+    "first_page": "İlk sayfa",
+    "language": "Dil",
+    "language_names": {
+      "de": "Almanca",
+      "en": "İngilizce",
+      "tr": "Türkçe"
+    },
+    "last_page": "Son sayfa",
+    "loading": "Yükleniyor...",
+    "next_page": "Sonraki sayfa",
+    "no_data": "Veri yok",
+    "of": "/",
+    "page": "Sayfa",
+    "prev_page": "Önceki sayfa",
+    "processing": "İşleniyor",
+    "settings": "Ayarlar",
+    "showing_results": "{total} oyuncudan {count} tanesi gösteriliyor",
+    "success": "Başarılı!",
+    "waiting": "Bekleniyor..."
+  }
+}

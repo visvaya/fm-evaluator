@@ -1,0 +1,199 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1' # Monday 06:00 UTC: security scans and the full gate
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # One job on purpose: every job is billed rounded up to a full minute, and
+  # "Quality gate" is the required check, so it must always run and report.
+  # Pull requests skip what they cannot affect (see .github/scripts/ci-scope.sh);
+  # main, the weekly schedule and manual runs always run every step.
+  quality:
+    name: Quality gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: read
+      pull-requests: read # list the pull request's changed files
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Scope script tests
+        run: bash .github/scripts/ci-scope.test.sh
+
+      - name: Detect scope
+        id: scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$EVENT_NAME" != "pull_request" ]; then
+            printf 'docs_only=false\ne2e=true\nsecurity=true\n' | tee -a "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          files="$(gh api --paginate "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/files" --jq '.[] | .filename, (.previous_filename // empty)')"
+          bash .github/scripts/ci-scope.sh <<< "$files" | tee -a "$GITHUB_OUTPUT"
+
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        id: install
+        run: pnpm install --frozen-lockfile
+
+      - name: Format check
+        run: pnpm run format:check
+
+      - name: Docs check
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm run docs:check
+
+      - name: Typography check
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm run check:typography
+
+      - name: Lint
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run lint
+
+      - name: Typecheck
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run typecheck
+
+      - name: Dead code (knip)
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run knip
+
+      - name: Duplication (jscpd)
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run jscpd
+
+      - name: Dependency rules (depcruise)
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run depcruise
+
+      - name: Legacy metrics ratchet
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run legacy:metrics:check
+
+      - name: TypeScript strict ratchet
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run strict:metrics:check
+
+      - name: Unit tests with coverage
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run test:coverage
+
+      - name: Build
+        id: build
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run build
+
+      - name: Check build output
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: pnpm run check:dist
+
+      - name: Audit production dependencies
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run audit:prod
+
+      # E2E runs against `vite preview` of the build, which sends the headers
+      # from security_headers.json (COOP/COEP/CSP), like production should.
+      - name: Resolve Playwright version
+        id: playwright
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.scope.outputs.e2e == 'true' }}
+        run: echo "version=$(pnpm exec playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        if: ${{ !cancelled() && steps.playwright.outcome == 'success' }}
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}-chromium
+
+      - name: Install Chromium
+        id: chromium
+        if: ${{ !cancelled() && steps.playwright.outcome == 'success' }}
+        env:
+          CACHE_HIT: ${{ steps.playwright-cache.outputs.cache-hit }}
+        run: |
+          if [ "$CACHE_HIT" = "true" ]; then
+            pnpm exec playwright install-deps chromium
+          else
+            pnpm exec playwright install --with-deps chromium
+          fi
+
+      - name: E2E tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' }}
+        env:
+          PLAYWRIGHT_BASE_URL: http://localhost:4173
+        run: |
+          pnpm exec vite preview --port 4173 --strictPort > "$RUNNER_TEMP/preview.log" 2>&1 &
+          for _ in $(seq 1 30); do
+            curl -sf -o /dev/null "$PLAYWRIGHT_BASE_URL/" && break
+            sleep 1
+          done
+          if ! curl -sf -o /dev/null "$PLAYWRIGHT_BASE_URL/"; then
+            echo "::error::vite preview did not start on $PLAYWRIGHT_BASE_URL"
+            cat "$RUNNER_TEMP/preview.log"
+            exit 1
+          fi
+          pnpm exec playwright test
+
+      - name: Upload Playwright report
+        if: ${{ failure() && steps.chromium.outcome == 'success' }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+
+      # Security scans: on pull requests only when workflows, dependencies or
+      # lockfiles change; always on main, weekly and on manual runs. The secret
+      # scan (gitleaks) runs on every push and pull request in secrets.yml.
+      - name: Workflow audit (zizmor)
+        if: ${{ !cancelled() && steps.scope.outputs.security == 'true' }}
+        env:
+          # Pinned by hand with the wheel's checksum from PyPI.
+          ZIZMOR_VERSION: 1.30.1
+          ZIZMOR_SHA256: eee12266b793cb87ad4a7e3af2e72404f8a63e3de5eb099b80bf7b1cfd232a8e
+        run: |
+          python3 -m venv "$RUNNER_TEMP/zizmor"
+          echo "zizmor==${ZIZMOR_VERSION} --hash=sha256:${ZIZMOR_SHA256}" > "$RUNNER_TEMP/zizmor.txt"
+          "$RUNNER_TEMP/zizmor/bin/pip" install --quiet --no-deps --only-binary :all: \
+            --require-hashes -r "$RUNNER_TEMP/zizmor.txt"
+          "$RUNNER_TEMP/zizmor/bin/zizmor" --persona pedantic --offline .github/workflows
+
+      # Semgrep CE with public registry rulesets; no account or token needed.
+      # Fails only on ERROR severity; baseline in docs/quality-and-guardrails.md.
+      - name: SAST (Semgrep)
+        if: ${{ !cancelled() && steps.scope.outputs.security == 'true' }}
+        env:
+          SEMGREP_IMAGE: semgrep/semgrep:1.178.0@sha256:32e459968daabe7ab86968184a29109b9564aa00392401156f9788452b42786b
+        run: |
+          docker run --rm -v "$PWD:/src" -w /src "$SEMGREP_IMAGE"             semgrep scan --metrics=off --config p/typescript --config p/react             --exclude public/vendor --exclude goldens --json-output=semgrep.json
+          errors="$(jq '[.results[] | select(.extra.severity == "ERROR")] | length' semgrep.json)"
+          echo "Semgrep ERROR findings: $errors"
+          [ "$errors" -eq 0 ]

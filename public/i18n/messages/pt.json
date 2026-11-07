@@ -1,0 +1,80 @@
+{
+  "columns": {
+    "age": "Idade",
+    "club": "Clube",
+    "name": "Nome",
+    "position": "Posição",
+    "suggestion": "Sugestão",
+    "totalScore": "Avaliação",
+    "value": "Valor",
+    "wage": "Salário"
+  },
+  "engines": {
+    "AsianFusion": "Asian Fusion",
+    "Default": "Padrão",
+    "FMTweak": "FM Tweak"
+  },
+  "positions": {
+    "AMC": "Meia-atacante",
+    "AMLR": "Ponta",
+    "BEST": "Melhor Função",
+    "DC": "Zagueiro",
+    "DLR": "Lateral",
+    "DMC": "Volante",
+    "GK": "Goleiro",
+    "MC": "Meio-campista",
+    "MLR": "Meia",
+    "STC": "Centroavante",
+    "WBLR": "Ala"
+  },
+  "stats": {
+    "Attr Score": "Pontuação de Atributos",
+    "Stat Score": "Pontuação Estatística",
+    "Total Score": "Pontuação Total"
+  },
+  "ui": {
+    "clear_filters": "Redefinir todos os filtros",
+    "columns": "Gerenciar colunas",
+    "config_description": "Arquivos carregados. Selecione os parâmetros de análise.",
+    "config_title": "Configuração",
+    "drop_area_hint": "(Um arquivo com dados de atributos e estatísticas)",
+    "drop_area_text": "Clique ou arraste o arquivo aqui",
+    "drop_zone_title": "Zona de Upload",
+    "error": "Erro",
+    "first_page": "Primeira página",
+    "language": "Idioma",
+    "language_names": {
+      "da": "Dinamarquês",
+      "de": "Alemão",
+      "el": "Grego",
+      "en": "Inglês",
+      "es": "Espanhol",
+      "fr": "Francês",
+      "it": "Italiano",
+      "ja": "Japonês",
+      "ko": "Coreano",
+      "nl": "Holandês",
+      "no": "Norueguês",
+      "pl": "Polonês",
+      "pt": "Português",
+      "ru": "Russo",
+      "sv": "Sueco",
+      "tr": "Turco",
+      "zh": "Chinês"
+    },
+    "last_page": "Última página",
+    "loading": "Carregando...",
+    "next_page": "Próxima página",
+    "no_data": "Sem dados",
+    "of": "de",
+    "page": "Página",
+    "prev_page": "Página anterior",
+    "processing": "Processando",
+    "select_engine": "1. Selecione Motor",
+    "select_role": "2. Selecione Função",
+    "settings": "Configurações",
+    "showing_results": "Mostrando {count} de {total} jogadores",
+    "success": "Sucesso!",
+    "waiting": "Aguardando..."
+  }
+}

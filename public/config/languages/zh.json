@@ -1,0 +1,639 @@
+{
+  "id": "zh",
+  "headers": {
+    "basic_uid": [
+      "编号"
+    ],
+    "basic_name": [
+      "姓名"
+    ],
+    "basic_position": [
+      "位置"
+    ],
+    "basic_sec_position": [
+      "第二位置"
+    ],
+    "basic_dob": [
+      "生日"
+    ],
+    "basic_nationality": [
+      "国籍/地区籍"
+    ],
+    "basic_second_nationality": [
+      "第二国籍/地区籍"
+    ],
+    "basic_eu_national": [
+      "欧盟国家的"
+    ],
+    "basic_home_grown_status": [
+      "青训球员"
+    ],
+    "basic_information": [
+      "现状"
+    ],
+    "basic_left_foot": [
+      "左脚"
+    ],
+    "basic_right_foot": [
+      "右脚"
+    ],
+    "basic_club": [
+      "俱乐部"
+    ],
+    "basic_division": [
+      "级别"
+    ],
+    "basic_based_in": [
+      "位于"
+    ],
+    "basic_transfer_value": [
+      "转会身价"
+    ],
+    "basic_asking_price": [
+      "挂牌价"
+    ],
+    "basic_wage": [
+      "工资"
+    ],
+    "basic_contract_type": [
+      "全/兼职"
+    ],
+    "basic_contract_type_detail": [
+      "类型"
+    ],
+    "basic_expires": [
+      "到期"
+    ],
+    "basic_style": [
+      "风格"
+    ],
+    "basic_personality": [
+      "个人特性"
+    ],
+    "basic_media_handling": [
+      "公关风格"
+    ],
+    "statistic_apps": [
+      "出场"
+    ],
+    "statistic_mins": [
+      "时间"
+    ],
+    "statistic_average_rating": [
+      "平均评分"
+    ],
+    "statistic_player_of_match": [
+      "最佳"
+    ],
+    "statistic_goals": [
+      "进球"
+    ],
+    "statistic_goals_outside_box": [
+      "禁区外进球"
+    ],
+    "statistic_xg": [
+      "预期进球"
+    ],
+    "statistic_assists": [
+      "助攻"
+    ],
+    "statistic_xa": [
+      "预期助攻"
+    ],
+    "statistic_shots": [
+      "射门数"
+    ],
+    "statistic_shots_on_target": [
+      "射正"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "禁区外射门/90"
+    ],
+    "statistic_free_kick_shots": [
+      "任意球射门"
+    ],
+    "statistic_penalties": [
+      "点球"
+    ],
+    "statistic_penalties_scored": [
+      "罚入点球"
+    ],
+    "statistic_distance": [
+      "跑动距离"
+    ],
+    "statistic_sprints_per_90": [
+      "冲刺/90"
+    ],
+    "statistic_offsides": [
+      "越位"
+    ],
+    "statistic_dribbles": [
+      "盘带"
+    ],
+    "statistic_passes_attempted": [
+      "传球"
+    ],
+    "statistic_passes_completed": [
+      "传球"
+    ],
+    "statistic_progressive_passes": [
+      "激进传球"
+    ],
+    "statistic_key_passes": [
+      "关键传球"
+    ],
+    "statistic_open_play_key_passes": [
+      "非定位球-关键传球"
+    ],
+    "statistic_chances_created_per_90": [
+      "创造机会/90分钟"
+    ],
+    "statistic_clear_cut_chances": [
+      "绝佳机会"
+    ],
+    "statistic_crosses_attempted": [
+      "传中"
+    ],
+    "statistic_crosses_completed": [
+      "传中成功"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "非定位球传中尝试"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "非定位球传中成功"
+    ],
+    "statistic_fouls": [
+      "犯规"
+    ],
+    "statistic_fouls_against": [
+      "被犯规"
+    ],
+    "statistic_yellow_cards": [
+      "黄牌"
+    ],
+    "statistic_red_cards": [
+      "红牌"
+    ],
+    "statistic_headers_attempted": [
+      "争顶次数"
+    ],
+    "statistic_headers_won": [
+      "争顶成功次数"
+    ],
+    "statistic_key_headers_per_90": [
+      "关键头球/90"
+    ],
+    "statistic_pressures_attempted": [
+      "试压次"
+    ],
+    "statistic_pressures_completed": [
+      "试压成"
+    ],
+    "statistic_possession_won_per_90": [
+      "赢球权/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "失球权/90"
+    ],
+    "statistic_tackles_attempted": [
+      "尝试抢断"
+    ],
+    "statistic_tackles_completed": [
+      "抢断完成"
+    ],
+    "statistic_key_tackles": [
+      "关键抢断"
+    ],
+    "statistic_interceptions": [
+      "拦截"
+    ],
+    "statistic_shots_blocked": [
+      "封堵射门"
+    ],
+    "statistic_blocks": [
+      "封堵"
+    ],
+    "statistic_clearances": [
+      "解围"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "致命失误"
+    ],
+    "statistic_xgp": [
+      "预期阻止进球"
+    ],
+    "statistic_goals_conceded": [
+      "失球"
+    ],
+    "statistic_saves_tipped": [
+      "指尖"
+    ],
+    "statistic_saves_parried": [
+      "挡出"
+    ],
+    "statistic_saves_held": [
+      "抱住"
+    ],
+    "statistic_penalties_faced": [
+      "面对点球数"
+    ],
+    "statistic_penalties_saved": [
+      "扑出点球数"
+    ],
+    "statistic_clean_sheets": [
+      "零封"
+    ],
+    "attribute_acceleration": [
+      "爆发"
+    ],
+    "attribute_work_rate": [
+      "投入"
+    ],
+    "attribute_vision": [
+      "视野"
+    ],
+    "attribute_throwing": [
+      "手抛球"
+    ],
+    "attribute_technique": [
+      "技术"
+    ],
+    "attribute_teamwork": [
+      "合作"
+    ],
+    "attribute_tackling": [
+      "抢断"
+    ],
+    "attribute_strength": [
+      "强壮"
+    ],
+    "attribute_stamina": [
+      "耐力"
+    ],
+    "attribute_rushing_out": [
+      "出击"
+    ],
+    "attribute_reflexes": [
+      "反应"
+    ],
+    "attribute_tendency_to_punch": [
+      "击球"
+    ],
+    "attribute_positioning": [
+      "位置"
+    ],
+    "attribute_penalty_taking": [
+      "点球"
+    ],
+    "attribute_passing": [
+      "传球"
+    ],
+    "attribute_pace": [
+      "速度"
+    ],
+    "attribute_one_on_ones": [
+      "一对一"
+    ],
+    "attribute_off_the_ball": [
+      "无球跑"
+    ],
+    "attribute_natural_fitness": [
+      "体质"
+    ],
+    "attribute_marking": [
+      "盯人"
+    ],
+    "attribute_long_throws": [
+      "界外球"
+    ],
+    "attribute_long_shots": [
+      "远射"
+    ],
+    "attribute_leadership": [
+      "领导力"
+    ],
+    "attribute_kicking": [
+      "开球"
+    ],
+    "attribute_jumping_reach": [
+      "弹跳"
+    ],
+    "attribute_heading": [
+      "头球"
+    ],
+    "attribute_handling": [
+      "手控球"
+    ],
+    "attribute_free_kicks": [
+      "任意球"
+    ],
+    "attribute_flair": [
+      "才华"
+    ],
+    "attribute_first_touch": [
+      "停球"
+    ],
+    "attribute_finishing": [
+      "射门"
+    ],
+    "attribute_eccentricity": [
+      "意外"
+    ],
+    "attribute_dribbling": [
+      "盘带"
+    ],
+    "attribute_determination": [
+      "意志"
+    ],
+    "attribute_decisions": [
+      "决断"
+    ],
+    "attribute_crossing": [
+      "传中"
+    ],
+    "attribute_corners": [
+      "角球"
+    ],
+    "attribute_concentration": [
+      "集中"
+    ],
+    "attribute_composure": [
+      "镇定"
+    ],
+    "attribute_communication": [
+      "指挥"
+    ],
+    "attribute_command_of_area": [
+      "拦截传中"
+    ],
+    "attribute_bravery": [
+      "勇敢"
+    ],
+    "attribute_balance": [
+      "平衡"
+    ],
+    "attribute_anticipation": [
+      "预判"
+    ],
+    "attribute_agility": [
+      "灵活"
+    ],
+    "attribute_aggression": [
+      "侵略"
+    ],
+    "attribute_aerial_reach": [
+      "制空"
+    ]
+  },
+  "ambiguous": {
+    "位置": {
+      "context": {
+        "basic_position": {
+          "target": "basic_position",
+          "neighbors": [
+            "国籍/地区籍",
+            "姓名",
+            "欧盟国家的",
+            "生日",
+            "第二位置",
+            "第二国籍/地区籍",
+            "编号"
+          ],
+          "excludesCategory": "mental"
+        },
+        "attribute_positioning": {
+          "target": "attribute_positioning",
+          "neighbors": [
+            "一对一",
+            "传球",
+            "出击",
+            "击球",
+            "反应",
+            "强壮",
+            "无球跑",
+            "点球",
+            "耐力",
+            "速度"
+          ],
+          "excludesCategory": "basic"
+        }
+      }
+    },
+    "点球": {
+      "context": {
+        "statistic_penalties": {
+          "target": "statistic_penalties",
+          "neighbors": [
+            "任意球射门",
+            "冲刺/90",
+            "射正",
+            "射门数",
+            "盘带",
+            "禁区外射门/90",
+            "罚入点球",
+            "越位",
+            "跑动距离",
+            "预期助攻"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_penalty_taking": {
+          "target": "attribute_penalty_taking",
+          "neighbors": [
+            "一对一",
+            "传球",
+            "位置",
+            "体质",
+            "出击",
+            "击球",
+            "反应",
+            "无球跑",
+            "耐力",
+            "速度"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "盘带": {
+      "context": {
+        "statistic_dribbles": {
+          "target": "statistic_dribbles",
+          "neighbors": [
+            "传球",
+            "关键传球",
+            "冲刺/90",
+            "激进传球",
+            "点球",
+            "罚入点球",
+            "越位",
+            "跑动距离",
+            "非定位球-关键传球"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_dribbling": {
+          "target": "attribute_dribbling",
+          "neighbors": [
+            "任意球",
+            "传中",
+            "停球",
+            "决断",
+            "射门",
+            "意外",
+            "意志",
+            "才华",
+            "角球",
+            "集中"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "传球": {
+      "context": {
+        "statistic_passes_attempted": {
+          "target": "statistic_passes_attempted",
+          "neighbors": [
+            "传球",
+            "关键传球",
+            "冲刺/90",
+            "创造机会/90分钟",
+            "激进传球",
+            "盘带",
+            "罚入点球",
+            "越位",
+            "跑动距离",
+            "非定位球-关键传球"
+          ],
+          "excludesCategory": "technical"
+        },
+        "statistic_passes_completed": {
+          "target": "statistic_passes_completed",
+          "neighbors": [
+            "传球",
+            "关键传球",
+            "冲刺/90",
+            "创造机会/90分钟",
+            "激进传球",
+            "盘带",
+            "绝佳机会",
+            "越位",
+            "跑动距离",
+            "非定位球-关键传球"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_passing": {
+          "target": "attribute_passing",
+          "neighbors": [
+            "一对一",
+            "位置",
+            "体质",
+            "出击",
+            "击球",
+            "反应",
+            "无球跑",
+            "点球",
+            "盯人",
+            "速度"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "传中": {
+      "context": {
+        "statistic_crosses_attempted": {
+          "target": "statistic_crosses_attempted",
+          "neighbors": [
+            "传中成功",
+            "关键传球",
+            "创造机会/90分钟",
+            "激进传球",
+            "犯规",
+            "绝佳机会",
+            "被犯规",
+            "非定位球-关键传球",
+            "非定位球传中尝试",
+            "非定位球传中成功"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_crossing": {
+          "target": "attribute_crossing",
+          "neighbors": [
+            "决断",
+            "射门",
+            "意外",
+            "意志",
+            "拦截传中",
+            "指挥",
+            "盘带",
+            "角球",
+            "镇定",
+            "集中"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "GK": "GK",
+      "D (L)": "D (L)",
+      "D (C)": "D (C)",
+      "D (R)": "D (R)",
+      "WB (L)": "WB (L)",
+      "WB (R)": "WB (R)",
+      "DM": "DM",
+      "M (L)": "M (L)",
+      "M (C)": "M (C)",
+      "M (R)": "M (R)",
+      "AM (L)": "AM (L)",
+      "AM (C)": "AM (C)",
+      "AM (R)": "AM (R)",
+      "ST (C)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "否": "No",
+      "是": "Yes"
+    },
+    "foot_strength": {
+      "凑​合": "Reasonable",
+      "欠​佳": "Weak",
+      "精​准": "Very Strong",
+      "笨​拙": "Very Weak",
+      "不​错": "Fairly Strong",
+      "擅​长": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "逐​月短​期合​同": "Month To Month",
+      "全​职合​同": "Full Contract",
+      "租​借": "Loan"
+    },
+    "basic_style": {
+      "创​造型": "Creative",
+      "身​体型": "Physical",
+      "聪​明": "Intelligent",
+      "扑​救能​力出​色": "Shot Stopper",
+      "领​导型": "Leader",
+      "技​术型": "Technical",
+      "果​断型": "Assertive",
+      "开​球能​力出​色": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "本​国培​养(15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

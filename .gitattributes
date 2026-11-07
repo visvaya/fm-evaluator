@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+# Vendored assets are pinned by SRI hashes; keep their bytes exactly as committed.
+public/vendor/** -text
+
+# Golden fixtures are verbatim slices of FM exports; keep their bytes exactly.
+goldens/fixtures/** -text

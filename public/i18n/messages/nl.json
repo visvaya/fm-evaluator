@@ -1,0 +1,80 @@
+{
+  "columns": {
+    "age": "Leeftijd",
+    "club": "Club",
+    "name": "Naam",
+    "position": "Positie",
+    "suggestion": "Suggestie",
+    "totalScore": "Beoordeling",
+    "value": "Waarde",
+    "wage": "Salaris"
+  },
+  "engines": {
+    "AsianFusion": "Asian Fusion",
+    "Default": "Standaard",
+    "FMTweak": "FM Tweak"
+  },
+  "positions": {
+    "AMC": "Aanvallende middenvelder",
+    "AMLR": "Buitenspeler",
+    "BEST": "Beste Rol",
+    "DC": "Centrale verdediger",
+    "DLR": "Vleugelverdediger",
+    "DMC": "Verdedigende middenvelder",
+    "GK": "Keeper",
+    "MC": "Centrale middenvelder",
+    "MLR": "Vleugelspeler",
+    "STC": "Spits",
+    "WBLR": "Wingback"
+  },
+  "stats": {
+    "Attr Score": "Attributenscore",
+    "Stat Score": "Statistiekscore",
+    "Total Score": "Totaalscore"
+  },
+  "ui": {
+    "clear_filters": "Alle filters resetten",
+    "columns": "Kolommen beheren",
+    "config_description": "Bestanden geladen. Selecteer analyseparameters.",
+    "config_title": "Configuratie",
+    "drop_area_hint": "(Eén bestand met attributen en statistieken)",
+    "drop_area_text": "Klik of sleep bestand hier",
+    "drop_zone_title": "Upload Zone",
+    "error": "Fout",
+    "first_page": "Eerste pagina",
+    "language": "Taal",
+    "language_names": {
+      "da": "Deens",
+      "de": "Duits",
+      "el": "Grieks",
+      "en": "Engels",
+      "es": "Spaans",
+      "fr": "Frans",
+      "it": "Italiaans",
+      "ja": "Japans",
+      "ko": "Koreaans",
+      "nl": "Nederlands",
+      "no": "Noors",
+      "pl": "Pools",
+      "pt": "Portugees",
+      "ru": "Russisch",
+      "sv": "Zweeds",
+      "tr": "Turks",
+      "zh": "Chinees"
+    },
+    "last_page": "Laatste pagina",
+    "loading": "Laden...",
+    "next_page": "Volgende pagina",
+    "no_data": "Geen gegevens",
+    "of": "van",
+    "page": "Pagina",
+    "prev_page": "Vorige pagina",
+    "processing": "Verwerken",
+    "select_engine": "1. Selecteer Engine",
+    "select_role": "2. Selecteer Rol",
+    "settings": "Instellingen",
+    "showing_results": "Toon {count} van {total} spelers",
+    "success": "Succes!",
+    "waiting": "Wachten..."
+  }
+}

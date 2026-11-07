@@ -1,0 +1,60 @@
+{
+  "columns": {
+    "age": "年齢",
+    "club": "クラブ",
+    "name": "名前",
+    "position": "ポジション",
+    "suggestion": "提案",
+    "totalScore": "評価"
+  },
+  "engines": {
+    "AsianFusion": "アジアンフュージョン",
+    "Default": "デフォルト",
+    "FMTweak": "FM Tweak"
+  },
+  "positions": {
+    "AMC": "攻撃的ミッドフィルダー",
+    "AMLR": "ウィンガー",
+    "BEST": "ベストロール",
+    "DC": "センターバック",
+    "DLR": "サイドバック",
+    "DMC": "守備的ミッドフィルダー",
+    "GK": "ゴールキーパー",
+    "MC": "セントラルミッドフィルダー",
+    "MLR": "サイドミッドフィルダー",
+    "STC": "ストライカー",
+    "WBLR": "ウィングバック"
+  },
+  "stats": {
+    "Attr Score": "属性スコア",
+    "Stat Score": "統計スコア",
+    "Total Score": "総合スコア"
+  },
+  "ui": {
+    "columns": "列を管理",
+    "drop_area_hint": "(属性と統計データを含むファイル)",
+    "drop_area_text": "ここにファイルをドロップ",
+    "drop_zone_title": "アップロードゾーン",
+    "error": "エラー",
+    "first_page": "最初のページ",
+    "language": "言語",
+    "language_names": {
+      "en": "英語",
+      "ja": "日本語",
+      "ko": "韓国語",
+      "zh": "中国語"
+    },
+    "last_page": "最後のページ",
+    "loading": "読み込み中...",
+    "next_page": "次のページ",
+    "no_data": "データなし",
+    "of": "/",
+    "page": "ページ",
+    "prev_page": "前のページ",
+    "processing": "処理中",
+    "settings": "設定",
+    "showing_results": "{total}人中{count}人を表示",
+    "success": "成功!",
+    "waiting": "待機中..."
+  }
+}

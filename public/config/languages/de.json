@@ -1,0 +1,499 @@
+{
+  "id": "de",
+  "headers": {
+    "basic_uid": [
+      "EID"
+    ],
+    "basic_name": [
+      "Name"
+    ],
+    "basic_position": [
+      "Position"
+    ],
+    "basic_sec_position": [
+      "2. Position"
+    ],
+    "basic_dob": [
+      "Geb."
+    ],
+    "basic_nationality": [
+      "Nation"
+    ],
+    "basic_second_nationality": [
+      "2. Nation"
+    ],
+    "basic_eu_national": [
+      "Aus der EU"
+    ],
+    "basic_home_grown_status": [
+      "Status Eigengewächs"
+    ],
+    "basic_information": [
+      "Info"
+    ],
+    "basic_left_foot": [
+      "Linker Fuß"
+    ],
+    "basic_right_foot": [
+      "Rechter Fuß"
+    ],
+    "basic_club": [
+      "Verein"
+    ],
+    "basic_division": [
+      "Liga"
+    ],
+    "basic_based_in": [
+      "Wohnsitz ist"
+    ],
+    "basic_transfer_value": [
+      "Transferwert"
+    ],
+    "basic_asking_price": [
+      "Ablöseforderung"
+    ],
+    "basic_wage": [
+      "Gehalt"
+    ],
+    "basic_contract_type": [
+      "V/TZ"
+    ],
+    "basic_contract_type_detail": [
+      "Art"
+    ],
+    "basic_expires": [
+      "Endet"
+    ],
+    "basic_style": [
+      "Stil"
+    ],
+    "basic_personality": [
+      "Persönlichkeit"
+    ],
+    "basic_media_handling": [
+      "Medienumgang"
+    ],
+    "statistic_apps": [
+      "Eins"
+    ],
+    "statistic_mins": [
+      "Min."
+    ],
+    "statistic_average_rating": [
+      "Ø Note"
+    ],
+    "statistic_player_of_match": [
+      "SdS"
+    ],
+    "statistic_goals": [
+      "Tore"
+    ],
+    "statistic_goals_outside_box": [
+      "Tore durch Fernschüsse"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "Vor"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Schüsse"
+    ],
+    "statistic_shots_on_target": [
+      "SchT"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Fernschüsse/90"
+    ],
+    "statistic_free_kick_shots": [
+      "Freistöße"
+    ],
+    "statistic_penalties": [
+      "Elfer"
+    ],
+    "statistic_penalties_scored": [
+      "11m-Tor"
+    ],
+    "statistic_distance": [
+      "Distanz"
+    ],
+    "statistic_sprints_per_90": [
+      "Sprints/90"
+    ],
+    "statistic_offsides": [
+      "Abs"
+    ],
+    "statistic_dribbles": [
+      "Drb"
+    ],
+    "statistic_passes_attempted": [
+      "Pas V"
+    ],
+    "statistic_passes_completed": [
+      "Ps A"
+    ],
+    "statistic_progressive_passes": [
+      "Pr Pässe"
+    ],
+    "statistic_key_passes": [
+      "Ent Päs"
+    ],
+    "statistic_open_play_key_passes": [
+      "EntP(S)"
+    ],
+    "statistic_chances_created_per_90": [
+      "Ch/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "GCh"
+    ],
+    "statistic_crosses_attempted": [
+      "Fla V"
+    ],
+    "statistic_crosses_completed": [
+      "Fla A"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "VeF"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "AnF"
+    ],
+    "statistic_fouls": [
+      "Fls"
+    ],
+    "statistic_fouls_against": [
+      "Gfw"
+    ],
+    "statistic_yellow_cards": [
+      "Gelb"
+    ],
+    "statistic_red_cards": [
+      "Rot"
+    ],
+    "statistic_headers_attempted": [
+      "Kopf V"
+    ],
+    "statistic_headers_won": [
+      "Kopf G"
+    ],
+    "statistic_key_headers_per_90": [
+      "Ent Kopf/90"
+    ],
+    "statistic_pressures_attempted": [
+      "PrsV"
+    ],
+    "statistic_pressures_completed": [
+      "PrsErf"
+    ],
+    "statistic_possession_won_per_90": [
+      "Ballgew/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "Ballverl/90"
+    ],
+    "statistic_tackles_attempted": [
+      "Zwk Z"
+    ],
+    "statistic_tackles_completed": [
+      "Gew Zwk"
+    ],
+    "statistic_key_tackles": [
+      "Ent Zwk"
+    ],
+    "statistic_interceptions": [
+      "AbB"
+    ],
+    "statistic_shots_blocked": [
+      "Sgb"
+    ],
+    "statistic_blocks": [
+      "Blk"
+    ],
+    "statistic_clearances": [
+      "Klär."
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "T Feh"
+    ],
+    "statistic_xgp": [
+      "xGP"
+    ],
+    "statistic_goals_conceded": [
+      "GegT"
+    ],
+    "statistic_saves_tipped": [
+      "Sag"
+    ],
+    "statistic_saves_parried": [
+      "Spa"
+    ],
+    "statistic_saves_held": [
+      "Sgh"
+    ],
+    "statistic_penalties_faced": [
+      "Elfer gesamt"
+    ],
+    "statistic_penalties_saved": [
+      "Parierte Elfer"
+    ],
+    "statistic_clean_sheets": [
+      "Zu-Null-Spiele"
+    ],
+    "attribute_acceleration": [
+      "Ant"
+    ],
+    "attribute_work_rate": [
+      "Esf"
+    ],
+    "attribute_vision": [
+      "Übs"
+    ],
+    "attribute_throwing": [
+      "Abw"
+    ],
+    "attribute_technique": [
+      "Tec"
+    ],
+    "attribute_teamwork": [
+      "Tea"
+    ],
+    "attribute_tackling": [
+      "Tck"
+    ],
+    "attribute_strength": [
+      "Kra"
+    ],
+    "attribute_stamina": [
+      "Aus"
+    ],
+    "attribute_rushing_out": [
+      "TzH"
+    ],
+    "attribute_reflexes": [
+      "Ref"
+    ],
+    "attribute_tendency_to_punch": [
+      "Fau"
+    ],
+    "attribute_positioning": [
+      "Ste"
+    ],
+    "attribute_penalty_taking": [
+      "Elf"
+    ],
+    "attribute_passing": [
+      "Pas"
+    ],
+    "attribute_pace": [
+      "Sch"
+    ],
+    "attribute_one_on_ones": [
+      "1v1"
+    ],
+    "attribute_off_the_ball": [
+      "Ohn"
+    ],
+    "attribute_natural_fitness": [
+      "Gft"
+    ],
+    "attribute_marking": [
+      "Dck"
+    ],
+    "attribute_long_throws": [
+      "Einw"
+    ],
+    "attribute_long_shots": [
+      "WS"
+    ],
+    "attribute_leadership": [
+      "Füh"
+    ],
+    "attribute_kicking": [
+      "Abs"
+    ],
+    "attribute_jumping_reach": [
+      "Spr"
+    ],
+    "attribute_heading": [
+      "Kpf"
+    ],
+    "attribute_handling": [
+      "Hal"
+    ],
+    "attribute_free_kicks": [
+      "Fre"
+    ],
+    "attribute_flair": [
+      "Flr"
+    ],
+    "attribute_first_touch": [
+      "Ann"
+    ],
+    "attribute_finishing": [
+      "Abs"
+    ],
+    "attribute_eccentricity": [
+      "Exz"
+    ],
+    "attribute_dribbling": [
+      "Dri"
+    ],
+    "attribute_determination": [
+      "Zie"
+    ],
+    "attribute_decisions": [
+      "Ent"
+    ],
+    "attribute_crossing": [
+      "Fla"
+    ],
+    "attribute_corners": [
+      "Eck"
+    ],
+    "attribute_concentration": [
+      "Kon"
+    ],
+    "attribute_composure": [
+      "Ner"
+    ],
+    "attribute_communication": [
+      "Kom"
+    ],
+    "attribute_command_of_area": [
+      "StK"
+    ],
+    "attribute_bravery": [
+      "Mut"
+    ],
+    "attribute_balance": [
+      "Bal"
+    ],
+    "attribute_anticipation": [
+      "Azp"
+    ],
+    "attribute_agility": [
+      "Bew"
+    ],
+    "attribute_aggression": [
+      "Agg"
+    ],
+    "attribute_aerial_reach": [
+      "HB"
+    ]
+  },
+  "ambiguous": {
+    "Abs": {
+      "context": {
+        "statistic_offsides": {
+          "target": "statistic_offsides",
+          "neighbors": [
+            "11m-Tor",
+            "Distanz",
+            "Drb",
+            "Elfer",
+            "Ent Päs",
+            "Freistöße",
+            "Pas V",
+            "Pr Pässe",
+            "Ps A",
+            "Sprints/90"
+          ],
+          "excludesCategory": "goalkeeper"
+        },
+        "attribute_kicking": {
+          "target": "attribute_kicking",
+          "neighbors": [
+            "Dck",
+            "Einw",
+            "Flr",
+            "Fre",
+            "Füh",
+            "Gft",
+            "Hal",
+            "Kpf",
+            "Spr",
+            "WS"
+          ],
+          "excludesCategory": "statistic"
+        },
+        "attribute_finishing": {
+          "target": "attribute_finishing",
+          "neighbors": [
+            "Ann",
+            "Dri",
+            "Ent",
+            "Exz",
+            "Fla",
+            "Flr",
+            "Fre",
+            "Hal",
+            "Kpf",
+            "Zie"
+          ],
+          "excludesCategory": "goalkeeper"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "TW": "GK",
+      "V (L)": "D (L)",
+      "V (Z)": "D (C)",
+      "V (R)": "D (R)",
+      "FV (L)": "WB (L)",
+      "FV (R)": "WB (R)",
+      "DM": "DM",
+      "M (L)": "M (L)",
+      "M (Z)": "M (C)",
+      "M (R)": "M (R)",
+      "OM (L)": "AM (L)",
+      "OM (Z)": "AM (C)",
+      "OM (R)": "AM (R)",
+      "ST (Z)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "Nein": "No",
+      "Ja": "Yes"
+    },
+    "foot_strength": {
+      "Passabel": "Reasonable",
+      "Schwach": "Weak",
+      "Sehr stark": "Very Strong",
+      "Sehr schwach": "Very Weak",
+      "Gut": "Fairly Strong",
+      "Stark": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Monat für Monat": "Month To Month",
+      "Vollzeitvertrag": "Full Contract",
+      "Leihe": "Loan"
+    },
+    "basic_style": {
+      "Kreativ": "Creative",
+      "Physisch": "Physical",
+      "Intelligent": "Intelligent",
+      "Stark auf der Linie": "Shot Stopper",
+      "Führungsperson": "Leader",
+      "Technisch": "Technical",
+      "Durchsetzungsfähig": "Assertive",
+      "Verteiler": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Ausgebildet im Land (15–21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

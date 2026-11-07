@@ -1,0 +1,61 @@
+{
+  "columns": {
+    "age": "Ålder",
+    "club": "Klubb",
+    "name": "Namn",
+    "position": "Position",
+    "suggestion": "Förslag",
+    "totalScore": "Betyg"
+  },
+  "engines": {
+    "AsianFusion": "Asian Fusion",
+    "Default": "Standard",
+    "FMTweak": "FM Tweak"
+  },
+  "positions": {
+    "AMC": "Offensiv mittfältare",
+    "AMLR": "Ving",
+    "BEST": "Bästa Roll",
+    "DC": "Mittback",
+    "DLR": "Back",
+    "DMC": "Defensiv mittfältare",
+    "GK": "Målvakt",
+    "MC": "Central mittfältare",
+    "MLR": "Ytter",
+    "STC": "Anfallare",
+    "WBLR": "Wingback"
+  },
+  "stats": {
+    "Attr Score": "Attr Poäng",
+    "Stat Score": "Stat Poäng",
+    "Total Score": "Total Poäng"
+  },
+  "ui": {
+    "columns": "Hantera kolumner",
+    "drop_area_hint": "(En fil med attribut- och statistikdata)",
+    "drop_area_text": "Klicka eller dra filen hit",
+    "drop_zone_title": "Uppladdningszon",
+    "error": "Fel",
+    "first_page": "Första sidan",
+    "language": "Språk",
+    "language_names": {
+      "da": "Danska",
+      "de": "Tyska",
+      "en": "Engelska",
+      "no": "Norska",
+      "sv": "Svenska"
+    },
+    "last_page": "Sista sidan",
+    "loading": "Laddar...",
+    "next_page": "Nästa sida",
+    "no_data": "Ingen data",
+    "of": "av",
+    "page": "Sida",
+    "prev_page": "Föregående sida",
+    "processing": "Bearbetar",
+    "settings": "Inställningar",
+    "showing_results": "Visar {count} av {total} spelare",
+    "success": "Lyckades!",
+    "waiting": "Väntar..."
+  }
+}
