@@ -1,0 +1,20 @@
+# LDC domain contract (League Difficulty Coefficient)
+
+Status: Active  
+Last Reviewed: 2026-11-07  
+See also: `src/computing/ldcStatApplication.ts`, `src/computing/ldcNations.ts`
+
+This contract applies to every change in `src/features/ldc/`, `src/computing/ldc*.ts` and `src/ui/ldc*.ts`.
+
+- React UI: `src/features/ldc/`; domain calculations: `src/computing/ldc*.ts`; remaining compatibility actions: `src/ui/ldc*.ts`.
+- The Premier League, or the chosen base league, is normalised to the multiplier `1.000`. Very small multipliers for distant lower leagues are a deliberate domain choice, not a value to clamp silently; `ldcRaw` is rounded to 8 significant digits (not decimal places), so that small values stay distinguishable.
+- Apply LDC only to the explicit allowlist of volume statistics in `src/computing/ldcStatApplication.ts`. A regression test checks `LDC_VOLUME_STATS` against every non-ratio key in `STATS_CONFIG` (role scoring) AND in `POSITION_FILTERS` (role qualification thresholds). These are two different configurations and BOTH must be covered; a statistic used only as a filter threshold (for example GK `Pas C/90`, `Svh/90`) matters as much as one used in scoring. This includes derived aliases (`Shot/90` next to `Shots/90`) and physical statistics (`Dist/90`/`Sprints/90`).
+- "Lower is better" statistics are adjusted inversely; signed "higher is better" statistics multiply positive values and adjust negative ones inversely. The inverse factor (division) is capped at x100 (`INVERSE_ADJUSTMENT_MAX_FACTOR`). Adjusted values below 0.01 are written with a dynamic number of decimal places in fixed-point notation, NEVER in scientific notation (the shared `parseNumber()` strips `e` and would read 5e-9 as 5).
+- Unrecognised player leagues get the neutral multiplier `1.000`; applying LDC while it is enabled asks for confirmation when unrecognised leagues remain, and warns when the import has no usable `Division` column and no `Based In`/`Nation` data.
+- A league's identity is `name+nation`. With an explicit country there is no fallback to a league or mapping of the same name from another country. Countries are canonicalised symmetrically by `src/computing/ldcNations.ts` on BOTH sides (player data: FM codes and full English names; imported and legacy league lists) to the same Polish exonyms, at every entry point (CSV/HTML/built-in import, JSON settings import, hydration of saved settings, identity keys, duplicate name detection), so that no raw FM code remains in `LeagueData.nation`. `Based In` is the league's country, used everywhere for matching and scoring; `Nation` is the player's nationality and MUST NOT be used as a fallback in LDC code.
+- Tier stars: `0.5-5.0`. A missing value is diagnosed and counted as level `0.5`, never `0`; the simple model ignores stars without removing them. Stars are parsed and kept on import regardless of the active model. Detection of duplicate `ldcRaw` values works in both models, with suggestions that depend on the model.
+- Changing the model keeps leagues, IDs, countries, ranks and existing stars. Switching to the tier model fills in only missing stars, from the rank.
+- The main LDC modal is an editing session: `Anuluj` (Cancel), the backdrop and closing restore the state from when it opened; `Zastosuj` (Apply) saves and applies the draft. League mappings are transactional within the session (kept in memory until applied).
+- `persistSettings()` (import and reset paths) is deferred while an editing session of the modal is active, as `commitEditSession` does; do not call it directly from a path that should wait for "Apply".
+- Validate imported and saved LDC data with Zod before changing shared state. Cache keys must include every field that affects matching or calculation.
+- Remaining debt: the mutable singleton `ldcSettings`, Dexie/localStorage compatibility and the synchronisation in `src/features/ldc/useLdcStore.ts`; remove these seams only behind parity tests.

@@ -1,0 +1,519 @@
+{
+  "id": "pt",
+  "headers": {
+    "basic_uid": [
+      "IDU"
+    ],
+    "basic_name": [
+      "Nome"
+    ],
+    "basic_position": [
+      "Posição"
+    ],
+    "basic_sec_position": [
+      "Posição Sec."
+    ],
+    "basic_dob": [
+      "Data Nasc."
+    ],
+    "basic_nationality": [
+      "Nac"
+    ],
+    "basic_second_nationality": [
+      "2ª Nac"
+    ],
+    "basic_eu_national": [
+      "Comunitário"
+    ],
+    "basic_home_grown_status": [
+      "Situação dos Jogadores da Formação do Clube"
+    ],
+    "basic_information": [
+      "Inf"
+    ],
+    "basic_left_foot": [
+      "Pé Esquerdo"
+    ],
+    "basic_right_foot": [
+      "Pé Direito"
+    ],
+    "basic_club": [
+      "Clube"
+    ],
+    "basic_division": [
+      "Divisão"
+    ],
+    "basic_based_in": [
+      "Baseado Em"
+    ],
+    "basic_transfer_value": [
+      "Valor Estimado"
+    ],
+    "basic_asking_price": [
+      "Preço Exigido"
+    ],
+    "basic_wage": [
+      "Salário"
+    ],
+    "basic_contract_type": [
+      "TI/P"
+    ],
+    "basic_contract_type_detail": [
+      "Tipo"
+    ],
+    "basic_expires": [
+      "Expira"
+    ],
+    "basic_style": [
+      "Estilo"
+    ],
+    "basic_personality": [
+      "Personalidade"
+    ],
+    "basic_media_handling": [
+      "Relação com Imprensa"
+    ],
+    "statistic_apps": [
+      "Jogos"
+    ],
+    "statistic_mins": [
+      "Mins"
+    ],
+    "statistic_average_rating": [
+      "Cl Med"
+    ],
+    "statistic_player_of_match": [
+      "HdJ"
+    ],
+    "statistic_goals": [
+      "Gls"
+    ],
+    "statistic_goals_outside_box": [
+      "Golos fora da área"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "Ast"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Remates"
+    ],
+    "statistic_shots_on_target": [
+      "Rem %"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Remates fora da área/90"
+    ],
+    "statistic_free_kick_shots": [
+      "Rems.livres"
+    ],
+    "statistic_penalties": [
+      "Pens"
+    ],
+    "statistic_penalties_scored": [
+      "Pens M"
+    ],
+    "statistic_distance": [
+      "Distância"
+    ],
+    "statistic_sprints_per_90": [
+      "Sprints/90"
+    ],
+    "statistic_offsides": [
+      "Fj"
+    ],
+    "statistic_dribbles": [
+      "Fnt"
+    ],
+    "statistic_passes_attempted": [
+      "Pas A"
+    ],
+    "statistic_passes_completed": [
+      "Ps C"
+    ],
+    "statistic_progressive_passes": [
+      "Passes prog."
+    ],
+    "statistic_key_passes": [
+      "Pass D"
+    ],
+    "statistic_open_play_key_passes": [
+      "PD-JA"
+    ],
+    "statistic_chances_created_per_90": [
+      "Op C/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "OCG"
+    ],
+    "statistic_crosses_attempted": [
+      "Cr T"
+    ],
+    "statistic_crosses_completed": [
+      "Cr C"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "CT-JA"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "CC-JA"
+    ],
+    "statistic_fouls": [
+      "Fls"
+    ],
+    "statistic_fouls_against": [
+      "FC"
+    ],
+    "statistic_yellow_cards": [
+      "Amr"
+    ],
+    "statistic_red_cards": [
+      "Vermelhos"
+    ],
+    "statistic_headers_attempted": [
+      "Cab A"
+    ],
+    "statistic_headers_won": [
+      "Cabs"
+    ],
+    "statistic_key_headers_per_90": [
+      "Cab Dec/90"
+    ],
+    "statistic_pressures_attempted": [
+      "Press. tent."
+    ],
+    "statistic_pressures_completed": [
+      "Press. conc."
+    ],
+    "statistic_possession_won_per_90": [
+      "Poss Con/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "Poss Perd/90"
+    ],
+    "statistic_tackles_attempted": [
+      "T Desa"
+    ],
+    "statistic_tackles_completed": [
+      "Des C"
+    ],
+    "statistic_key_tackles": [
+      "Crt D"
+    ],
+    "statistic_interceptions": [
+      "Crt"
+    ],
+    "statistic_shots_blocked": [
+      "Rems Bloq"
+    ],
+    "statistic_blocks": [
+      "Blq"
+    ],
+    "statistic_clearances": [
+      "Alívios"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "Gl Err"
+    ],
+    "statistic_xgp": [
+      "xGD"
+    ],
+    "statistic_goals_conceded": [
+      "Sofr"
+    ],
+    "statistic_saves_tipped": [
+      "Dft"
+    ],
+    "statistic_saves_parried": [
+      "Dfa"
+    ],
+    "statistic_saves_held": [
+      "Ds"
+    ],
+    "statistic_penalties_faced": [
+      "Pen. Enfrentados"
+    ],
+    "statistic_penalties_saved": [
+      "Pen. Defendidos"
+    ],
+    "statistic_clean_sheets": [
+      "Sem golos sofridos"
+    ],
+    "attribute_acceleration": [
+      "Acl"
+    ],
+    "attribute_work_rate": [
+      "In Tr"
+    ],
+    "attribute_vision": [
+      "Vis"
+    ],
+    "attribute_throwing": [
+      "Lan"
+    ],
+    "attribute_technique": [
+      "Téc"
+    ],
+    "attribute_teamwork": [
+      "Tr Eq"
+    ],
+    "attribute_tackling": [
+      "Des"
+    ],
+    "attribute_strength": [
+      "For"
+    ],
+    "attribute_stamina": [
+      "Res"
+    ],
+    "attribute_rushing_out": [
+      "TSB"
+    ],
+    "attribute_reflexes": [
+      "Ref"
+    ],
+    "attribute_tendency_to_punch": [
+      "Soc"
+    ],
+    "attribute_positioning": [
+      "Pos"
+    ],
+    "attribute_penalty_taking": [
+      "Pen"
+    ],
+    "attribute_passing": [
+      "Pas"
+    ],
+    "attribute_pace": [
+      "Vel"
+    ],
+    "attribute_one_on_ones": [
+      "1x1"
+    ],
+    "attribute_off_the_ball": [
+      "SB"
+    ],
+    "attribute_natural_fitness": [
+      "AF"
+    ],
+    "attribute_marking": [
+      "Mar"
+    ],
+    "attribute_long_throws": [
+      "LnçL"
+    ],
+    "attribute_long_shots": [
+      "Rem Lo"
+    ],
+    "attribute_leadership": [
+      "Lid"
+    ],
+    "attribute_kicking": [
+      "Pont"
+    ],
+    "attribute_jumping_reach": [
+      "Imp"
+    ],
+    "attribute_heading": [
+      "Cab"
+    ],
+    "attribute_handling": [
+      "Jg Mãos"
+    ],
+    "attribute_free_kicks": [
+      "Liv"
+    ],
+    "attribute_flair": [
+      "Imp"
+    ],
+    "attribute_first_touch": [
+      "Pri"
+    ],
+    "attribute_finishing": [
+      "Fnl"
+    ],
+    "attribute_eccentricity": [
+      "Exc"
+    ],
+    "attribute_dribbling": [
+      "Fnt"
+    ],
+    "attribute_determination": [
+      "Det"
+    ],
+    "attribute_decisions": [
+      "Decis"
+    ],
+    "attribute_crossing": [
+      "Cruz"
+    ],
+    "attribute_corners": [
+      "Cnt"
+    ],
+    "attribute_concentration": [
+      "Cnc"
+    ],
+    "attribute_composure": [
+      "Cmp"
+    ],
+    "attribute_communication": [
+      "Com"
+    ],
+    "attribute_command_of_area": [
+      "Cmd"
+    ],
+    "attribute_bravery": [
+      "Bra"
+    ],
+    "attribute_balance": [
+      "Eql"
+    ],
+    "attribute_anticipation": [
+      "Ant"
+    ],
+    "attribute_agility": [
+      "Agi"
+    ],
+    "attribute_aggression": [
+      "Agr"
+    ],
+    "attribute_aerial_reach": [
+      "Aer"
+    ]
+  },
+  "ambiguous": {
+    "Fnt": {
+      "context": {
+        "statistic_dribbles": {
+          "target": "statistic_dribbles",
+          "neighbors": [
+            "Distância",
+            "Fj",
+            "PD-JA",
+            "Pas A",
+            "Pass D",
+            "Passes prog.",
+            "Pens",
+            "Pens M",
+            "Ps C",
+            "Sprints/90"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_dribbling": {
+          "target": "attribute_dribbling",
+          "neighbors": [
+            "Cnc",
+            "Cnt",
+            "Cruz",
+            "Decis",
+            "Det",
+            "Exc",
+            "Fnl",
+            "Imp",
+            "Liv",
+            "Pri"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Imp": {
+      "context": {
+        "attribute_jumping_reach": {
+          "target": "attribute_jumping_reach",
+          "neighbors": [
+            "Cab",
+            "Imp",
+            "Jg Mãos",
+            "Lid",
+            "Liv",
+            "LnçL",
+            "Mar",
+            "Pont",
+            "Pri",
+            "Rem Lo"
+          ],
+          "excludesCategory": "mental"
+        },
+        "attribute_flair": {
+          "target": "attribute_flair",
+          "neighbors": [
+            "Cab",
+            "Det",
+            "Exc",
+            "Fnl",
+            "Fnt",
+            "Imp",
+            "Jg Mãos",
+            "Liv",
+            "Pont",
+            "Pri"
+          ],
+          "excludesCategory": "physical"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "GR": "GK",
+      "D (E)": "D (L)",
+      "D (C)": "D (C)",
+      "D (D)": "D (R)",
+      "DA (E)": "WB (L)",
+      "DA (D)": "WB (R)",
+      "MD": "DM",
+      "M (E)": "M (L)",
+      "M (C)": "M (C)",
+      "M (D)": "M (R)",
+      "MO (E)": "AM (L)",
+      "MO (C)": "AM (C)",
+      "MO (D)": "AM (R)",
+      "PL (C)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "Não": "No",
+      "Sim": "Yes"
+    },
+    "foot_strength": {
+      "Razoável": "Reasonable",
+      "Fraco": "Weak",
+      "Muito Forte": "Very Strong",
+      "Muito Fraco": "Very Weak",
+      "Bastante Forte": "Fairly Strong",
+      "Forte": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Mês a mês": "Month To Month",
+      "Contrato Profissional": "Full Contract",
+      "Empréstimo": "Loan"
+    },
+    "basic_style": {
+      "Criatividade": "Creative",
+      "Físico": "Physical",
+      "Inteligente": "Intelligent",
+      "Defesa de Remates": "Shot Stopper",
+      "Líder": "Leader",
+      "Técnica": "Technical",
+      "Assertivo": "Assertive",
+      "Distribuidor": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Treinado no país (15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

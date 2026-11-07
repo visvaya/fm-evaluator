@@ -1,0 +1,60 @@
+{
+  "columns": {
+    "age": "年龄",
+    "club": "俱乐部",
+    "name": "姓名",
+    "position": "位置",
+    "suggestion": "建议",
+    "totalScore": "评分"
+  },
+  "engines": {
+    "AsianFusion": "亚洲融合",
+    "Default": "默认",
+    "FMTweak": "FM Tweak"
+  },
+  "positions": {
+    "AMC": "前腰",
+    "AMLR": "边锋",
+    "BEST": "最佳位置",
+    "DC": "中后卫",
+    "DLR": "边后卫",
+    "DMC": "后腰",
+    "GK": "门将",
+    "MC": "中场",
+    "MLR": "边前卫",
+    "STC": "前锋",
+    "WBLR": "边翼卫"
+  },
+  "stats": {
+    "Attr Score": "属性分",
+    "Stat Score": "统计分",
+    "Total Score": "总分"
+  },
+  "ui": {
+    "columns": "管理列",
+    "drop_area_hint": "(包含属性和统计数据的文件)",
+    "drop_area_text": "点击或拖放文件到此处",
+    "drop_zone_title": "上传区域",
+    "error": "错误",
+    "first_page": "第一页",
+    "language": "语言",
+    "language_names": {
+      "en": "英语",
+      "ja": "日语",
+      "ko": "韩语",
+      "zh": "中文"
+    },
+    "last_page": "最后一页",
+    "loading": "加载中...",
+    "next_page": "下一页",
+    "no_data": "无数据",
+    "of": "/",
+    "page": "页",
+    "prev_page": "上一页",
+    "processing": "处理中",
+    "settings": "设置",
+    "showing_results": "显示 {count} / {total} 名球员",
+    "success": "成功!",
+    "waiting": "等待中..."
+  }
+}

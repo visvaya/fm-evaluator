@@ -1,0 +1,631 @@
+{
+  "id": "pl",
+  "headers": {
+    "basic_uid": [
+      "ID"
+    ],
+    "basic_name": [
+      "Nazwisko"
+    ],
+    "basic_position": [
+      "Pozycja"
+    ],
+    "basic_sec_position": [
+      "Pozycja pob."
+    ],
+    "basic_age": [
+      "Wiek"
+    ],
+    "basic_preferred_foot": [
+      "Preferowana noga"
+    ],
+    "basic_dob": [
+      "Ur."
+    ],
+    "basic_nationality": [
+      "Narodowość"
+    ],
+    "basic_second_nationality": [
+      "2. Nar."
+    ],
+    "basic_eu_national": [
+      "Obywatel UE"
+    ],
+    "basic_home_grown_status": [
+      "Status wychowanka"
+    ],
+    "basic_information": [
+      "Inf"
+    ],
+    "basic_left_foot": [
+      "Lewa noga"
+    ],
+    "basic_right_foot": [
+      "Prawa noga"
+    ],
+    "basic_club": [
+      "Klub"
+    ],
+    "basic_division": [
+      "Liga"
+    ],
+    "basic_based_in": [
+      "Kraj"
+    ],
+    "basic_transfer_value": [
+      "Szacowana wartość"
+    ],
+    "basic_asking_price": [
+      "Oczekiwania finansowe"
+    ],
+    "basic_wage": [
+      "Płaca"
+    ],
+    "basic_contract_type": [
+      "P/PZ"
+    ],
+    "basic_contract_type_detail": [
+      "Typ"
+    ],
+    "basic_expires": [
+      "Wygasa"
+    ],
+    "basic_style": [
+      "Styl"
+    ],
+    "basic_personality": [
+      "Charakter"
+    ],
+    "basic_media_handling": [
+      "Kontakty z mediami"
+    ],
+    "statistic_apps": [
+      "Występy"
+    ],
+    "statistic_mins": [
+      "Min."
+    ],
+    "statistic_average_rating": [
+      "Śr. oc."
+    ],
+    "statistic_player_of_match": [
+      "MVP"
+    ],
+    "statistic_goals": [
+      "Br."
+    ],
+    "statistic_goals_outside_box": [
+      "Gole spoza PK"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "As."
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Strzały"
+    ],
+    "statistic_shots_on_target": [
+      "S Celne"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Strzały spoza PK/90"
+    ],
+    "statistic_free_kick_shots": [
+      "Strzały z rz. wol."
+    ],
+    "statistic_penalties": [
+      "Karne"
+    ],
+    "statistic_penalties_scored": [
+      "Gol (k)"
+    ],
+    "statistic_distance": [
+      "Odległość"
+    ],
+    "statistic_sprints_per_90": [
+      "Sprinty/90"
+    ],
+    "statistic_offsides": [
+      "Spa"
+    ],
+    "statistic_dribbles": [
+      "Drb"
+    ],
+    "statistic_passes_attempted": [
+      "Pod"
+    ],
+    "statistic_passes_completed": [
+      "PodC"
+    ],
+    "statistic_progressive_passes": [
+      "Podania dP"
+    ],
+    "statistic_key_passes": [
+      "K Pod"
+    ],
+    "statistic_open_play_key_passes": [
+      "KPzG"
+    ],
+    "statistic_chances_created_per_90": [
+      "StS/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "Set"
+    ],
+    "statistic_crosses_attempted": [
+      "Doś P"
+    ],
+    "statistic_crosses_completed": [
+      "Doś C"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "Pr Doś zG"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "C Doś zG"
+    ],
+    "statistic_fouls": [
+      "Faule"
+    ],
+    "statistic_fouls_against": [
+      "Fln"
+    ],
+    "statistic_yellow_cards": [
+      "ŻK"
+    ],
+    "statistic_red_cards": [
+      "CzK"
+    ],
+    "statistic_headers_attempted": [
+      "Głw P"
+    ],
+    "statistic_headers_won": [
+      "Głw"
+    ],
+    "statistic_key_headers_per_90": [
+      "K Głw/90"
+    ],
+    "statistic_pressures_attempted": [
+      "Pr Pres"
+    ],
+    "statistic_pressures_completed": [
+      "Ud Pres"
+    ],
+    "statistic_possession_won_per_90": [
+      "Odz Płk/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "Str Płk/90"
+    ],
+    "statistic_tackles_attempted": [
+      "Wślizgi"
+    ],
+    "statistic_tackles_completed": [
+      "U Odb"
+    ],
+    "statistic_key_tackles": [
+      "K Odb"
+    ],
+    "statistic_interceptions": [
+      "Prz"
+    ],
+    "statistic_shots_blocked": [
+      "Strz ZablO"
+    ],
+    "statistic_blocks": [
+      "Blk"
+    ],
+    "statistic_clearances": [
+      "Wybicia"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "Zaw Br"
+    ],
+    "statistic_xgp": [
+      "xGUn"
+    ],
+    "statistic_goals_conceded": [
+      "Strc."
+    ],
+    "statistic_saves_tipped": [
+      "Ssr"
+    ],
+    "statistic_saves_parried": [
+      "Sps"
+    ],
+    "statistic_saves_held": [
+      "Obs"
+    ],
+    "statistic_penalties_faced": [
+      "Karne"
+    ],
+    "statistic_penalties_saved": [
+      "Obr. karne"
+    ],
+    "statistic_clean_sheets": [
+      "Mecze bez utraty gola"
+    ],
+    "attribute_acceleration": [
+      "Psp"
+    ],
+    "attribute_work_rate": [
+      "Pra"
+    ],
+    "attribute_vision": [
+      "Przg"
+    ],
+    "attribute_throwing": [
+      "Rzu"
+    ],
+    "attribute_technique": [
+      "Tec"
+    ],
+    "attribute_teamwork": [
+      "Wsp"
+    ],
+    "attribute_tackling": [
+      "Odb"
+    ],
+    "attribute_strength": [
+      "Sił"
+    ],
+    "attribute_stamina": [
+      "Wyt"
+    ],
+    "attribute_rushing_out": [
+      "WPK"
+    ],
+    "attribute_reflexes": [
+      "Ref"
+    ],
+    "attribute_tendency_to_punch": [
+      "Pst"
+    ],
+    "attribute_positioning": [
+      "Ust"
+    ],
+    "attribute_penalty_taking": [
+      "RzK"
+    ],
+    "attribute_passing": [
+      "Pod"
+    ],
+    "attribute_pace": [
+      "Szb"
+    ],
+    "attribute_one_on_ones": [
+      "1v1"
+    ],
+    "attribute_off_the_ball": [
+      "GbP"
+    ],
+    "attribute_natural_fitness": [
+      "NSp"
+    ],
+    "attribute_marking": [
+      "Kry"
+    ],
+    "attribute_long_throws": [
+      "D Wrz"
+    ],
+    "attribute_long_shots": [
+      "Str"
+    ],
+    "attribute_leadership": [
+      "Prz"
+    ],
+    "attribute_kicking": [
+      "Wkp"
+    ],
+    "attribute_jumping_reach": [
+      "Sko"
+    ],
+    "attribute_heading": [
+      "Głw"
+    ],
+    "attribute_handling": [
+      "Chw"
+    ],
+    "attribute_free_kicks": [
+      "RzW"
+    ],
+    "attribute_flair": [
+      "Bły"
+    ],
+    "attribute_first_touch": [
+      "PPł"
+    ],
+    "attribute_finishing": [
+      "Wyk"
+    ],
+    "attribute_eccentricity": [
+      "Eks"
+    ],
+    "attribute_dribbling": [
+      "Drb"
+    ],
+    "attribute_determination": [
+      "Det"
+    ],
+    "attribute_decisions": [
+      "Dec"
+    ],
+    "attribute_crossing": [
+      "Dśr"
+    ],
+    "attribute_corners": [
+      "RzR"
+    ],
+    "attribute_concentration": [
+      "Knc"
+    ],
+    "attribute_composure": [
+      "Opa"
+    ],
+    "attribute_communication": [
+      "Kom"
+    ],
+    "attribute_command_of_area": [
+      "GnP"
+    ],
+    "attribute_bravery": [
+      "Wal"
+    ],
+    "attribute_balance": [
+      "Rów"
+    ],
+    "attribute_anticipation": [
+      "Pwd"
+    ],
+    "attribute_agility": [
+      "Zwi"
+    ],
+    "attribute_aggression": [
+      "Agr"
+    ],
+    "attribute_aerial_reach": [
+      "ZWy"
+    ]
+  },
+  "ambiguous": {
+    "Karne": {
+      "context": {
+        "statistic_penalties": {
+          "target": "statistic_penalties",
+          "neighbors": [
+            "Drb",
+            "Gol (k)",
+            "Odległość",
+            "S Celne",
+            "Spa",
+            "Sprinty/90",
+            "Strzały",
+            "Strzały spoza PK/90",
+            "Strzały z rz. wol.",
+            "xA"
+          ]
+        },
+        "statistic_penalties_faced": {
+          "target": "statistic_penalties_faced",
+          "neighbors": [
+            "Mecze bez utraty gola",
+            "Obr. karne",
+            "Obs",
+            "Pra",
+            "Przg",
+            "Psp",
+            "Sps",
+            "Ssr",
+            "Strc.",
+            "xGUn"
+          ]
+        }
+      }
+    },
+    "Drb": {
+      "context": {
+        "statistic_dribbles": {
+          "target": "statistic_dribbles",
+          "neighbors": [
+            "Gol (k)",
+            "K Pod",
+            "KPzG",
+            "Karne",
+            "Odległość",
+            "Pod",
+            "PodC",
+            "Podania dP",
+            "Spa",
+            "Sprinty/90"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_dribbling": {
+          "target": "attribute_dribbling",
+          "neighbors": [
+            "Bły",
+            "Dec",
+            "Det",
+            "Dśr",
+            "Eks",
+            "Knc",
+            "PPł",
+            "RzR",
+            "RzW",
+            "Wyk"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Pod": {
+      "context": {
+        "statistic_passes_attempted": {
+          "target": "statistic_passes_attempted",
+          "neighbors": [
+            "Drb",
+            "Gol (k)",
+            "K Pod",
+            "KPzG",
+            "Odległość",
+            "PodC",
+            "Podania dP",
+            "Spa",
+            "Sprinty/90",
+            "StS/90"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_passing": {
+          "target": "attribute_passing",
+          "neighbors": [
+            "1v1",
+            "GbP",
+            "Kry",
+            "NSp",
+            "Pst",
+            "Ref",
+            "RzK",
+            "Szb",
+            "Ust",
+            "WPK"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Głw": {
+      "context": {
+        "statistic_headers_won": {
+          "target": "statistic_headers_won",
+          "neighbors": [
+            "CzK",
+            "Faule",
+            "Fln",
+            "Głw P",
+            "K Głw/90",
+            "Odz Płk/90",
+            "Pr Pres",
+            "Str Płk/90",
+            "Ud Pres",
+            "ŻK"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_heading": {
+          "target": "attribute_heading",
+          "neighbors": [
+            "Bły",
+            "Chw",
+            "D Wrz",
+            "PPł",
+            "Prz",
+            "RzW",
+            "Sko",
+            "Str",
+            "Wkp",
+            "Wyk"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Prz": {
+      "context": {
+        "statistic_interceptions": {
+          "target": "statistic_interceptions",
+          "neighbors": [
+            "Blk",
+            "K Odb",
+            "Odz Płk/90",
+            "Str Płk/90",
+            "Strz ZablO",
+            "U Odb",
+            "Wybicia",
+            "Wślizgi",
+            "Zaw Br",
+            "xGUn"
+          ],
+          "excludesCategory": "mental"
+        },
+        "attribute_leadership": {
+          "target": "attribute_leadership",
+          "neighbors": [
+            "Chw",
+            "D Wrz",
+            "GbP",
+            "Głw",
+            "Kry",
+            "NSp",
+            "RzW",
+            "Sko",
+            "Str",
+            "Wkp"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "BR": "GK",
+      "O (L)": "D (L)",
+      "O (Ś)": "D (C)",
+      "O (P)": "D (R)",
+      "WO (L)": "WB (L)",
+      "WO (P)": "WB (R)",
+      "DP": "DM",
+      "P (L)": "M (L)",
+      "P (Ś)": "M (C)",
+      "P (P)": "M (R)",
+      "OP (L)": "AM (L)",
+      "OP (Ś)": "AM (C)",
+      "OP (P)": "AM (R)",
+      "N (Ś)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "Nie": "No",
+      "Tak": "Yes"
+    },
+    "foot_strength": {
+      "Przyzwoita": "Reasonable",
+      "Słaba": "Weak",
+      "Bardzo mocna": "Very Strong",
+      "Bardzo słaba": "Very Weak",
+      "Względnie mocna": "Fairly Strong",
+      "Mocna": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Miesięczny": "Month To Month",
+      "Kontrakt profesjonalny": "Full Contract",
+      "Wypożyczenie": "Loan"
+    },
+    "basic_style": {
+      "Kreator": "Creative",
+      "Twardziel": "Physical",
+      "Inteligentny": "Intelligent",
+      "Strażnik bramki": "Shot Stopper",
+      "Przywódca": "Leader",
+      "Technik": "Technical",
+      "Asertywny": "Assertive",
+      "Rozprowadzający": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Szkolony w kraju (15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

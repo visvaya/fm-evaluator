@@ -1,0 +1,483 @@
+{
+  "id": "ja",
+  "headers": {
+    "basic_uid": [
+      "UID"
+    ],
+    "basic_name": [
+      "名前"
+    ],
+    "basic_position": [
+      "ポジション"
+    ],
+    "basic_sec_position": [
+      "サブポジション"
+    ],
+    "basic_dob": [
+      "誕生日"
+    ],
+    "basic_nationality": [
+      "国"
+    ],
+    "basic_second_nationality": [
+      "第2国籍"
+    ],
+    "basic_eu_national": [
+      "EU加盟国"
+    ],
+    "basic_home_grown_status": [
+      "ホームグロウンステータス"
+    ],
+    "basic_information": [
+      "情報"
+    ],
+    "basic_left_foot": [
+      "左足"
+    ],
+    "basic_right_foot": [
+      "右足"
+    ],
+    "basic_club": [
+      "クラブ"
+    ],
+    "basic_division": [
+      "ディビジョン"
+    ],
+    "basic_based_in": [
+      "拠点"
+    ],
+    "basic_transfer_value": [
+      "市場価値"
+    ],
+    "basic_asking_price": [
+      "提示価格"
+    ],
+    "basic_wage": [
+      "給与"
+    ],
+    "basic_contract_type": [
+      "F／PT"
+    ],
+    "basic_contract_type_detail": [
+      "タイプ"
+    ],
+    "basic_expires": [
+      "満了日"
+    ],
+    "basic_style": [
+      "スタイル"
+    ],
+    "basic_personality": [
+      "性格"
+    ],
+    "basic_media_handling": [
+      "メディアへの対応"
+    ],
+    "statistic_apps": [
+      "出場"
+    ],
+    "statistic_mins": [
+      "分"
+    ],
+    "statistic_average_rating": [
+      "平均"
+    ],
+    "statistic_player_of_match": [
+      "MoM"
+    ],
+    "statistic_goals": [
+      "得点"
+    ],
+    "statistic_goals_outside_box": [
+      "エリア外からのゴール"
+    ],
+    "statistic_xg": [
+      "ゴール期待値"
+    ],
+    "statistic_assists": [
+      "アシ"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "シュート"
+    ],
+    "statistic_shots_on_target": [
+      "枠内"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "エリア外シュート数／90"
+    ],
+    "statistic_free_kick_shots": [
+      "FKシュート"
+    ],
+    "statistic_penalties": [
+      "PK"
+    ],
+    "statistic_penalties_scored": [
+      "PK得点"
+    ],
+    "statistic_distance": [
+      "距離"
+    ],
+    "statistic_sprints_per_90": [
+      "スプリント数／90"
+    ],
+    "statistic_offsides": [
+      "オフ"
+    ],
+    "statistic_dribbles": [
+      "ドリ数"
+    ],
+    "statistic_passes_attempted": [
+      "パス試行"
+    ],
+    "statistic_passes_completed": [
+      "パス成"
+    ],
+    "statistic_progressive_passes": [
+      "プログレパス"
+    ],
+    "statistic_key_passes": [
+      "キーパス"
+    ],
+    "statistic_open_play_key_passes": [
+      "OPキーパス"
+    ],
+    "statistic_chances_created_per_90": [
+      "チャン創／90"
+    ],
+    "statistic_clear_cut_chances": [
+      "決定機"
+    ],
+    "statistic_crosses_attempted": [
+      "クロ数"
+    ],
+    "statistic_crosses_completed": [
+      "クロ成"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "OPクロ試行"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "OPクロ成功"
+    ],
+    "statistic_fouls": [
+      "ファウル"
+    ],
+    "statistic_fouls_against": [
+      "被ファ"
+    ],
+    "statistic_yellow_cards": [
+      "イエロ"
+    ],
+    "statistic_red_cards": [
+      "レッド"
+    ],
+    "statistic_headers_attempted": [
+      "H試行"
+    ],
+    "statistic_headers_won": [
+      "H勝数"
+    ],
+    "statistic_key_headers_per_90": [
+      "重ヘッド／90"
+    ],
+    "statistic_pressures_attempted": [
+      "プレ試行"
+    ],
+    "statistic_pressures_completed": [
+      "プレ成"
+    ],
+    "statistic_possession_won_per_90": [
+      "奪取／90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "ロスト／90"
+    ],
+    "statistic_tackles_attempted": [
+      "タックル試行"
+    ],
+    "statistic_tackles_completed": [
+      "タックル成功"
+    ],
+    "statistic_key_tackles": [
+      "重タック"
+    ],
+    "statistic_interceptions": [
+      "イン"
+    ],
+    "statistic_shots_blocked": [
+      "シュブ"
+    ],
+    "statistic_blocks": [
+      "ブロ"
+    ],
+    "statistic_clearances": [
+      "クリア"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "失点ミス"
+    ],
+    "statistic_xgp": [
+      "失点阻止期待値"
+    ],
+    "statistic_goals_conceded": [
+      "失点"
+    ],
+    "statistic_saves_tipped": [
+      "はじ"
+    ],
+    "statistic_saves_parried": [
+      "跳返"
+    ],
+    "statistic_saves_held": [
+      "キャ"
+    ],
+    "statistic_penalties_faced": [
+      "被PK"
+    ],
+    "statistic_penalties_saved": [
+      "PKセーブ"
+    ],
+    "statistic_clean_sheets": [
+      "無失点"
+    ],
+    "attribute_acceleration": [
+      "加速"
+    ],
+    "attribute_work_rate": [
+      "運動"
+    ],
+    "attribute_vision": [
+      "視野"
+    ],
+    "attribute_throwing": [
+      "スロー"
+    ],
+    "attribute_technique": [
+      "テク"
+    ],
+    "attribute_teamwork": [
+      "チーム"
+    ],
+    "attribute_tackling": [
+      "タク"
+    ],
+    "attribute_strength": [
+      "強靭"
+    ],
+    "attribute_stamina": [
+      "スタ"
+    ],
+    "attribute_rushing_out": [
+      "飛出"
+    ],
+    "attribute_reflexes": [
+      "反射"
+    ],
+    "attribute_tendency_to_punch": [
+      "パンチ"
+    ],
+    "attribute_positioning": [
+      "ポジ"
+    ],
+    "attribute_penalty_taking": [
+      "PK"
+    ],
+    "attribute_passing": [
+      "パス"
+    ],
+    "attribute_pace": [
+      "スピ"
+    ],
+    "attribute_one_on_ones": [
+      "1対1"
+    ],
+    "attribute_off_the_ball": [
+      "オフボ"
+    ],
+    "attribute_natural_fitness": [
+      "体力"
+    ],
+    "attribute_marking": [
+      "マーク"
+    ],
+    "attribute_long_throws": [
+      "Lス"
+    ],
+    "attribute_long_shots": [
+      "Lシュート"
+    ],
+    "attribute_leadership": [
+      "リーダー"
+    ],
+    "attribute_kicking": [
+      "キック"
+    ],
+    "attribute_jumping_reach": [
+      "ジャン"
+    ],
+    "attribute_heading": [
+      "ヘッド"
+    ],
+    "attribute_handling": [
+      "ハンド"
+    ],
+    "attribute_free_kicks": [
+      "FK"
+    ],
+    "attribute_flair": [
+      "直観"
+    ],
+    "attribute_first_touch": [
+      "1st"
+    ],
+    "attribute_finishing": [
+      "決定"
+    ],
+    "attribute_eccentricity": [
+      "奇抜"
+    ],
+    "attribute_dribbling": [
+      "ドリ"
+    ],
+    "attribute_determination": [
+      "意志"
+    ],
+    "attribute_decisions": [
+      "判断"
+    ],
+    "attribute_crossing": [
+      "クロ"
+    ],
+    "attribute_corners": [
+      "CK"
+    ],
+    "attribute_concentration": [
+      "集中"
+    ],
+    "attribute_composure": [
+      "冷静"
+    ],
+    "attribute_communication": [
+      "コミュ"
+    ],
+    "attribute_command_of_area": [
+      "支配"
+    ],
+    "attribute_bravery": [
+      "度胸"
+    ],
+    "attribute_balance": [
+      "バラ"
+    ],
+    "attribute_anticipation": [
+      "予測"
+    ],
+    "attribute_agility": [
+      "俊敏"
+    ],
+    "attribute_aggression": [
+      "積極"
+    ],
+    "attribute_aerial_reach": [
+      "空中高"
+    ]
+  },
+  "ambiguous": {
+    "PK": {
+      "context": {
+        "statistic_penalties": {
+          "target": "statistic_penalties",
+          "neighbors": [
+            "FKシュート",
+            "PK得点",
+            "xA",
+            "エリア外シュート数／90",
+            "オフ",
+            "シュート",
+            "スプリント数／90",
+            "ドリ数",
+            "枠内",
+            "距離"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_penalty_taking": {
+          "target": "attribute_penalty_taking",
+          "neighbors": [
+            "1対1",
+            "オフボ",
+            "スタ",
+            "スピ",
+            "パス",
+            "パンチ",
+            "ポジ",
+            "体力",
+            "反射",
+            "飛出"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "GK": "GK",
+      "DF (L)": "D (L)",
+      "DF (C)": "D (C)",
+      "DF (R)": "D (R)",
+      "WB (L)": "WB (L)",
+      "WB (R)": "WB (R)",
+      "DM": "DM",
+      "MF (L)": "M (L)",
+      "MF (C)": "M (C)",
+      "MF (R)": "M (R)",
+      "AM (L)": "AM (L)",
+      "AM (C)": "AM (C)",
+      "AM (R)": "AM (R)",
+      "ST (C)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "い​い​え": "No",
+      "は​い": "Yes"
+    },
+    "foot_strength": {
+      "普通": "Reasonable",
+      "弱い": "Weak",
+      "き​わ​め​て​強い": "Very Strong",
+      "き​わ​め​て​弱い": "Very Weak",
+      "や​や​強い": "Fairly Strong",
+      "強い": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "月間契約": "Month To Month",
+      "フ​ル​タ​イ​ム​契約": "Full Contract",
+      "期限付移籍": "Loan"
+    },
+    "basic_style": {
+      "創造性": "Creative",
+      "フィジ​カ​ル": "Physical",
+      "頭脳的": "Intelligent",
+      "シュート​ス​トッパー": "Shot Stopper",
+      "リーダー": "Leader",
+      "テ​ク​ニ​カ​ル": "Technical",
+      "自信に​満ち​た": "Assertive",
+      "配球上手": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "国内で​育成（15歳-21歳）": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

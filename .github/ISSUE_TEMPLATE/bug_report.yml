@@ -1,0 +1,45 @@
+name: Bug report
+description: Something does not work as described.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thanks for the report. Please do not attach real save files or exports with personal data;
+        a few anonymised rows are enough. Security problems go through private reporting (see SECURITY.md),
+        not here.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what you saw instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Export the "Scouting" view from Football Manager as a web page
+        2. Import it
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: fm-version
+    attributes:
+      label: Football Manager version and interface language
+      placeholder: FM26, English
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and operating system
+      placeholder: Chrome 140, Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Runtime profile and any errors from the browser console, if you can see them.
+      render: text

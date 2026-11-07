@@ -1,0 +1,23 @@
+{
+  "locales": [
+    { "id": "en", "nativeName": "English", "aliases": ["en-us"] },
+    { "id": "pl", "nativeName": "Polski" },
+    { "id": "de", "nativeName": "Deutsch" },
+    { "id": "es", "nativeName": "Español" },
+    { "id": "fr", "nativeName": "Français" },
+    { "id": "it", "nativeName": "Italiano" },
+    { "id": "pt", "nativeName": "Português" },
+    { "id": "nl", "nativeName": "Nederlands" },
+    { "id": "da", "nativeName": "Dansk" },
+    { "id": "sv", "nativeName": "Svenska" },
+    { "id": "no", "nativeName": "Norsk" },
+    { "id": "ru", "nativeName": "Русский" },
+    { "id": "tr", "nativeName": "Türkçe" },
+    { "id": "el", "nativeName": "Ελληνικά" },
+    { "id": "ja", "nativeName": "日本語" },
+    { "id": "ko", "nativeName": "한국어" },
+    { "id": "zh", "nativeName": "中文" }
+  ],
+  "defaultLocale": "en",
+  "fallbackLocale": "en"
+}

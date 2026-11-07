@@ -1,0 +1,587 @@
+{
+  "id": "ko",
+  "headers": {
+    "basic_uid": [
+      "ID"
+    ],
+    "basic_name": [
+      "이름"
+    ],
+    "basic_position": [
+      "포지션"
+    ],
+    "basic_sec_position": [
+      "2차 포지션"
+    ],
+    "basic_dob": [
+      "생일"
+    ],
+    "basic_nationality": [
+      "국적"
+    ],
+    "basic_second_nationality": [
+      "2차 국적"
+    ],
+    "basic_eu_national": [
+      "EU 회원국"
+    ],
+    "basic_home_grown_status": [
+      "홈그로운 상태"
+    ],
+    "basic_information": [
+      "상태"
+    ],
+    "basic_left_foot": [
+      "왼발"
+    ],
+    "basic_right_foot": [
+      "오른발"
+    ],
+    "basic_club": [
+      "구단"
+    ],
+    "basic_division": [
+      "리그"
+    ],
+    "basic_based_in": [
+      "거주 국가"
+    ],
+    "basic_transfer_value": [
+      "몸값"
+    ],
+    "basic_asking_price": [
+      "이적 시 요구 금액"
+    ],
+    "basic_wage": [
+      "급료"
+    ],
+    "basic_contract_type": [
+      "F/PT"
+    ],
+    "basic_contract_type_detail": [
+      "유형"
+    ],
+    "basic_expires": [
+      "만료"
+    ],
+    "basic_style": [
+      "스타일"
+    ],
+    "basic_personality": [
+      "성격"
+    ],
+    "basic_media_handling": [
+      "언론 대처"
+    ],
+    "statistic_apps": [
+      "경기"
+    ],
+    "statistic_mins": [
+      "출장시간"
+    ],
+    "statistic_average_rating": [
+      "평균평점"
+    ],
+    "statistic_player_of_match": [
+      "MVP"
+    ],
+    "statistic_goals": [
+      "골"
+    ],
+    "statistic_goals_outside_box": [
+      "밖스 박에서 득점"
+    ],
+    "statistic_xg": [
+      "기대 득점"
+    ],
+    "statistic_assists": [
+      "도움"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "슈팅 수"
+    ],
+    "statistic_shots_on_target": [
+      "유효슛"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "박스 밖에서 슛/90"
+    ],
+    "statistic_free_kick_shots": [
+      "FK 슛"
+    ],
+    "statistic_penalties": [
+      "PK"
+    ],
+    "statistic_penalties_scored": [
+      "페널티 득점"
+    ],
+    "statistic_distance": [
+      "거리"
+    ],
+    "statistic_sprints_per_90": [
+      "스프린트/90분"
+    ],
+    "statistic_offsides": [
+      "퇴장"
+    ],
+    "statistic_dribbles": [
+      "드리블/90분"
+    ],
+    "statistic_passes_attempted": [
+      "패스 시도"
+    ],
+    "statistic_passes_completed": [
+      "패스 성공"
+    ],
+    "statistic_progressive_passes": [
+      "전진 패스"
+    ],
+    "statistic_key_passes": [
+      "패스(결)"
+    ],
+    "statistic_open_play_key_passes": [
+      "오픈-중요"
+    ],
+    "statistic_chances_created_per_90": [
+      "기회 창출/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "CCC"
+    ],
+    "statistic_crosses_attempted": [
+      "Cr A"
+    ],
+    "statistic_crosses_completed": [
+      "Cr C"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "오픈 플레이 크로스 시도"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "오픈 플레이 성공 크로스"
+    ],
+    "statistic_fouls": [
+      "Fls"
+    ],
+    "statistic_fouls_against": [
+      "FA"
+    ],
+    "statistic_yellow_cards": [
+      "경고"
+    ],
+    "statistic_red_cards": [
+      "퇴장"
+    ],
+    "statistic_headers_attempted": [
+      "헤더 시도"
+    ],
+    "statistic_headers_won": [
+      "헤더 성공"
+    ],
+    "statistic_key_headers_per_90": [
+      "중요 헤더/90분"
+    ],
+    "statistic_pressures_attempted": [
+      "압박 시도"
+    ],
+    "statistic_pressures_completed": [
+      "압박 성공"
+    ],
+    "statistic_possession_won_per_90": [
+      "소유권 획득/90분"
+    ],
+    "statistic_possession_lost_per_90": [
+      "소유권 상실/90분"
+    ],
+    "statistic_tackles_attempted": [
+      "태클 시도"
+    ],
+    "statistic_tackles_completed": [
+      "태클 완"
+    ],
+    "statistic_key_tackles": [
+      "태클(결)"
+    ],
+    "statistic_interceptions": [
+      "차단"
+    ],
+    "statistic_shots_blocked": [
+      "막은 슛"
+    ],
+    "statistic_blocks": [
+      "막음"
+    ],
+    "statistic_clearances": [
+      "걷어내기"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "자책골"
+    ],
+    "statistic_xgp": [
+      "xGP"
+    ],
+    "statistic_goals_conceded": [
+      "실점"
+    ],
+    "statistic_saves_tipped": [
+      "튕겨낸 슛"
+    ],
+    "statistic_saves_parried": [
+      "막은 슛"
+    ],
+    "statistic_saves_held": [
+      "잡은 슛"
+    ],
+    "statistic_penalties_faced": [
+      "상대한 PK"
+    ],
+    "statistic_penalties_saved": [
+      "방어한 PK"
+    ],
+    "statistic_clean_sheets": [
+      "무실점"
+    ],
+    "attribute_acceleration": [
+      "순간 속도"
+    ],
+    "attribute_work_rate": [
+      "활동"
+    ],
+    "attribute_vision": [
+      "시야"
+    ],
+    "attribute_throwing": [
+      "스로인"
+    ],
+    "attribute_technique": [
+      "기술"
+    ],
+    "attribute_teamwork": [
+      "팀워크"
+    ],
+    "attribute_tackling": [
+      "태클"
+    ],
+    "attribute_strength": [
+      "몸싸움"
+    ],
+    "attribute_stamina": [
+      "지구"
+    ],
+    "attribute_rushing_out": [
+      "돌진하는 경향"
+    ],
+    "attribute_reflexes": [
+      "반사"
+    ],
+    "attribute_tendency_to_punch": [
+      "펀칭 빈도"
+    ],
+    "attribute_positioning": [
+      "위치"
+    ],
+    "attribute_penalty_taking": [
+      "PK"
+    ],
+    "attribute_passing": [
+      "패스"
+    ],
+    "attribute_pace": [
+      "주력"
+    ],
+    "attribute_one_on_ones": [
+      "1대1"
+    ],
+    "attribute_off_the_ball": [
+      "오프 더 볼"
+    ],
+    "attribute_natural_fitness": [
+      "타고난 체력"
+    ],
+    "attribute_marking": [
+      "마크"
+    ],
+    "attribute_long_throws": [
+      "스로인"
+    ],
+    "attribute_long_shots": [
+      "롱슛"
+    ],
+    "attribute_leadership": [
+      "리더십"
+    ],
+    "attribute_kicking": [
+      "골킥"
+    ],
+    "attribute_jumping_reach": [
+      "점프"
+    ],
+    "attribute_heading": [
+      "헤더"
+    ],
+    "attribute_handling": [
+      "핸들"
+    ],
+    "attribute_free_kicks": [
+      "프리"
+    ],
+    "attribute_flair": [
+      "천재"
+    ],
+    "attribute_first_touch": [
+      "트랩"
+    ],
+    "attribute_finishing": [
+      "결정"
+    ],
+    "attribute_eccentricity": [
+      "기행"
+    ],
+    "attribute_dribbling": [
+      "돌파"
+    ],
+    "attribute_determination": [
+      "승부"
+    ],
+    "attribute_decisions": [
+      "판단"
+    ],
+    "attribute_crossing": [
+      "크로스"
+    ],
+    "attribute_corners": [
+      "코너"
+    ],
+    "attribute_concentration": [
+      "집중"
+    ],
+    "attribute_composure": [
+      "침착"
+    ],
+    "attribute_communication": [
+      "조율"
+    ],
+    "attribute_command_of_area": [
+      "장악"
+    ],
+    "attribute_bravery": [
+      "대담"
+    ],
+    "attribute_balance": [
+      "균형"
+    ],
+    "attribute_anticipation": [
+      "예측"
+    ],
+    "attribute_agility": [
+      "민첩"
+    ],
+    "attribute_aggression": [
+      "적극"
+    ],
+    "attribute_aerial_reach": [
+      "Aer"
+    ]
+  },
+  "ambiguous": {
+    "PK": {
+      "context": {
+        "statistic_penalties": {
+          "target": "statistic_penalties",
+          "neighbors": [
+            "FK 슛",
+            "xA",
+            "거리",
+            "드리블/90분",
+            "박스 밖에서 슛/90",
+            "슈팅 수",
+            "스프린트/90분",
+            "유효슛",
+            "퇴장",
+            "페널티 득점"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_penalty_taking": {
+          "target": "attribute_penalty_taking",
+          "neighbors": [
+            "1대1",
+            "돌진하는 경향",
+            "반사",
+            "오프 더 볼",
+            "위치",
+            "주력",
+            "지구",
+            "타고난 체력",
+            "패스",
+            "펀칭 빈도"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "퇴장": {
+      "context": {
+        "statistic_offsides": {
+          "target": "statistic_offsides",
+          "neighbors": [
+            "FK 슛",
+            "PK",
+            "거리",
+            "드리블/90분",
+            "스프린트/90분",
+            "전진 패스",
+            "패스 성공",
+            "패스 시도",
+            "패스(결)",
+            "페널티 득점"
+          ]
+        },
+        "statistic_red_cards": {
+          "target": "statistic_red_cards",
+          "neighbors": [
+            "FA",
+            "Fls",
+            "경고",
+            "압박 성공",
+            "압박 시도",
+            "오픈 플레이 성공 크로스",
+            "오픈 플레이 크로스 시도",
+            "중요 헤더/90분",
+            "헤더 성공",
+            "헤더 시도"
+          ]
+        }
+      }
+    },
+    "막은 슛": {
+      "context": {
+        "statistic_shots_blocked": {
+          "target": "statistic_shots_blocked",
+          "neighbors": [
+            "xGP",
+            "걷어내기",
+            "막음",
+            "소유권 상실/90분",
+            "실점",
+            "자책골",
+            "차단",
+            "태클 시도",
+            "태클 완",
+            "태클(결)"
+          ]
+        },
+        "statistic_saves_parried": {
+          "target": "statistic_saves_parried",
+          "neighbors": [
+            "xGP",
+            "걷어내기",
+            "무실점",
+            "방어한 PK",
+            "상대한 PK",
+            "순간 속도",
+            "실점",
+            "자책골",
+            "잡은 슛",
+            "튕겨낸 슛"
+          ]
+        }
+      }
+    },
+    "스로인": {
+      "context": {
+        "attribute_throwing": {
+          "target": "attribute_throwing",
+          "neighbors": [
+            "기술",
+            "몸싸움",
+            "무실점",
+            "방어한 PK",
+            "순간 속도",
+            "시야",
+            "지구",
+            "태클",
+            "팀워크",
+            "활동"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_long_throws": {
+          "target": "attribute_long_throws",
+          "neighbors": [
+            "1대1",
+            "골킥",
+            "롱슛",
+            "리더십",
+            "마크",
+            "오프 더 볼",
+            "점프",
+            "주력",
+            "타고난 체력",
+            "헤더"
+          ],
+          "excludesCategory": "goalkeeper"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "GK": "GK",
+      "D (L)": "D (L)",
+      "D (C)": "D (C)",
+      "D (R)": "D (R)",
+      "WB (L)": "WB (L)",
+      "WB (R)": "WB (R)",
+      "DM": "DM",
+      "M (L)": "M (L)",
+      "M (C)": "M (C)",
+      "M (R)": "M (R)",
+      "AM (L)": "AM (L)",
+      "AM (C)": "AM (C)",
+      "AM (R)": "AM (R)",
+      "ST (C)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "아니요": "No",
+      "예": "Yes"
+    },
+    "foot_strength": {
+      "서투름": "Reasonable",
+      "약함": "Weak",
+      "자연스러움": "Very Strong",
+      "취약함": "Very Weak",
+      "양호함": "Fairly Strong",
+      "능숙함": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "매월 계약": "Month To Month",
+      "전임 계약": "Full Contract",
+      "임대": "Loan"
+    },
+    "basic_style": {
+      "창의적": "Creative",
+      "육체적": "Physical",
+      "지능": "Intelligent",
+      "방어": "Shot Stopper",
+      "리더": "Leader",
+      "기술적": "Technical",
+      "적극적으로": "Assertive",
+      "보조": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "국가에서 훈련 받은 선수(15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

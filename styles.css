@@ -1,0 +1,164 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-background: oklch(0.99 0 0);
+  --color-surface: oklch(1 0 0);
+  --color-surface-elevated: oklch(0.985 0 0);
+  --color-surface-hover: oklch(0.98 0 0);
+  --color-border: oklch(0.92 0 0);
+  --color-border-strong: oklch(0.85 0 0);
+  --color-text-primary: oklch(0.15 0 0);
+  --color-text-secondary: oklch(0.45 0 0);
+  --color-text-muted: oklch(0.65 0 0);
+
+  --color-accent: oklch(0.55 0.22 260);
+  --color-accent-subtle: oklch(0.96 0.02 260);
+
+  --color-positive: oklch(0.62 0.17 145);
+  --color-warning: oklch(0.79 0.15 85);
+  --color-negative: oklch(0.6 0.18 25);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .data-table {
+    @apply w-full border-collapse text-left text-[13px];
+  }
+
+  .data-table th {
+    @apply sticky top-0 z-10 bg-background/80 backdrop-blur-md px-4 py-3 font-semibold text-text-secondary border-b border-border;
+  }
+
+  .data-table td {
+    @apply px-4 py-2.5 border-b border-border/50 tabular-nums;
+  }
+
+  .data-table tr {
+    @apply hover:bg-surface-hover transition-colors cursor-default;
+  }
+
+  .premium-card {
+    @apply bg-surface border border-border rounded-lg shadow-sm overflow-hidden;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider;
+  }
+
+  .filter-popup {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 80;
+    display: none;
+    width: min(19rem, calc(100vw - 1.5rem));
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background: color-mix(in oklch, var(--color-surface) 96%, white 4%);
+    box-shadow: 0 20px 40px rgb(15 23 42 / 0.14);
+    padding: 0.75rem;
+    color: var(--color-text-primary);
+  }
+
+  .filter-popup.show {
+    display: block;
+  }
+
+  .filter-popup.left-aligned {
+    left: 0;
+    right: auto;
+  }
+
+  .filter-popup input[type='text'],
+  .filter-popup input[type='number'],
+  .filter-popup select {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    padding: 0.5rem 0.625rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .filter-popup input:focus,
+  .filter-popup select:focus {
+    outline: 2px solid color-mix(in oklch, var(--color-accent) 30%, white 70%);
+    outline-offset: 1px;
+  }
+
+  .filter-popup label {
+    color: var(--color-text-secondary);
+  }
+
+  .filter-popup button {
+    border-radius: 12px;
+  }
+
+  .filter-popup [data-fm-action='applyFilter'] {
+    background: var(--color-accent) !important;
+    color: white !important;
+    border: 1px solid color-mix(in oklch, var(--color-accent) 80%, black 20%);
+    font-weight: 700;
+  }
+
+  .filter-popup [data-fm-action='resetColumnFilter'] {
+    background: var(--color-surface-hover) !important;
+    color: var(--color-text-primary) !important;
+    border: 1px solid var(--color-border);
+  }
+
+  .filter-popup .bg-gray-50,
+  .filter-popup .bg-gray-100,
+  .filter-popup .bg-gray-200,
+  .filter-popup .bg-blue-200 {
+    background: var(--color-surface-hover) !important;
+    color: var(--color-text-primary) !important;
+  }
+
+  .filter-popup .border-gray-200,
+  .filter-popup .border-gray-300 {
+    border-color: var(--color-border) !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 10px;
+  border: 2px solid var(--color-background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}

@@ -1,0 +1,519 @@
+{
+  "id": "el",
+  "headers": {
+    "basic_uid": [
+      "ΜID"
+    ],
+    "basic_name": [
+      "Όνομα"
+    ],
+    "basic_position": [
+      "Θέση"
+    ],
+    "basic_sec_position": [
+      "Δευ. Θέση"
+    ],
+    "basic_dob": [
+      "Ημ.Γεν."
+    ],
+    "basic_nationality": [
+      "Εθν"
+    ],
+    "basic_second_nationality": [
+      "2η Εθν."
+    ],
+    "basic_eu_national": [
+      "Κοινοτικός"
+    ],
+    "basic_home_grown_status": [
+      "Γηγενής Κατάσταση"
+    ],
+    "basic_information": [
+      "Πλρ"
+    ],
+    "basic_left_foot": [
+      "Αριστερό Πόδι"
+    ],
+    "basic_right_foot": [
+      "Δεξί Πόδι"
+    ],
+    "basic_club": [
+      "Σύλλογος"
+    ],
+    "basic_division": [
+      "Κατηγορία"
+    ],
+    "basic_based_in": [
+      "Εδρεύει Σε"
+    ],
+    "basic_transfer_value": [
+      "Μεταγραφική Αξία"
+    ],
+    "basic_asking_price": [
+      "Τιμή Πώλησης"
+    ],
+    "basic_wage": [
+      "Απολαβές"
+    ],
+    "basic_contract_type": [
+      "Π/ΜΑ"
+    ],
+    "basic_contract_type_detail": [
+      "Τύπος"
+    ],
+    "basic_expires": [
+      "Λήγει"
+    ],
+    "basic_style": [
+      "Στυλ"
+    ],
+    "basic_personality": [
+      "Προσωπικότητα"
+    ],
+    "basic_media_handling": [
+      "Διαχείριση ΜΜΕ"
+    ],
+    "statistic_apps": [
+      "Συμ"
+    ],
+    "statistic_mins": [
+      "Λεπτά"
+    ],
+    "statistic_average_rating": [
+      "ΜΟ Απ"
+    ],
+    "statistic_player_of_match": [
+      "ΠτΑ"
+    ],
+    "statistic_goals": [
+      "Γκλ"
+    ],
+    "statistic_goals_outside_box": [
+      "Γκολ Εκτός Περιοχής"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "Αστ"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Σουτ"
+    ],
+    "statistic_shots_on_target": [
+      "ΣτΕ"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Γκολ Εκτός Περιοχής/90"
+    ],
+    "statistic_free_kick_shots": [
+      "Σουτ ΕΦ"
+    ],
+    "statistic_penalties": [
+      "Πεν"
+    ],
+    "statistic_penalties_scored": [
+      "Ευ Πεν"
+    ],
+    "statistic_distance": [
+      "Απόσταση"
+    ],
+    "statistic_sprints_per_90": [
+      "Σπριντ/90"
+    ],
+    "statistic_offsides": [
+      "Οφσ"
+    ],
+    "statistic_dribbles": [
+      "Ντρ"
+    ],
+    "statistic_passes_attempted": [
+      "Απ Πασ"
+    ],
+    "statistic_passes_completed": [
+      "Επ Π"
+    ],
+    "statistic_progressive_passes": [
+      "Πρ Πάσες"
+    ],
+    "statistic_key_passes": [
+      "ΣημΠ"
+    ],
+    "statistic_open_play_key_passes": [
+      "ΣΠ-ΚΡ"
+    ],
+    "statistic_chances_created_per_90": [
+      "Ευκ/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "ΚλΕ"
+    ],
+    "statistic_crosses_attempted": [
+      "Προσπ Σεντ"
+    ],
+    "statistic_crosses_completed": [
+      "Ευστ Σεντ"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "Καν.Ροή-ΑπΣντ"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "Καν.Ροή-ΕπΣντ"
+    ],
+    "statistic_fouls": [
+      "ΦλΚ"
+    ],
+    "statistic_fouls_against": [
+      "ΦλΥ"
+    ],
+    "statistic_yellow_cards": [
+      "Κιτ"
+    ],
+    "statistic_red_cards": [
+      "Κοκ"
+    ],
+    "statistic_headers_attempted": [
+      "Απ Κεφ"
+    ],
+    "statistic_headers_won": [
+      "Κφλς"
+    ],
+    "statistic_key_headers_per_90": [
+      "Σημ Κεφ/90"
+    ],
+    "statistic_pressures_attempted": [
+      "ΑπΠιε"
+    ],
+    "statistic_pressures_completed": [
+      "ΟλΠιε"
+    ],
+    "statistic_possession_won_per_90": [
+      "Kρδ Κτχ/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "ΑπΚτχ/90"
+    ],
+    "statistic_tackles_attempted": [
+      "Α Τκλ"
+    ],
+    "statistic_tackles_completed": [
+      "Επ Τκλ"
+    ],
+    "statistic_key_tackles": [
+      "ΣημΤκλ"
+    ],
+    "statistic_interceptions": [
+      "Κλψ"
+    ],
+    "statistic_shots_blocked": [
+      "Μπλκ Σουτ"
+    ],
+    "statistic_blocks": [
+      "Αποκρ"
+    ],
+    "statistic_clearances": [
+      "Απομ"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "Λάθη Γκ"
+    ],
+    "statistic_xgp": [
+      "xGΑ"
+    ],
+    "statistic_goals_conceded": [
+      "Παθ"
+    ],
+    "statistic_saves_tipped": [
+      "ΑπΑ"
+    ],
+    "statistic_saves_parried": [
+      "ΑπΧ"
+    ],
+    "statistic_saves_held": [
+      "ΑπΜ"
+    ],
+    "statistic_penalties_faced": [
+      "Πεν. Αντιμ."
+    ],
+    "statistic_penalties_saved": [
+      "Πεν. Αποκρ."
+    ],
+    "statistic_clean_sheets": [
+      "Ανέπαφες εστίες"
+    ],
+    "attribute_acceleration": [
+      "Επχ"
+    ],
+    "attribute_work_rate": [
+      "Εργ"
+    ],
+    "attribute_vision": [
+      "Δημ"
+    ],
+    "attribute_throwing": [
+      "ΜμΧ"
+    ],
+    "attribute_technique": [
+      "Τεχ"
+    ],
+    "attribute_teamwork": [
+      "Ομδ"
+    ],
+    "attribute_tackling": [
+      "Τκλ"
+    ],
+    "attribute_strength": [
+      "Δυν"
+    ],
+    "attribute_stamina": [
+      "Ανχ"
+    ],
+    "attribute_rushing_out": [
+      "ΤΧΕ"
+    ],
+    "attribute_reflexes": [
+      "Αντ"
+    ],
+    "attribute_tendency_to_punch": [
+      "ΑπΓ"
+    ],
+    "attribute_positioning": [
+      "ΑμΤ"
+    ],
+    "attribute_penalty_taking": [
+      "Πεν"
+    ],
+    "attribute_passing": [
+      "Πασ"
+    ],
+    "attribute_pace": [
+      "Ταχ"
+    ],
+    "attribute_one_on_ones": [
+      "1v1"
+    ],
+    "attribute_off_the_ball": [
+      "ΚχΜ"
+    ],
+    "attribute_natural_fitness": [
+      "Φυσ"
+    ],
+    "attribute_marking": [
+      "Μαρ"
+    ],
+    "attribute_long_throws": [
+      "ΠΆουτ"
+    ],
+    "attribute_long_shots": [
+      "ΜκρΣ"
+    ],
+    "attribute_leadership": [
+      "Ηγτ"
+    ],
+    "attribute_kicking": [
+      "Βολ"
+    ],
+    "attribute_jumping_reach": [
+      "Αλμ"
+    ],
+    "attribute_heading": [
+      "Κεφ"
+    ],
+    "attribute_handling": [
+      "Μπλ"
+    ],
+    "attribute_free_kicks": [
+      "ΕΦλ"
+    ],
+    "attribute_flair": [
+      "Ταλ"
+    ],
+    "attribute_first_touch": [
+      "ΠΕφ"
+    ],
+    "attribute_finishing": [
+      "Τελ"
+    ],
+    "attribute_eccentricity": [
+      "Εκκ"
+    ],
+    "attribute_dribbling": [
+      "Ντρ"
+    ],
+    "attribute_determination": [
+      "Απφ"
+    ],
+    "attribute_decisions": [
+      "Κρσ"
+    ],
+    "attribute_crossing": [
+      "Σεν"
+    ],
+    "attribute_corners": [
+      "Κορ"
+    ],
+    "attribute_concentration": [
+      "Σγκ"
+    ],
+    "attribute_composure": [
+      "Ψυχ"
+    ],
+    "attribute_communication": [
+      "Επκ"
+    ],
+    "attribute_command_of_area": [
+      "ΕΠε"
+    ],
+    "attribute_bravery": [
+      "Γεν"
+    ],
+    "attribute_balance": [
+      "Ισρ"
+    ],
+    "attribute_anticipation": [
+      "Αλψ"
+    ],
+    "attribute_agility": [
+      "Ευκ"
+    ],
+    "attribute_aggression": [
+      "Επθ"
+    ],
+    "attribute_aerial_reach": [
+      "Έκτ"
+    ]
+  },
+  "ambiguous": {
+    "Πεν": {
+      "context": {
+        "statistic_penalties": {
+          "target": "statistic_penalties",
+          "neighbors": [
+            "xA",
+            "Απόσταση",
+            "Γκολ Εκτός Περιοχής/90",
+            "Ευ Πεν",
+            "Ντρ",
+            "Οφσ",
+            "Σουτ",
+            "Σουτ ΕΦ",
+            "Σπριντ/90",
+            "ΣτΕ"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_penalty_taking": {
+          "target": "attribute_penalty_taking",
+          "neighbors": [
+            "1v1",
+            "ΑμΤ",
+            "Αντ",
+            "Ανχ",
+            "ΑπΓ",
+            "ΚχΜ",
+            "Πασ",
+            "ΤΧΕ",
+            "Ταχ",
+            "Φυσ"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Ντρ": {
+      "context": {
+        "statistic_dribbles": {
+          "target": "statistic_dribbles",
+          "neighbors": [
+            "Απ Πασ",
+            "Απόσταση",
+            "Επ Π",
+            "Ευ Πεν",
+            "Οφσ",
+            "Πεν",
+            "Πρ Πάσες",
+            "ΣΠ-ΚΡ",
+            "ΣημΠ",
+            "Σπριντ/90"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_dribbling": {
+          "target": "attribute_dribbling",
+          "neighbors": [
+            "Απφ",
+            "ΕΦλ",
+            "Εκκ",
+            "Κορ",
+            "Κρσ",
+            "ΠΕφ",
+            "Σγκ",
+            "Σεν",
+            "Ταλ",
+            "Τελ"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "ΤΦ": "GK",
+      "Α (Α)": "D (L)",
+      "Α (Κ)": "D (C)",
+      "Α (Δ)": "D (R)",
+      "ΜΧ (Α)": "WB (L)",
+      "ΜΧ (Δ)": "WB (R)",
+      "ΑΜ": "DM",
+      "Μ (Α)": "M (L)",
+      "Μ (Κ)": "M (C)",
+      "Μ (Δ)": "M (R)",
+      "ΕΜ (Α)": "AM (L)",
+      "ΕΜ (Κ)": "AM (C)",
+      "ΕΜ (Δ)": "AM (R)",
+      "ΕΠ (Κ)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "Όχι": "No",
+      "Ναι": "Yes"
+    },
+    "foot_strength": {
+      "Αρκετό": "Reasonable",
+      "Αδύναμο": "Weak",
+      "Πολύ Καλό": "Very Strong",
+      "Πολύ Αδύναμο": "Very Weak",
+      "Μέτριο": "Fairly Strong",
+      "Καλό": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Από Μήνα Σε Μήνα": "Month To Month",
+      "Επαγγελματικό Συμβόλαιο": "Full Contract",
+      "Δανεικός": "Loan"
+    },
+    "basic_style": {
+      "Δημιουργικότητα": "Creative",
+      "Σωματικά προσόντα": "Physical",
+      "Ευφυΐα": "Intelligent",
+      "Καλός στις Αποκρούσεις": "Shot Stopper",
+      "Ηγετικότητα": "Leader",
+      "Τεχνική": "Technical",
+      "Ενεργητικός": "Assertive",
+      "Διαμοιραστής": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Γηγενής (15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

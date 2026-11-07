@@ -1,0 +1,555 @@
+{
+  "id": "ru",
+  "headers": {
+    "basic_uid": [
+      "УИН"
+    ],
+    "basic_name": [
+      "Имя"
+    ],
+    "basic_position": [
+      "Позиции"
+    ],
+    "basic_sec_position": [
+      "2 позиция"
+    ],
+    "basic_dob": [
+      "ДР"
+    ],
+    "basic_nationality": [
+      "Гржд"
+    ],
+    "basic_second_nationality": [
+      "2-е Гржд"
+    ],
+    "basic_eu_national": [
+      "Гражданин ЕС"
+    ],
+    "basic_home_grown_status": [
+      "Статус воспитанника"
+    ],
+    "basic_information": [
+      "Инф"
+    ],
+    "basic_left_foot": [
+      "Левая нога"
+    ],
+    "basic_right_foot": [
+      "Правая нога"
+    ],
+    "basic_club": [
+      "Клуб"
+    ],
+    "basic_division": [
+      "Дивизион"
+    ],
+    "basic_based_in": [
+      "Играет в"
+    ],
+    "basic_transfer_value": [
+      "Сумма трансфера"
+    ],
+    "basic_asking_price": [
+      "Запрашиваемая цена"
+    ],
+    "basic_wage": [
+      "Зарплата"
+    ],
+    "basic_contract_type": [
+      "П/Нп"
+    ],
+    "basic_contract_type_detail": [
+      "Тип"
+    ],
+    "basic_expires": [
+      "Истекает"
+    ],
+    "basic_style": [
+      "Стиль"
+    ],
+    "basic_personality": [
+      "Характер"
+    ],
+    "basic_media_handling": [
+      "Общение с прессой"
+    ],
+    "statistic_apps": [
+      "Игры"
+    ],
+    "statistic_mins": [
+      "Мин"
+    ],
+    "statistic_average_rating": [
+      "Ср. оц."
+    ],
+    "statistic_player_of_match": [
+      "ИМ"
+    ],
+    "statistic_goals": [
+      "Гол"
+    ],
+    "statistic_goals_outside_box": [
+      "Голы из-за пределов штрафной"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "ГПас"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Удары"
+    ],
+    "statistic_shots_on_target": [
+      "УСт"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Удары из-за штрафной/90"
+    ],
+    "statistic_free_kick_shots": [
+      "Удары со штр."
+    ],
+    "statistic_penalties": [
+      "Пен"
+    ],
+    "statistic_penalties_scored": [
+      "Пен З"
+    ],
+    "statistic_distance": [
+      "Расстояние"
+    ],
+    "statistic_sprints_per_90": [
+      "Спринты/90"
+    ],
+    "statistic_offsides": [
+      "Офс"
+    ],
+    "statistic_dribbles": [
+      "Обв"
+    ],
+    "statistic_passes_attempted": [
+      "Пас Всего"
+    ],
+    "statistic_passes_completed": [
+      "Пас точн"
+    ],
+    "statistic_progressive_passes": [
+      "Пр Пасы"
+    ],
+    "statistic_key_passes": [
+      "О Пер"
+    ],
+    "statistic_open_play_key_passes": [
+      "ОИ-КП"
+    ],
+    "statistic_chances_created_per_90": [
+      "CМ/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "ЯГМ"
+    ],
+    "statistic_crosses_attempted": [
+      "Нав"
+    ],
+    "statistic_crosses_completed": [
+      "Т Нав"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "ОИ-Нав Пред"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "ОИ-Нав Пров"
+    ],
+    "statistic_fouls": [
+      "Фол"
+    ],
+    "statistic_fouls_against": [
+      "ФПр"
+    ],
+    "statistic_yellow_cards": [
+      "Жк"
+    ],
+    "statistic_red_cards": [
+      "Кк"
+    ],
+    "statistic_headers_attempted": [
+      "Глв П"
+    ],
+    "statistic_headers_won": [
+      "Глв"
+    ],
+    "statistic_key_headers_per_90": [
+      "КлВерх/90"
+    ],
+    "statistic_pressures_attempted": [
+      "Прес П"
+    ],
+    "statistic_pressures_completed": [
+      "Прес В"
+    ],
+    "statistic_possession_won_per_90": [
+      "ВосстВлад/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "ПотВлад/90"
+    ],
+    "statistic_tackles_attempted": [
+      "Отб Всего"
+    ],
+    "statistic_tackles_completed": [
+      "Отб З"
+    ],
+    "statistic_key_tackles": [
+      "К Отб"
+    ],
+    "statistic_interceptions": [
+      "Прх"
+    ],
+    "statistic_shots_blocked": [
+      "Збл Уд Защ"
+    ],
+    "statistic_blocks": [
+      "Блок"
+    ],
+    "statistic_clearances": [
+      "Выносы"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "ОшГ"
+    ],
+    "statistic_xgp": [
+      "ПрдОжГол"
+    ],
+    "statistic_goals_conceded": [
+      "Проп"
+    ],
+    "statistic_saves_tipped": [
+      "ОУд"
+    ],
+    "statistic_saves_parried": [
+      "УдО"
+    ],
+    "statistic_saves_held": [
+      "УдП"
+    ],
+    "statistic_penalties_faced": [
+      "Всего Пен"
+    ],
+    "statistic_penalties_saved": [
+      "Отб Пен"
+    ],
+    "statistic_clean_sheets": [
+      "Матчи на ноль"
+    ],
+    "attribute_acceleration": [
+      "Уск"
+    ],
+    "attribute_work_rate": [
+      "Раб"
+    ],
+    "attribute_vision": [
+      "Вид"
+    ],
+    "attribute_throwing": [
+      "Ввод"
+    ],
+    "attribute_technique": [
+      "Тех"
+    ],
+    "attribute_teamwork": [
+      "Ком"
+    ],
+    "attribute_tackling": [
+      "Отб"
+    ],
+    "attribute_strength": [
+      "Сил"
+    ],
+    "attribute_stamina": [
+      "Вын"
+    ],
+    "attribute_rushing_out": [
+      "СВВ"
+    ],
+    "attribute_reflexes": [
+      "Ркц"
+    ],
+    "attribute_tendency_to_punch": [
+      "Клк"
+    ],
+    "attribute_positioning": [
+      "Поз"
+    ],
+    "attribute_penalty_taking": [
+      "Пен"
+    ],
+    "attribute_passing": [
+      "Пас"
+    ],
+    "attribute_pace": [
+      "Скр"
+    ],
+    "attribute_one_on_ones": [
+      "1на1"
+    ],
+    "attribute_off_the_ball": [
+      "Ибм"
+    ],
+    "attribute_natural_fitness": [
+      "ПрД"
+    ],
+    "attribute_marking": [
+      "Опк"
+    ],
+    "attribute_long_throws": [
+      "Вбр"
+    ],
+    "attribute_long_shots": [
+      "Длн"
+    ],
+    "attribute_leadership": [
+      "Лид"
+    ],
+    "attribute_kicking": [
+      "Выб"
+    ],
+    "attribute_jumping_reach": [
+      "Прг"
+    ],
+    "attribute_heading": [
+      "Глв"
+    ],
+    "attribute_handling": [
+      "Рук"
+    ],
+    "attribute_free_kicks": [
+      "Штр"
+    ],
+    "attribute_flair": [
+      "Имп"
+    ],
+    "attribute_first_touch": [
+      "ПКас"
+    ],
+    "attribute_finishing": [
+      "Зав"
+    ],
+    "attribute_eccentricity": [
+      "Экц"
+    ],
+    "attribute_dribbling": [
+      "Дрб"
+    ],
+    "attribute_determination": [
+      "Реш"
+    ],
+    "attribute_decisions": [
+      "ПРш"
+    ],
+    "attribute_crossing": [
+      "Нав"
+    ],
+    "attribute_corners": [
+      "Угл"
+    ],
+    "attribute_concentration": [
+      "Кнц"
+    ],
+    "attribute_composure": [
+      "Смб"
+    ],
+    "attribute_communication": [
+      "Вза"
+    ],
+    "attribute_command_of_area": [
+      "ИШтр"
+    ],
+    "attribute_bravery": [
+      "Хрб"
+    ],
+    "attribute_balance": [
+      "Крд"
+    ],
+    "attribute_anticipation": [
+      "Инт"
+    ],
+    "attribute_agility": [
+      "Лвк"
+    ],
+    "attribute_aggression": [
+      "Агр"
+    ],
+    "attribute_aerial_reach": [
+      "Взд"
+    ]
+  },
+  "ambiguous": {
+    "Пен": {
+      "context": {
+        "statistic_penalties": {
+          "target": "statistic_penalties",
+          "neighbors": [
+            "xA",
+            "Обв",
+            "Офс",
+            "Пен З",
+            "Расстояние",
+            "Спринты/90",
+            "УСт",
+            "Удары",
+            "Удары из-за штрафной/90",
+            "Удары со штр."
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_penalty_taking": {
+          "target": "attribute_penalty_taking",
+          "neighbors": [
+            "1на1",
+            "Вын",
+            "Ибм",
+            "Клк",
+            "Пас",
+            "Поз",
+            "ПрД",
+            "Ркц",
+            "СВВ",
+            "Скр"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Нав": {
+      "context": {
+        "statistic_crosses_attempted": {
+          "target": "statistic_crosses_attempted",
+          "neighbors": [
+            "CМ/90",
+            "О Пер",
+            "ОИ-КП",
+            "ОИ-Нав Пред",
+            "ОИ-Нав Пров",
+            "Пр Пасы",
+            "Т Нав",
+            "ФПр",
+            "Фол",
+            "ЯГМ"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_crossing": {
+          "target": "attribute_crossing",
+          "neighbors": [
+            "Вза",
+            "Дрб",
+            "Зав",
+            "ИШтр",
+            "Кнц",
+            "ПРш",
+            "Реш",
+            "Смб",
+            "Угл",
+            "Экц"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Глв": {
+      "context": {
+        "statistic_headers_won": {
+          "target": "statistic_headers_won",
+          "neighbors": [
+            "ВосстВлад/90",
+            "Глв П",
+            "Жк",
+            "Кк",
+            "КлВерх/90",
+            "ПотВлад/90",
+            "Прес В",
+            "Прес П",
+            "ФПр",
+            "Фол"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_heading": {
+          "target": "attribute_heading",
+          "neighbors": [
+            "Вбр",
+            "Выб",
+            "Длн",
+            "Зав",
+            "Имп",
+            "Лид",
+            "ПКас",
+            "Прг",
+            "Рук",
+            "Штр"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "В": "GK",
+      "З (Л)": "D (L)",
+      "З (Ц)": "D (C)",
+      "З (П)": "D (R)",
+      "КЗ (Л)": "WB (L)",
+      "КЗ (П)": "WB (R)",
+      "ОП": "DM",
+      "П (Л)": "M (L)",
+      "П (Ц)": "M (C)",
+      "П (П)": "M (R)",
+      "АП (Л)": "AM (L)",
+      "АП (Ц)": "AM (C)",
+      "АП (П)": "AM (R)",
+      "НП (Ц)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "Нет": "No",
+      "Да": "Yes"
+    },
+    "foot_strength": {
+      "Неплохая": "Reasonable",
+      "Слабая": "Weak",
+      "Очень сильная": "Very Strong",
+      "Очень слабая": "Very Weak",
+      "Достаточно сильная": "Fairly Strong",
+      "Сильная": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Помесячный контракт": "Month To Month",
+      "Полный контракт": "Full Contract",
+      "Аренда": "Loan"
+    },
+    "basic_style": {
+      "Созидательный": "Creative",
+      "Атлетический": "Physical",
+      "Умный": "Intelligent",
+      "Остановка ударов": "Shot Stopper",
+      "Лидерский": "Leader",
+      "Техничный": "Technical",
+      "Напористый": "Assertive",
+      "Распределение": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Тренировался в стране (15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "columns": {
+    "age": "나이",
+    "club": "클럽",
+    "name": "이름",
+    "position": "포지션",
+    "suggestion": "제안",
+    "totalScore": "평가"
+  },
+  "engines": {
+    "AsianFusion": "아시안 퓨전",
+    "Default": "기본",
+    "FMTweak": "FM Tweak"
+  },
+  "positions": {
+    "AMC": "공격형 미드필더",
+    "AMLR": "윙어",
+    "BEST": "최고 역할",
+    "DC": "센터백",
+    "DLR": "풀백",
+    "DMC": "수비형 미드필더",
+    "GK": "골키퍼",
+    "MC": "중앙 미드필더",
+    "MLR": "측면 미드필더",
+    "STC": "스트라이커",
+    "WBLR": "윙백"
+  },
+  "stats": {
+    "Attr Score": "속성 점수",
+    "Stat Score": "통계 점수",
+    "Total Score": "총점"
+  },
+  "ui": {
+    "columns": "열 관리",
+    "drop_area_hint": "(속성 및 통계 데이터가 포함된 파일)",
+    "drop_area_text": "여기에 파일을 드롭하세요",
+    "drop_zone_title": "업로드 영역",
+    "error": "오류",
+    "first_page": "첫 페이지",
+    "language": "언어",
+    "language_names": {
+      "en": "영어",
+      "ja": "일본어",
+      "ko": "한국어",
+      "zh": "중국어"
+    },
+    "last_page": "마지막 페이지",
+    "loading": "로딩 중...",
+    "next_page": "다음 페이지",
+    "no_data": "데이터 없음",
+    "of": "/",
+    "page": "페이지",
+    "prev_page": "이전 페이지",
+    "processing": "처리 중",
+    "settings": "설정",
+    "showing_results": "{total}명 중 {count}명 표시",
+    "success": "성공!",
+    "waiting": "대기 중..."
+  }
+}

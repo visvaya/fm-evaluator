@@ -1,0 +1,436 @@
+{
+  "id": "en",
+  "headers": {
+    "basic_uid": [
+      "UID"
+    ],
+    "basic_name": [
+      "Name"
+    ],
+    "basic_position": [
+      "Position"
+    ],
+    "basic_sec_position": [
+      "Sec. Position"
+    ],
+    "basic_dob": [
+      "DoB"
+    ],
+    "basic_nationality": [
+      "Nat"
+    ],
+    "basic_second_nationality": [
+      "2nd Nat"
+    ],
+    "basic_eu_national": [
+      "EU National"
+    ],
+    "basic_home_grown_status": [
+      "Home-Grown Status"
+    ],
+    "basic_information": [
+      "Inf"
+    ],
+    "basic_left_foot": [
+      "Left Foot"
+    ],
+    "basic_right_foot": [
+      "Right Foot"
+    ],
+    "basic_club": [
+      "Club"
+    ],
+    "basic_division": [
+      "Division"
+    ],
+    "basic_based_in": [
+      "Based In"
+    ],
+    "basic_transfer_value": [
+      "Transfer Value"
+    ],
+    "basic_asking_price": [
+      "Asking Price"
+    ],
+    "basic_wage": [
+      "Wage"
+    ],
+    "basic_contract_type": [
+      "F/PT"
+    ],
+    "basic_contract_type_detail": [
+      "Type"
+    ],
+    "basic_expires": [
+      "Expires"
+    ],
+    "basic_style": [
+      "Style"
+    ],
+    "basic_personality": [
+      "Personality"
+    ],
+    "basic_media_handling": [
+      "Media Handling"
+    ],
+    "statistic_apps": [
+      "Apps"
+    ],
+    "statistic_mins": [
+      "Mins"
+    ],
+    "statistic_average_rating": [
+      "Av Rat"
+    ],
+    "statistic_player_of_match": [
+      "PoM"
+    ],
+    "statistic_goals": [
+      "Gls"
+    ],
+    "statistic_goals_outside_box": [
+      "Goals Outside Box"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "Ast"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Shots"
+    ],
+    "statistic_shots_on_target": [
+      "ShT"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Shots Outside Box/90"
+    ],
+    "statistic_free_kick_shots": [
+      "FK Shots"
+    ],
+    "statistic_penalties": [
+      "Pens"
+    ],
+    "statistic_penalties_scored": [
+      "Pens S"
+    ],
+    "statistic_distance": [
+      "Distance"
+    ],
+    "statistic_sprints_per_90": [
+      "Sprints/90"
+    ],
+    "statistic_offsides": [
+      "Off"
+    ],
+    "statistic_dribbles": [
+      "Drb"
+    ],
+    "statistic_passes_attempted": [
+      "Pas A"
+    ],
+    "statistic_passes_completed": [
+      "Ps C"
+    ],
+    "statistic_progressive_passes": [
+      "Pr Passes"
+    ],
+    "statistic_key_passes": [
+      "K Pas"
+    ],
+    "statistic_open_play_key_passes": [
+      "OP-KP"
+    ],
+    "statistic_chances_created_per_90": [
+      "Ch C/90"
+    ],
+    "statistic_clear_cut_chances": [
+      "CCC"
+    ],
+    "statistic_crosses_attempted": [
+      "Cr A"
+    ],
+    "statistic_crosses_completed": [
+      "Cr C"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "OP-Crs A"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "OP-Crs C"
+    ],
+    "statistic_fouls": [
+      "Fls"
+    ],
+    "statistic_fouls_against": [
+      "FA"
+    ],
+    "statistic_yellow_cards": [
+      "Yel"
+    ],
+    "statistic_red_cards": [
+      "Red"
+    ],
+    "statistic_headers_attempted": [
+      "Hdrs A"
+    ],
+    "statistic_headers_won": [
+      "Hdrs"
+    ],
+    "statistic_key_headers_per_90": [
+      "K Hdrs/90"
+    ],
+    "statistic_pressures_attempted": [
+      "Pres A"
+    ],
+    "statistic_pressures_completed": [
+      "Pres C"
+    ],
+    "statistic_possession_won_per_90": [
+      "Poss Won/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "Poss Lost/90"
+    ],
+    "statistic_tackles_attempted": [
+      "Tck A"
+    ],
+    "statistic_tackles_completed": [
+      "Tck C"
+    ],
+    "statistic_key_tackles": [
+      "K Tck"
+    ],
+    "statistic_interceptions": [
+      "Itc"
+    ],
+    "statistic_shots_blocked": [
+      "Shts Blckd"
+    ],
+    "statistic_blocks": [
+      "Blk"
+    ],
+    "statistic_clearances": [
+      "Clear"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "Gl Mst"
+    ],
+    "statistic_xgp": [
+      "xGP"
+    ],
+    "statistic_goals_conceded": [
+      "Conc"
+    ],
+    "statistic_saves_tipped": [
+      "Svt"
+    ],
+    "statistic_saves_parried": [
+      "Svp"
+    ],
+    "statistic_saves_held": [
+      "Svh"
+    ],
+    "statistic_penalties_faced": [
+      "Pens Faced"
+    ],
+    "statistic_penalties_saved": [
+      "Pens Saved"
+    ],
+    "statistic_clean_sheets": [
+      "Clean Sheets"
+    ],
+    "attribute_acceleration": [
+      "Acc"
+    ],
+    "attribute_work_rate": [
+      "Wor"
+    ],
+    "attribute_vision": [
+      "Vis"
+    ],
+    "attribute_throwing": [
+      "Thr"
+    ],
+    "attribute_technique": [
+      "Tec"
+    ],
+    "attribute_teamwork": [
+      "Tea"
+    ],
+    "attribute_tackling": [
+      "Tck"
+    ],
+    "attribute_strength": [
+      "Str"
+    ],
+    "attribute_stamina": [
+      "Sta"
+    ],
+    "attribute_rushing_out": [
+      "TRO"
+    ],
+    "attribute_reflexes": [
+      "Ref"
+    ],
+    "attribute_tendency_to_punch": [
+      "Pun"
+    ],
+    "attribute_positioning": [
+      "Pos"
+    ],
+    "attribute_penalty_taking": [
+      "Pen"
+    ],
+    "attribute_passing": [
+      "Pas"
+    ],
+    "attribute_pace": [
+      "Pac"
+    ],
+    "attribute_one_on_ones": [
+      "1v1"
+    ],
+    "attribute_off_the_ball": [
+      "OtB"
+    ],
+    "attribute_natural_fitness": [
+      "Nat"
+    ],
+    "attribute_marking": [
+      "Mar"
+    ],
+    "attribute_long_throws": [
+      "L Th"
+    ],
+    "attribute_long_shots": [
+      "Lon"
+    ],
+    "attribute_leadership": [
+      "Ldr"
+    ],
+    "attribute_kicking": [
+      "Kic"
+    ],
+    "attribute_jumping_reach": [
+      "Jum"
+    ],
+    "attribute_heading": [
+      "Hea"
+    ],
+    "attribute_handling": [
+      "Han"
+    ],
+    "attribute_free_kicks": [
+      "Fre"
+    ],
+    "attribute_flair": [
+      "Fla"
+    ],
+    "attribute_first_touch": [
+      "Fir"
+    ],
+    "attribute_finishing": [
+      "Fin"
+    ],
+    "attribute_eccentricity": [
+      "Ecc"
+    ],
+    "attribute_dribbling": [
+      "Dri"
+    ],
+    "attribute_determination": [
+      "Det"
+    ],
+    "attribute_decisions": [
+      "Dec"
+    ],
+    "attribute_crossing": [
+      "Cro"
+    ],
+    "attribute_corners": [
+      "Cor"
+    ],
+    "attribute_concentration": [
+      "Cnt"
+    ],
+    "attribute_composure": [
+      "Cmp"
+    ],
+    "attribute_communication": [
+      "Com"
+    ],
+    "attribute_command_of_area": [
+      "Cmd"
+    ],
+    "attribute_bravery": [
+      "Bra"
+    ],
+    "attribute_balance": [
+      "Bal"
+    ],
+    "attribute_anticipation": [
+      "Ant"
+    ],
+    "attribute_agility": [
+      "Agi"
+    ],
+    "attribute_aggression": [
+      "Agg"
+    ],
+    "attribute_aerial_reach": [
+      "Aer"
+    ]
+  },
+  "ambiguous": {
+    "Nat": {
+      "context": {
+        "basic_nationality": {
+          "target": "basic_nationality",
+          "neighbors": [
+            "2nd Nat",
+            "DoB",
+            "EU National",
+            "Home-Grown Status",
+            "Inf",
+            "Left Foot",
+            "Name",
+            "Position",
+            "Sec. Position",
+            "UID"
+          ],
+          "excludesCategory": "physical"
+        },
+        "attribute_natural_fitness": {
+          "target": "attribute_natural_fitness",
+          "neighbors": [
+            "1v1",
+            "Kic",
+            "L Th",
+            "Ldr",
+            "Lon",
+            "Mar",
+            "OtB",
+            "Pac",
+            "Pas",
+            "Pen"
+          ],
+          "excludesCategory": "basic"
+        }
+      }
+    }
+  },
+  "valueTranslations": {},
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}

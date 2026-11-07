@@ -1,0 +1,607 @@
+{
+  "id": "it",
+  "headers": {
+    "basic_uid": [
+      "IDu"
+    ],
+    "basic_name": [
+      "Nome"
+    ],
+    "basic_position": [
+      "Posizione"
+    ],
+    "basic_sec_position": [
+      "Ruolo second."
+    ],
+    "basic_dob": [
+      "Nato il"
+    ],
+    "basic_nationality": [
+      "Naz"
+    ],
+    "basic_second_nationality": [
+      "2a naz"
+    ],
+    "basic_eu_national": [
+      "Comunitario"
+    ],
+    "basic_home_grown_status": [
+      "Cresciuto nel vivaio"
+    ],
+    "basic_information": [
+      "Inf"
+    ],
+    "basic_left_foot": [
+      "Piede sinistro"
+    ],
+    "basic_right_foot": [
+      "Piede destro"
+    ],
+    "basic_club": [
+      "Club"
+    ],
+    "basic_division": [
+      "Divisione"
+    ],
+    "basic_based_in": [
+      "Residenza"
+    ],
+    "basic_transfer_value": [
+      "Costo trasferimento"
+    ],
+    "basic_asking_price": [
+      "Prezzo richiesto"
+    ],
+    "basic_wage": [
+      "Stipendio"
+    ],
+    "basic_contract_type": [
+      "TP/PT"
+    ],
+    "basic_contract_type_detail": [
+      "Tipo"
+    ],
+    "basic_expires": [
+      "Scadenza"
+    ],
+    "basic_style": [
+      "Stile"
+    ],
+    "basic_personality": [
+      "Personalità"
+    ],
+    "basic_media_handling": [
+      "Gestione dei media"
+    ],
+    "statistic_apps": [
+      "Pres"
+    ],
+    "statistic_mins": [
+      "Min"
+    ],
+    "statistic_average_rating": [
+      "M.V."
+    ],
+    "statistic_player_of_match": [
+      "MiC"
+    ],
+    "statistic_goals": [
+      "Gol"
+    ],
+    "statistic_goals_outside_box": [
+      "Gol fuori area"
+    ],
+    "statistic_xg": [
+      "xG"
+    ],
+    "statistic_assists": [
+      "Ass"
+    ],
+    "statistic_xa": [
+      "xA"
+    ],
+    "statistic_shots": [
+      "Tiri"
+    ],
+    "statistic_shots_on_target": [
+      "TiP"
+    ],
+    "statistic_shots_outside_box_per_90": [
+      "Tiri fuori area/90"
+    ],
+    "statistic_free_kick_shots": [
+      "Tiri CP"
+    ],
+    "statistic_penalties": [
+      "Rig"
+    ],
+    "statistic_penalties_scored": [
+      "Rig"
+    ],
+    "statistic_distance": [
+      "Distanza"
+    ],
+    "statistic_sprints_per_90": [
+      "Scatti/90"
+    ],
+    "statistic_offsides": [
+      "Fg"
+    ],
+    "statistic_dribbles": [
+      "Drb"
+    ],
+    "statistic_passes_attempted": [
+      "PasT"
+    ],
+    "statistic_passes_completed": [
+      "PasC"
+    ],
+    "statistic_progressive_passes": [
+      "Passaggi pr"
+    ],
+    "statistic_key_passes": [
+      "Pas C"
+    ],
+    "statistic_open_play_key_passes": [
+      "PD-PA"
+    ],
+    "statistic_chances_created_per_90": [
+      "OCr/90m"
+    ],
+    "statistic_clear_cut_chances": [
+      "OcN"
+    ],
+    "statistic_crosses_attempted": [
+      "Cr t"
+    ],
+    "statistic_crosses_completed": [
+      "Cr r"
+    ],
+    "statistic_open_play_crosses_attempted": [
+      "Crs PA T"
+    ],
+    "statistic_open_play_crosses_completed": [
+      "Crs PA C"
+    ],
+    "statistic_fouls": [
+      "Fli"
+    ],
+    "statistic_fouls_against": [
+      "FC"
+    ],
+    "statistic_yellow_cards": [
+      "Amm"
+    ],
+    "statistic_red_cards": [
+      "Esp"
+    ],
+    "statistic_headers_attempted": [
+      "Ct Tnt"
+    ],
+    "statistic_headers_won": [
+      "CdT"
+    ],
+    "statistic_key_headers_per_90": [
+      "CdtC/90"
+    ],
+    "statistic_pressures_attempted": [
+      "Pres T"
+    ],
+    "statistic_pressures_completed": [
+      "Pres C"
+    ],
+    "statistic_possession_won_per_90": [
+      "Poss rec/90"
+    ],
+    "statistic_possession_lost_per_90": [
+      "Poss per/90"
+    ],
+    "statistic_tackles_attempted": [
+      "ConT"
+    ],
+    "statistic_tackles_completed": [
+      "Cnt C"
+    ],
+    "statistic_key_tackles": [
+      "Con D"
+    ],
+    "statistic_interceptions": [
+      "Rec"
+    ],
+    "statistic_shots_blocked": [
+      "Tir blc"
+    ],
+    "statistic_blocks": [
+      "Blc"
+    ],
+    "statistic_clearances": [
+      "Salvataggi"
+    ],
+    "statistic_mistakes_leading_to_goal": [
+      "Err Gol"
+    ],
+    "statistic_xgp": [
+      "xGI"
+    ],
+    "statistic_goals_conceded": [
+      "Sub"
+    ],
+    "statistic_saves_tipped": [
+      "Dvt"
+    ],
+    "statistic_saves_parried": [
+      "Rsp"
+    ],
+    "statistic_saves_held": [
+      "Blo"
+    ],
+    "statistic_penalties_faced": [
+      "Rigori"
+    ],
+    "statistic_penalties_saved": [
+      "Rig parati"
+    ],
+    "statistic_clean_sheets": [
+      "Porta inviolata"
+    ],
+    "attribute_acceleration": [
+      "Acc"
+    ],
+    "attribute_work_rate": [
+      "Imp"
+    ],
+    "attribute_vision": [
+      "Vis"
+    ],
+    "attribute_throwing": [
+      "Rim"
+    ],
+    "attribute_technique": [
+      "Tec"
+    ],
+    "attribute_teamwork": [
+      "GSq"
+    ],
+    "attribute_tackling": [
+      "Cnt"
+    ],
+    "attribute_strength": [
+      "Frz"
+    ],
+    "attribute_stamina": [
+      "Res"
+    ],
+    "attribute_rushing_out": [
+      "IUs"
+    ],
+    "attribute_reflexes": [
+      "Rif"
+    ],
+    "attribute_tendency_to_punch": [
+      "Rsp"
+    ],
+    "attribute_positioning": [
+      "Pos"
+    ],
+    "attribute_penalty_taking": [
+      "Rig"
+    ],
+    "attribute_passing": [
+      "Pas"
+    ],
+    "attribute_pace": [
+      "Vel"
+    ],
+    "attribute_one_on_ones": [
+      "1v1"
+    ],
+    "attribute_off_the_ball": [
+      "SP"
+    ],
+    "attribute_natural_fitness": [
+      "IFi"
+    ],
+    "attribute_marking": [
+      "Mrc"
+    ],
+    "attribute_long_throws": [
+      "Rim"
+    ],
+    "attribute_long_shots": [
+      "TLn"
+    ],
+    "attribute_leadership": [
+      "Crm"
+    ],
+    "attribute_kicking": [
+      "Rin"
+    ],
+    "attribute_jumping_reach": [
+      "Ele"
+    ],
+    "attribute_heading": [
+      "Tst"
+    ],
+    "attribute_handling": [
+      "Blc"
+    ],
+    "attribute_free_kicks": [
+      "Pun"
+    ],
+    "attribute_flair": [
+      "Fan"
+    ],
+    "attribute_first_touch": [
+      "CdP"
+    ],
+    "attribute_finishing": [
+      "Fin"
+    ],
+    "attribute_eccentricity": [
+      "Ecc"
+    ],
+    "attribute_dribbling": [
+      "Dri"
+    ],
+    "attribute_determination": [
+      "Det"
+    ],
+    "attribute_decisions": [
+      "Dec"
+    ],
+    "attribute_crossing": [
+      "Crs"
+    ],
+    "attribute_corners": [
+      "Ang"
+    ],
+    "attribute_concentration": [
+      "Cnc"
+    ],
+    "attribute_composure": [
+      "Frd"
+    ],
+    "attribute_communication": [
+      "Com"
+    ],
+    "attribute_command_of_area": [
+      "Aar"
+    ],
+    "attribute_bravery": [
+      "Cor"
+    ],
+    "attribute_balance": [
+      "Equ"
+    ],
+    "attribute_anticipation": [
+      "Int"
+    ],
+    "attribute_agility": [
+      "Agi"
+    ],
+    "attribute_aggression": [
+      "Agg"
+    ],
+    "attribute_aerial_reach": [
+      "Aer"
+    ]
+  },
+  "ambiguous": {
+    "Rig": {
+      "context": {
+        "statistic_penalties": {
+          "target": "statistic_penalties",
+          "neighbors": [
+            "Distanza",
+            "Drb",
+            "Fg",
+            "Rig",
+            "Scatti/90",
+            "TiP",
+            "Tiri",
+            "Tiri CP",
+            "Tiri fuori area/90",
+            "xA"
+          ],
+          "excludesCategory": "technical"
+        },
+        "statistic_penalties_scored": {
+          "target": "statistic_penalties_scored",
+          "neighbors": [
+            "Distanza",
+            "Drb",
+            "Fg",
+            "PasT",
+            "Rig",
+            "Scatti/90",
+            "TiP",
+            "Tiri",
+            "Tiri CP",
+            "Tiri fuori area/90"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_penalty_taking": {
+          "target": "attribute_penalty_taking",
+          "neighbors": [
+            "1v1",
+            "IFi",
+            "IUs",
+            "Pas",
+            "Pos",
+            "Res",
+            "Rif",
+            "Rsp",
+            "SP",
+            "Vel"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Blc": {
+      "context": {
+        "statistic_blocks": {
+          "target": "statistic_blocks",
+          "neighbors": [
+            "Cnt C",
+            "Con D",
+            "ConT",
+            "Dvt",
+            "Err Gol",
+            "Rec",
+            "Salvataggi",
+            "Sub",
+            "Tir blc",
+            "xGI"
+          ],
+          "excludesCategory": "goalkeeper"
+        },
+        "attribute_handling": {
+          "target": "attribute_handling",
+          "neighbors": [
+            "CdP",
+            "Crm",
+            "Ecc",
+            "Ele",
+            "Fan",
+            "Fin",
+            "Pun",
+            "Rin",
+            "TLn",
+            "Tst"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Rsp": {
+      "context": {
+        "statistic_saves_parried": {
+          "target": "statistic_saves_parried",
+          "neighbors": [
+            "Acc",
+            "Blo",
+            "Dvt",
+            "Err Gol",
+            "Porta inviolata",
+            "Rig parati",
+            "Rigori",
+            "Salvataggi",
+            "Sub",
+            "xGI"
+          ],
+          "excludesCategory": "goalkeeper"
+        },
+        "attribute_tendency_to_punch": {
+          "target": "attribute_tendency_to_punch",
+          "neighbors": [
+            "1v1",
+            "Cnt",
+            "Frz",
+            "IUs",
+            "Pas",
+            "Pos",
+            "Res",
+            "Rif",
+            "Rig",
+            "Vel"
+          ],
+          "excludesCategory": "statistic"
+        }
+      }
+    },
+    "Rim": {
+      "context": {
+        "attribute_throwing": {
+          "target": "attribute_throwing",
+          "neighbors": [
+            "Acc",
+            "Cnt",
+            "Frz",
+            "GSq",
+            "Imp",
+            "Porta inviolata",
+            "Res",
+            "Rig parati",
+            "Tec",
+            "Vis"
+          ],
+          "excludesCategory": "technical"
+        },
+        "attribute_long_throws": {
+          "target": "attribute_long_throws",
+          "neighbors": [
+            "1v1",
+            "Crm",
+            "Ele",
+            "IFi",
+            "Mrc",
+            "Rin",
+            "SP",
+            "TLn",
+            "Tst",
+            "Vel"
+          ],
+          "excludesCategory": "goalkeeper"
+        }
+      }
+    }
+  },
+  "valueTranslations": {
+    "position": {
+      "Por": "GK",
+      "D (S)": "D (L)",
+      "D (C)": "D (C)",
+      "D (D)": "D (R)",
+      "TF (S)": "WB (L)",
+      "TF (D)": "WB (R)",
+      "M": "DM",
+      "C (S)": "M (L)",
+      "C (C)": "M (C)",
+      "C (D)": "M (R)",
+      "T (S)": "AM (L)",
+      "T (C)": "AM (C)",
+      "T (D)": "AM (R)",
+      "P (C)": "ST (C)"
+    },
+    "basic_eu_national": {
+      "No": "No",
+      "Sì": "Yes"
+    },
+    "foot_strength": {
+      "Sufficiente": "Reasonable",
+      "Debole": "Weak",
+      "Molto forte": "Very Strong",
+      "Molto debole": "Very Weak",
+      "Abbastanza forte": "Fairly Strong",
+      "Forte": "Strong"
+    },
+    "basic_contract_type_detail": {
+      "Mensile": "Month To Month",
+      "Contratto a tempo pieno": "Full Contract",
+      "Prestito": "Loan"
+    },
+    "basic_style": {
+      "Creativo": "Creative",
+      "Prestante": "Physical",
+      "Intelligente": "Intelligent",
+      "Blocca tiri": "Shot Stopper",
+      "Leader": "Leader",
+      "Tecnico": "Technical",
+      "Deciso": "Assertive",
+      "Passa palloni": "Distributor"
+    },
+    "basic_home_grown_status": {
+      "Cresciuto nel vivaio nazionale (15-21)": "Trained in nation (15-21)"
+    }
+  },
+  "multipliers": {
+    "k": 1000,
+    "K": 1000,
+    "m": 1000000,
+    "M": 1000000,
+    "b": 1000000000,
+    "B": 1000000000
+  }
+}
