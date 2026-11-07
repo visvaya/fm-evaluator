@@ -1,4 +1,4 @@
-/* eslint-disable fp/no-let, fp/no-mutation, regexp/no-obscure-range, regexp/no-unused-capturing-group, regexp/no-dupe-disjunctions, sonarjs/regex-complexity -- Extracted legacy normalization keeps the existing regex-heavy behavior intact. */
+/* eslint-disable fp/no-let, fp/no-mutation, regexp/no-obscure-range, regexp/no-dupe-disjunctions, sonarjs/regex-complexity -- Extracted legacy normalization keeps the existing regex-heavy behavior intact. */
 
 export function normalizeLeagueNameForGrouping(leagueName: string): string {
   if (!leagueName) return '';

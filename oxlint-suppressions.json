@@ -1,0 +1,3840 @@
+{
+  "e2e/column-persistence.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "playwright/no-conditional-expect": {
+      "count": 4
+    },
+    "playwright/no-conditional-in-test": {
+      "count": 3
+    },
+    "playwright/no-networkidle": {
+      "count": 3
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 8
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 19
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 18
+    },
+    "typescript/no-unsafe-call": {
+      "count": 9
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 37
+    },
+    "typescript/no-unsafe-return": {
+      "count": 5
+    }
+  },
+  "e2e/criticalPath.spec.ts": {
+    "typescript/no-explicit-any": {
+      "count": 7
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 14
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 19
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    }
+  },
+  "e2e/drag-and-drop.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "playwright/no-conditional-expect": {
+      "count": 3
+    },
+    "playwright/no-conditional-in-test": {
+      "count": 3
+    },
+    "playwright/no-networkidle": {
+      "count": 1
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 8
+    },
+    "playwright/prefer-locator": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-call": {
+      "count": 20
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 21
+    }
+  },
+  "e2e/format-verification.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "playwright/no-conditional-expect": {
+      "count": 1
+    },
+    "playwright/no-conditional-in-test": {
+      "count": 1
+    },
+    "playwright/no-networkidle": {
+      "count": 1
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 8
+    },
+    "playwright/prefer-locator": {
+      "count": 3
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 7
+    },
+    "typescript/no-unsafe-call": {
+      "count": 26
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 26
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "e2e/hard-reset.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "no-unused-vars": {
+      "count": 1
+    },
+    "playwright/no-networkidle": {
+      "count": 4
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 10
+    },
+    "playwright/prefer-locator": {
+      "count": 1
+    },
+    "sonarjs/no-dead-store": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 7
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 28
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 28
+    }
+  },
+  "e2e/header-mapping.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "no-unused-vars": {
+      "count": 2
+    },
+    "playwright/no-conditional-expect": {
+      "count": 5
+    },
+    "playwright/no-conditional-in-test": {
+      "count": 4
+    },
+    "playwright/no-networkidle": {
+      "count": 1
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 20
+    },
+    "playwright/prefer-locator": {
+      "count": 2
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/no-dead-store": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 4
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 7
+    },
+    "typescript/no-unsafe-call": {
+      "count": 15
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 16
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "e2e/i18n-switching.spec.ts": {
+    "no-unused-vars": {
+      "count": 1
+    },
+    "playwright/no-conditional-expect": {
+      "count": 8
+    },
+    "playwright/no-conditional-in-test": {
+      "count": 11
+    },
+    "playwright/no-networkidle": {
+      "count": 4
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 8
+    },
+    "sonarjs/no-dead-store": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-call": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    },
+    "typescript/no-unsafe-return": {
+      "count": 3
+    }
+  },
+  "e2e/import-flow.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "playwright/no-conditional-expect": {
+      "count": 3
+    },
+    "playwright/no-conditional-in-test": {
+      "count": 2
+    },
+    "playwright/no-networkidle": {
+      "count": 3
+    },
+    "playwright/no-skipped-test": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "e2e/ldc-and-offline.spec.ts": {
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 11
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 16
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "e2e/modals-ux.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "no-console": {
+      "count": 3
+    },
+    "playwright/no-networkidle": {
+      "count": 3
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 1
+    },
+    "promise/param-names": {
+      "count": 6
+    },
+    "sonarjs/pseudo-random": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 20
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 21
+    },
+    "typescript/no-unsafe-call": {
+      "count": 20
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 24
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    },
+    "typescript/require-await": {
+      "count": 1
+    }
+  },
+  "e2e/multi-file-merge.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "playwright/no-conditional-expect": {
+      "count": 1
+    },
+    "playwright/no-conditional-in-test": {
+      "count": 1
+    },
+    "playwright/no-networkidle": {
+      "count": 1
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 3
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 10
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 11
+    }
+  },
+  "e2e/processor-pipeline.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 4
+    },
+    "playwright/prefer-to-have-count": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 5
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 17
+    },
+    "typescript/no-unsafe-call": {
+      "count": 9
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 30
+    },
+    "typescript/no-unsafe-return": {
+      "count": 4
+    },
+    "typescript/require-await": {
+      "count": 1
+    }
+  },
+  "e2e/reactWorkspaceFlows.spec.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "typescript/no-unsafe-return": {
+      "count": 4
+    }
+  },
+  "e2e/settings-modal.spec.ts": {
+    "id-match": {
+      "count": 2
+    },
+    "playwright/no-conditional-expect": {
+      "count": 1
+    },
+    "playwright/no-conditional-in-test": {
+      "count": 1
+    },
+    "playwright/no-networkidle": {
+      "count": 1
+    },
+    "playwright/no-wait-for-timeout": {
+      "count": 3
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 6
+    },
+    "typescript/no-unsafe-call": {
+      "count": 8
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 9
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "embedded-data.js": {
+    "unicorn/filename-case": {
+      "count": 1
+    }
+  },
+  "playwright.config.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 6
+    }
+  },
+  "public/service-worker.js": {
+    "unicorn/no-array-sort": {
+      "count": 1
+    }
+  },
+  "scripts/check-dist.mjs": {
+    "sonarjs/no-nested-template-literals": {
+      "count": 1
+    }
+  },
+  "scripts/check-docs.mjs": {
+    "regexp/no-unused-capturing-group": {
+      "count": 4
+    }
+  },
+  "scripts/check-typography.mjs": {
+    "sonarjs/no-os-command-from-path": {
+      "count": 1
+    }
+  },
+  "scripts/compare-parse-paths.cjs": {
+    "sonarjs/no-nested-template-literals": {
+      "count": 1
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 2
+    },
+    "unicorn/no-array-sort": {
+      "count": 1
+    }
+  },
+  "scripts/e2e-local.mjs": {
+    "sonarjs/no-os-command-from-path": {
+      "count": 2
+    },
+    "unicorn/prefer-top-level-await": {
+      "count": 1
+    }
+  },
+  "scripts/generate-sri.cjs": {
+    "unicorn/catch-error-name": {
+      "count": 1
+    },
+    "unicorn/no-negated-condition": {
+      "count": 2
+    },
+    "unicorn/prefer-node-protocol": {
+      "count": 3
+    },
+    "unicorn/prefer-set-has": {
+      "count": 1
+    },
+    "unicorn/prefer-string-raw": {
+      "count": 2
+    },
+    "unicorn/prefer-string-replace-all": {
+      "count": 4
+    }
+  },
+  "scripts/goldens-diff.mjs": {
+    "sonarjs/no-os-command-from-path": {
+      "count": 1
+    }
+  },
+  "scripts/legacy-codemap.mjs": {
+    "sonarjs/no-nested-template-literals": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 2
+    },
+    "unicorn/prefer-string-raw": {
+      "count": 1
+    },
+    "unicorn/prefer-string-replace-all": {
+      "count": 1
+    }
+  },
+  "scripts/legacy-metrics.mjs": {
+    "sonarjs/no-nested-conditional": {
+      "count": 2
+    },
+    "unicorn/no-array-reduce": {
+      "count": 1
+    }
+  },
+  "scripts/lib/bundle-budget.mjs": {
+    "unicorn/no-array-reduce": {
+      "count": 1
+    }
+  },
+  "scripts/lib/goldens-diff-core.mjs": {
+    "sonarjs/no-nested-conditional": {
+      "count": 1
+    },
+    "unicorn/no-array-reduce": {
+      "count": 1
+    },
+    "unicorn/prefer-string-replace-all": {
+      "count": 1
+    }
+  },
+  "scripts/lib/legacy-graph.mjs": {
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 2
+    },
+    "unicorn/import-style": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 6
+    }
+  },
+  "scripts/lib/legacy-scan.mjs": {
+    "regexp/no-useless-non-capturing-group": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "unicorn/import-style": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 2
+    },
+    "unicorn/prefer-string-starts-ends-with": {
+      "count": 1
+    }
+  },
+  "scripts/lib/strict-metrics-core.mjs": {
+    "unicorn/no-array-reduce": {
+      "count": 1
+    }
+  },
+  "scripts/lib/strict-metrics-core.test.mjs": {
+    "unicorn/prefer-string-raw": {
+      "count": 1
+    }
+  },
+  "scripts/lib/sw-precache.mjs": {
+    "unicorn/no-array-reduce": {
+      "count": 2
+    }
+  },
+  "scripts/lib/sw-precache.test.mjs": {
+    "unicorn/no-array-reverse": {
+      "count": 1
+    }
+  },
+  "scripts/lib/typography-core.test.mjs": {
+    "unicorn/escape-case": {
+      "count": 2
+    },
+    "unicorn/prefer-string-raw": {
+      "count": 1
+    }
+  },
+  "scripts/validate-configs.cjs": {
+    "no-unused-vars": {
+      "count": 3
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "unicorn/catch-error-name": {
+      "count": 1
+    },
+    "unicorn/no-negated-condition": {
+      "count": 2
+    },
+    "unicorn/prefer-node-protocol": {
+      "count": 2
+    },
+    "unicorn/prefer-set-has": {
+      "count": 1
+    }
+  },
+  "src/bootstrap.ts": {
+    "import/no-named-as-default-member": {
+      "count": 2
+    },
+    "no-console": {
+      "count": 8
+    },
+    "no-unused-vars": {
+      "count": 1
+    },
+    "sonarjs/no-dead-store": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 9
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 9
+    }
+  },
+  "src/cache/structureHashCache.test.ts": {
+    "sonarjs/assertions-in-tests": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "vitest/expect-expect": {
+      "count": 1
+    }
+  },
+  "src/cache/structureHashCache.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 1
+    }
+  },
+  "src/components/ColumnFilterPopover.test.tsx": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    }
+  },
+  "src/components/ColumnFilterPopover.tsx": {
+    "i18next/no-literal-string": {
+      "count": 15
+    },
+    "jsx-a11y/click-events-have-key-events": {
+      "count": 1
+    },
+    "jsx-a11y/no-noninteractive-element-interactions": {
+      "count": 1
+    },
+    "jsx-a11y/prefer-tag-over-role": {
+      "count": 1
+    },
+    "react-hooks/exhaustive-deps": {
+      "count": 1
+    },
+    "react/set-state-in-effect": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/components/CompatibilityHost.tsx": {
+    "i18next/no-literal-string": {
+      "count": 3
+    },
+    "jsx-a11y/control-has-associated-label": {
+      "count": 8
+    },
+    "jsx-a11y/heading-has-content": {
+      "count": 1
+    }
+  },
+  "src/components/DiagnosticsShell.test.tsx": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    }
+  },
+  "src/components/DiagnosticsShell.tsx": {
+    "i18next/no-literal-string": {
+      "count": 39
+    }
+  },
+  "src/components/ErrorBoundary.tsx": {
+    "i18next/no-literal-string": {
+      "count": 2
+    },
+    "max-classes-per-file": {
+      "count": 1
+    }
+  },
+  "src/components/FileManagerModal.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    }
+  },
+  "src/components/FileManagerModal.tsx": {
+    "i18next/no-literal-string": {
+      "count": 6
+    },
+    "jsx-a11y/click-events-have-key-events": {
+      "count": 1
+    },
+    "jsx-a11y/label-has-associated-control": {
+      "count": 2
+    },
+    "jsx-a11y/no-static-element-interactions": {
+      "count": 1
+    },
+    "react/set-state-in-effect": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/components/Header.tsx": {
+    "i18next/no-literal-string": {
+      "count": 2
+    }
+  },
+  "src/components/PlayerTable.tsx": {
+    "i18next/no-literal-string": {
+      "count": 3
+    },
+    "react-hooks/exhaustive-deps": {
+      "count": 1
+    }
+  },
+  "src/components/PossessionShell.tsx": {
+    "i18next/no-literal-string": {
+      "count": 53
+    },
+    "jsx-a11y/label-has-associated-control": {
+      "count": 7
+    }
+  },
+  "src/components/SettingsShell.tsx": {
+    "i18next/no-literal-string": {
+      "count": 18
+    },
+    "react/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "src/computing/ldc.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-call": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    }
+  },
+  "src/computing/ldc.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    }
+  },
+  "src/computing/ldcLeagueLookup.ts": {
+    "typescript/no-unsafe-argument": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 4
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/computing/ldcLoading.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/computing/ldcLoading.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/computing/ldcMappings.ts": {
+    "typescript/no-explicit-any": {
+      "count": 10
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-call": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 8
+    }
+  },
+  "src/computing/ldcUtils.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "unicorn/prefer-string-replace-all": {
+      "count": 1
+    }
+  },
+  "src/computing/ldcVolumeStatsIntegration.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    }
+  },
+  "src/config/LanguageConfigLoader.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 11
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 6
+    },
+    "typescript/no-unsafe-call": {
+      "count": 36
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 38
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    },
+    "typescript/require-await": {
+      "count": 10
+    },
+    "vitest/require-to-throw-message": {
+      "count": 1
+    }
+  },
+  "src/config/columns.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "unicorn/prefer-array-some": {
+      "count": 1
+    },
+    "unicorn/prefer-structured-clone": {
+      "count": 2
+    }
+  },
+  "src/config/constants.test.ts": {
+    "no-unused-vars": {
+      "count": 2
+    },
+    "sonarjs/no-dead-store": {
+      "count": 1
+    },
+    "vitest/no-conditional-expect": {
+      "count": 2
+    }
+  },
+  "src/config/featureFlags.test.ts": {
+    "no-unused-vars": {
+      "count": 5
+    },
+    "typescript/no-misused-spread": {
+      "count": 6
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/config/featureFlags.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 3
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/use-type-alias": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 7
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 6
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 9
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/config/languageConfigLoader.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "preserve-caught-error": {
+      "count": 1
+    }
+  },
+  "src/config/scoreConfig.ts": {
+    "sonarjs/max-lines": {
+      "count": 1
+    }
+  },
+  "src/data/bestRoleSelection.ts": {
+    "typescript/no-explicit-any": {
+      "count": 7
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    },
+    "typescript/no-unsafe-return": {
+      "count": 3
+    }
+  },
+  "src/data/calculateMarketEfficiency.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 1
+    }
+  },
+  "src/data/calculateMarketEfficiency.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    },
+    "unicorn/no-array-sort": {
+      "count": 1
+    }
+  },
+  "src/data/calculateMissingColumns.ts": {
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 4
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 22
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    }
+  },
+  "src/data/calculateScores.test.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 11
+    }
+  },
+  "src/data/calculateScores.ts": {
+    "typescript/no-explicit-any": {
+      "count": 13
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 9
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 19
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 57
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/data/calculateScoresForAllRoles.test.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    }
+  },
+  "src/data/calculateScoresForAllRoles.ts": {
+    "typescript/no-explicit-any": {
+      "count": 5
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 8
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 12
+    }
+  },
+  "src/data/computeAttributeScore.test.ts": {
+    "regexp/no-super-linear-backtracking": {
+      "count": 7
+    },
+    "typescript/no-base-to-string": {
+      "count": 1
+    }
+  },
+  "src/data/computeAttributeScore.ts": {
+    "regexp/no-super-linear-backtracking": {
+      "count": 7
+    },
+    "typescript/no-base-to-string": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    }
+  },
+  "src/data/computeStatScore.test.ts": {
+    "typescript/no-base-to-string": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "vitest/no-conditional-expect": {
+      "count": 3
+    }
+  },
+  "src/data/computeStatScore.ts": {
+    "regexp/no-super-linear-backtracking": {
+      "count": 7
+    },
+    "sonarjs/no-duplicated-branches": {
+      "count": 3
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 1
+    },
+    "typescript/no-base-to-string": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 22
+    }
+  },
+  "src/data/computeStructureHash.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/data/dataProcessor.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 1
+    },
+    "no-restricted-globals": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 8
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 27
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 14
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 33
+    },
+    "typescript/no-unsafe-call": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 14
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/data/deriveStats.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    }
+  },
+  "src/data/deriveStats.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 102
+    },
+    "typescript/no-unsafe-call": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 8
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    }
+  },
+  "src/data/deriveStatsAttacking.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 7
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 41
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/data/deriveStatsGoalkeeping.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 8
+    }
+  },
+  "src/data/deriveStatsPAdj.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    }
+  },
+  "src/data/deriveStatsTail.ts": {
+    "oxc/const-comparisons": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 6
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 92
+    },
+    "typescript/no-unsafe-call": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    }
+  },
+  "src/data/detectFileType.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    }
+  },
+  "src/data/detectFileType.ts": {
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-call": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 7
+    }
+  },
+  "src/data/getNumericValue.test.ts": {
+    "vitest/valid-expect": {
+      "count": 1
+    }
+  },
+  "src/data/getNumericValue.ts": {
+    "regexp/no-super-linear-backtracking": {
+      "count": 7
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "typescript/no-base-to-string": {
+      "count": 1
+    }
+  },
+  "src/data/handleFiles.test.ts": {
+    "typescript/consistent-type-imports": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    },
+    "unicorn/no-new-array": {
+      "count": 1
+    }
+  },
+  "src/data/handleFiles.ts": {
+    "typescript/no-base-to-string": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 11
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 4
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 4
+    },
+    "typescript/no-unsafe-call": {
+      "count": 12
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 22
+    },
+    "typescript/no-unsafe-return": {
+      "count": 5
+    }
+  },
+  "src/data/importPipeline.golden.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 7
+    }
+  },
+  "src/data/importRuntime.test.ts": {
+    "typescript/require-await": {
+      "count": 4
+    }
+  },
+  "src/data/importRuntime.ts": {
+    "no-unused-vars": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/no-ignored-exceptions": {
+      "count": 1
+    },
+    "typescript/no-base-to-string": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 1
+    },
+    "unicorn/prefer-add-event-listener": {
+      "count": 1
+    },
+    "unicorn/prefer-blob-reading-methods": {
+      "count": 1
+    },
+    "unicorn/prefer-optional-catch-binding": {
+      "count": 1
+    }
+  },
+  "src/data/mergeData.test.ts": {
+    "typescript/no-unsafe-member-access": {
+      "count": 4
+    }
+  },
+  "src/data/mergeData.ts": {
+    "typescript/no-explicit-any": {
+      "count": 14
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 12
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 23
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 65
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/data/normalizeHeader.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    }
+  },
+  "src/data/parseHTMLWithNewSystem.ts": {
+    "no-console": {
+      "count": 40
+    },
+    "no-restricted-globals": {
+      "count": 1
+    },
+    "no-useless-assignment": {
+      "count": 1
+    },
+    "preserve-caught-error": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/no-nested-template-literals": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 43
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 7
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 47
+    },
+    "typescript/no-unsafe-call": {
+      "count": 15
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 62
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    },
+    "unicorn/filename-case": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 1
+    },
+    "unicorn/prefer-array-some": {
+      "count": 1
+    }
+  },
+  "src/data/parseNumber.ts": {
+    "regexp/no-dupe-disjunctions": {
+      "count": 4
+    },
+    "typescript/no-base-to-string": {
+      "count": 1
+    }
+  },
+  "src/data/parsePositions.ts": {
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "src/data/possessionUtils.ts": {
+    "no-control-regex": {
+      "count": 1
+    },
+    "regexp/no-super-linear-backtracking": {
+      "count": 7
+    },
+    "typescript/no-base-to-string": {
+      "count": 3
+    }
+  },
+  "src/data/roleDistributions.test.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/data/roleDistributions.ts": {
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 23
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 11
+    }
+  },
+  "src/data/scorePostProcessing.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/data/scorePostProcessing.ts": {
+    "typescript/no-explicit-any": {
+      "count": 17
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 11
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    }
+  },
+  "src/export/deterministicExport.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-misused-spread": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 6
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/export/deterministicExport.ts": {
+    "typescript/no-base-to-string": {
+      "count": 5
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    },
+    "typescript/restrict-template-expressions": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 4
+    },
+    "unicorn/no-immediate-mutation": {
+      "count": 1
+    }
+  },
+  "src/features/diagnostics/runtimeDiagnostics.ts": {
+    "fp/no-let": {
+      "count": 6
+    },
+    "fp/no-mutating-methods": {
+      "count": 5
+    },
+    "fp/no-mutation": {
+      "count": 20
+    },
+    "no-console": {
+      "count": 3
+    },
+    "promise/always-return": {
+      "count": 3
+    },
+    "promise/catch-or-return": {
+      "count": 1
+    },
+    "promise/no-nesting": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 2
+    },
+    "typescript/no-deprecated": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-floating-promises": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 9
+    },
+    "typescript/require-await": {
+      "count": 1
+    },
+    "unicorn/no-array-reduce": {
+      "count": 1
+    },
+    "unicorn/prefer-spread": {
+      "count": 1
+    }
+  },
+  "src/features/ldc/LdcLeaguesBulkActions.tsx": {
+    "i18next/no-literal-string": {
+      "count": 6
+    }
+  },
+  "src/features/ldc/LdcLeaguesSection.tsx": {
+    "fp/no-delete": {
+      "count": 3
+    },
+    "fp/no-let": {
+      "count": 1
+    },
+    "react/incompatible-library": {
+      "count": 1
+    }
+  },
+  "src/features/ldc/LdcLeaguesTable.tsx": {
+    "i18next/no-literal-string": {
+      "count": 24
+    },
+    "jsx-a11y/control-has-associated-label": {
+      "count": 7
+    }
+  },
+  "src/features/ldc/LdcLeaguesToolbar.tsx": {
+    "i18next/no-literal-string": {
+      "count": 9
+    }
+  },
+  "src/features/ldc/LdcMappingFilters.tsx": {
+    "i18next/no-literal-string": {
+      "count": 6
+    }
+  },
+  "src/features/ldc/LdcMappingTargetPicker.tsx": {
+    "i18next/no-literal-string": {
+      "count": 7
+    },
+    "jsx-a11y/control-has-associated-label": {
+      "count": 1
+    },
+    "react/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "src/features/ldc/LdcMappingsPanel.tsx": {
+    "i18next/no-literal-string": {
+      "count": 19
+    },
+    "jsx-a11y/click-events-have-key-events": {
+      "count": 1
+    },
+    "jsx-a11y/control-has-associated-label": {
+      "count": 3
+    },
+    "jsx-a11y/no-static-element-interactions": {
+      "count": 1
+    },
+    "react/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "src/features/ldc/LdcMissingDialogs.tsx": {
+    "i18next/no-literal-string": {
+      "count": 24
+    },
+    "jsx-a11y/label-has-associated-control": {
+      "count": 4
+    },
+    "jsx-a11y/no-autofocus": {
+      "count": 1
+    },
+    "react-hooks/rules-of-hooks": {
+      "count": 9
+    }
+  },
+  "src/features/ldc/LdcMissingPanel.tsx": {
+    "i18next/no-literal-string": {
+      "count": 38
+    },
+    "jsx-a11y/label-has-associated-control": {
+      "count": 1
+    },
+    "react/set-state-in-effect": {
+      "count": 1
+    },
+    "sonarjs/max-lines": {
+      "count": 1
+    }
+  },
+  "src/features/ldc/LdcModalCompat.test.tsx": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 1
+    }
+  },
+  "src/features/ldc/LdcModalCompat.tsx": {
+    "fp/no-mutation": {
+      "count": 6
+    },
+    "i18next/no-literal-string": {
+      "count": 40
+    },
+    "jsx-a11y/click-events-have-key-events": {
+      "count": 1
+    },
+    "jsx-a11y/label-has-associated-control": {
+      "count": 3
+    },
+    "jsx-a11y/no-noninteractive-element-interactions": {
+      "count": 1
+    },
+    "jsx-a11y/prefer-tag-over-role": {
+      "count": 1
+    },
+    "react-hooks/exhaustive-deps": {
+      "count": 1
+    },
+    "react/immutability": {
+      "count": 2
+    },
+    "react/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "src/features/ldc/LdcProblemsPanel.tsx": {
+    "i18next/no-literal-string": {
+      "count": 8
+    },
+    "react/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "src/features/ldc/ldcIssues.ts": {
+    "fp/no-let": {
+      "count": 1
+    },
+    "fp/no-mutating-methods": {
+      "count": 3
+    },
+    "fp/no-mutation": {
+      "count": 7
+    }
+  },
+  "src/features/ldc/ldcPersistence.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/features/ldc/ldcRepairs.ts": {
+    "fp/no-let": {
+      "count": 2
+    },
+    "fp/no-mutation": {
+      "count": 6
+    }
+  },
+  "src/features/ldc/ldcTableModel.ts": {
+    "typescript/no-unsafe-argument": {
+      "count": 4
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    }
+  },
+  "src/features/ldc/useLdcStore.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 7
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-call": {
+      "count": 7
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 7
+    }
+  },
+  "src/features/legacyRuntime/inlineOnclickBridges.ts": {
+    "unicorn/prefer-string-raw": {
+      "count": 1
+    }
+  },
+  "src/features/legacyRuntime/legacyInteractions.test.ts": {
+    "typescript/no-unsafe-call": {
+      "count": 3
+    }
+  },
+  "src/features/legacyRuntime/legacyInteractions.ts": {
+    "typescript/no-unsafe-call": {
+      "count": 1
+    }
+  },
+  "src/features/playerDetails/PlayerBeeswarmChart.tsx": {
+    "jsx-a11y/prefer-tag-over-role": {
+      "count": 1
+    }
+  },
+  "src/features/playerDetails/PlayerMetricComparison.tsx": {
+    "i18next/no-literal-string": {
+      "count": 2
+    }
+  },
+  "src/features/playerDetails/formatBreakdownRows.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 10
+    }
+  },
+  "src/features/playerDetails/models.ts": {
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    }
+  },
+  "src/features/playerDetails/uiPrimitives.tsx": {
+    "i18next/no-literal-string": {
+      "count": 1
+    }
+  },
+  "src/features/runtime/parserRuntime.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/features/runtime/parserRuntime.ts": {
+    "fp/no-let": {
+      "count": 4
+    },
+    "fp/no-mutation": {
+      "count": 10
+    },
+    "no-console": {
+      "count": 6
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "typescript/require-await": {
+      "count": 1
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 1
+    }
+  },
+  "src/features/runtime/runtimePatches.ts": {
+    "fp/no-mutating-methods": {
+      "count": 1
+    },
+    "fp/no-mutation": {
+      "count": 6
+    },
+    "regexp/no-unused-capturing-group": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 7
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 7
+    },
+    "typescript/no-unsafe-call": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 16
+    },
+    "typescript/no-unsafe-return": {
+      "count": 3
+    }
+  },
+  "src/features/runtime/runtimeUiBindings.test.ts": {
+    "fp/no-delete": {
+      "count": 3
+    },
+    "typescript/no-explicit-any": {
+      "count": 8
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 8
+    }
+  },
+  "src/features/runtime/runtimeUiBindings.ts": {
+    "fp/no-let": {
+      "count": 3
+    },
+    "fp/no-mutation": {
+      "count": 13
+    },
+    "import/no-named-as-default-member": {
+      "count": 3
+    },
+    "typescript/no-explicit-any": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 1
+    }
+  },
+  "src/features/workspace/shortcuts.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    }
+  },
+  "src/hooks/useDataBoundary.ts": {
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    }
+  },
+  "src/hooks/usePlayerTable.tsx": {
+    "react-hooks/exhaustive-deps": {
+      "count": 4
+    },
+    "react/incompatible-library": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/i18n/i18n.test.ts": {
+    "no-unsafe-optional-chaining": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/i18n/index.ts": {
+    "no-console": {
+      "count": 4
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    },
+    "sonarjs/redundant-type-aliases": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-floating-promises": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    }
+  },
+  "src/i18n/translate.ts": {
+    "regexp/no-super-linear-backtracking": {
+      "count": 4
+    },
+    "unicorn/no-negated-condition": {
+      "count": 1
+    }
+  },
+  "src/i18n/updateUi.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 9
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 9
+    }
+  },
+  "src/i18n/updateUi.ts": {
+    "typescript/no-explicit-any": {
+      "count": 15
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 22
+    }
+  },
+  "src/import/dryRunImport.ts": {
+    "no-unused-vars": {
+      "count": 1
+    },
+    "sonarjs/no-dead-store": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 1
+    },
+    "typescript/no-base-to-string": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 1
+    },
+    "unicorn/prefer-code-point": {
+      "count": 1
+    }
+  },
+  "src/ldcStorage.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-floating-promises": {
+      "count": 4
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-return": {
+      "count": 4
+    }
+  },
+  "src/lib/analysisService.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 4
+    }
+  },
+  "src/lib/analysisService.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    }
+  },
+  "src/lib/filterRuntime.ts": {
+    "typescript/consistent-type-definitions": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/lib/i18nBridge.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-call": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    },
+    "typescript/no-unsafe-return": {
+      "count": 3
+    }
+  },
+  "src/lib/importFlowBridge.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/lib/importFlowBridge.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 17
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/lib/legacyActionBridge.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    }
+  },
+  "src/lib/legacyBootstrap.test.ts": {
+    "no-empty-function": {
+      "count": 1
+    }
+  },
+  "src/lib/legacyBootstrap.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/lib/legacyRuntimeBridge.ts": {
+    "typescript/no-explicit-any": {
+      "count": 9
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 12
+    },
+    "typescript/no-unsafe-return": {
+      "count": 3
+    }
+  },
+  "src/lib/playerRowsRuntime.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    }
+  },
+  "src/lib/playerRuntimeCache.ts": {
+    "fp/no-let": {
+      "count": 1
+    },
+    "fp/no-mutation": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    }
+  },
+  "src/lib/processorBridge.test.ts": {
+    "fp/no-delete": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 4
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 4
+    }
+  },
+  "src/lib/processorBridge.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/lib/reactTableCompat.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    }
+  },
+  "src/lib/reactTableCompat.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    }
+  },
+  "src/lib/uiBridge.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/mapping/contextResolver.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 5
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    },
+    "sonarjs/no-dead-store": {
+      "count": 1
+    },
+    "unicorn/no-array-sort": {
+      "count": 3
+    },
+    "unicorn/prefer-ternary": {
+      "count": 1
+    }
+  },
+  "src/mapping/mapping.test.ts": {
+    "typescript/ban-ts-comment": {
+      "count": 3
+    },
+    "typescript/no-explicit-any": {
+      "count": 13
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 19
+    },
+    "typescript/no-unsafe-call": {
+      "count": 38
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 62
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    },
+    "vitest/no-duplicate-hooks": {
+      "count": 1
+    }
+  },
+  "src/mapping/smartHeaderMapper.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 3
+    },
+    "no-unused-vars": {
+      "count": 4
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    },
+    "sonarjs/no-dead-store": {
+      "count": 2
+    }
+  },
+  "src/ocr/ocrImageProcessing.ts": {
+    "no-useless-assignment": {
+      "count": 1
+    },
+    "typescript/require-await": {
+      "count": 1
+    },
+    "unicorn/prefer-add-event-listener": {
+      "count": 1
+    }
+  },
+  "src/ocr/ocrMatching.ts": {
+    "regexp/no-contradiction-with-assertion": {
+      "count": 3
+    },
+    "regexp/no-dupe-disjunctions": {
+      "count": 6
+    },
+    "regexp/no-obscure-range": {
+      "count": 2
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 4
+    },
+    "typescript/no-explicit-any": {
+      "count": 4
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/ocr/ocrParsing.ts": {
+    "no-unused-vars": {
+      "count": 3
+    },
+    "regexp/no-obscure-range": {
+      "count": 1
+    },
+    "regexp/no-super-linear-backtracking": {
+      "count": 12
+    },
+    "regexp/no-unused-capturing-group": {
+      "count": 4
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    },
+    "sonarjs/max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/no-duplicated-branches": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 12
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 16
+    }
+  },
+  "src/ocr/ocrSettings.ts": {
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 6
+    }
+  },
+  "src/ocr/ocrWorkerPool.ts": {
+    "promise/always-return": {
+      "count": 1
+    },
+    "typescript/no-base-to-string": {
+      "count": 3
+    },
+    "typescript/no-explicit-any": {
+      "count": 24
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 18
+    },
+    "typescript/no-unsafe-call": {
+      "count": 20
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 39
+    },
+    "typescript/no-unsafe-return": {
+      "count": 3
+    }
+  },
+  "src/parsing/format.test.ts": {
+    "no-unused-vars": {
+      "count": 1
+    },
+    "typescript/ban-ts-comment": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 11
+    },
+    "typescript/no-unsafe-call": {
+      "count": 58
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 65
+    }
+  },
+  "src/parsing/formatInspector.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 1
+    },
+    "regexp/no-unused-capturing-group": {
+      "count": 8
+    },
+    "regexp/no-useless-assertions": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    }
+  },
+  "src/parsing/normalizationConfig.js": {
+    "max-classes-per-file": {
+      "count": 1
+    }
+  },
+  "src/parsing/parsers/attributeParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    }
+  },
+  "src/parsing/parsers/currencyParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "regexp/no-unused-capturing-group": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/no-redundant-assignments": {
+      "count": 1
+    }
+  },
+  "src/parsing/parsers/dateParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    }
+  },
+  "src/parsing/parsers/distanceParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "regexp/no-unused-capturing-group": {
+      "count": 5
+    },
+    "regexp/no-useless-assertions": {
+      "count": 1
+    }
+  },
+  "src/parsing/parsers/parsers.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 7
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 11
+    },
+    "typescript/no-unsafe-call": {
+      "count": 105
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 105
+    }
+  },
+  "src/parsing/parsers/statisticParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    }
+  },
+  "src/parsing/parsers/wageParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 1
+    },
+    "regexp/no-unused-capturing-group": {
+      "count": 3
+    }
+  },
+  "src/parsing/universalParser.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-fallthrough": {
+      "count": 1
+    }
+  },
+  "src/parsing/workerParser.ts": {
+    "no-console": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/processing/schemas.test.ts": {
+    "no-unused-vars": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "vitest/require-to-throw-message": {
+      "count": 14
+    }
+  },
+  "src/processing/schemas.ts": {
+    "zod/no-any-schema": {
+      "count": 1
+    }
+  },
+  "src/processing/utils.ts": {
+    "regexp/no-dupe-disjunctions": {
+      "count": 6
+    },
+    "regexp/no-super-linear-backtracking": {
+      "count": 7
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 7
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 14
+    },
+    "typescript/no-unsafe-call": {
+      "count": 32
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 37
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    },
+    "unicorn/prefer-ternary": {
+      "count": 2
+    }
+  },
+  "src/runtime.ts": {
+    "import/no-named-as-default-member": {
+      "count": 2
+    },
+    "no-console": {
+      "count": 5
+    },
+    "promise/always-return": {
+      "count": 1
+    },
+    "promise/catch-or-return": {
+      "count": 1
+    },
+    "typescript/no-deprecated": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 14
+    },
+    "typescript/no-floating-promises": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 13
+    },
+    "unicorn/prefer-top-level-await": {
+      "count": 1
+    }
+  },
+  "src/schema/contracts.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "vitest/no-conditional-expect": {
+      "count": 6
+    }
+  },
+  "src/schema/contracts.ts": {
+    "fp/no-mutating-methods": {
+      "count": 2
+    },
+    "zod/consistent-schema-var-name": {
+      "count": 2
+    }
+  },
+  "src/schema/schemaRegistry.js": {
+    "fp/no-mutating-methods": {
+      "count": 1
+    },
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "sonarjs/max-lines": {
+      "count": 1
+    }
+  },
+  "src/schema/schemaRegistry.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 5
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 15
+    },
+    "typescript/no-unsafe-call": {
+      "count": 65
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 88
+    },
+    "vitest/no-conditional-expect": {
+      "count": 1
+    }
+  },
+  "src/stateSync.ts": {
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 9
+    },
+    "typescript/no-unsafe-call": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 30
+    }
+  },
+  "src/storage/db.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 8
+    },
+    "vitest/no-conditional-expect": {
+      "count": 1
+    },
+    "vitest/require-to-throw-message": {
+      "count": 1
+    }
+  },
+  "src/storage/db.ts": {
+    "import/no-named-as-default": {
+      "count": 1
+    },
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-empty-function": {
+      "count": 1
+    },
+    "typescript/no-deprecated": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 16
+    },
+    "typescript/no-redundant-type-constituents": {
+      "count": 4
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "unicorn/no-array-reverse": {
+      "count": 1
+    }
+  },
+  "src/storage/migrations.ts": {
+    "no-unused-vars": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 6
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "unicorn/no-array-reverse": {
+      "count": 1
+    }
+  },
+  "src/storage/state.test.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 6
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 18
+    }
+  },
+  "src/storage/state.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "typescript/no-unsafe-return": {
+      "count": 4
+    }
+  },
+  "src/store/tableStore.ts": {
+    "fp/no-mutation": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 4
+    }
+  },
+  "src/store/useOcrStore.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    }
+  },
+  "src/store/useTableStore.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    }
+  },
+  "src/tableState.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 5
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    },
+    "vitest/no-duplicate-hooks": {
+      "count": 1
+    }
+  },
+  "src/tableState.ts": {
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 13
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/telemetry/webVitals.ts": {
+    "no-empty": {
+      "count": 3
+    },
+    "no-empty-function": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    }
+  },
+  "src/types/ambient.d.ts": {
+    "typescript/no-explicit-any": {
+      "count": 9
+    }
+  },
+  "src/types/global.d.ts": {
+    "typescript/no-explicit-any": {
+      "count": 8
+    }
+  },
+  "src/ui/ModalQueue.test.ts": {
+    "no-empty-function": {
+      "count": 1
+    },
+    "promise/param-names": {
+      "count": 5
+    },
+    "typescript/no-explicit-any": {
+      "count": 8
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 10
+    },
+    "typescript/no-unsafe-call": {
+      "count": 27
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 33
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    },
+    "typescript/require-await": {
+      "count": 1
+    }
+  },
+  "src/ui/adapter.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/ui/columnManager.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 4
+    }
+  },
+  "src/ui/columnManager.ts": {
+    "sonarjs/no-redundant-jump": {
+      "count": 1
+    },
+    "sonarjs/prefer-single-boolean-return": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 9
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-call": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 9
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 2
+    },
+    "unicorn/prefer-structured-clone": {
+      "count": 1
+    }
+  },
+  "src/ui/dragDrop.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 6
+    },
+    "typescript/no-unsafe-return": {
+      "count": 3
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 1
+    },
+    "unicorn/no-array-reduce": {
+      "count": 1
+    }
+  },
+  "src/ui/fileStack.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-call": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    }
+  },
+  "src/ui/fileStack.ts": {
+    "import/no-named-as-default-member": {
+      "count": 1
+    },
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 3
+    },
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 13
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/ui/fileStackRuntime.test.ts": {
+    "no-empty-function": {
+      "count": 1
+    }
+  },
+  "src/ui/fileStackRuntime.ts": {
+    "no-empty-function": {
+      "count": 1
+    }
+  },
+  "src/ui/fileStackUi.ts": {
+    "no-empty-function": {
+      "count": 1
+    }
+  },
+  "src/ui/filterData.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 10
+    },
+    "typescript/no-unsafe-return": {
+      "count": 8
+    }
+  },
+  "src/ui/filterData.ts": {
+    "typescript/no-explicit-any": {
+      "count": 13
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 4
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 12
+    },
+    "typescript/no-unsafe-call": {
+      "count": 6
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 26
+    },
+    "typescript/no-unsafe-return": {
+      "count": 3
+    }
+  },
+  "src/ui/filterLegacyDom.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 7
+    }
+  },
+  "src/ui/filters.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 4
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/ui/filters.ts": {
+    "typescript/no-deprecated": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 4
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 6
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 9
+    },
+    "typescript/no-unsafe-call": {
+      "count": 12
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 29
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/ui/focusTrap.ts": {
+    "no-unused-vars": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/ui/formatVerificationModal.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 1
+    },
+    "no-empty-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/no-identical-functions": {
+      "count": 1
+    },
+    "unicorn/prefer-ternary": {
+      "count": 1
+    }
+  },
+  "src/ui/header.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    }
+  },
+  "src/ui/header.ts": {
+    "sonarjs/no-nested-conditional": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    }
+  },
+  "src/ui/headerMappingModal.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/no-all-duplicated-branches": {
+      "count": 1
+    },
+    "sonarjs/no-dead-store": {
+      "count": 1
+    },
+    "sonarjs/no-duplicated-branches": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 7
+    },
+    "unicorn/prefer-ternary": {
+      "count": 3
+    }
+  },
+  "src/ui/headerMappingModal.test.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/ui/healthCheck.ts": {
+    "no-console": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 2
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 4
+    },
+    "typescript/require-await": {
+      "count": 3
+    },
+    "unicorn/prefer-add-event-listener": {
+      "count": 1
+    }
+  },
+  "src/ui/languageModal.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 7
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 13
+    }
+  },
+  "src/ui/ldcMissing.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/ui/ldcModalActions.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-call": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 4
+    }
+  },
+  "src/ui/ldcModalBindings.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/ui/ldcModalCalculation.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/ui/ldcModalImportExport.test.ts": {
+    "typescript/no-deprecated": {
+      "count": 1
+    }
+  },
+  "src/ui/ldcModalImportExport.ts": {
+    "typescript/no-explicit-any": {
+      "count": 4
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/ui/ldcModalMappings.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/ui/modalQueue.js": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 8
+    }
+  },
+  "src/ui/offlineIndicator.ts": {
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "promise/always-return": {
+      "count": 1
+    },
+    "promise/catch-or-return": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-floating-promises": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/ui/possessionClubList.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 21
+    },
+    "typescript/no-unnecessary-type-assertion": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 11
+    },
+    "typescript/unbound-method": {
+      "count": 1
+    }
+  },
+  "src/ui/possessionClubList.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 7
+    },
+    "typescript/no-unsafe-call": {
+      "count": 7
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 7
+    },
+    "unicorn/no-array-sort": {
+      "count": 1
+    }
+  },
+  "src/ui/possessionCropper.test.ts": {
+    "typescript/array-type": {
+      "count": 1
+    },
+    "typescript/dot-notation": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 14
+    },
+    "typescript/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 4
+    },
+    "typescript/no-unsafe-return": {
+      "count": 2
+    }
+  },
+  "src/ui/possessionCropper.ts": {
+    "no-empty-function": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 5
+    },
+    "typescript/no-unsafe-call": {
+      "count": 6
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 18
+    },
+    "unicorn/prefer-add-event-listener": {
+      "count": 1
+    }
+  },
+  "src/ui/possessionModal.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 3
+    }
+  },
+  "src/ui/possessionModal.ts": {
+    "no-unused-vars": {
+      "count": 7
+    },
+    "sonarjs/max-lines-per-function": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 5
+    },
+    "typescript/no-floating-promises": {
+      "count": 1
+    },
+    "typescript/no-misused-promises": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 6
+    },
+    "typescript/no-unsafe-call": {
+      "count": 8
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 14
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/ui/possessionOCRDisplay.test.ts": {
+    "no-empty-function": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 5
+    },
+    "typescript/no-unnecessary-type-assertion": {
+      "count": 7
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 5
+    }
+  },
+  "src/ui/possessionOCRDisplay.ts": {
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/no-duplicated-branches": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 1
+    },
+    "sonarjs/pseudo-random": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 2
+    },
+    "typescript/no-unsafe-call": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "unicorn/explicit-length-check": {
+      "count": 2
+    },
+    "unicorn/filename-case": {
+      "count": 1
+    },
+    "unicorn/prefer-single-call": {
+      "count": 2
+    }
+  },
+  "src/ui/possessionOCRPipeline.test.ts": {
+    "no-empty-function": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 15
+    },
+    "typescript/no-unsafe-call": {
+      "count": 6
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 15
+    },
+    "typescript/no-unsafe-return": {
+      "count": 3
+    },
+    "typescript/require-await": {
+      "count": 5
+    }
+  },
+  "src/ui/possessionOCRPipeline.ts": {
+    "no-unused-vars": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 1
+    },
+    "sonarjs/no-nested-template-literals": {
+      "count": 3
+    },
+    "typescript/no-explicit-any": {
+      "count": 10
+    },
+    "typescript/no-floating-promises": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 8
+    },
+    "typescript/no-unsafe-call": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 7
+    },
+    "unicorn/filename-case": {
+      "count": 1
+    },
+    "unicorn/prefer-add-event-listener": {
+      "count": 1
+    }
+  },
+  "src/ui/scrollInputHelper.ts": {
+    "typescript/no-explicit-any": {
+      "count": 21
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 20
+    }
+  },
+  "src/ui/statPercentiles.test.ts": {
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "src/ui/table.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 2
+    }
+  },
+  "src/ui/table.ts": {
+    "no-unused-vars": {
+      "count": 3
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "sonarjs/max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/no-nested-conditional": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-argument": {
+      "count": 2
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/restrict-template-expressions": {
+      "count": 1
+    },
+    "unicorn/no-array-reduce": {
+      "count": 1
+    }
+  },
+  "src/ui/tableOrchestrator.test.ts": {
+    "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/ui/tableOrchestrator.ts": {
+    "no-unused-vars": {
+      "count": 2
+    },
+    "typescript/no-explicit-any": {
+      "count": 16
+    },
+    "typescript/no-unsafe-call": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 12
+    },
+    "unicorn/explicit-length-check": {
+      "count": 2
+    }
+  },
+  "src/ui/types.ts": {
+    "typescript/no-explicit-any": {
+      "count": 3
+    }
+  },
+  "src/upload.ts": {
+    "typescript/no-explicit-any": {
+      "count": 6
+    },
+    "typescript/no-unsafe-call": {
+      "count": 3
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 6
+    }
+  },
+  "src/uploadMeta.ts": {
+    "unicorn/consistent-function-scoping": {
+      "count": 1
+    },
+    "unicorn/prefer-code-point": {
+      "count": 1
+    }
+  },
+  "src/utils/helpers.ts": {
+    "sonarjs/no-invariant-returns": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 4
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "src/workerBridge/circuitBreaker.test.ts": {
+    "typescript/require-await": {
+      "count": 1
+    }
+  },
+  "src/workerBridge/circuitBreaker.ts": {
+    "fp/no-let": {
+      "count": 4
+    },
+    "fp/no-mutation": {
+      "count": 42
+    },
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 4
+    },
+    "promise/param-names": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    },
+    "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-misused-promises": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-member-access": {
+      "count": 2
+    }
+  },
+  "src/workerBridge/parserBridge.test.ts": {
+    "typescript/no-unsafe-assignment": {
+      "count": 3
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/workerBridge/parserBridge.ts": {
+    "fp/no-let": {
+      "count": 1
+    },
+    "fp/no-mutation": {
+      "count": 12
+    },
+    "max-classes-per-file": {
+      "count": 1
+    },
+    "no-console": {
+      "count": 1
+    },
+    "typescript/no-unsafe-return": {
+      "count": 1
+    }
+  },
+  "src/workers/parser.worker.test.ts": {
+    "typescript/no-unsafe-return": {
+      "count": 1
+    },
+    "unicorn/consistent-function-scoping": {
+      "count": 1
+    }
+  },
+  "vite.config.ts": {
+    "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-assignment": {
+      "count": 1
+    }
+  }
+}

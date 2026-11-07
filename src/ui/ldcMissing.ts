@@ -4,6 +4,7 @@
 import { addLeagueMapping } from '../computing/ldcMappings';
 import { normalizeLeagueNameForGrouping } from '../computing/ldcUtils';
 import { ldcSettings } from '../config/ldcConfig';
+// eslint-disable-next-line unicorn/prefer-export-from -- Kept as a compatibility export and used locally below.
 import { detectMissingLeagues } from '../features/ldc/detectMissingLeagues';
 import {
   groupMissingLeagueCandidates,
@@ -53,7 +54,6 @@ export function checkMissingLeagues(): void {
   (window as any).missingLeaguesGroups = groups;
 }
 
-// eslint-disable-next-line unicorn/prefer-export-from -- Kept as a compatibility export and used locally above.
 export { detectMissingLeagues };
 
 export function groupMissingLeagues(

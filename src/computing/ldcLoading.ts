@@ -1,4 +1,4 @@
-/* eslint-disable fp/no-let, fp/no-mutation, fp/no-mutating-methods, sonarjs/cognitive-complexity, no-restricted-syntax -- Legacy LDC import/loading paths were extracted structurally from the old monolith and remain intentionally imperative. */
+/* eslint-disable fp/no-let, fp/no-mutation, fp/no-mutating-methods, sonarjs/cognitive-complexity, no-restricted-globals -- Legacy LDC import/loading paths were extracted structurally from the old monolith and remain intentionally imperative. */
 
 import { canonicalizeNation } from './ldcNations';
 

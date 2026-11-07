@@ -1,4 +1,4 @@
-/* eslint-disable fp/no-mutation, perfectionist/sort-interfaces, sonarjs/cognitive-complexity, sonarjs/no-nested-functions, unicorn/no-negated-condition */
+/* eslint-disable fp/no-mutation, sonarjs/cognitive-complexity, sonarjs/no-nested-functions, unicorn/no-negated-condition */
 
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';

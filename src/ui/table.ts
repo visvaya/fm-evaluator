@@ -198,7 +198,6 @@ export function renderPagedRows(
   const start = (actualPage - 1) * rowsPerPage;
   const slice = sorted.slice(start, start + rowsPerPage);
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
   const positionSelect = document.querySelector('#position-select') as HTMLSelectElement | null;
   const isBestModeActive = positionSelect?.value === 'BEST';
 
@@ -269,7 +268,6 @@ export function renderVirtualRows(
   const beforeHeight = Math.max(0, start * virtualRowHeight);
   const afterHeight = Math.max(0, (sortedRows.length - end) * virtualRowHeight);
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
   const positionSelect = document.querySelector('#position-select') as HTMLSelectElement | null;
   const isBestModeActive = positionSelect?.value === 'BEST';
 

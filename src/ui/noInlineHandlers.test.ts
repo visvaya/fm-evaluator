@@ -10,7 +10,6 @@ const TEST_FILE = /\.(?:test|spec)\.(?:js|ts|tsx)$/;
 
 function listSourceFiles(directory: string): string[] {
   // Test-time walk of the repository's own src/ tree.
-  // eslint-disable-next-line security/detect-non-literal-fs-filename
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const fullPath = path.join(directory, entry.name);
     if (entry.isDirectory()) return listSourceFiles(fullPath);
@@ -19,7 +18,6 @@ function listSourceFiles(directory: string): string[] {
 }
 
 function findInlineHandlers(file: string): string[] {
-  // eslint-disable-next-line security/detect-non-literal-fs-filename -- src/ file list
   const lines = fs.readFileSync(file, 'utf-8').split('\n');
   return lines.flatMap((line, index) =>
     INLINE_HANDLER.test(line) ? [`${path.relative(SRC_DIR, file)}:${index + 1}`] : []

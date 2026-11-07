@@ -3,8 +3,8 @@
 Status: Active  
 Scope: Quality policy, verification, enforcement, testing, linting, accessibility and documentation-to-tooling mapping  
 Owner: Project documentation  
-Last Reviewed: 2026-11-03  
-See also: `docs/README.md`, `docs/language.md`, `docs/adr/`, `eslint.config.mjs`
+Last Reviewed: 2026-11-07  
+See also: `docs/README.md`, `docs/language.md`, `docs/adr/`, `.oxlintrc.json`
 
 ## 1. Purpose
 
@@ -21,7 +21,6 @@ This document is the active source of truth for quality expectations and their e
 
 - `pnpm run lint`
 - `pnpm run typecheck`
-- `pnpm run type-coverage`
 - `pnpm test`
 - relevant Playwright coverage for critical user flows when behavior changes
 - targeted review of security, i18n and accessibility impact where applicable
@@ -62,8 +61,7 @@ The application should keep its critical user path healthy:
 - Use Vitest for modules with clear logic boundaries.
 - Prefer focused tests for parsing, mapping, storage, validation, scoring and bridge logic.
 - Large orchestration modules should gain tests as they are broken down, not stay protected only by smoke coverage.
-- Type coverage should be tracked as part of the quality bar, not treated as separate from testing and type safety.
-- The current `type-coverage` script still runs with a floor of `0`, so its presence in the quality stack is real but its threshold remains intentionally transitional debt.
+- Values typed `any` are tracked by the type-aware lint rules `typescript/no-explicit-any` and `typescript/no-unsafe-*` (errors; findings that existed on 2026-11-07 are frozen in `oxlint-suppressions.json`). They replaced the `type-coverage` script, whose floor was `0`.
 
 ### E2E tests
 
@@ -170,19 +168,19 @@ Security is covered partly by tooling, but always needs human review on importan
 
 ### Already enforced or partially enforced
 
-- ESLint rules
-- React Hooks rules (`eslint-plugin-react-hooks`, `recommended-latest`, warnings raised to errors; 29 existing hits frozen in `eslint-suppressions.json`, 2026-09-30)
-- JSX accessibility rules (`eslint-plugin-jsx-a11y` recommended on `src/**/*.tsx`, through the `@eslint/compat` shim because 6.10 declares peers only up to ESLint 9; 27 existing hits frozen, 2026-09-30)
-- hard-coded UI strings in TSX (`eslint-plugin-i18next` `no-literal-string`, mode `jsx-only`: JSX text plus `aria-label`, `title`, `placeholder`, `alt`; tests excluded; 314 existing hits in 21 files frozen, 2026-09-30)
+- oxlint (`.oxlintrc.json`, `pnpm run lint`, in CI and `pnpm run quality`): type-aware through `oxlint-tsgolint`, the `correctness` category as errors, no warning budget (every rule is an error or off), unused disable directives fail; JS plugins `sonarjs`, `regexp`, `fp`, `zod`, `i18next` and `playwright`. Findings that existed on 2026-11-07 (5835 in 266 files) are frozen in `oxlint-suppressions.json`, generated once with `oxlint --suppress-all`; a new finding fails, and so does a frozen one that is gone until `pnpm run lint:prune` removes it
+- React Hooks rules (native `react` rules: Rules of Hooks, exhaustive deps and the React Compiler checks; 28 existing hits frozen, 2026-11-07)
+- JSX accessibility rules (native `jsx-a11y` rules on `src/**/*.tsx`; 49 existing hits frozen, 2026-11-07)
+- hard-coded UI strings in TSX (`eslint-plugin-i18next` `no-literal-string`, mode `jsx-only`: JSX text plus `aria-label`, `title`, `placeholder`, `alt`; tests excluded; 325 existing hits in 21 files frozen, 2026-11-07)
+- message catalogs (`src/i18n/messages.test.ts`): valid JSON, keys sorted at every level, `pl.json` with exactly the keys of `en.json`, no catalog with keys that `en.json` lacks
 - unit-test coverage floors (`pnpm run test:coverage`, `@vitest/coverage-v8`; thresholds in `vitest.config.ts` just below the values measured 2026-09-30: statements 54, branches 50, functions 52, lines 55; CI and `pnpm run ci` run coverage instead of the plain test run)
 - axe checks in E2E (`e2e/a11y.spec.ts`, `@axe-core/playwright`, WCAG 2.1 A/AA tags): no `serious` or `critical` violations on the main view and the player-details drawer after importing `sample-attributes-pl.html`; allowlist by rule id in the spec (today only `color-contrast`, 19 nodes). Runs in CI with the rest of E2E
 - TypeScript compiler checks (`strict: false`; the individual strict flags `alwaysStrict`, `noImplicitThis`, `strictBindCallApply` and `strictBuiltinIteratorReturn` are on, because they reported zero errors on 2026-09-30)
 - TypeScript strictness ratchet (`pnpm strict:metrics:check`, in CI and `pnpm run quality`): counts the errors `tsc --strict` would report, in total, per error code and per file, against `scripts/strict-metrics.baseline.json` (210 errors in 69 files, 2026-09-30); fails on any rise and on a fall without `pnpm strict:metrics:update`
-- type-coverage reporting
-- a transitional `type-coverage` threshold that currently reports coverage without enforcing a meaningful floor
-- no-only-tests protections
-- import and cycle rules
-- selected architectural boundaries
+- focused-test protections (`vitest/no-focused-tests`, `playwright/no-focused-test`)
+- import rules and import cycles (`import/no-cycle` without a depth limit, which replaced dependency-cruiser's `no-circular`)
+- no classes outside tests (`max-classes-per-file` with a maximum of 0; existing classes frozen, one finding per file)
+- layer boundaries (`no-restricted-imports` per directory: `src/computing` imports nothing from `src/ui`; `src/config` imports nothing from `src/ui`, `src/computing`, `src/storage` or `src/processing`)
 - E2E in CI (since 2026-10-01, step "E2E tests" of the "Quality gate" job): the whole Playwright suite against `vite preview` of the build, which sends the headers from `security_headers.json`; runs on pull requests that change `src/`, `e2e/`, `public/`, `index.html`, build or test config, `package.json` or the lockfile (`.github/scripts/ci-scope.sh`), and always on `main`, weekly and on manual runs; the HTML report is uploaded as an artifact on failure
 - docs-only pull requests skip the heavy CI steps inside the job (format, `docs:check` and `check:typography` still run), so the required check always reports
 - JS bundle budget in `pnpm run check:dist` (after `pnpm run build`, in CI and `pnpm run ci`): prints the total size of `dist/assets/*.js` and the largest chunk on every run and fails above the limits in `scripts/lib/bundle-budget.mjs` (about 10% over the 2026-10-01 measurement: total 1,139,635 B, largest chunk 1,089,103 B). Raising a limit is deliberate: rebuild, read the printed sizes, change `BUNDLE_BUDGET` in the pull request that grows the bundle and give the reason in the commit body
@@ -191,7 +189,7 @@ Security is covered partly by tooling, but always needs human review on importan
 - SRI validation scripts (exist, but not run in CI or `pnpm run ci`: `sri:check` and `validate:all` are manual only, checked 2026-09-29)
 - config validation scripts (same: manual only)
 - duplication/dependency audit scripts
-- git hooks: lint-staged (ESLint and oxfmt on staged files) before a commit, commitlint on the message, typecheck and `pnpm test` before a push
+- git hooks: lint-staged (oxlint and oxfmt on staged files) before a commit, commitlint on the message, typecheck and `pnpm test` before a push
 
 ### Not enforced today
 
@@ -199,4 +197,5 @@ Security is covered partly by tooling, but always needs human review on importan
 - `rem` versus `px` policy
 - test timeouts
 - architectural heuristics such as RORO, guard clauses and minimal `useEffect`/`useState`
-- a type-coverage floor (the script runs with `--at-least 0`)
+- import order (`import-x/order` left with ESLint; oxfmt can sort imports, not enabled yet)
+- naming of types, parameters and enum members (`id-match` checks only variable and function names)

@@ -1,5 +1,4 @@
 /// <reference types="vite/client" />
-/* eslint-disable no-restricted-syntax */
 
 declare module 'vite' {
   export interface ConfigEnv {

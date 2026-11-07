@@ -52,8 +52,6 @@ interface GoldenCase {
 
 const fixture = (name: string, dir = FIXTURES_DIR) => ({ name, path: path.join(dir, name) });
 
-// Every path comes from the constants above, never from test input.
-// eslint-disable-next-line security/detect-non-literal-fs-filename
 const readText = (filePath: string): Promise<string> => readFile(filePath, 'utf8');
 
 function compareCodeUnits(left: string, right: string): number {

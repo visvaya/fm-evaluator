@@ -1,4 +1,4 @@
-/* eslint-disable sonarjs/no-alphabetical-sort, sonarjs/no-nested-conditional, unicorn/no-array-sort -- Legacy DOM fallback preserves historical popup markup until all callers are React-owned. */
+/* eslint-disable sonarjs/no-nested-conditional, unicorn/no-array-sort -- Legacy DOM fallback preserves historical popup markup until all callers are React-owned. */
 import { COLUMNS } from '../config/columns';
 import { translatePosition, translateValue } from '../i18n/translate';
 import { store } from '../store/tableStore';

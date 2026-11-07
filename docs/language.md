@@ -3,7 +3,7 @@
 Status: Active  
 Scope: UI localization, file-language configuration, translation completeness, localization quality gaps  
 Owner: Frontend localization  
-Last Reviewed: 2026-09-29 (current-state and automation sections updated)  
+Last Reviewed: 2026-11-07 (automation of catalogs and hard-coded strings updated)  
 Supersedes: older i18n migration notes that assumed `main.js` was still active  
 See also: `docs/README.md`, `docs/quality-and-guardrails.md`, `src/i18n`, `public/i18n/messages`, `public/config/languages`
 
@@ -35,7 +35,7 @@ These two concerns must stay separate in both code and documentation.
 - The repo already has a real `src/i18n` system and public message catalogs.
 - Historical documentation that still describes UI translations as living in `main.js` is outdated.
 - `public/config/languages` remains important, but it is not the same thing as UI translations.
-- Hard-coded user-facing strings in JSX are caught by `i18next/no-literal-string`; existing hits are frozen in `eslint-suppressions.json`. Strings in plain `.ts` and `.js` modules are not checked.
+- Hard-coded user-facing strings in JSX are caught by `i18next/no-literal-string`; existing hits are frozen in `oxlint-suppressions.json`. Strings in plain `.ts` and `.js` modules are not checked.
 
 ## 4. Active Ownership
 
@@ -69,7 +69,7 @@ Those exceptions should shrink over time rather than become normalized.
 
 The project should assume the following gaps are still plausible until proven otherwise:
 
-- incomplete catalogs: `i18n-json/identical-keys` compares keys with `en.json` and reports one finding per catalog file, so a suppressed catalog in `eslint-suppressions.json` can hide more than one missing key,
+- incomplete catalogs: `src/i18n/messages.test.ts` requires `pl.json` to have exactly the keys of `en.json`, but other catalogs may still miss keys (the test only forbids keys that `en.json` lacks),
 - hardcoded UI strings in TS/JS files,
 - mixed use of localized and non-localized modal/error strings,
 - differences between message catalogs and the live UI surface,

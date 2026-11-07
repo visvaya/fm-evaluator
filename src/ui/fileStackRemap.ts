@@ -24,7 +24,7 @@ type HeaderMappingModalCtor = new () => HeaderMappingModalInstance;
 
 export function extractHeadersForRemap(html: string, normalizeHeader: (header: unknown) => string) {
   // Remap works on a local HTML snapshot, so DOMParser here is intentional.
-  // eslint-disable-next-line no-restricted-syntax
+  // eslint-disable-next-line no-restricted-globals
   const documentSnapshot = new DOMParser().parseFromString(html, 'text/html');
   const table = documentSnapshot.querySelector('table');
   if (!table) {

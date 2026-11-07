@@ -16,8 +16,9 @@ const config: KnipConfig = {
     // Detached React controls kept for the redesign; not wired into the shell yet.
     'src/components/TableControls.tsx'
   ],
-  // Node tooling in scripts/ is reached through package.json scripts.
-  project: ['src/**/*.{ts,tsx,js,css}', 'scripts/**/*.mjs']
+  // Node tooling in scripts/ is reached through package.json scripts. styles.css imports
+  // tailwindcss, which knip does not see as used otherwise.
+  project: ['src/**/*.{ts,tsx,js,css}', 'styles.css', 'scripts/**/*.mjs']
 };
 
 export default config;

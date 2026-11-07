@@ -1,4 +1,4 @@
-/* eslint-disable fp/no-mutation, perfectionist/sort-interfaces, sonarjs/max-lines-per-function */
+/* eslint-disable fp/no-mutation, sonarjs/max-lines-per-function */
 
 import { create } from 'zustand';
 

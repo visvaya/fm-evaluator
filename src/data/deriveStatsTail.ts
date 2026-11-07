@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention, sonarjs/cognitive-complexity, sonarjs/max-lines-per-function */
+/* eslint-disable id-match, sonarjs/cognitive-complexity, sonarjs/max-lines-per-function */
 import { useSettingsStore } from '../store/useSettingsStore';
 
 export interface TailDerivationArgs {
