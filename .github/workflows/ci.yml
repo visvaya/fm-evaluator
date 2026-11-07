@@ -22,7 +22,9 @@ jobs:
   # main, the weekly schedule and manual runs always run every step.
   quality:
     name: Quality gate
-    runs-on: ubuntu-latest
+    # Playwright 1.60 cannot install Chromium on Ubuntu 26.04 (ubuntu-latest since 2026);
+    # move to ubuntu-latest with the Playwright version that supports it.
+    runs-on: ubuntu-24.04
     timeout-minutes: 40
     permissions:
       contents: read
