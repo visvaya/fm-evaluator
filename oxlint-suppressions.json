@@ -884,9 +884,6 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 1
-    },
-    "unicorn/prefer-string-replace-all": {
-      "count": 1
     }
   },
   "src/computing/ldcVolumeStatsIntegration.test.ts": {

@@ -10,15 +10,6 @@
  */
 export class CurrencyParser {
   /**
-   * Escape special regex characters
-   * @param str - String to escape
-   * @returns Escaped string
-   */
-  _escapeRegex(str) {
-    return str.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`);
-  }
-
-  /**
    * Parse currency value
    * @param rawString - Raw currency string
    * @param formatContext - Format context with separators
@@ -101,8 +92,7 @@ export class CurrencyParser {
     // Remove thousand separators
     const thousandSep = formatContext.thousandSeparator;
     if (thousandSep) {
-      const escapedSep = this._escapeRegex(thousandSep);
-      str = str.replaceAll(new RegExp(escapedSep, 'g'), '');
+      str = str.replaceAll(thousandSep, '');
     }
 
     // Remove any remaining non-numeric characters except decimal point

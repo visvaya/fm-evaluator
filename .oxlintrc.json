@@ -957,6 +957,19 @@
           }
         ]
       }
+    },
+    {
+      // A RegExp built at runtime from imported data risks pattern injection and ReDoS; use a regex
+      // literal or a plain string method. Scoped to the shipped app: scripts build patterns from
+      // constants and repository files. The other eslint-plugin-security rules stay unlisted:
+      // detect-object-injection is noise (433 findings), detect-unsafe-regex is covered more
+      // precisely by regexp/no-super-linear-backtracking, bidi characters by check:typography, and
+      // the fs, child-process, buffer, require, CSRF, template and timing rules target Node servers.
+      "files": ["src/**", "public/**"],
+      "jsPlugins": ["eslint-plugin-security"],
+      "rules": {
+        "security/detect-non-literal-regexp": "error"
+      }
     }
   ]
 }

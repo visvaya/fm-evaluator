@@ -3,15 +3,6 @@
  */
 export class StatisticParser {
   /**
-   * Escape special regex characters
-   * @param str - String to escape
-   * @returns Escaped string
-   */
-  _escapeRegex(str) {
-    return str.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`);
-  }
-
-  /**
    * Parse statistic value
    * @param value - Raw value string
    * @param formatContext - Format context with decimal separator
@@ -43,8 +34,7 @@ export class StatisticParser {
     // Remove thousand separators
     const thousandSep = formatContext.thousandSeparator;
     if (thousandSep) {
-      const escapedSep = this._escapeRegex(thousandSep);
-      str = str.replaceAll(new RegExp(escapedSep, 'g'), '');
+      str = str.replaceAll(thousandSep, '');
     }
 
     // Remove non-breaking spaces

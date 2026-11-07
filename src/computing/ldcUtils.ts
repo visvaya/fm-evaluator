@@ -557,12 +557,9 @@ export function normalizeRomanNumerals(text: string): string {
     X: 10
   };
 
-  let normalized = text;
-  for (const [roman, num] of Object.entries(romanMap)) {
-    const regex = new RegExp(String.raw`\b${roman}\b`, 'gi');
-    normalized = normalized.replace(regex, num.toString());
-  }
-  return normalized;
+  return text.replaceAll(/\b(?:I{1,3}|IV|IX|VI{0,3}|X)\b/gi, (roman) =>
+    String(romanMap[roman.toUpperCase()])
+  );
 }
 
 export function suggestBasketFix(leagues: LeagueData[]): string[] {

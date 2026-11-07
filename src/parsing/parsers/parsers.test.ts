@@ -154,6 +154,10 @@ describe('StatisticParser', () => {
     expect(parser.parse('2,580', { thousandSeparator: ',' })).toBe(2580);
   });
 
+  it('should remove a dot thousand separator literally', () => {
+    expect(new StatisticParser().parse('1.234.567', { thousandSeparator: '.' })).toBe(1234567);
+  });
+
   it('should remove NBSP', () => {
     expect(parser.parse('2\u00A0580')).toBe(2580);
   });
