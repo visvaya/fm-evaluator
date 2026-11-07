@@ -49,7 +49,11 @@ interface SyncOptions {
 }
 
 export type LdcLeagueFilter =
-  'all' | 'with-mappings' | 'with-problems' | 'without-mappings' | 'without-stars';
+  | 'all'
+  | 'with-mappings'
+  | 'with-problems'
+  | 'without-mappings'
+  | 'without-stars';
 
 interface LdcStoreState {
   basketProblems: BasketProblem[];

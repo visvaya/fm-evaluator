@@ -28,7 +28,10 @@ interface LdcMissingMatchDialogPayload {
 }
 
 type LdcMissingDialogState =
-  LdcMissingAddDialogPayload | LdcMissingBulkAddDialogPayload | LdcMissingMatchDialogPayload | null;
+  | LdcMissingAddDialogPayload
+  | LdcMissingBulkAddDialogPayload
+  | LdcMissingMatchDialogPayload
+  | null;
 
 interface HydratePayload {
   groups: MissingLeagueCountryGroup[];

@@ -784,7 +784,8 @@ export function initializeDiagnosticsRuntime(options?: {
   void refreshDbHealth();
 
   const connection = (navigator as any).connection as
-    undefined | { addEventListener?: (type: string, callback: () => void) => void };
+    | undefined
+    | { addEventListener?: (type: string, callback: () => void) => void };
   if (connection && typeof connection.addEventListener === 'function') {
     connection.addEventListener('change', applyProfile);
   }

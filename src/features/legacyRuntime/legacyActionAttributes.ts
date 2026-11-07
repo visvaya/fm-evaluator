@@ -1,7 +1,10 @@
 import { escapeHtmlAttribute } from '@/utils/escapeHtmlAttribute';
 
 type LegacyIdActionName =
-  'applyFilter' | 'resetColumnFilter' | 'toggleAllVisible' | 'toggleShowActiveInFilter';
+  | 'applyFilter'
+  | 'resetColumnFilter'
+  | 'toggleAllVisible'
+  | 'toggleShowActiveInFilter';
 
 type LegacyIndexActionName = 'remapFileHeaders' | 'removeFileFromStack';
 type LegacyResultActionName = 'editOCRResult' | 'removeOCRResult';

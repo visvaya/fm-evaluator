@@ -22,7 +22,13 @@ export interface LdcPlayerRow {
 
 export type LDCModel = 'basket' | 'simple';
 export type LdcSortColumn =
-  'inputScore' | 'ldcRaw' | 'multiplier' | 'name' | 'nation' | 'rank' | 'stars';
+  | 'inputScore'
+  | 'ldcRaw'
+  | 'multiplier'
+  | 'name'
+  | 'nation'
+  | 'rank'
+  | 'stars';
 
 export interface LDCSettings {
   alphaBasket: number;
