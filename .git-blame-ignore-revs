@@ -1,0 +1,4 @@
+# Formatting-only commits, skipped by git blame (git config blame.ignoreRevsFile .git-blame-ignore-revs).
+
+# build: replace prettier with oxfmt (#11): ten files reformatted by oxfmt
+c92746ea69fa365055b01992064b57ec928786ea
