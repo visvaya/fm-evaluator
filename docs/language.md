@@ -69,7 +69,7 @@ Those exceptions should shrink over time rather than become normalized.
 
 The project should assume the following gaps are still plausible until proven otherwise:
 
-- incomplete catalogs: `src/i18n/messages.test.ts` requires `pl.json` to have exactly the keys of `en.json`, but other catalogs may still miss keys (they may only not add keys that `en.json` lacks),
+- incomplete catalogs: `src/i18n/messages.test.ts` requires `pl.json` to have exactly the keys of `en.json`, but other catalogs may still miss keys (the test only forbids keys that `en.json` lacks),
 - hardcoded UI strings in TS/JS files,
 - mixed use of localized and non-localized modal/error strings,
 - differences between message catalogs and the live UI surface,
