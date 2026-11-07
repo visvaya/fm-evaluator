@@ -3,6 +3,10 @@ allowBuilds:
   tesseract.js: true
   unrs-resolver: true
 
+# Refuse to install on a Node.js older than engines.node in package.json (the lowest release
+# with the latest security fixes).
+engineStrict: true
+
 # Do not resolve package versions published less than 3 days ago (minutes).
 minimumReleaseAge: 4320
 

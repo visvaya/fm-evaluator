@@ -4,15 +4,13 @@ Thank you for helping. FM Evaluator is maintained by one person, so small, focus
 
 ## Setup
 
-- Node.js 24 (as in CI) or newer
-- pnpm, in the version pinned by `packageManager` in `package.json`: `corepack enable` provides it on Node.js 24; Node.js 25 and newer no longer ship Corepack, so run `npm install -g corepack` first or install that pnpm version directly
+- Node.js 26, at least the version in `engines` in `package.json` (`.nvmrc` names the major line; CI uses its newest release)
+- pnpm, in the version pinned by `packageManager` in `package.json`: Node.js 26 no longer ships Corepack, so run `npm install -g corepack` and `corepack enable`, or install that pnpm version directly
 
 ```bash
 pnpm install
 pnpm run dev
 ```
-
-On Node 25 or newer, run tests with `NODE_OPTIONS=--no-experimental-webstorage`: newer Node versions define their own `localStorage`, which hides the one the browser-like test environment provides.
 
 ## Before you open a pull request
 
