@@ -66,7 +66,7 @@ async function readBaseline() {
 const describeRow = (row) => (row.group === 'total' ? 'total' : `${row.group} ${row.key}`);
 
 function printReport(summary, comparison) {
-  console.log(`Errors under --strict: ${summary.total}`);
+  console.log(`Errors under --strict and the target flags: ${summary.total}`);
   console.log('\nBy code:');
   for (const [code, count] of Object.entries(summary.byCode)) {
     console.log(`  ${code.padEnd(8)}  ${String(count).padStart(4)}`);
