@@ -8,7 +8,8 @@
     "eslint-plugin-sonarjs",
     "eslint-plugin-regexp",
     "eslint-plugin-fp",
-    "eslint-plugin-zod"
+    "eslint-plugin-zod",
+    "./scripts/oxlint/naming-plugin.mjs"
   ],
   "categories": { "correctness": "error" },
   "options": { "typeAware": true, "denyWarnings": true, "reportUnusedDisableDirectives": "error" },
@@ -287,6 +288,7 @@
         "properties": false
       }
     ], // Variables and functions: camelCase, PascalCase or UPPER_CASE (stands in for typescript-eslint naming-convention).
+    "naming/naming-convention": "error", // Types, enum members, type parameters and parameters: the rest of naming-convention (local plugin).
     "no-useless-assignment": "error", // Nursery rule kept from eslint:recommended (findings match ESLint).
     "import/named": "error",
     "import/export": "error",
