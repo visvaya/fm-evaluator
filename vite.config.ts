@@ -112,8 +112,7 @@ export default defineConfig(
       outDir: 'dist',
       rollupOptions: {
         input: path.resolve(currentDirectory, 'index.html')
-      },
-      target: 'es2020'
+      }
     },
     plugins: [tailwindcss(), stripSriInDevPlugin(), serviceWorkerPrecachePlugin()],
     preview: {

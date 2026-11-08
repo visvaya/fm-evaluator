@@ -175,8 +175,8 @@ jobs:
         if: ${{ !cancelled() && steps.scope.outputs.security == 'true' }}
         env:
           # Pinned by hand with the wheel's checksum from PyPI.
-          ZIZMOR_VERSION: 1.30.1
-          ZIZMOR_SHA256: eee12266b793cb87ad4a7e3af2e72404f8a63e3de5eb099b80bf7b1cfd232a8e
+          ZIZMOR_VERSION: 1.32.0
+          ZIZMOR_SHA256: 84a6acb975accc13408786a2bd274b572537ca19c933ebbc13e78f3988562071
         run: |
           python3 -m venv "$RUNNER_TEMP/zizmor"
           echo "zizmor==${ZIZMOR_VERSION} --hash=sha256:${ZIZMOR_SHA256}" > "$RUNNER_TEMP/zizmor.txt"
@@ -189,7 +189,7 @@ jobs:
       - name: SAST (Semgrep)
         if: ${{ !cancelled() && steps.scope.outputs.security == 'true' }}
         env:
-          SEMGREP_IMAGE: semgrep/semgrep:1.178.0@sha256:32e459968daabe7ab86968184a29109b9564aa00392401156f9788452b42786b
+          SEMGREP_IMAGE: semgrep/semgrep:1.183.0@sha256:2e45517a85e13a9cca14a2a00df6bb48affd66b8ebfae1b0991cd57578362fb0
         run: |
           docker run --rm -v "$PWD:/src" -w /src "$SEMGREP_IMAGE"             semgrep scan --metrics=off --config p/typescript --config p/react             --exclude public/vendor --exclude goldens --json-output=semgrep.json
           errors="$(jq '[.results[] | select(.extra.severity == "ERROR")] | length' semgrep.json)"
