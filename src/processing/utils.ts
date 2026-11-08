@@ -1,3 +1,4 @@
+import { stripUnitWords } from '../data/parseNumber';
 import { splitRange } from '../data/splitRange';
 
 /**
@@ -86,21 +87,9 @@ export function parseNumber(str: any): null | number {
   let s = str.toString().trim();
   if (s === '' || s === '-') return null;
 
-  // Remove length units BEFORE checking for K/M suffixes
-  // 'km' won't be treated as 'K' (thousands)
-  s = s
-    .replaceAll(/\s*km\s*/gi, '')
-    .replaceAll(/\s*cm\s*/gi, '')
-    .replaceAll(/\s*mm\s*/gi, '')
-    .replaceAll(/\b(m)\b/gi, '')
-    .trim();
-
-  // Remove currencies and other units (€, p/a, p/w, etc.)
-  s = s
-    .replaceAll('€', '')
-    .replaceAll(/\s*p\/[aw]/gi, '')
-    .replaceAll(/\s*mln\s*/gi, 'M')
-    .trim();
+  // Remove length units, currencies and wage periods BEFORE checking for K/M suffixes,
+  // so 'km' is not read as 'K' (thousands)
+  s = stripUnitWords(String(s));
 
   // Check K/M/tys/mln suffixes
   let multiplier = 1;

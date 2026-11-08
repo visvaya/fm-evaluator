@@ -42,8 +42,20 @@ const isReferenced = (file) => {
   return [...texts].some(([other, text]) => other !== file && names.some((n) => text.includes(n)));
 };
 
+const LINE_TERMINATORS = new Set([0x0a, 0x0d, 0x2028, 0x2029].map((c) => String.fromCodePoint(c)));
+
+// Drops a line or anchor suffix: from the first ":" or "#" of the last line on, as
+// /[:#].*$/ did, but in one pass instead of retrying from every ":" or "#".
+const stripAnchor = (ref) => {
+  let cut = -1;
+  for (let i = ref.length - 1; i >= 0 && !LINE_TERMINATORS.has(ref[i]); i--) {
+    if (ref[i] === ':' || ref[i] === '#') cut = i;
+  }
+  return cut === -1 ? ref : ref.slice(0, cut);
+};
+
 const exists = (fromFile, ref) => {
-  const clean = ref.replace(/[:#].*$/, '').replace(/\/$/, '');
+  const clean = stripAnchor(ref).replace(/\/$/, '');
   return [ROOT, path.dirname(path.join(ROOT, fromFile))].some((base) =>
     fs.existsSync(path.join(base, clean))
   );

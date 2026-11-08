@@ -319,6 +319,17 @@ export function findExactClubMatch(
   return null;
 }
 
+/**
+ * The league name without "serie a" to "serie d" and the whitespace before it.
+ *
+ * The whitespace is matched as `(?:(?<!\s)\s+)?`, so a match starts only where a whitespace run
+ * starts; a plain `\s*` retried from every position of a long run (quadratic time) and found
+ * the same matches.
+ */
+export function withoutSerieSuffix(text: string): string {
+  return text.replaceAll(/(?:(?<!\s)\s+)?serie\s*[a-d]/gi, '').trim();
+}
+
 export function leaguesMatch(ocrLeague: string, dataLeague: string): boolean {
   if (!ocrLeague || !dataLeague) return false;
   const normOcr = normalizeLeagueNameForOCR(ocrLeague);
@@ -327,8 +338,8 @@ export function leaguesMatch(ocrLeague: string, dataLeague: string): boolean {
   if (normData.includes(normOcr)) return true;
   if (normOcr.includes(normData)) return true;
 
-  const ocrBase = normOcr.replaceAll(/\s*serie\s*[a-d]/gi, '').trim();
-  const dataBase = normData.replaceAll(/\s*serie\s*[a-d]/gi, '').trim();
+  const ocrBase = withoutSerieSuffix(normOcr);
+  const dataBase = withoutSerieSuffix(normData);
   if (ocrBase && dataBase && ocrBase === dataBase) {
     const ocrHasSerie = /serie\s*[a-d]/i.test(normOcr);
     const dataHasSerie = /serie\s*[a-d]/i.test(normData);

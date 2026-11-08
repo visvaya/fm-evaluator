@@ -848,6 +848,11 @@
       "count": 8
     }
   },
+  "src/computing/ldcNameNormalization.ts": {
+    "regexp/no-super-linear-move": {
+      "count": 1
+    }
+  },
   "src/computing/ldcUtils.ts": {
     "typescript/no-explicit-any": {
       "count": 2
@@ -2317,6 +2322,9 @@
     "regexp/no-obscure-range": {
       "count": 2
     },
+    "regexp/no-super-linear-move": {
+      "count": 2
+    },
     "sonarjs/cognitive-complexity": {
       "count": 2
     },
@@ -2556,13 +2564,13 @@
       "count": 7
     },
     "typescript/no-unsafe-assignment": {
-      "count": 14
+      "count": 12
     },
     "typescript/no-unsafe-call": {
-      "count": 32
+      "count": 23
     },
     "typescript/no-unsafe-member-access": {
-      "count": 37
+      "count": 28
     },
     "typescript/no-unsafe-return": {
       "count": 2
