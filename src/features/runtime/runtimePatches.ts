@@ -1,8 +1,11 @@
-function sanitizeHtmlForParsing(input: string): string {
-  return String(input)
-    .replaceAll(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replaceAll(/\son\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '')
-    .replaceAll(/\sstyle\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+import { removeUntilStable } from '@/utils/removeUntilStable';
+
+export function sanitizeHtmlForParsing(input: string): string {
+  return removeUntilStable(String(input), [
+    /<style[^>]*>[\s\S]*?<\/style>/gi,
+    /\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi,
+    /\sstyle\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi
+  ]);
 }
 
 export function patchDomParserForCsp() {

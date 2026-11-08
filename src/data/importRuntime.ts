@@ -1,3 +1,5 @@
+import { removeUntilStable } from '@/utils/removeUntilStable';
+
 const REMEMBER_LANGUAGE_CHOICE_KEY = 'fm24-evaluator-remember-language-choice';
 const FILE_LANGUAGE_CHOICE_KEY = 'fm24-evaluator-file-language-choice';
 
@@ -173,7 +175,7 @@ export function resolvePostImportLanguageDecision({
  * escaped where it is rendered.
  */
 export function sanitizeImportedHtml(html: string): string {
-  return html.replaceAll(/<style>.*?<\/style>/g, '').replaceAll(/on\w+=/g, '');
+  return removeUntilStable(html, [/<style>.*?<\/style>/g, /on\w+=/g]);
 }
 
 export async function prepareImportedFiles({

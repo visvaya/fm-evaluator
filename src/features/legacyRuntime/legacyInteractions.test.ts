@@ -50,6 +50,19 @@ describe('legacyInteractions', () => {
     );
   });
 
+  it('keeps an escaped backslash before the closing quote', () => {
+    const backslash = String.fromCodePoint(92);
+    const escapedBackslash = backslash.repeat(4);
+    expect(parseInlineCopyToClipboard(`copyToClipboard(event, 'a${escapedBackslash}')`)).toBe(
+      `a${backslash}`
+    );
+  });
+
+  it('rejects an unterminated payload of many backslashes in linear time', () => {
+    const payload = String.fromCodePoint(92).repeat(5000);
+    expect(parseInlineCopyToClipboard(`copyToClipboard(event, '${payload}x`)).toBeNull();
+  });
+
   it('parses inline index actions', () => {
     expect(parseInlineLegacyAction('removeFileFromStack(12)')).toEqual({
       action: 'removeFileFromStack',

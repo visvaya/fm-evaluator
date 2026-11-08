@@ -66,8 +66,8 @@ export class CurrencyParser {
     // Remove non-breaking spaces (critical for Polish files)
     str = str.replaceAll('\u00A0', ' ').replaceAll(/\s+/g, '');
 
-    // Extract currency symbol and remove it
-    str = str.replace(/[€$£¥zł]/, '').trim();
+    // Remove currency symbols so that a multiplier suffix such as "1,5M zł" stays at the end
+    str = str.replaceAll(/[€$£¥]|zł/g, '');
 
     // Handle K/M multipliers (thousands/millions)
     const multipliers = languageConfig.multipliers || {};

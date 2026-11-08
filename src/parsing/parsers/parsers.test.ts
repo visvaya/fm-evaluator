@@ -118,6 +118,14 @@ describe('CurrencyParser', () => {
   it('should remove NBSP (non-breaking space)', () => {
     expect(parser.parseCurrency('1\u00A0000')).toBe(1000);
   });
+
+  it('keeps the multiplier when the zloty sign follows the amount', () => {
+    const fmt = { decimalSeparator: ',' };
+    const lang = { multipliers: { K: 1000, M: 1000000 } };
+    const currencyParser = new CurrencyParser();
+    expect(currencyParser.parseCurrency('1,5M z\u0142', fmt, lang)).toBe(1500000);
+    expect(currencyParser.parseCurrency('250K z\u0142', fmt, lang)).toBe(250000);
+  });
 });
 
 // ============================================================================

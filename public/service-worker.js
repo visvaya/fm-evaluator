@@ -47,6 +47,8 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('message', (event) => {
+  // Only pages of this origin can control the worker; ignore anything else.
+  if (event.origin !== self.location.origin) return;
   const data = event.data;
   if (!data || typeof data !== 'object') return;
 
