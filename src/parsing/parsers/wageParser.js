@@ -3,37 +3,32 @@
  */
 import { CurrencyParser } from './currencyParser.js';
 
+// Checked in this order; a value without any of them is yearly.
+const FREQUENCY_PATTERNS = [
+  ['weekly', /\b(?:p\/w|p\/tyg|tyg\.|weekly|semanal|semaine|woche)\b/i],
+  ['monthly', /\b(?:p\/m|p\/mies|mies\.|monthly|mensual|mensuel|monat)\b/i],
+  ['yearly', /\b(?:p\/a|p\/rok|rok\.|yearly|anual|annuel|jahr)\b/i]
+];
+
+/**
+ * Splits a raw wage into its frequency and the amount without the frequency token, so that a
+ * multiplier suffix stays at the end of the amount ("250K zł p/tyg" -> "250K zł", weekly).
+ */
+function splitFrequency(value) {
+  if (typeof value !== 'string') return { amount: value, frequency: 'yearly' };
+  for (const [frequency, pattern] of FREQUENCY_PATTERNS) {
+    const match = pattern.exec(value);
+    if (match) {
+      const amount = value.slice(0, match.index) + value.slice(match.index + match[0].length);
+      return { amount, frequency };
+    }
+  }
+  return { amount: value, frequency: 'yearly' };
+}
+
 export class WageParser {
   constructor() {
     this.currencyParser = new CurrencyParser();
-  }
-
-  /**
-   * Detect wage frequency from value string
-   * @param value - Raw value string
-   * @param languageConfig - Language configuration
-   * @returns Frequency (yearly, monthly, weekly)
-   */
-  _detectFrequency(value, languageConfig) {
-    const lowerValue = value.toLowerCase();
-
-    // Check for weekly indicators
-    if (/\b(p\/w|p\/tyg|tyg\.|weekly|semanal|semaine|woche)\b/i.test(lowerValue)) {
-      return 'weekly';
-    }
-
-    // Check for monthly indicators
-    if (/\b(p\/m|p\/mies|mies\.|monthly|mensual|mensuel|monat)\b/i.test(lowerValue)) {
-      return 'monthly';
-    }
-
-    // Check for yearly indicators
-    if (/\b(p\/a|p\/rok|rok\.|yearly|anual|annuel|jahr)\b/i.test(lowerValue)) {
-      return 'yearly';
-    }
-
-    // Default to yearly if no indicator found
-    return 'yearly';
   }
 
   /**
@@ -45,15 +40,12 @@ export class WageParser {
    * @returns Normalized wage value or null
    */
   parse(value, formatContext = {}, normalizationConfig = null, languageConfig = {}) {
-    // First parse as currency
-    const currencyValue = this.currencyParser.parseCurrency(value, formatContext, languageConfig);
+    const { amount, frequency } = splitFrequency(value);
+    const currencyValue = this.currencyParser.parseCurrency(amount, formatContext, languageConfig);
 
     if (currencyValue === null) {
       return null;
     }
-
-    // Detect frequency from value string
-    const frequency = this._detectFrequency(value, languageConfig);
 
     // Normalize if config provided
     if (normalizationConfig) {

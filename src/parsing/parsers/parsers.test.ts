@@ -126,6 +126,14 @@ describe('CurrencyParser', () => {
     expect(currencyParser.parseCurrency('1,5M z\u0142', fmt, lang)).toBe(1500000);
     expect(currencyParser.parseCurrency('250K z\u0142', fmt, lang)).toBe(250000);
   });
+
+  it('keeps the decimal comma when the dot groups thousands', () => {
+    const fmt = { decimalSeparator: ',', thousandSeparator: '.' };
+    const lang = { multipliers: { M: 1000000 } };
+    const currencyParser = new CurrencyParser();
+    expect(currencyParser.parseCurrency('1,5M \u20AC', fmt, lang)).toBe(1500000);
+    expect(currencyParser.parseCurrency('1.234,5 \u20AC', fmt, lang)).toBe(1234.5);
+  });
 });
 
 // ============================================================================
@@ -318,6 +326,13 @@ describe('WageParser', () => {
 
   it('should parse wage as currency value', () => {
     expect(parser.parse('18000')).toBe(18000);
+  });
+
+  it('keeps the multiplier when a frequency follows the amount', () => {
+    const wageParser = new WageParser();
+    const lang = { multipliers: { K: 1000 } };
+    expect(wageParser.parse('250K zł p/tyg', { decimalSeparator: ',' }, null, lang)).toBe(250000);
+    expect(wageParser.parse('1.5K € p/w', {}, null, lang)).toBe(1500);
   });
 
   it('should detect weekly frequency (p/w, p/tyg)', () => {

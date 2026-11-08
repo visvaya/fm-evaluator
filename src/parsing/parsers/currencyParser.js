@@ -83,16 +83,17 @@ export class CurrencyParser {
       }
     }
 
+    // Remove thousand separators first, so a dot that groups thousands cannot swallow the decimal
+    // comma after it has become a dot ("1.234,5" -> "1234,5" -> "1234.5")
+    const thousandSep = formatContext.thousandSeparator;
+    if (thousandSep) {
+      str = str.replaceAll(thousandSep, '');
+    }
+
     // Normalize decimal separator
     const decimalSep = formatContext.decimalSeparator || '.';
     if (decimalSep === ',') {
       str = str.replace(',', '.');
-    }
-
-    // Remove thousand separators
-    const thousandSep = formatContext.thousandSeparator;
-    if (thousandSep) {
-      str = str.replaceAll(thousandSep, '');
     }
 
     // Remove any remaining non-numeric characters except decimal point

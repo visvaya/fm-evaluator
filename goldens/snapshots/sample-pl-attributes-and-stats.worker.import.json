@@ -149,7 +149,7 @@
     "Przg": 14,
     "Psp": 13,
     "Pwd": 14,
-    "Płaca": 216000000000,
+    "Płaca": 216000,
     "Right Foot": "Very Strong",
     "RzK": 8,
     "RzW": 7,
@@ -169,7 +169,7 @@
     "Ur.": "12.3.1997 (27 l.)",
     "Ust": 12,
     "Vis": 14,
-    "Wage": 216000000000,
+    "Wage": 216000,
     "Wal": 13,
     "Wor": 15,
     "Wsp": 14,
@@ -230,7 +230,7 @@
     "basic_second_nationality": "",
     "basic_transfer_value": 12000000,
     "basic_uid": "80000001",
-    "basic_wage": 216000000000
+    "basic_wage": 216000
    },
    {
     "2. Nar.": "",
@@ -305,7 +305,7 @@
     "Przg": 10,
     "Psp": 12,
     "Pwd": 14,
-    "Płaca": 168000000000,
+    "Płaca": 168000,
     "Right Foot": "Very Strong",
     "RzK": 5,
     "RzW": 4,
@@ -325,7 +325,7 @@
     "Ur.": "5.8.1999 (25 l.)",
     "Ust": 14,
     "Vis": 10,
-    "Wage": 168000000000,
+    "Wage": 168000,
     "Wal": 16,
     "Wor": 14,
     "Wsp": 15,
@@ -386,7 +386,7 @@
     "basic_second_nationality": "",
     "basic_transfer_value": 850000,
     "basic_uid": "80000002",
-    "basic_wage": 168000000000
+    "basic_wage": 168000
    },
    {
     "2. Nar.": "IRL",
@@ -461,7 +461,7 @@
     "Przg": 11,
     "Psp": 16,
     "Pwd": 15,
-    "Płaca": 264000000000,
+    "Płaca": 264000,
     "Right Foot": "Very Strong",
     "RzK": 12,
     "RzW": 5,
@@ -481,7 +481,7 @@
     "Ur.": "20.1.2001 (23 l.)",
     "Ust": 7,
     "Vis": 11,
-    "Wage": 264000000000,
+    "Wage": 264000,
     "Wal": 12,
     "Wor": 12,
     "Wsp": 11,
@@ -542,7 +542,7 @@
     "basic_second_nationality": "IRL",
     "basic_transfer_value": 2000000,
     "basic_uid": "80000003",
-    "basic_wage": 264000000000
+    "basic_wage": 264000
    },
    {
     "2. Nar.": "",
@@ -617,7 +617,7 @@
     "Przg": 11,
     "Psp": 15,
     "Pwd": 14,
-    "Płaca": 144000000000,
+    "Płaca": 144000,
     "Right Foot": "Reasonable",
     "RzK": 6,
     "RzW": 6,
@@ -637,7 +637,7 @@
     "Ur.": "14.6.1995 (29 l.)",
     "Ust": 10,
     "Vis": 11,
-    "Wage": 144000000000,
+    "Wage": 144000,
     "Wal": 15,
     "Wor": 16,
     "Wsp": 13,
@@ -698,7 +698,7 @@
     "basic_second_nationality": "",
     "basic_transfer_value": 575000,
     "basic_uid": "80000004",
-    "basic_wage": 144000000000
+    "basic_wage": 144000
    },
    {
     "2. Nar.": "POR",
@@ -773,7 +773,7 @@
     "Przg": 8,
     "Psp": 11,
     "Pwd": 12,
-    "Płaca": 120000000000,
+    "Płaca": 120000,
     "Right Foot": "Reasonable",
     "RzK": 6,
     "RzW": 6,
@@ -793,7 +793,7 @@
     "Ur.": "3.11.2003 (20 l.)",
     "Ust": 7,
     "Vis": 8,
-    "Wage": 120000000000,
+    "Wage": 120000,
     "Wal": 10,
     "Wor": 11,
     "Wsp": 9,
@@ -890,7 +890,7 @@
     "basic_transfer_value": -325700000,
     "basic_transfer_value_display": "325K € - 700K €",
     "basic_uid": "80000005",
-    "basic_wage": 120000000000
+    "basic_wage": 120000
    }
   ],
   "result": {
