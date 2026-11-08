@@ -1072,17 +1072,11 @@
     }
   },
   "src/data/computeAttributeScore.test.ts": {
-    "regexp/no-super-linear-backtracking": {
-      "count": 7
-    },
     "typescript/no-base-to-string": {
       "count": 1
     }
   },
   "src/data/computeAttributeScore.ts": {
-    "regexp/no-super-linear-backtracking": {
-      "count": 7
-    },
     "typescript/no-base-to-string": {
       "count": 1
     },
@@ -1105,9 +1099,6 @@
     }
   },
   "src/data/computeStatScore.ts": {
-    "regexp/no-super-linear-backtracking": {
-      "count": 7
-    },
     "sonarjs/no-duplicated-branches": {
       "count": 2
     },
@@ -1285,9 +1276,6 @@
     }
   },
   "src/data/getNumericValue.ts": {
-    "regexp/no-super-linear-backtracking": {
-      "count": 7
-    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -2572,9 +2560,6 @@
   "src/processing/utils.ts": {
     "regexp/no-dupe-disjunctions": {
       "count": 6
-    },
-    "regexp/no-super-linear-backtracking": {
-      "count": 7
     },
     "sonarjs/cognitive-complexity": {
       "count": 2

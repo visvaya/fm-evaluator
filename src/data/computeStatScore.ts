@@ -8,6 +8,7 @@ import {
 } from '../config/scoreConfig';
 
 import { parseNumber } from './parseNumber';
+import { splitRange } from './splitRange';
 
 type CleanValue = (val: unknown, isWage?: boolean) => any;
 
@@ -248,17 +249,15 @@ function detectSourceZero(k: string, player: Record<string, any>, cleanValue: Cl
   }
 }
 
-const RANGE_PATTERN = /^\s*(.+?)\s*[-–\u2014]\s*(.+?)\s*$/;
-
 function detectStatRange(rawV: unknown): boolean {
   if (rawV === null || rawV === undefined) return false;
   const s = String(rawV).trim();
   if (!/\d/.test(s)) return false;
   if (s.startsWith('-') || s.startsWith('–') || s.startsWith('\u2014')) return false;
   if (!s.includes('-') && !s.includes('–') && !s.includes('\u2014')) return false;
-  const m = RANGE_PATTERN.exec(s);
+  const m = splitRange(s);
   if (!m) return false;
-  return parseNumber(m[1]) !== null && parseNumber(m[2]) !== null;
+  return parseNumber(m[0]) !== null && parseNumber(m[1]) !== null;
 }
 
 export function computeStatScore(

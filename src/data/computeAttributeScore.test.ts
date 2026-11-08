@@ -1,16 +1,17 @@
 import { describe, expect, it } from 'vitest';
 
 import { computeAttributeScore } from './computeAttributeScore';
+import { splitRange } from './splitRange';
 
 function cleanValue(val: unknown): null | number {
   if (val === null || val === undefined || val === '' || val === '-') return null;
   if (typeof val === 'number') return val;
   const s = String(val).trim();
   // Range: average
-  const m = /^\s*(.+?)\s*[-–\u2014]\s*(.+?)\s*$/.exec(s);
+  const m = splitRange(s);
   if (m && !s.startsWith('-')) {
-    const a = Number(m[1]);
-    const b = Number(m[2]);
+    const a = Number(m[0]);
+    const b = Number(m[1]);
     if (!isNaN(a) && !isNaN(b)) return (a + b) / 2;
   }
   const n = Number(s);

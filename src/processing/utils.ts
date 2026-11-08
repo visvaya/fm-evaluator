@@ -1,3 +1,5 @@
+import { splitRange } from '../data/splitRange';
+
 /**
  * Handle value ranges (e.g. "1K - 2K") and other quirks
  */
@@ -57,10 +59,10 @@ export function cleanValue(val: any, isWage = false): null | number | string {
     }
 
     // For plain numeric ranges (e.g. attributes 12-15), parse and return the mean
-    const rangeMatch = /^\s*(.+?)\s*[-–\u2014]\s*(.+?)\s*$/.exec(s);
+    const rangeMatch = splitRange(s);
     if (rangeMatch) {
-      const v1 = parseNumber(rangeMatch[1]);
-      const v2 = parseNumber(rangeMatch[2]);
+      const v1 = parseNumber(rangeMatch[0]);
+      const v2 = parseNumber(rangeMatch[1]);
       if (v1 !== null && v2 !== null) {
         return (v1 + v2) / 2;
       }
