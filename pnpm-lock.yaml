@@ -47,8 +47,8 @@ importers:
         specifier: ^4.4.7
         version: 4.4.7
       fuse.js:
-        specifier: 6.6.2
-        version: 6.6.2
+        specifier: 7.5.0
+        version: 7.5.0
       htmlparser2:
         specifier: ^12.0.0
         version: 12.0.0
@@ -1724,8 +1724,8 @@ packages:
   functional-red-black-tree@1.0.1:
     resolution: {integrity: sha512-dsKNQNdj6xA3T+QlADDA7mOSlX0qiMINjn0cgr+eGHGsbSHzTabcIogz2+p/iqP1Xs6EP/sS2SbqH+brGTbq0g==}
 
-  fuse.js@6.6.2:
-    resolution: {integrity: sha512-cJaJkxCCxC8qIIcPBF9yGxY0W/tVZS3uEISDxhYIdtk8OL93pe+6Zj7LjCqVV4dzbqcriOZ+kQ/NE4RXZHsIGA==}
+  fuse.js@7.5.0:
+    resolution: {integrity: sha512-sQtrEfA+ez/3G0cCZecF70oqpCRttCexYUG4mUrtWL49ULUzUyxokt5kyqwtKzj1270RaKih+hcP3qLcumccow==}
     engines: {node: '>=10'}
 
   get-caller-file@2.0.5:
@@ -3681,7 +3681,7 @@ snapshots:
 
   functional-red-black-tree@1.0.1: {}
 
-  fuse.js@6.6.2: {}
+  fuse.js@7.5.0: {}
 
   get-caller-file@2.0.5: {}
 
