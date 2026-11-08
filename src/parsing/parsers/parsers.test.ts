@@ -335,6 +335,15 @@ describe('WageParser', () => {
     expect(wageParser.parse('1.5K € p/w', {}, null, lang)).toBe(1500);
   });
 
+  it('reads a dotted frequency abbreviation at the end of the value', () => {
+    const wageParser = new WageParser();
+    const lang = { multipliers: { K: 1000 } };
+    const weekly = { getWageMultiplier: (freq: string) => (freq === 'weekly' ? 52 : 1) };
+    expect(wageParser.parse('250K zł tyg.', { decimalSeparator: ',' }, weekly, lang)).toBe(
+      13000000
+    );
+  });
+
   it('should detect weekly frequency (p/w, p/tyg)', () => {
     const normConfig = {
       getWageMultiplier: (freq: string) => {

@@ -3,11 +3,12 @@
  */
 import { CurrencyParser } from './currencyParser.js';
 
-// Checked in this order; a value without any of them is yearly.
+// Checked in this order; a value without any of them is yearly. A token ends where no word
+// character follows, so a dotted abbreviation also matches at the end ("tyg.").
 const FREQUENCY_PATTERNS = [
-  ['weekly', /\b(?:p\/w|p\/tyg|tyg\.|weekly|semanal|semaine|woche)\b/i],
-  ['monthly', /\b(?:p\/m|p\/mies|mies\.|monthly|mensual|mensuel|monat)\b/i],
-  ['yearly', /\b(?:p\/a|p\/rok|rok\.|yearly|anual|annuel|jahr)\b/i]
+  ['weekly', /\b(?:p\/w|p\/tyg|tyg\.|weekly|semanal|semaine|woche)(?!\w)/i],
+  ['monthly', /\b(?:p\/m|p\/mies|mies\.|monthly|mensual|mensuel|monat)(?!\w)/i],
+  ['yearly', /\b(?:p\/a|p\/rok|rok\.|yearly|anual|annuel|jahr)(?!\w)/i]
 ];
 
 /**
