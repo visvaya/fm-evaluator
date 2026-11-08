@@ -36,7 +36,8 @@ export class WageParser {
    * Parse wage value with frequency normalization
    * @param value - Raw wage string
    * @param formatContext - Format context
-   * @param normalizationConfig - Normalization configuration
+   * @param {{ getWageMultiplier: (frequency: string) => number } | null} normalizationConfig -
+   *   Normalization configuration
    * @param languageConfig - Language configuration
    * @returns Normalized wage value or null
    */
