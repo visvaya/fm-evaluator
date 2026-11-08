@@ -156,7 +156,7 @@ export const PlayerSchema = z.looseObject({
 export const FileMetadataSchema = z.object({
   detectedLanguage: z.string().trim().optional(),
   // We keep the file reference generic as it might be a File object or proxy
-  file: z.any().optional(),
+  file: z.unknown().optional(),
   // Raw HTML content might be large, maybe we shouldn't keep it in memory for too long
   html: z.string().trim().optional(),
   missingOptional: z.array(z.string().trim()),

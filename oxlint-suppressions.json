@@ -2602,11 +2602,6 @@
       "count": 14
     }
   },
-  "src/processing/schemas.ts": {
-    "zod/no-any-schema": {
-      "count": 1
-    }
-  },
   "src/processing/utils.ts": {
     "regexp/no-dupe-disjunctions": {
       "count": 6
@@ -2684,9 +2679,6 @@
   },
   "src/schema/contracts.ts": {
     "fp/no-mutating-methods": {
-      "count": 2
-    },
-    "zod/consistent-schema-var-name": {
       "count": 2
     }
   },
