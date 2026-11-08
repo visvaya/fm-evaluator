@@ -179,6 +179,7 @@ export function filterLDCMatchedLeagues(id: string): void {
 
   const mappings = loadLeagueMappings();
 
+  const matchedNames: string[] = [];
   labels.forEach((label) => {
     const input = label.querySelector('input');
     if (!input) return;
@@ -193,17 +194,25 @@ export function filterLDCMatchedLeagues(id: string): void {
 
     if (isMatched) {
       input.checked = isChecked;
-      if (!store.activeFilters[id]) store.activeFilters[id] = [];
-      if (isChecked) {
-        if (!store.activeFilters[id].includes(leagueName)) store.activeFilters[id].push(leagueName);
-      } else {
-        const idx = store.activeFilters[id].indexOf(leagueName);
-        if (idx !== -1) store.activeFilters[id].splice(idx, 1);
-      }
+      matchedNames.push(leagueName);
     }
   });
 
-  if (store.activeFilters[id]?.length === 0) delete store.activeFilters[id];
+  updateFilterSelection(id, matchedNames, isChecked);
+}
+
+/** Adds or removes values from a filter's selection in one pass; an empty selection is dropped. */
+function updateFilterSelection(id: string, values: readonly string[], selected: boolean): void {
+  const stored: unknown = store.activeFilters[id];
+  const current = Array.isArray(stored)
+    ? stored.filter((value): value is string => typeof value === 'string')
+    : [];
+  const removed = new Set(values);
+  const next = selected
+    ? [...new Set([...current, ...values])]
+    : current.filter((value) => !removed.has(value));
+  if (next.length === 0) delete store.activeFilters[id];
+  else store.activeFilters[id] = next;
 }
 
 export function filterShowOnlyLDCMatched(id: string): void {
@@ -387,16 +396,12 @@ export function toggleAllVisible(id: string): void {
   const allChecked = visibleCheckboxes.every((cb) => cb.checked);
   visibleCheckboxes.forEach((cb) => {
     cb.checked = !allChecked;
-    const v = cb.value;
-    if (!store.activeFilters[id]) store.activeFilters[id] = [];
-    if (allChecked) {
-      const idx = store.activeFilters[id].indexOf(v);
-      if (idx !== -1) store.activeFilters[id].splice(idx, 1);
-    } else {
-      if (!store.activeFilters[id].includes(v)) store.activeFilters[id].push(v);
-    }
   });
-  if (store.activeFilters[id]?.length === 0) delete store.activeFilters[id];
+  updateFilterSelection(
+    id,
+    visibleCheckboxes.map((cb) => cb.value),
+    !allChecked
+  );
   updateFilterCounts(id);
 }
 

@@ -34,7 +34,8 @@ export default defineConfig({
     : {
         command: 'pnpm exec vite --port 5173 --strictPort',
         url: baseURL,
-        reuseExistingServer: true,
+        // A server already on the port may be another project's app: fail instead of testing it.
+        reuseExistingServer: false,
         timeout: 120000
       }
 });

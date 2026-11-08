@@ -76,7 +76,7 @@ Run the checks one at a time and write long outputs to a log file outside the re
    - Browsers must be installed (`pnpm exec playwright install chromium`).
    - The first run after a cold start of the dev server can fail almost every test with `ERR_CONNECTION_REFUSED` or missing elements. Re-run before judging.
    - `import-flow.spec.ts` "should show profile banner based on COOP/COEP" is marked `test.fixme` (runtime profile timing).
-   - `playwright.config.ts` reuses any server already on port 5173 (`reuseExistingServer: true`). Another project's dev server there makes nearly every test fail, with no COOP header in "should have security headers set". Use `pnpm run e2e:local -- <spec>` instead: it starts its own server on a free port and points Playwright at it.
+   - `playwright.config.ts` starts its own dev server on port 5173 and stops with an error when the port is already in use (`reuseExistingServer: false`), for example by another project's dev server. Use `pnpm run e2e:local -- <spec>` instead: it starts its own server on a free port and points Playwright at it.
 
 ## 6. Commit and PR
 
