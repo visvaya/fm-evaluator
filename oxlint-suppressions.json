@@ -2340,9 +2340,6 @@
     "regexp/no-obscure-range": {
       "count": 1
     },
-    "regexp/no-super-linear-backtracking": {
-      "count": 12
-    },
     "regexp/no-unused-capturing-group": {
       "count": 4
     },
@@ -2350,9 +2347,6 @@
       "count": 2
     },
     "sonarjs/max-lines-per-function": {
-      "count": 1
-    },
-    "sonarjs/no-duplicated-branches": {
       "count": 1
     },
     "typescript/no-explicit-any": {
