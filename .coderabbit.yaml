@@ -16,7 +16,6 @@ reviews:
     - '!oxlint-suppressions.json'
     - '!scripts/strict-metrics.baseline.json'
     - '!scripts/legacy-metrics.baseline.json'
-    - '!goldens/snapshots/**'
   path_instructions:
     - path: '**'
       instructions: >-
