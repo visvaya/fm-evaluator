@@ -198,6 +198,13 @@ describe('ldcUtils', () => {
       expect(levenshteinDistance('kitten', 'sitting')).toBe(3);
       expect(levenshteinDistance('sunday', 'saturday')).toBe(3);
     });
+
+    it('gives the same distance in both argument orders', () => {
+      expect(levenshteinDistance('ab', 'abcd')).toBe(2);
+      expect(levenshteinDistance('abcd', 'ab')).toBe(2);
+      expect(levenshteinDistance('flaw', 'lawn')).toBe(2);
+      expect(levenshteinDistance('lawn', 'flaw')).toBe(2);
+    });
   });
 
   // -----------------------------------------------------------------------

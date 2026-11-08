@@ -10,6 +10,7 @@ import {
 } from '@/computing/ldcMappings';
 import { canonicalizeNation } from '@/computing/ldcNations';
 import {
+  buildLeagueNameIndex,
   formatLdcRaw,
   formatMultiplier,
   getLeaguesHash,
@@ -196,7 +197,7 @@ function matchesLeagueFilter(
   league: LeagueData,
   filter: LdcLeagueFilter,
   mappedLeagueKeys: ReadonlySet<string>,
-  originalIndex: number
+  hasValidationErrors: () => boolean
 ) {
   const leagueKey = createLeagueIdentityKey(league.name, league.nation);
 
@@ -216,7 +217,7 @@ function matchesLeagueFilter(
     return league.stars === null;
   }
 
-  return validateLeague(league, originalIndex).length > 0;
+  return hasValidationErrors();
 }
 
 export function buildLdcLeagueRows(
@@ -235,6 +236,7 @@ export function buildLdcLeagueRows(
       .filter((target) => target.nation.trim().length > 0)
       .map((target) => createLeagueIdentityKey(target.name, target.nation))
   );
+  const nameIndex = buildLeagueNameIndex(settings.leagues);
   const sortFactor = settings.sortDirection === 'desc' ? -1 : 1;
   const sortedLeagues = settings.leagues.toSorted((left, right) => {
     const primary = compareLeagues(left, right, settings.sortColumn);
@@ -252,7 +254,13 @@ export function buildLdcLeagueRows(
       league.nation?.toLowerCase().includes(normalizedSearchTerm);
 
     return (
-      matchesSearch && matchesLeagueFilter(league, leagueFilter, mappedLeagueKeys, originalIndex)
+      matchesSearch &&
+      matchesLeagueFilter(
+        league,
+        leagueFilter,
+        mappedLeagueKeys,
+        () => validateLeague(league, originalIndex, nameIndex).length > 0
+      )
     );
   });
 
@@ -269,7 +277,7 @@ export function buildLdcLeagueRows(
 
   return filteredLeagues.map<LdcLeagueRowViewModel>((league) => {
     const originalIndex = originalIndices.get(league.id ?? league.name) ?? -1;
-    const validationErrors = validateLeague(league, originalIndex);
+    const validationErrors = validateLeague(league, originalIndex, nameIndex);
     const hasErrors = validationErrors.length > 0;
 
     return {

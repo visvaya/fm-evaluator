@@ -55,17 +55,7 @@ export function findLeagueByName(
   leagueName: string,
   leagues: readonly LeagueData[] = ldcSettings.leagues
 ): LeagueData | null {
-  const exactMatches = leagues.filter((league) => league.name === leagueName);
-  if (exactMatches.length === 1) {
-    return exactMatches[0];
-  }
-
-  const normalizedName = normalizeLeagueNameForGrouping(leagueName);
-  const normalizedMatches = leagues.filter(
-    (league) => normalizeLeagueNameForGrouping(league.name) === normalizedName
-  );
-
-  return normalizedMatches.length === 1 ? normalizedMatches[0] : null;
+  return createLeagueLookup(leagues).byName(leagueName);
 }
 
 export function findLeagueByNameAndNation(
@@ -73,23 +63,49 @@ export function findLeagueByNameAndNation(
   nation: string,
   leagues: readonly LeagueData[] = ldcSettings.leagues
 ): LeagueData | null {
-  const normalizedName = normalizeLeagueNameForGrouping(leagueName);
-  const normalizedNation = normalizeNation(nation);
-  const exactMatches = leagues.filter(
-    (league) =>
-      normalizeLeagueNameForGrouping(league.name) === normalizedName &&
-      normalizeNation(league.nation) === normalizedNation
-  );
+  return createLeagueLookup(leagues).byNameAndNation(leagueName, nation);
+}
 
-  return exactMatches.length === 1 ? exactMatches[0] : null;
+/**
+ * Lookups over one league list: a unique exact name match first, then a unique match by normalized
+ * name. Build it once for a batch of lookups; the normalized index is built on first need.
+ */
+function createLeagueLookup(leagues: readonly LeagueData[]) {
+  const byExactName = Map.groupBy(leagues, (league) => league.name);
+  const memo: { byNormalizedName?: Map<string, LeagueData[]> } = {};
+  const normalizedGroup = (leagueName: string): LeagueData[] => {
+    memo.byNormalizedName ??= Map.groupBy(leagues, (league) =>
+      normalizeLeagueNameForGrouping(league.name)
+    );
+    return memo.byNormalizedName.get(normalizeLeagueNameForGrouping(leagueName)) ?? [];
+  };
+
+  return {
+    byName: (leagueName: string): LeagueData | null =>
+      unique(byExactName.get(leagueName) ?? []) ?? unique(normalizedGroup(leagueName)),
+    byNameAndNation: (leagueName: string, nation: string): LeagueData | null => {
+      const normalizedNation = normalizeNation(nation);
+      return unique(
+        normalizedGroup(leagueName).filter(
+          (league) => normalizeNation(league.nation) === normalizedNation
+        )
+      );
+    }
+  };
+}
+
+type LeagueLookup = ReturnType<typeof createLeagueLookup>;
+
+function unique(matches: readonly LeagueData[]): LeagueData | null {
+  return matches.length === 1 ? matches[0] : null;
 }
 
 function normalizeMappingTarget(
   target: LdcMappingTarget | string,
-  leagues: readonly LeagueData[] = ldcSettings.leagues
+  lookup: LeagueLookup = createLeagueLookup(ldcSettings.leagues)
 ): LdcMappingTarget {
   if (typeof target === 'string') {
-    const matchedLeague = findLeagueByName(target, leagues);
+    const matchedLeague = lookup.byName(target);
 
     return {
       name: target,
@@ -100,8 +116,8 @@ function normalizeMappingTarget(
   const targetNation = target.nation?.trim() ?? '';
   const matchedLeague =
     targetNation.length > 0
-      ? findLeagueByNameAndNation(target.name, targetNation, leagues)
-      : findLeagueByName(target.name, leagues);
+      ? lookup.byNameAndNation(target.name, targetNation)
+      : lookup.byName(target.name);
 
   return {
     name: target.name,
@@ -113,6 +129,7 @@ export function normalizeLeagueMappings(
   mappings: LegacyLeagueMappings,
   leagues: readonly LeagueData[] = ldcSettings.leagues
 ): LeagueMappings {
+  const lookup = createLeagueLookup(leagues);
   const normalizedMappings: LeagueMappings = {};
 
   for (const [source, target] of Object.entries(mappings)) {
@@ -120,7 +137,7 @@ export function normalizeLeagueMappings(
       continue;
     }
 
-    normalizedMappings[source] = normalizeMappingTarget(target, leagues);
+    normalizedMappings[source] = normalizeMappingTarget(target, lookup);
   }
 
   return normalizedMappings;

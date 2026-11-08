@@ -5,13 +5,14 @@ vi.mock('../ldcStorage', () => ({
   saveMappings: vi.fn(() => Promise.resolve())
 }));
 
-import { ldcMappingState } from '../config/ldcConfig';
+import { type LeagueData, ldcMappingState } from '../config/ldcConfig';
 import { saveMappings } from '../ldcStorage';
 
 import {
   beginMappingsTransaction,
   commitMappingsTransaction,
   loadLeagueMappings,
+  normalizeLeagueMappings,
   rollbackMappingsTransaction,
   saveLeagueMappings
 } from './ldcMappings';
@@ -69,5 +70,54 @@ describe('mappings transaction', () => {
     expect(setItemMock).not.toHaveBeenCalled();
     expect(loadLeagueMappings().Existing).toEqual({ name: 'Old', nation: 'X' });
     expect(loadLeagueMappings().Draft).toBeUndefined();
+  });
+});
+
+function league(name: string, nation: string): LeagueData {
+  return {
+    inputScore: 0,
+    ldcRaw: 0,
+    multiplier: 1,
+    name,
+    nation,
+    rank: 1,
+    stars: 3
+  };
+}
+
+describe('normalizeLeagueMappings', () => {
+  it('fills the nation from a unique exact or normalized name match', () => {
+    const leagues = [league('III Liga', 'Polska'), league('Premier League', 'Anglia')];
+
+    expect(
+      normalizeLeagueMappings(
+        { A: 'Premier League', B: 'III Liga - Grupa 2', C: { name: 'III Liga', nation: 'Polska' } },
+        leagues
+      )
+    ).toEqual({
+      A: { name: 'Premier League', nation: 'Anglia' },
+      B: { name: 'III Liga - Grupa 2', nation: 'Polska' },
+      C: { name: 'III Liga', nation: 'Polska' }
+    });
+  });
+
+  it('leaves the nation empty when the name is ambiguous', () => {
+    const leagues = [league('Liga', 'Polska'), league('Liga', 'Anglia')];
+
+    expect(normalizeLeagueMappings({ A: 'Liga' }, leagues)).toEqual({
+      A: { name: 'Liga', nation: '' }
+    });
+  });
+
+  it('resolves many mappings against many leagues quickly', () => {
+    const leagues = Array.from({ length: 3000 }, (_, index) => league(`League ${index}`, 'X'));
+    const mappings = Object.fromEntries(
+      Array.from({ length: 3000 }, (_, index) => [`Source ${index}`, `Missing ${index}`])
+    );
+    const started = performance.now();
+
+    normalizeLeagueMappings(mappings, leagues);
+
+    expect(performance.now() - started).toBeLessThan(1000);
   });
 });
