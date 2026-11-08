@@ -1,15 +1,54 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
 # Pull request review settings. Defaults apply to everything not listed here.
 language: en-US
+tone_instructions: >-
+  Plain, short English. No emoji and no ASCII art; state the problem, its effect and the fix.
+chat:
+  art: false
 reviews:
   profile: chill
   # The pull request description is the author's text; the summary goes to the walkthrough comment.
   high_level_summary_in_walkthrough: true
   poem: false
+  in_progress_fortune: false
+  # One maintainer: no reviewer suggestions.
+  suggested_reviewers: false
   pre_merge_checks:
     # The project has no docstring rule; the check only adds a warning to every pull request.
     docstrings:
       mode: 'off'
+    title:
+      mode: warning
+      requirements: >-
+        Conventional Commits: type(scope): subject, with an optional scope; the subject in the
+        imperative mood, lower case, no trailing period, at most 72 characters. The squash merge
+        turns the title into the commit on main.
+    custom_checks:
+      - name: Checks stated
+        mode: warning
+        instructions: >-
+          Pass when the pull request description names the checks that were run and states what
+          was not checked or not run (a section such as "Not checked" counts, also when it says
+          nothing was left out). Fail when it claims checks passed without naming them.
+  auto_review:
+    # Keep reviewing every push: a paused review still reports a green status, so later fix
+    # rounds would merge unreviewed.
+    auto_pause_after_reviewed_commits: 0
+  # The gate runs these on every pull request with the project's pinned versions and configs; the
+  # copies here would repeat its findings (oxlint without the project's JS plugins and frozen
+  # baseline; there is no Biome or ESLint config). Semgrep stays on: the gate runs it only when
+  # workflows or dependencies change.
+  tools:
+    oxc:
+      enabled: false
+    biome:
+      enabled: false
+    eslint:
+      enabled: false
+    zizmor:
+      enabled: false
+    gitleaks:
+      enabled: false
   # Generated or frozen files: their diffs are reviewed through the change that produced them.
   path_filters:
     - '!**/pnpm-lock.yaml'
@@ -43,3 +82,7 @@ reviews:
       instructions: >-
         Golden snapshots change only with an intended behaviour change explained in the same pull
         request.
+knowledge_base:
+  # What the bot learns here stays in this repository.
+  learnings:
+    scope: local
