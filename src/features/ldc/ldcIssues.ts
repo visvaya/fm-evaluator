@@ -89,7 +89,7 @@ function buildConfigurationIssues(settings: LDCSettings): ConfigurationIssue[] {
     });
   }
 
-  const nameIndex = buildLeagueNameIndex();
+  const nameIndex = buildLeagueNameIndex(settings.leagues);
   settings.leagues.forEach((league, index) => {
     const validationErrors = [
       ...validateLeague(league, index, nameIndex),

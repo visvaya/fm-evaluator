@@ -236,7 +236,7 @@ export function buildLdcLeagueRows(
       .filter((target) => target.nation.trim().length > 0)
       .map((target) => createLeagueIdentityKey(target.name, target.nation))
   );
-  const nameIndex = buildLeagueNameIndex();
+  const nameIndex = buildLeagueNameIndex(settings.leagues);
   const sortFactor = settings.sortDirection === 'desc' ? -1 : 1;
   const sortedLeagues = settings.leagues.toSorted((left, right) => {
     const primary = compareLeagues(left, right, settings.sortColumn);
