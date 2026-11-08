@@ -208,16 +208,22 @@ jobs:
           echo "zizmor==${ZIZMOR_VERSION} --hash=sha256:${ZIZMOR_SHA256}" > "$RUNNER_TEMP/zizmor.txt"
           "$RUNNER_TEMP/zizmor/bin/pip" install --quiet --no-deps --only-binary :all: \
             --require-hashes -r "$RUNNER_TEMP/zizmor.txt"
-          "$RUNNER_TEMP/zizmor/bin/zizmor" --persona pedantic --offline .github/workflows
+          "$RUNNER_TEMP/zizmor/bin/zizmor" --persona pedantic --offline .github
 
       # Semgrep CE with public registry rulesets; no account or token needed.
       # Fails only on ERROR severity; baseline in docs/quality-and-guardrails.md.
       - name: SAST (Semgrep)
         if: ${{ !cancelled() && steps.scope.outputs.security == 'true' }}
-        env:
-          SEMGREP_IMAGE: semgrep/semgrep:1.183.0@sha256:2e45517a85e13a9cca14a2a00df6bb48affd66b8ebfae1b0991cd57578362fb0
         run: |
-          docker run --rm -v "$PWD:/src" -w /src "$SEMGREP_IMAGE"             semgrep scan --metrics=off --config p/typescript --config p/react             --exclude public/vendor --exclude goldens --json-output=semgrep.json
+          # The image is pinned in a Dockerfile that Dependabot keeps current.
+          image=$(sed -n 's/^FROM //p' .github/docker/semgrep/Dockerfile)
+          if ! [[ "$image" =~ ^semgrep/semgrep:[0-9]+\.[0-9]+\.[0-9]+@sha256:[0-9a-f]{64}$ ]]; then
+            echo "Unexpected Semgrep image reference: '$image'" >&2
+            exit 1
+          fi
+          docker run --rm -v "$PWD:/src" -w /src "$image" \
+            semgrep scan --metrics=off --config p/typescript --config p/react \
+            --exclude public/vendor --exclude goldens --json-output=semgrep.json
           errors="$(jq '[.results[] | select(.extra.severity == "ERROR")] | length' semgrep.json)"
           echo "Semgrep ERROR findings: $errors"
           [ "$errors" -eq 0 ]
