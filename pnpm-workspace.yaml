@@ -22,3 +22,24 @@ overrides:
   # GHSA-g3hv-75wg-m249 (moderate, development only): fixed only in minimatch 11. eslint-plugin-sonarjs
   # and @typescript-eslint/typescript-estree still ask for ^10. Remove when both accept 11.
   'minimatch@<11.0.1': '^11.0.1'
+  # TypeScript 7 ships no compiler API; these packages load it, so they get the official
+  # TypeScript 6 compatibility package instead. Remove when they support TypeScript 7.
+  'eslint-plugin-sonarjs>typescript': 'npm:@typescript/typescript6@^6.0.2'
+  '@typescript-eslint/typescript-estree>typescript:peer': '-'
+  '@typescript-eslint/project-service>typescript:peer': '-'
+  '@typescript-eslint/tsconfig-utils>typescript:peer': '-'
+  'ts-api-utils>typescript:peer': '-'
+
+packageExtensions:
+  '@typescript-eslint/typescript-estree':
+    dependencies:
+      typescript: 'npm:@typescript/typescript6@^6.0.2'
+  '@typescript-eslint/project-service':
+    dependencies:
+      typescript: 'npm:@typescript/typescript6@^6.0.2'
+  '@typescript-eslint/tsconfig-utils':
+    dependencies:
+      typescript: 'npm:@typescript/typescript6@^6.0.2'
+  ts-api-utils:
+    dependencies:
+      typescript: 'npm:@typescript/typescript6@^6.0.2'

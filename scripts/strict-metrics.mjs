@@ -12,13 +12,19 @@
 import { spawnSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { compareSummaries, parseTscOutput, summarize } from './lib/strict-metrics-core.mjs';
 
 const rootDir = fileURLToPath(new URL('..', import.meta.url));
 const baselineUrl = new URL('strict-metrics.baseline.json', import.meta.url);
-const tscPath = createRequire(import.meta.url).resolve('typescript/bin/tsc');
+// TypeScript 7 exports only its package.json and version, not bin/tsc, so resolve the binary
+// next to package.json.
+const tscPath = path.join(
+  path.dirname(createRequire(import.meta.url).resolve('typescript/package.json')),
+  'bin/tsc'
+);
 
 function runStrictTsc() {
   const result = spawnSync(
