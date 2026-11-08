@@ -29,7 +29,7 @@ const referrers = [
   ...listFiles('public')
 ]
   .filter((file) => REFERRER_PATTERN.test(file) && !TEST_FILE_PATTERN.test(file))
-  .map((file) => fs.readFileSync(path.join(appDir, file), 'utf-8'));
+  .map((file) => ({ file, text: fs.readFileSync(path.join(appDir, file), 'utf-8') }));
 
 const unreferenced = findUnreferencedPublicFiles(publicFiles, referrers);
 if (unreferenced.length > 0) {

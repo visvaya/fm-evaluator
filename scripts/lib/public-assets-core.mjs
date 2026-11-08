@@ -11,17 +11,29 @@ export const RUNTIME_LOADED_PATTERNS = [
 // Entry files the browser or the build looks up by a fixed name.
 export const ENTRY_FILES = new Set(['manifest.webmanifest', 'service-worker.js']);
 
+// Characters that may precede a file name in a URL, an import, a CSS url() or a string.
+const NAME_BOUNDARY = new Set(['/', '"', "'", '`', '(', ' ', '\t', '\n', '\r', '=']);
+
+function mentionsName(text, name) {
+  for (let index = text.indexOf(name); index !== -1; index = text.indexOf(name, index + 1)) {
+    if (index === 0 || NAME_BOUNDARY.has(text[index - 1])) return true;
+  }
+  return false;
+}
+
 /**
  * @param {readonly string[]} publicFiles paths relative to public/, with forward slashes
- * @param {readonly string[]} referrerTexts contents of every file that may reference them
- * @returns {string[]} files referenced by neither their path, their file name nor a pattern
+ * @param {readonly { file: string, text: string }[]} referrers every file that may reference
+ *   them, with its path relative to the app (public/ files start with "public/")
+ * @returns {string[]} files referenced by neither their path, their file name nor a pattern; a
+ *   file's own content does not count
  */
-export function findUnreferencedPublicFiles(publicFiles, referrerTexts) {
-  const corpus = referrerTexts.join('\n');
+export function findUnreferencedPublicFiles(publicFiles, referrers) {
   return publicFiles.filter((file) => {
     if (ENTRY_FILES.has(file)) return false;
     if (RUNTIME_LOADED_PATTERNS.some((pattern) => pattern.test(file))) return false;
     const fileName = file.slice(file.lastIndexOf('/') + 1);
-    return !corpus.includes(file) && !corpus.includes(fileName);
+    const others = referrers.filter((referrer) => referrer.file !== `public/${file}`);
+    return !others.some(({ text }) => text.includes(file) || mentionsName(text, fileName));
   });
 }
