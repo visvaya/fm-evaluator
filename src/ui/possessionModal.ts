@@ -5,11 +5,9 @@ import { rerunCurrentAnalysis } from '../lib/legacyActionBridge';
 import { getProcessor } from '../lib/processorBridge';
 import { persistUIState as bridgePersistUIState } from '../lib/uiBridge';
 import {
-  currentSelectionStep,
   loadOCRAreas,
   ocrAreas,
   ocrSettings,
-  pendingFiles,
   resetOCRAreas,
   setCurrentSelectionStep,
   setOcrAreas,
@@ -19,10 +17,8 @@ import { useSettingsStore } from '../store/useSettingsStore';
 
 import {
   getCurrentSelectedClub,
-  removeClubPossession,
   renderPossessionClubList,
   saveCurrentClubPossession,
-  selectPossessionClub,
   setCurrentSelectedClub
 } from './possessionClubList';
 import {
@@ -31,7 +27,6 @@ import {
   destroyCropper,
   setupAreaSelectionWithCropper
 } from './possessionCropper';
-import { editOCRResult, refreshOCRResultsDisplay, removeOCRResult } from './possessionOCRDisplay';
 import { processOCRFiles } from './possessionOCRPipeline';
 import { setupScrollInputPercent } from './scrollInputHelper';
 

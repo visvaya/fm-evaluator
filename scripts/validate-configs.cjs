@@ -16,20 +16,6 @@ const SCHEMA_KEYS_FILE = path.resolve(__dirname, '..', 'src', 'schema', 'schemaR
 
 const REQUIRED_FIELDS = ['id', 'headers'];
 
-const VALID_SCHEMA_TYPES = [
-  'string',
-  'string_pass_through',
-  'enum',
-  'attribute',
-  'statistic',
-  'currency',
-  'date',
-  'integer',
-  'physical'
-];
-
-const VALID_CATEGORIES = ['basic', 'physical', 'mental', 'technical', 'goalkeeper', 'statistic'];
-
 function extractSchemaIds() {
   const content = fs.readFileSync(SCHEMA_KEYS_FILE, 'utf-8');
   const ids = new Set();
@@ -49,7 +35,7 @@ function extractSchemaIds() {
   return ids;
 }
 
-function validateLanguageConfig(filePath, schemaIds, checkMode) {
+function validateLanguageConfig(filePath, schemaIds) {
   const fileName = path.basename(filePath);
   const errors = [];
   const warnings = [];
@@ -156,7 +142,7 @@ function main() {
 
   for (const file of files) {
     const filePath = path.join(LANGUAGES_DIR, file);
-    const result = validateLanguageConfig(filePath, schemaIds, checkMode);
+    const result = validateLanguageConfig(filePath, schemaIds);
     results.push(result);
     totalErrors += result.errors.length;
     totalWarnings += result.warnings.length;

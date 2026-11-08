@@ -2,7 +2,7 @@
 /**
  * Tests for FormatInspector and NormalizationConfig
  */
-import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 
 // Load dependencies first
 import './parsers/attributeParser.js';
@@ -298,25 +298,25 @@ describe('FormatInspector', () => {
   describe('detectWageFrequencies', () => {
     it('should detect weekly (p/w, p/tyg)', () => {
       const sample = [{ value: '1000 p/w' }];
-      const freqs = inspector.detectWageFrequencies(sample, {});
+      const freqs = inspector.detectWageFrequencies(sample);
       expect(freqs.has('weekly')).toBe(true);
     });
 
     it('should detect monthly (p/m, p/mies)', () => {
       const sample = [{ value: '18000 p/m' }];
-      const freqs = inspector.detectWageFrequencies(sample, {});
+      const freqs = inspector.detectWageFrequencies(sample);
       expect(freqs.has('monthly')).toBe(true);
     });
 
     it('should detect yearly (p/a)', () => {
       const sample = [{ value: '120000 p/a' }];
-      const freqs = inspector.detectWageFrequencies(sample, {});
+      const freqs = inspector.detectWageFrequencies(sample);
       expect(freqs.has('yearly')).toBe(true);
     });
 
     it('should detect multiple frequencies', () => {
       const sample = [{ value: '1000 p/w' }, { value: '5000 p/m' }];
-      const freqs = inspector.detectWageFrequencies(sample, {});
+      const freqs = inspector.detectWageFrequencies(sample);
       expect(freqs.has('weekly')).toBe(true);
       expect(freqs.has('monthly')).toBe(true);
     });

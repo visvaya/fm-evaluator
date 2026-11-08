@@ -206,12 +206,12 @@ describe('FileMetadataSchema', () => {
   });
 
   it('should reject missing name', () => {
-    const { name, ...noName } = validMeta;
+    const { name: _name, ...noName } = validMeta;
     expect(() => FileMetadataSchema.parse(noName)).toThrow();
   });
 
   it('should reject missing valid flag', () => {
-    const { valid, ...noValid } = validMeta;
+    const { valid: _valid, ...noValid } = validMeta;
     expect(() => FileMetadataSchema.parse(noValid)).toThrow();
   });
 

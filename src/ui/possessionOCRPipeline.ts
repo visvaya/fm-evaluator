@@ -144,7 +144,7 @@ export async function processOCRFiles(files: File[]): Promise<void> {
         let lastError: any = null;
         for (let attempt = 0; attempt < 2; attempt++) {
           try {
-            return await processPossessionScreenshotWithAreas(file, ({ progress, status }) => {
+            return await processPossessionScreenshotWithAreas(file, ({ progress }) => {
               if (progressBar)
                 (progressBar as HTMLElement).style.width =
                   `${fileProgress + progress / files.length}%`;

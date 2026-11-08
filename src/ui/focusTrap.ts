@@ -260,11 +260,6 @@ function getFocusableElements(container: HTMLElement): HTMLElement[] {
   });
 }
 
-function getLastFocusable(container: HTMLElement): HTMLElement | null {
-  const elements = getFocusableElements(container);
-  return elements.at(-1) || null;
-}
-
 function resolveInitialFocus(
   container: HTMLElement,
   initialFocus: HTMLElement | null | string | undefined

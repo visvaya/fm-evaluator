@@ -327,17 +327,13 @@ export async function processImportedFilesBatch({
   let processedCount = 0;
 
   for (const [index, file] of files.entries()) {
-    if (cancelled) {
-      break;
-    }
-
     const fileNumber = index + 1;
     onStatus(`Odczytuję plik: ${file.name}...`, fileNumber, totalFiles);
 
     let html: string;
     try {
       html = await readText(file);
-    } catch (error) {
+    } catch {
       processedCount += 1;
       const errorMsg = `${file.name}: Błąd odczytu pliku`;
       errors.push(errorMsg);

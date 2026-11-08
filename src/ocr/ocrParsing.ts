@@ -1,14 +1,11 @@
 // Phase 5F: OCR text parsing – migrated from main.js
 import { getProcessor } from '../lib/processorBridge';
-import { normalizeDiacritics } from '../utils/helpers';
 
 import {
   type ClubData,
-  ClubMatchResult,
   correctCommonOCRErrors,
   findBestClubMatchWithLeague,
   leaguesMatch,
-  normalizeLeagueNameForOCR,
   normalizeTextForMatching
 } from './ocrMatching';
 

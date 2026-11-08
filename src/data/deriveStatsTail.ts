@@ -251,7 +251,7 @@ export function applyTailDerivations({
     let tckA = getV('Tck A');
     if (tckA === null) tckA = getV('Tackles Attempted');
     if (tckA === null) tckA = 0;
-    if (tckA !== null && tckA > 0 && kTck !== null && kTck >= 0 && kTck <= tckA) {
+    if (tckA > 0 && kTck !== null && kTck >= 0 && kTck <= tckA) {
       const percentage = (kTck / tckA) * 100;
       if (percentage >= 0 && percentage <= 100) {
         player['Key Tackles %'] = percentage.toFixed(2);

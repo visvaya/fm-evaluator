@@ -22,9 +22,6 @@ async function uploadAndWaitForTable(page: any, fixtureName: string) {
   const fileInput = page.locator('#files-input');
   await fileInput.setInputFiles(path.join(__dirname, 'fixtures', fixtureName));
 
-  const tableBody = page.locator('#table-body');
-  const tableRow = tableBody.locator('tr:not(.virtual-spacer)').first();
-
   // Adaptive modal sequence using evaluate() for reliable interaction.
   // For PL files, the FV modal appears BEFORE the language modal (opposite of EN).
   const maxAttempts = 40;
@@ -95,32 +92,6 @@ async function uploadAndWaitForTable(page: any, fixtureName: string) {
     return document.querySelectorAll('#table-body tr:not(.virtual-spacer)').length;
   });
   expect(rowCount).toBeGreaterThan(0);
-}
-
-/**
- * Upload fixture and navigate to the header mapping modal.
- * Dismisses language choice and format verification modals first.
- */
-async function uploadUntilHeaderMapping(page: any, fixtureName: string) {
-  const fileInput = page.locator('#files-input');
-  await fileInput.setInputFiles(path.join(__dirname, 'fixtures', fixtureName));
-
-  // Dismiss language choice
-  await shortClick(page, '#language-choice-file-btn', 3000);
-  await page.waitForTimeout(300);
-
-  // Dismiss format verification
-  await shortClick(page, '#confirm-btn', 15000);
-  await page.waitForTimeout(300);
-
-  // Dismiss single-type prompt if shown
-  await shortClick(page, '#btn-process-now', 5000);
-  await page.waitForTimeout(300);
-
-  // Wait for header mapping modal
-  const hmModal = page.locator('#header-mapping-modal');
-  await expect(hmModal).toBeVisible({ timeout: 10000 });
-  return hmModal;
 }
 
 // ============================================================================

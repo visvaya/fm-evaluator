@@ -8,9 +8,7 @@ import {
   getNativeName,
   isInitialized,
   onLocaleChange,
-  setLocale,
-  t,
-  tNested
+  t
 } from './index';
 
 // The i18n module uses internal state. We need to manipulate it for tests.

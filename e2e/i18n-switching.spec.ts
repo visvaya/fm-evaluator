@@ -169,9 +169,6 @@ test.describe('i18n Language Switching', () => {
     const count = await i18nElements.count();
 
     if (count > 0) {
-      // Get text of first i18n element
-      const textBefore = await i18nElements.first().textContent();
-
       // Switch language
       const langBtn = page.locator('#language-btn-header');
       await langBtn.click();

@@ -122,9 +122,6 @@
     "id-match": {
       "count": 2
     },
-    "no-unused-vars": {
-      "count": 1
-    },
     "playwright/no-networkidle": {
       "count": 4
     },
@@ -132,9 +129,6 @@
       "count": 10
     },
     "playwright/prefer-locator": {
-      "count": 1
-    },
-    "sonarjs/no-dead-store": {
       "count": 1
     },
     "typescript/no-explicit-any": {
@@ -154,9 +148,6 @@
     "id-match": {
       "count": 2
     },
-    "no-unused-vars": {
-      "count": 2
-    },
     "playwright/no-conditional-expect": {
       "count": 5
     },
@@ -167,7 +158,7 @@
       "count": 1
     },
     "playwright/no-wait-for-timeout": {
-      "count": 20
+      "count": 17
     },
     "playwright/prefer-locator": {
       "count": 2
@@ -175,29 +166,20 @@
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
-    "sonarjs/no-dead-store": {
-      "count": 1
-    },
     "typescript/no-explicit-any": {
-      "count": 4
+      "count": 3
     },
     "typescript/no-unsafe-assignment": {
-      "count": 7
+      "count": 3
     },
     "typescript/no-unsafe-call": {
-      "count": 15
+      "count": 6
     },
     "typescript/no-unsafe-member-access": {
-      "count": 16
-    },
-    "typescript/no-unsafe-return": {
-      "count": 1
+      "count": 7
     }
   },
   "e2e/i18n-switching.spec.ts": {
-    "no-unused-vars": {
-      "count": 1
-    },
     "playwright/no-conditional-expect": {
       "count": 8
     },
@@ -209,9 +191,6 @@
     },
     "playwright/no-wait-for-timeout": {
       "count": 8
-    },
-    "sonarjs/no-dead-store": {
-      "count": 1
     },
     "typescript/no-explicit-any": {
       "count": 3
@@ -610,9 +589,6 @@
     "max-depth": {
       "count": 1
     },
-    "no-unused-vars": {
-      "count": 3
-    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -636,23 +612,17 @@
     "no-console": {
       "count": 8
     },
-    "no-unused-vars": {
-      "count": 1
-    },
-    "sonarjs/no-dead-store": {
-      "count": 1
-    },
     "typescript/no-explicit-any": {
-      "count": 9
+      "count": 8
     },
     "typescript/no-unsafe-assignment": {
-      "count": 2
+      "count": 1
     },
     "typescript/no-unsafe-call": {
-      "count": 5
+      "count": 4
     },
     "typescript/no-unsafe-member-access": {
-      "count": 9
+      "count": 8
     }
   },
   "src/cache/structureHashCache.test.ts": {
@@ -935,20 +905,11 @@
     }
   },
   "src/config/constants.test.ts": {
-    "no-unused-vars": {
-      "count": 2
-    },
-    "sonarjs/no-dead-store": {
-      "count": 1
-    },
     "vitest/no-conditional-expect": {
       "count": 2
     }
   },
   "src/config/featureFlags.test.ts": {
-    "no-unused-vars": {
-      "count": 5
-    },
     "typescript/no-misused-spread": {
       "count": 6
     },
@@ -1184,9 +1145,6 @@
     "no-restricted-globals": {
       "count": 1
     },
-    "no-unused-vars": {
-      "count": 8
-    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -1197,7 +1155,7 @@
       "count": 14
     },
     "typescript/no-unsafe-assignment": {
-      "count": 33
+      "count": 32
     },
     "typescript/no-unsafe-call": {
       "count": 5
@@ -1403,15 +1361,6 @@
     "max-params": {
       "count": 1
     },
-    "no-unused-vars": {
-      "count": 1
-    },
-    "sonarjs/cognitive-complexity": {
-      "count": 1
-    },
-    "sonarjs/no-ignored-exceptions": {
-      "count": 1
-    },
     "typescript/no-base-to-string": {
       "count": 1
     },
@@ -1422,9 +1371,6 @@
       "count": 1
     },
     "unicorn/prefer-blob-reading-methods": {
-      "count": 1
-    },
-    "unicorn/prefer-optional-catch-binding": {
       "count": 1
     }
   },
@@ -2068,9 +2014,6 @@
     "no-unsafe-optional-chaining": {
       "count": 1
     },
-    "no-unused-vars": {
-      "count": 2
-    },
     "typescript/no-unsafe-member-access": {
       "count": 2
     }
@@ -2324,14 +2267,8 @@
     "no-console": {
       "count": 1
     },
-    "no-unused-vars": {
-      "count": 5
-    },
     "sonarjs/cognitive-complexity": {
       "count": 2
-    },
-    "sonarjs/no-dead-store": {
-      "count": 1
     },
     "unicorn/no-array-sort": {
       "count": 3
@@ -2373,13 +2310,7 @@
     "no-console": {
       "count": 3
     },
-    "no-unused-vars": {
-      "count": 4
-    },
     "sonarjs/cognitive-complexity": {
-      "count": 2
-    },
-    "sonarjs/no-dead-store": {
       "count": 2
     }
   },
@@ -2427,9 +2358,6 @@
     }
   },
   "src/ocr/ocrParsing.ts": {
-    "no-unused-vars": {
-      "count": 3
-    },
     "regexp/no-obscure-range": {
       "count": 1
     },
@@ -2499,9 +2427,6 @@
     }
   },
   "src/parsing/format.test.ts": {
-    "no-unused-vars": {
-      "count": 1
-    },
     "typescript/ban-ts-comment": {
       "count": 1
     },
@@ -2529,9 +2454,6 @@
       "count": 3
     },
     "max-params": {
-      "count": 1
-    },
-    "no-unused-vars": {
       "count": 1
     },
     "regexp/no-unused-capturing-group": {
@@ -2637,9 +2559,6 @@
     }
   },
   "src/processing/schemas.test.ts": {
-    "no-unused-vars": {
-      "count": 2
-    },
     "typescript/no-explicit-any": {
       "count": 2
     },
@@ -2831,9 +2750,6 @@
     }
   },
   "src/storage/migrations.ts": {
-    "no-unused-vars": {
-      "count": 2
-    },
     "typescript/no-explicit-any": {
       "count": 2
     },
@@ -2981,9 +2897,6 @@
     "max-classes-per-file": {
       "count": 1
     },
-    "no-unused-vars": {
-      "count": 2
-    },
     "typescript/no-explicit-any": {
       "count": 3
     },
@@ -3066,23 +2979,17 @@
     }
   },
   "src/ui/fileStack.ts": {
-    "import/no-named-as-default-member": {
-      "count": 1
-    },
     "max-classes-per-file": {
       "count": 1
     },
     "no-console": {
       "count": 1
     },
-    "no-unused-vars": {
-      "count": 3
-    },
     "typescript/no-explicit-any": {
-      "count": 6
+      "count": 5
     },
     "typescript/no-unsafe-argument": {
-      "count": 13
+      "count": 12
     },
     "typescript/no-unsafe-assignment": {
       "count": 2
@@ -3208,9 +3115,6 @@
     }
   },
   "src/ui/focusTrap.ts": {
-    "no-unused-vars": {
-      "count": 1
-    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -3273,16 +3177,10 @@
     "no-console": {
       "count": 1
     },
-    "no-unused-vars": {
-      "count": 1
-    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
     "sonarjs/no-all-duplicated-branches": {
-      "count": 1
-    },
-    "sonarjs/no-dead-store": {
       "count": 1
     },
     "sonarjs/no-duplicated-branches": {
@@ -3309,9 +3207,6 @@
   "src/ui/healthCheck.ts": {
     "no-console": {
       "count": 1
-    },
-    "no-unused-vars": {
-      "count": 2
     },
     "sonarjs/no-nested-conditional": {
       "count": 2
@@ -3540,9 +3435,6 @@
     }
   },
   "src/ui/possessionModal.ts": {
-    "no-unused-vars": {
-      "count": 7
-    },
     "sonarjs/max-lines-per-function": {
       "count": 1
     },
@@ -3641,9 +3533,6 @@
     }
   },
   "src/ui/possessionOCRPipeline.ts": {
-    "no-unused-vars": {
-      "count": 1
-    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -3681,11 +3570,6 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 20
-    }
-  },
-  "src/ui/statPercentiles.test.ts": {
-    "no-unused-vars": {
-      "count": 1
     }
   },
   "src/ui/table.test.ts": {
@@ -3740,11 +3624,8 @@
     }
   },
   "src/ui/tableOrchestrator.ts": {
-    "no-unused-vars": {
-      "count": 2
-    },
     "typescript/no-explicit-any": {
-      "count": 16
+      "count": 14
     },
     "typescript/no-unsafe-call": {
       "count": 4

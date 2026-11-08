@@ -3,7 +3,7 @@
  * Shows what features are available/disabled based on environment
  */
 
-import { type FeatureName, getFeatureFlags } from '../config/featureFlags';
+import { getFeatureFlags } from '../config/featureFlags';
 
 export interface HealthCheckConfig {
   autoDismissDelay?: number;
@@ -409,7 +409,7 @@ export async function initHealthCheck(config: HealthCheckConfig = {}): Promise<H
     (cfg.showOnDegraded && report.overall === 'degraded');
 
   if (shouldShow) {
-    showHealthCheckModal(report, cfg);
+    showHealthCheckModal(report);
   } else if (cfg.autoDismissOk && report.overall === 'ok') {
     console.log('[HealthCheck] All systems OK', report);
   }
@@ -418,10 +418,7 @@ export async function initHealthCheck(config: HealthCheckConfig = {}): Promise<H
   return report;
 }
 
-export function showHealthCheckModal(
-  report: HealthCheckReport,
-  config: HealthCheckConfig = {}
-): void {
+export function showHealthCheckModal(report: HealthCheckReport): void {
   // Create modal overlay
   const overlay = document.createElement('div');
   overlay.id = 'health-check-modal';

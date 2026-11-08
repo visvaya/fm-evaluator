@@ -270,20 +270,6 @@ class ContextResolver {
   }
 
   /**
-   * Check Global Anchors for a header
-   * @param header - Header name
-   * @param allHeaders - All headers in the file
-   * @param config - Language configuration object
-   * @param schemaRegistry - Schema registry instance
-   * @returns Global anchor information or null
-   */
-  checkGlobalAnchors(header, allHeaders, config, schemaRegistry) {
-    // This method can be used for additional global anchor checks
-    // Currently, the logic is integrated into resolveAmbiguous
-    return null;
-  }
-
-  /**
    * Resolve ambiguous header using context scoring with Global Anchors
    * @param header - Header name to resolve
    * @param index - Index of header in headers array
@@ -351,7 +337,7 @@ class ContextResolver {
     let bestScore = 0;
     const scores = []; // Track all scores for comparison
 
-    for (const [contextType, contextConfig] of Object.entries(ambiguousConfig.context)) {
+    for (const contextConfig of Object.values(ambiguousConfig.context)) {
       let score = 0;
 
       // Local neighbors scoring (works great in full views)

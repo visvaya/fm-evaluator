@@ -1,6 +1,3 @@
-import i18n, { type TranslationCategory } from '../i18n';
-import { continueImportFlowProcessing } from '../lib/legacyActionBridge';
-
 import { fileStackTypeLabels, renderFileStackCards } from './fileStackCards';
 import {
   buildUpdatedColumnMap,
@@ -25,18 +22,12 @@ import {
 import {
   attachFileStackDragDrop,
   getFileStackContainer,
-  reportFileStackCriticalError,
   renderActiveFileStackState,
   renderEmptyFileStackState,
   setLoadingOverlayVisible,
   syncFileStackViews,
   waitForNextPaint
 } from './fileStackUi';
-// t is a property of i18n default export or named export?
-// The default export has t method.
-const t = (key: string, category: TranslationCategory = 'ui', params?: any) =>
-  i18n.t(key, category, params);
-
 // We need access to the global processor for now as it holds the state
 // In later phases, we should inject this state or move it to a store
 declare global {

@@ -43,7 +43,7 @@ class FormatInspector {
       fileId: fileId, // Per-file identifier
       thousandSeparator: this.detectThousandSeparator(sample),
       unknownUnits: this.scanForUnknownUnits(sample, languageConfig),
-      wageFrequencies: this.detectWageFrequencies(sample, languageConfig)
+      wageFrequencies: this.detectWageFrequencies(sample)
     };
 
     return formatContext;
@@ -239,10 +239,9 @@ class FormatInspector {
   /**
    * Detect wage frequencies in sample
    * @param sample - Sample data
-   * @param languageConfig - Language configuration
    * @returns Set of detected frequencies
    */
-  detectWageFrequencies(sample, languageConfig) {
+  detectWageFrequencies(sample) {
     const frequencies = new Set();
 
     for (const item of sample) {

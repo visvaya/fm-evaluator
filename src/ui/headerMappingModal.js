@@ -318,7 +318,6 @@ class HeaderMappingModal {
     headersToMap.forEach((item, idx) => {
       const select = document.getElementById(`header-mapping-${idx}`);
       const schemaId = select.value;
-      const previousSchemaId = item.autoMappedTo || null;
 
       if (this.isCheckMappingScenario) {
         // In "check mapping" scenario, return ALL mappings to ensure they are saved

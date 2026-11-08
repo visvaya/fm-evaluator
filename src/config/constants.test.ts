@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { COUNTRY_CODE_MAP, FEET_MAPPING, type FootStrength, mapCountryCode } from './constants';
+import { COUNTRY_CODE_MAP, FEET_MAPPING, mapCountryCode } from './constants';
 
 describe('FEET_MAPPING', () => {
   it('should have multiple entries', () => {
@@ -52,7 +52,7 @@ describe('COUNTRY_CODE_MAP', () => {
   });
 
   it('should have pl and en translations for each entry', () => {
-    for (const [code, mapping] of Object.entries(COUNTRY_CODE_MAP)) {
+    for (const mapping of Object.values(COUNTRY_CODE_MAP)) {
       if (mapping) {
         expect(mapping.pl).toBeDefined();
         expect(mapping.en).toBeDefined();

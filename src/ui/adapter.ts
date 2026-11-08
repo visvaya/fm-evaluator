@@ -3,9 +3,9 @@
 
 import { renderTableHeaders } from './header';
 import { updatePageInfo } from './pagination';
-import { buildRowHtml, renderPagedRows, renderVirtualRows } from './table';
+import { renderPagedRows, renderVirtualRows } from './table';
 
-import type { Column, DOMElements, SortState, UIState, VirtualState } from './types';
+import type { Column, DOMElements, UIState, VirtualState } from './types';
 
 /**
  * UI Adapter - bridges legacy-compatible global state into newer TS modules
