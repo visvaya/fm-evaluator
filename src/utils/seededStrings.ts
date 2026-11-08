@@ -7,7 +7,8 @@ export function allStrings(alphabet: readonly string[], maxLength: number): stri
   let previous: string[] = [''];
   for (let length = 1; length <= maxLength; length++) {
     previous = previous.flatMap((prefix) => alphabet.map((letter) => prefix + letter));
-    result.push(...previous);
+    // A loop, not push(...previous): spreading a large level exceeds the engine's argument limit.
+    for (const text of previous) result.push(text);
   }
   return result;
 }
