@@ -1,6 +1,7 @@
 /*
  * TypeScript strictness ratchet. tsconfig.json keeps `strict: false`; this script counts
- * the errors `tsc --strict` would report, and every count may only fall.
+ * the errors `tsc --strict` with the target flags below would report, and every count may only
+ * fall.
  *
  *   pnpm strict:metrics            report, compared with the committed baseline
  *   pnpm strict:metrics:check      exit 1 if the total, any code or any file differs
@@ -26,10 +27,21 @@ const tscPath = path.join(
   'bin/tsc'
 );
 
+// The flags of the target tsconfig beyond strict; each is switched on in tsconfig.json once its
+// errors reach zero.
+const TARGET_FLAGS = [
+  '--noUncheckedIndexedAccess',
+  '--exactOptionalPropertyTypes',
+  '--noImplicitOverride',
+  '--noPropertyAccessFromIndexSignature',
+  '--verbatimModuleSyntax',
+  '--erasableSyntaxOnly'
+];
+
 function runStrictTsc() {
   const result = spawnSync(
     process.execPath,
-    [tscPath, '--noEmit', '-p', 'tsconfig.json', '--strict', '--pretty', 'false'],
+    [tscPath, '--noEmit', '-p', 'tsconfig.json', '--strict', ...TARGET_FLAGS, '--pretty', 'false'],
     { cwd: rootDir, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }
   );
   if (result.error) throw result.error;
@@ -54,7 +66,7 @@ async function readBaseline() {
 const describeRow = (row) => (row.group === 'total' ? 'total' : `${row.group} ${row.key}`);
 
 function printReport(summary, comparison) {
-  console.log(`Errors under --strict: ${summary.total}`);
+  console.log(`Errors under --strict and the target flags: ${summary.total}`);
   console.log('\nBy code:');
   for (const [code, count] of Object.entries(summary.byCode)) {
     console.log(`  ${code.padEnd(8)}  ${String(count).padStart(4)}`);
