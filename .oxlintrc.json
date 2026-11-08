@@ -471,6 +471,7 @@
     "regexp/no-optional-assertion": "error",
     "regexp/no-potentially-useless-backreference": "error",
     "regexp/no-super-linear-backtracking": "error",
+    "regexp/no-super-linear-move": "error",
     "regexp/no-trivially-nested-assertion": "error",
     "regexp/no-trivially-nested-quantifier": "error",
     "regexp/no-unused-capturing-group": "error",

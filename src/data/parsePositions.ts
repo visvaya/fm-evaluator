@@ -1,3 +1,5 @@
+import { firstParenthesised, withoutTrailingParenthesis } from '../utils/parenthesised';
+
 export function parsePositions(str: unknown): string[] {
   if (!str || typeof str !== 'string') return [];
   const positions = new Set<string>();
@@ -6,16 +8,16 @@ export function parsePositions(str: unknown): string[] {
     .map((p) => p.trim())
     .filter(Boolean);
   for (const part of parts) {
-    const parenthesesMatch = /\([^)]+\)/.exec(part);
+    const parenthesesMatch = firstParenthesised(part);
     if (part.includes('/')) {
-      const parentheses = parenthesesMatch ? parenthesesMatch[0] : '';
+      const parentheses = parenthesesMatch ?? '';
       const slashParts = part
         .split('/')
         .map((p) => p.trim())
         .filter(Boolean);
       for (const slashPart of slashParts) {
         let pos = slashPart.trim();
-        pos = pos.replace(/\s*\([^)]+\)\s*$/, '').trim();
+        pos = withoutTrailingParenthesis(pos).trim();
         if (parentheses && pos) {
           const letters = parentheses.replaceAll(/[()]/g, '');
           if (letters.length > 1) {
@@ -31,8 +33,8 @@ export function parsePositions(str: unknown): string[] {
         }
       }
     } else if (parenthesesMatch) {
-      const parentheses = parenthesesMatch[0];
-      const basePos = part.replace(/\s*\([^)]+\)\s*$/, '').trim();
+      const parentheses = parenthesesMatch;
+      const basePos = withoutTrailingParenthesis(part).trim();
       const letters = parentheses.replaceAll(/[()]/g, '');
       if (letters.length > 1) {
         for (const letter of letters) {

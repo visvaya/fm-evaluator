@@ -6,6 +6,7 @@ import { getNumericValue } from './getNumericValue';
 import { parseNumber, stripUnitWords } from './parseNumber';
 
 // The replacements stripUnitWords took over, kept as the oracle for the equivalence tests.
+/* oxlint-disable regexp/no-super-linear-move -- reference implementation under test */
 const oldStripUnitWords = (text: string): string =>
   text
     .replaceAll(/\s*km\s*/gi, '')
@@ -17,6 +18,7 @@ const oldStripUnitWords = (text: string): string =>
     .replaceAll(/\s*p\/[aw]/gi, '')
     .replaceAll(/\s*mln\s*/gi, 'M')
     .trim();
+/* oxlint-enable regexp/no-super-linear-move */
 
 const ch = (codePoint: number): string => String.fromCodePoint(codePoint);
 
