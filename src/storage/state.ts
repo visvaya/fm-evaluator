@@ -38,7 +38,7 @@ export function loadUIState() {
         const raw = localStorage.getItem(STATE_KEY);
         return raw ? JSON.parse(raw) : null;
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         console.warn('[State] Load (Dexie) failed', error);
         const raw = localStorage.getItem(STATE_KEY);
         return raw ? JSON.parse(raw) : null;
@@ -97,7 +97,7 @@ export function saveUIState(partial: Partial<UIState>, appSettings: AppSettings,
     localStorage.setItem(POSSESSION_KEY, JSON.stringify({ map: state.possessionMap }));
 
     // Also persist to Dexie (best-effort)
-    saveUIStateDb(state).catch((error) =>
+    saveUIStateDb(state).catch((error: unknown) =>
       console.warn('[State] Failed to save UI state to Dexie', error)
     );
   } catch (error) {

@@ -1,6 +1,8 @@
 import { AlertTriangle, Database, RefreshCw, Upload } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
+import { errorText } from '@/utils/errorText';
+
 import { CompatibilityHost } from './components/CompatibilityHost';
 import { FileManagerModal } from './components/FileManagerModal';
 import Header from './components/Header';
@@ -35,10 +37,10 @@ const App: React.FC = () => {
           setBootstrapState({ error: null, ready: true });
         }
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         if (!cancelled) {
           setBootstrapState({
-            error: error instanceof Error ? error.message : String(error),
+            error: errorText(error),
             ready: false
           });
         }

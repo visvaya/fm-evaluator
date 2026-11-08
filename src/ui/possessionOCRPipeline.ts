@@ -21,7 +21,7 @@ export async function processWithConcurrencyLimit<T>(
   for (const [i, item] of items.entries()) {
     const promise = proc(item, i).then(
       (result) => ({ index: i, result, success: true }),
-      (error) => ({ error, index: i, success: false })
+      (error: unknown) => ({ error, index: i, success: false })
     );
     allPromises.push(promise);
     executing.push(promise);

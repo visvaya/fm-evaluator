@@ -862,8 +862,11 @@
     }
   },
   "src/computing/ldcMappings.ts": {
+    "no-restricted-globals": {
+      "count": 12
+    },
     "typescript/no-explicit-any": {
-      "count": 10
+      "count": 9
     },
     "typescript/no-unsafe-argument": {
       "count": 2
@@ -3683,7 +3686,7 @@
       "count": 1
     },
     "typescript/no-unsafe-assignment": {
-      "count": 8
+      "count": 7
     },
     "typescript/no-unsafe-call": {
       "count": 4

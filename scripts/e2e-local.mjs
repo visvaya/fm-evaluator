@@ -93,7 +93,7 @@ const main = async () => {
   tests.once('exit', (code, signal) => process.exit(code ?? (signal ? 1 : 0)));
 };
 
-main().catch((error) => {
+main().catch((/** @type {unknown} */ error) => {
   console.error(error);
   process.exit(1);
 });
