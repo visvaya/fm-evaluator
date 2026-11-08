@@ -109,7 +109,7 @@
     "@radix-ui/react-slot": "^1.5.0",
     "@tanstack/react-table": "^9.3.1",
     "@tanstack/react-virtual": "^3.14.26",
-    "@visx/scale": "3.12.0",
+    "@visx/scale": "4.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "comlink": "^4.4.2",
