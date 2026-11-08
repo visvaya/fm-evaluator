@@ -77,6 +77,20 @@ jobs:
         if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
         run: pnpm run lint
 
+      # Frozen findings may only shrink, except for rules whose configuration the PR changes.
+      - name: Lint baseline did not grow
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && github.event_name == 'pull_request' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          for file in oxlint-suppressions.json .oxlintrc.json; do
+            gh api -H 'Accept: application/vnd.github.raw' \
+              "repos/$GITHUB_REPOSITORY/contents/$file?ref=$BASE_SHA" > "$RUNNER_TEMP/base-$file"
+          done
+          node scripts/check-suppressions-growth.mjs \
+            "$RUNNER_TEMP/base-oxlint-suppressions.json" "$RUNNER_TEMP/base-.oxlintrc.json"
+
       - name: Typecheck
         if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
         run: pnpm run typecheck
