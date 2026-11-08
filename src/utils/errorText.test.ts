@@ -17,7 +17,7 @@ describe('errorText', () => {
   });
 
   it('survives a value that cannot be serialised', () => {
-    const cyclic: Record<string, unknown> = {};
+    const cyclic: { self?: unknown } = {};
     cyclic.self = cyclic;
     expect(errorText(cyclic)).toBe('Unserializable error value');
   });
