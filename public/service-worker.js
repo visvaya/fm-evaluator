@@ -169,7 +169,7 @@ async function prefetchVendorAssets() {
           await cache.put(url, response.clone());
         }
       } catch {
-        // ignorujemy brakujące zasoby; zależy od profilu
+        // Skip missing assets; which ones exist depends on the runtime profile
       }
     })
   );
