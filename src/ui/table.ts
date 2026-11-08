@@ -84,7 +84,8 @@ export function buildRowHtml(options: BuildRowOptions): string {
 
 /**
  * Get suggestion badge HTML
- * @param val Suggestion type (buy, scout, track or skip; the Polish keys of the maps below)
+ * @param val Suggestion key exactly as in the maps below: the Polish words for buy (Kup), scout
+ *   (Scoutuj), track and skip. Any other value gets the fallback style.
  */
 export function getBadge(val?: null | string): string {
   if (!val) return '-';
