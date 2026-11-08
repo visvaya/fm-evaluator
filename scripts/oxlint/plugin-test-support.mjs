@@ -49,7 +49,9 @@ function runOxlint(file) {
     );
     return { diagnostics: [] };
   } catch (error) {
-    // oxlint exits with 1 when it reports findings; the JSON report is on stdout.
+    // oxlint exits with 1 when it reports findings; the JSON report is on stdout. Without a report
+    // (the binary is missing or crashed) the original error says more than a JSON parse error.
+    if (typeof error.stdout !== 'string' || error.stdout.trim() === '') throw error;
     return JSON.parse(error.stdout);
   }
 }
