@@ -515,6 +515,9 @@
         "maximum": 800
       }
     ],
+    "max-depth": ["error", { "max": 4 }], // Limits from the 2026-11-08 measurement (32 findings at 4, frozen); tighten, never loosen.
+    "max-params": ["error", { "max": 4 }], // More parameters go into one object (RORO); 30 findings at 4, frozen.
+    "max-nested-callbacks": ["error", { "max": 3 }], // 1 finding outside tests at 3, frozen.
     "fp/no-mutating-methods": "error",
     "fp/no-mutation": [
       "error",
@@ -572,6 +575,7 @@
         "max-classes-per-file": "off", // Class-based test doubles (mocks, stubs) are acceptable.
         "sonarjs/max-lines-per-function": "off", // Test suites are long by nature: describe blocks group many cases.
         "sonarjs/max-lines": "off", // Test files grow with the cases they cover.
+        "max-nested-callbacks": ["error", { "max": 4 }], // describe, it and a callback are three levels by design; 1 finding at 4, frozen.
         "fp/no-let": "off", // Tests set up and reset fixtures imperatively.
         "fp/no-mutation": "off", // Tests set up and reset fixtures imperatively.
         "fp/no-mutating-methods": "off" // Tests set up and reset fixtures imperatively.
