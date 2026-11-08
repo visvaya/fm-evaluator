@@ -52,7 +52,7 @@
     "strict:metrics": "node scripts/strict-metrics.mjs",
     "strict:metrics:check": "node scripts/strict-metrics.mjs --check",
     "strict:metrics:update": "node scripts/strict-metrics.mjs --update",
-    "quality": "pnpm run lint && pnpm run typecheck && pnpm run knip && pnpm run jscpd && pnpm run legacy:metrics:check && pnpm run strict:metrics:check && pnpm run docs:check && pnpm run check:typography && pnpm run check:public-assets",
+    "quality": "pnpm run lint && pnpm run typecheck && pnpm run knip && pnpm run jscpd && pnpm run legacy:metrics:check && pnpm run strict:metrics:check && pnpm run docs:check && pnpm run check:typography && pnpm run check:public-assets && pnpm run sri:check && pnpm run validate:configs:check",
     "prepare": "husky",
     "audit": "pnpm audit --audit-level=moderate",
     "audit:prod": "pnpm audit --audit-level=moderate --prod",
