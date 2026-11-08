@@ -133,7 +133,7 @@ export class DataProcessor {
     fileQueueLength = 1,
     preMappedColumnMap = null,
     progressCallback = null,
-    originalFile = null
+    originalFile: File | null = null
   ) {
     const sessionState = {
       bulkFormatSettings: this.bulkFormatSettings,
@@ -272,7 +272,7 @@ export class DataProcessor {
     html,
     forceType = null,
     append = false,
-    file = null,
+    file: File | null = null,
     preMappedColumnMap = null,
     progressCallback = null,
     batchInfo = null
@@ -349,6 +349,7 @@ export class DataProcessor {
     // Create file metadata
     const fileMetadata = {
       columnMap: result.columnMap,
+      cutCells: result.cutCells,
       detectedLanguage: detectedLanguage,
       file: file,
       formatContext: result.formatContext,

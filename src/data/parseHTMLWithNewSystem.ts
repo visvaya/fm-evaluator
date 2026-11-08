@@ -5,7 +5,7 @@ import { calculateMissingColumns } from './calculateMissingColumns';
 import { computeStructureHash } from './computeStructureHash';
 import { detectFileType } from './detectFileType';
 import { extractAgeFromDob } from './extractAgeFromDob';
-import { readImportedCellText } from './importedCellText';
+import { readImportedRows, type CutCellCount } from './importedCellText';
 import { normalizeHeader } from './normalizeHeader';
 
 export interface ParseSessionState {
@@ -32,6 +32,7 @@ export interface ParseHTMLWithNewSystemDeps {
 
 export interface ParseHTMLWithNewSystemResult {
   columnMap: Record<string, any>;
+  cutCells: CutCellCount[];
   data: any[];
   detectedLanguage: string;
   detectedType: string;
@@ -312,19 +313,12 @@ export async function parseHTMLWithNewSystemData(
     }
   }
 
-  const rows = [...table.querySelectorAll('tr')].slice(1);
-  const fileData: any[] = rows.map((row, index) => {
-    const cells = row.querySelectorAll('td');
-    const rowData: Record<string, any> = {};
-    for (const colIndexStr in columnMap) {
-      const colIdx = parseInt(colIndexStr, 10);
-      if (isNaN(colIdx)) continue;
-      if (cells[colIdx]) {
-        rowData[colIdx] = readImportedCellText(cells[colIdx]);
-      }
-    }
-    rowData.index = index;
-    return rowData;
+  const { cutCells, rows: fileData } = readImportedRows({
+    columnIndices: Object.keys(columnMap)
+      .map((colIndexStr) => parseInt(colIndexStr, 10))
+      .filter((colIdx) => !isNaN(colIdx)),
+    headers,
+    rows: [...table.querySelectorAll('tr')].slice(1)
   });
 
   let formatContext: any = null;
@@ -619,6 +613,7 @@ export async function parseHTMLWithNewSystemData(
 
   return {
     columnMap,
+    cutCells,
     data,
     detectedLanguage,
     detectedType: detectedType.type,

@@ -334,7 +334,7 @@ export function mergeProcessorData(
       const parsedRow = {} as Record<string, string>;
       for (const [index, header] of headers.entries()) {
         if (cells[index]) {
-          parsedRow[header] = readImportedCellText(cells[index]);
+          parsedRow[header] = readImportedCellText(cells[index]).text;
         }
       }
 

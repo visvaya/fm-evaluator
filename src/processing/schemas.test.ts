@@ -190,6 +190,13 @@ describe('FileMetadataSchema', () => {
     expect(result.valid).toBe(true);
   });
 
+  it('should accept cut cell counts and reject a zero count', () => {
+    const cutCells = [{ column: 'Notes', count: 2 }];
+    expect(FileMetadataSchema.parse({ ...validMeta, cutCells }).cutCells).toEqual(cutCells);
+    const zeroCount = { ...validMeta, cutCells: [{ column: 'Notes', count: 0 }] };
+    expect(FileMetadataSchema.safeParse(zeroCount).success).toBe(false);
+  });
+
   it('should reject unknown type', () => {
     expect(() => FileMetadataSchema.parse({ ...validMeta, type: 'invalid' })).toThrow();
   });

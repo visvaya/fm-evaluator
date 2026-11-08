@@ -39,6 +39,13 @@ export function ImportStatusBanner() {
           <StatusIcon kind={importStatus.kind} />
           <span>{importStatus.message || ''}</span>
         </div>
+        {importStatus.kind !== 'error' && importStatus.details.length > 0 ? (
+          <ul className="mt-2 space-y-1 pl-7 text-xs text-warning">
+            {importStatus.details.map((detail) => (
+              <li key={detail}>{detail}</li>
+            ))}
+          </ul>
+        ) : null}
       </div>
 
       <div

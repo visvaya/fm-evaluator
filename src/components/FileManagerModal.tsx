@@ -1,6 +1,8 @@
 import { ArrowDown, ArrowUp, GripVertical, RefreshCw, Trash2, Upload, X } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState, type DragEvent } from 'react';
 
+import { IMPORT_LIMITS } from '@/config/importLimits';
+import { formatCutCellColumns, type CutCellCount } from '@/data/importedCellText';
 import { useDataBoundary } from '@/hooks/useDataBoundary';
 import { useUiText } from '@/hooks/useUiText';
 import { cn } from '@/lib/utils';
@@ -9,6 +11,7 @@ import { useWorkspaceStore } from '@/store/useWorkspaceStore';
 import { fileStack } from '@/ui/fileStack';
 
 interface FileStackItem {
+  cutCells?: CutCellCount[];
   detectedLanguage?: string;
   missingOptional?: string[];
   missingRequired?: string[];
@@ -304,6 +307,7 @@ export function FileManagerModal() {
                     languageNames[detectedLanguage] ?? detectedLanguage.toUpperCase();
                   const missingRequired = item.missingRequired ?? [];
                   const missingOptional = item.missingOptional ?? [];
+                  const cutCells = item.cutCells ?? [];
 
                   return (
                     <article
@@ -339,16 +343,31 @@ export function FileManagerModal() {
                             </span>
                           </div>
                           <div className="mt-1 text-xs text-text-secondary">
-                            {rowCount} players, {languageLabel}
+                            {t('file_manager_file_summary', 'ui', {
+                              count: rowCount,
+                              language: languageLabel
+                            })}
                           </div>
                           {missingRequired.length > 0 ? (
                             <div className="mt-2 text-xs text-negative">
-                              Missing required: {missingRequired.join(', ')}
+                              {t('file_manager_missing_required', 'ui', {
+                                columns: missingRequired.join(', ')
+                              })}
                             </div>
                           ) : null}
                           {missingOptional.length > 0 ? (
                             <div className="mt-1 text-xs text-warning">
-                              Missing optional: {missingOptional.join(', ')}
+                              {t('file_manager_missing_optional', 'ui', {
+                                columns: missingOptional.join(', ')
+                              })}
+                            </div>
+                          ) : null}
+                          {cutCells.length > 0 ? (
+                            <div className="mt-1 text-xs text-warning">
+                              {t('file_manager_cells_cut', 'ui', {
+                                columns: formatCutCellColumns(cutCells),
+                                limit: IMPORT_LIMITS.cellTextLengthChars
+                              })}
                             </div>
                           ) : null}
                         </div>

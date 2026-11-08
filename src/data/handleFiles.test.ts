@@ -36,7 +36,7 @@ const {
     processorMock: {
       attributes: [],
       detectedFileLanguages: [],
-      fileStack: [],
+      fileStack: [] as Record<string, unknown>[],
       parseHTML: vi.fn().mockResolvedValue({}),
       stats: []
     },
@@ -182,6 +182,33 @@ describe('handleFiles pagination bridge', () => {
       expect.any(Function)
     );
     expect(reorderFileStackItemsMock).toHaveBeenCalledWith(processorMock, 0, 1);
+  });
+
+  it('audits the cut cells of the files imported in this run only', async () => {
+    const cutCells = [{ column: 'Notes', count: 2 }];
+    processorMock.fileStack = [{ cutCells, name: 'earlier.html', type: 'attr' }];
+    processImportedFilesBatchMock.mockImplementationOnce(() => {
+      processorMock.fileStack.unshift({ cutCells, name: 'long.html', type: 'stats' });
+      return Promise.resolve({
+        cancelled: false,
+        errors: [],
+        failedFiles: [],
+        filesWithErrors: new Map(),
+        loadedTypes: [],
+        processedCount: 1
+      });
+    });
+    const addAudit = vi.fn();
+    const auditWindow = window as unknown as { addAudit?: typeof addAudit };
+    auditWindow.addAudit = addAudit;
+    const module = await import('./handleFiles');
+
+    await module.handleFiles([new File(['<table></table>'], 'long.html', { type: 'text/html' })]);
+
+    expect(addAudit.mock.calls.filter(([event]) => event === 'file_cells_cut')).toEqual([
+      ['file_cells_cut', { columns: cutCells, limitChars: 10_000, name: 'long.html' }, 'warn']
+    ]);
+    delete auditWindow.addAudit;
   });
 
   it('rewires duplicate retry button to re-trigger processing with force flag', async () => {
