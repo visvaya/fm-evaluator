@@ -170,14 +170,14 @@ describe('SmartHeaderMapper.findAnchors', () => {
 
   it('should find UID and Name in EN headers', () => {
     const headers = ['UID', 'Name', 'Position', 'Club'];
-    const anchors = mapper.findAnchors(headers, {});
+    const anchors = mapper.findAnchors(headers);
     expect(anchors.uid).toBe(0);
     expect(anchors.name).toBe(1);
   });
 
   it('should find ID and Nazwisko in PL headers', () => {
     const headers = ['ID', 'Nazwisko', 'Pozycja', 'Klub'];
-    const anchors = mapper.findAnchors(headers, {});
+    const anchors = mapper.findAnchors(headers);
     expect(anchors.uid).toBe(0);
     expect(anchors.name).toBe(1);
   });
@@ -185,20 +185,20 @@ describe('SmartHeaderMapper.findAnchors', () => {
   it('should find anchors in Japanese headers', () => {
     const headers = ['編号', '名前', 'クラブ'];
     // 編号 is not in uidVariants (编号 is), so let's use direct match
-    const anchors = mapper.findAnchors(headers, {});
+    const anchors = mapper.findAnchors(headers);
     expect(anchors.name).toBe(1);
   });
 
   it('should return null for missing anchors', () => {
     const headers = ['Position', 'Club', 'Wage'];
-    const anchors = mapper.findAnchors(headers, {});
+    const anchors = mapper.findAnchors(headers);
     expect(anchors.uid).toBeNull();
     expect(anchors.name).toBeNull();
   });
 
   it('should find first occurrence only', () => {
     const headers = ['Name', 'UID', 'Name']; // duplicate Name
-    const anchors = mapper.findAnchors(headers, {});
+    const anchors = mapper.findAnchors(headers);
     expect(anchors.name).toBe(0);
     expect(anchors.uid).toBe(1);
   });

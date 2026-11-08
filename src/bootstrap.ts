@@ -112,8 +112,6 @@ function refreshUITranslations() {
   console.log('[Debug] Dropdown:', dd);
 
   if (btn) {
-    const listeners = (window as any).getEventListeners(btn); // specific to Chrome DevTools, might not work in standard JS, but good if they use Chrome.
-    // actually standard JS can't inspect listeners easily.
     console.log('[Debug] Dispatching click event...');
     (btn as HTMLElement).click();
   }

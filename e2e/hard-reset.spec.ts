@@ -110,14 +110,6 @@ test.describe('Hard Reset', () => {
     // Import data so state gets written
     await uploadAndWaitForTable(page, 'sample-attributes-en.html');
 
-    // Verify app-managed state exists
-    const hasState = await page.evaluate(() => {
-      return (
-        localStorage.getItem('fm24-evaluator-state-v1') !== null ||
-        localStorage.getItem('fm24-evaluator-settings-v1') !== null
-      );
-    });
-
     // Accept the confirmation dialog
     page.on('dialog', async (dialog: any) => {
       await dialog.accept();

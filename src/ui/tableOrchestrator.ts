@@ -69,13 +69,13 @@ export function renderTableImmediate(): void {
     if (!virtualState.enabled && els.tableScroller) els.tableScroller.scrollTop = 0;
     virtualState.enabled = true;
     virtualState.end = Math.min(sorted.length, virtualState.start + VIRTUAL_BATCH);
-    renderVirtualRows(store.currentColumns);
+    renderVirtualRows();
   } else {
     if (virtualState.enabled && els.tableScroller) els.tableScroller.scrollTop = 0;
     virtualState.enabled = false;
     virtualState.start = 0;
     virtualState.end = Math.min(VIRTUAL_BATCH, sorted.length);
-    renderPagedRows(sorted, store.currentColumns);
+    renderPagedRows(sorted);
   }
   updateResultsMeta(sorted.length);
 }
@@ -114,7 +114,7 @@ export function updateResultsMeta(filteredCount: number): void {
   }
 }
 
-function renderPagedRows(sorted: any[], activeCols: any[]): void {
+function renderPagedRows(sorted: any[]): void {
   if (
     (window as any).uiAdapter &&
     typeof (window as any).uiAdapter.renderPagedRows === 'function'
@@ -123,7 +123,7 @@ function renderPagedRows(sorted: any[], activeCols: any[]): void {
   }
 }
 
-function renderVirtualRows(activeCols: any[]): void {
+function renderVirtualRows(): void {
   if (
     (window as any).uiAdapter &&
     typeof (window as any).uiAdapter.renderVirtualRows === 'function'
@@ -147,7 +147,7 @@ export const handleVirtualScroll = debounce(() => {
   if (start === virtualState.start && end === virtualState.end) return;
   virtualState.start = start;
   virtualState.end = end;
-  renderVirtualRows(store.currentColumns);
+  renderVirtualRows();
 }, 16);
 
 /**

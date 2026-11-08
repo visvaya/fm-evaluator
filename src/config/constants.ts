@@ -33,8 +33,6 @@ export const FEET_MAPPING: Record<string, number> = {
   'Względnie mocna': 3
 };
 
-export type FootStrength = keyof typeof FEET_MAPPING;
-
 // Map country code to full name (defaults to Polish, can specify 'en' for English)
 export const COUNTRY_CODE_MAP: Record<
   string,

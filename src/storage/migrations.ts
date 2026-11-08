@@ -3,7 +3,6 @@
  * Provides structured migration handling with rollback support
  */
 import type Dexie from 'dexie';
-import type { Table } from 'dexie';
 
 export interface MigrationChecklistItem {
   appliedAt?: number;
@@ -77,7 +76,7 @@ export const MIGRATIONS: MigrationStep[] = [
         await table.clear();
       }
     },
-    up: async (db) => {
+    up: async () => {
       // This will be applied when we bump DB_VERSION to 6
       // For now it's a placeholder for the next migration
     },

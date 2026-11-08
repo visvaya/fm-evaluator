@@ -2,7 +2,7 @@
   "metrics": {
     "windowBridges": 152,
     "windowBridgeWrites": 162,
-    "windowGlobalReads": 171,
+    "windowGlobalReads": 170,
     "jsFilesInSrc": 16,
     "innerHtmlWrites": 25,
     "largestFileLines": 1039

@@ -1,14 +1,4 @@
 ﻿// Phase 5E: DataProcessor migrated from app/main.js
-import {
-  ATTRIBUTE_COEFFS,
-  NEGATIVE_STATS,
-  PER90_TO_SOURCE,
-  PERCENTAGE_TO_SOURCE,
-  POSITION_FILTERS,
-  SKIPPABLE_STATS,
-  STATS_CONFIG,
-  ZERO_SKIPPABLE_STATS
-} from '../config/scoreConfig';
 import { UniversalParser } from '../parsing/universalParser.js';
 import { useSettingsStore } from '../store/useSettingsStore';
 
@@ -357,7 +347,6 @@ export class DataProcessor {
     }
 
     // Create file metadata
-    const fileName = file ? file.name : 'unknown';
     const fileMetadata = {
       columnMap: result.columnMap,
       detectedLanguage: detectedLanguage,
@@ -366,17 +355,14 @@ export class DataProcessor {
       html: html,
       missingOptional: result.missingOptional || [],
       missingRequired: result.missingRequired || [],
-      name: fileName,
+      name: file.name,
       parsedData: result.data,
       rowCount: result.data.length,
       type: type, // Keep original type (complete, both, attr, stats)
       valid: true
     };
 
-    // Add to file stack
-    if (!append || file) {
-      this.fileStack.unshift(fileMetadata);
-    }
+    this.fileStack.unshift(fileMetadata);
 
     // Clear bulk settings after processing all files
     if (sessionStorage.getItem('bulkFormatSettings')) {
@@ -384,28 +370,21 @@ export class DataProcessor {
       this.bulkFormatSettings = null;
     }
 
-    // Return metadata
-    if (file) {
-      const typeLabels = {
-        attr: 'Atrybuty',
-        both: 'Niekompletny',
-        complete: 'Kompletny',
-        stats: 'Statystyki',
-        unknown: 'Nieznany'
-      };
-      return {
-        missingOptional: result.missingOptional || [],
-        missingRequired: result.missingRequired || [],
-        rowCount: result.data.length,
-        type: typeLabels[type] || 'Nieznany',
-        typeCode: type,
-        valid: true
-      };
-    } else {
-      if (type === 'both') return 'Niekompletny (Atrybuty + Statystyki)';
-      if (type === 'attr') return 'Atrybuty';
-      return 'Statystyki';
-    }
+    const typeLabels = {
+      attr: 'Atrybuty',
+      both: 'Niekompletny',
+      complete: 'Kompletny',
+      stats: 'Statystyki',
+      unknown: 'Nieznany'
+    };
+    return {
+      missingOptional: result.missingOptional || [],
+      missingRequired: result.missingRequired || [],
+      rowCount: result.data.length,
+      type: typeLabels[type] || 'Nieznany',
+      typeCode: type,
+      valid: true
+    };
   }
 
   parsePositions(str) {

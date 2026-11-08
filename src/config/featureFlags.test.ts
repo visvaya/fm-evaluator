@@ -1,15 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import {
-  FeatureFlags,
-  type FeatureName,
-  getFeatureFlags,
-  isFeatureEnabled,
-  killSwitchFeatures,
-  killSwitchHeavyFeatures,
-  setFeatureOverride
-} from './featureFlags';
+import { FeatureFlags, type FeatureName } from './featureFlags';
 
 // Reset singleton between tests
 let ff: FeatureFlags;

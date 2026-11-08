@@ -43,7 +43,7 @@ class SmartHeaderMapper {
     }
 
     // First pass: count occurrences of each header variant
-    for (const [schemaId, headerVariants] of Object.entries(languageConfig.headers)) {
+    for (const headerVariants of Object.values(languageConfig.headers)) {
       const variants = Array.isArray(headerVariants) ? headerVariants : [headerVariants];
       for (const variant of variants) {
         headerCounts.set(variant, (headerCounts.get(variant) || 0) + 1);
@@ -72,10 +72,9 @@ class SmartHeaderMapper {
    * Fuzzy match using Fuse.js
    * @param header - Header to match
    * @param languageConfig - Language configuration
-   * @param schemaRegistry - Schema registry
    * @returns Schema ID or null
    */
-  _fuzzyMatch(header, languageConfig, schemaRegistry) {
+  _fuzzyMatch(header, languageConfig) {
     // Get or create Fuse instance for this language
     const langId = languageConfig.id;
     if (!this.fuseInstances.has(langId)) {
@@ -194,10 +193,9 @@ class SmartHeaderMapper {
   /**
    * Find anchor headers (unique, easy to recognize)
    * @param headers - Array of headers
-   * @param languageConfig - Language configuration
    * @returns Map of anchor type to index
    */
-  findAnchors(headers, languageConfig) {
+  findAnchors(headers) {
     const anchors = {
       name: null,
       uid: null
@@ -302,8 +300,6 @@ class SmartHeaderMapper {
       //    For non-duplicate headers without ambiguous config, we skip to exact match (faster).
       // Krok 1: Use unified duplicate detection (config + file duplicates)
       // Check both normalized and original header in ambiguous config
-      const isDuplicateInFile =
-        headerPositions.get(normalizedHeader) && headerPositions.get(normalizedHeader).length > 1;
       if (
         allDuplicateHeaders.has(normalizedHeader) ||
         (languageConfig.ambiguous && languageConfig.ambiguous[normalizedHeader])
@@ -350,7 +346,7 @@ class SmartHeaderMapper {
       }
       // 3. Fuzzy Match (Fuse.js) - only if no exact match
       else {
-        schemaId = this._fuzzyMatch(normalizedHeader, languageConfig, schemaRegistry);
+        schemaId = this._fuzzyMatch(normalizedHeader, languageConfig);
       }
 
       if (schemaId && schemaRegistry.has(schemaId)) {
