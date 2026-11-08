@@ -114,7 +114,7 @@ describe('ldcModalImportExport actions', () => {
     // or hand-edited files); imported leagues must be canonicalized.
     expect(ldcSettings.leagues[0]?.nation).toBe('Włochy');
     // The mapping target's nation is resolved from the (now canonical)
-    // imported league, so it comes back as 'Włochy', not the raw 'ITA'.
+    // imported league, so it comes back as the canonical Polish name, not the raw 'ITA'.
     expect(loadLeagueMappings()).toEqual({
       Ekstraklasa: { name: 'Serie A', nation: 'Włochy' }
     });

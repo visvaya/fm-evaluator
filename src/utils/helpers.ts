@@ -18,7 +18,7 @@ export function debounce<T extends (...args: any[]) => any>(
 export function formatPlayerValue(val: any): string {
   if (val === null || val === undefined || val === '-') return '-';
   if (
-    typeof val === 'string' && // Jeśli to już sformatowany ciąg lub zakres, zwróć go
+    typeof val === 'string' && // Already a formatted string or range: return it as is
     (val.includes('–') ||
       val.includes('-') ||
       val.includes('\u2014') ||

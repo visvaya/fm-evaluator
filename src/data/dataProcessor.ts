@@ -71,14 +71,14 @@ export class DataProcessor {
     this.statDistributionCache = new Map();
     this.filterDistributionCache = new Map();
     this.isFirstCalculation = true;
-    // Mapa: znormalizowana nazwa klubu -> średnie posiadanie piłki w %
+    // Map: normalized club name -> average possession in %
     this.teamPossessionMap = new Map();
-    // Lokalny fallback (zwykle spójny z settings.defaultPossession)
+    // Local fallback (usually consistent with settings.defaultPossession)
     this.defaultPossession = 50;
-    // Stos plików: tablica obiektów { file: File, name: string, type: string, rowCount: number, html: string, missingRequired: [], missingOptional: [] }
+    // File stack: array of { file: File, name: string, type: string, rowCount: number, html: string, missingRequired: [], missingOptional: [] }
     this.fileStack = [];
 
-    // Nowy system - inicjalizacja modułów
+    // New system: module initialization
     this._initNewSystem();
   }
 

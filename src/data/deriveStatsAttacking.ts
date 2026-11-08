@@ -32,10 +32,10 @@ export function applyAttackingDerivations({
       // Calculate from Cr C and Cr A
       const crC = getV('Cr C');
       const crA = getV('Cr A');
-      // Zabezpieczenie logiczne: Cr C <= Cr A
+      // Logical guard: Cr C <= Cr A
       if (crA > 0 && crC !== null && crC <= crA) {
         const percentage = (crC / crA) * 100;
-        // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+        // Validation: the percentage must be within 0-100%
         if (percentage >= 0 && percentage <= 100) {
           player['Cr C %'] = percentage.toFixed(2);
         }
@@ -45,53 +45,53 @@ export function applyAttackingDerivations({
 
   // --- NEW STATS FROM DOC ---
   // NP-xG/Shot
-  // Wersja precyzyjna: wykorzystuje Pens (Taken) lub wylicza z Pens S + Pen/R
+  // Precise version: uses Pens (Taken) or derives it from Pens S + Pen/R
   if (!hasValue('NP-xG/Shot')) {
     const totalShotsRaw = getV('Shots');
     const totalXG = getV('xG');
 
     if (totalShotsRaw !== null && totalXG !== null) {
-      // KROK 1: Ustalenie liczby prób rzutów karnych (Attempts)
+      // STEP 1: Determine the number of penalty attempts (Attempts)
       let penAttempts = 0;
 
-      // Pobieramy wartości bezpośrednie
+      // Read the direct values
       const pensTaken = getV('Pens'); // Penalties Taken
       const pensScored = getV('Pens S'); // Penalties Scored
 
       if (pensTaken !== null && pensTaken > 0) {
-        // Wariant idealny: Mamy kolumnę "Pens" (Taken)
+        // Ideal case: the "Pens" (Taken) column is present
         penAttempts = pensTaken;
       } else if (pensScored !== null && pensScored > 0) {
-        // Wariant awaryjny: Mamy tylko gole i skuteczność
-        let penRatio = getV('Pen R'); // np. 100%, 0.5 etc.
+        // Fallback: only goals and conversion rate are available
+        let penRatio = getV('Pen R'); // e.g. 100%, 0.5 etc.
 
         if (penRatio === null || penRatio === 0) {
-          penAttempts = pensScored; // Zakładamy 100% skuteczności przy braku danych
+          penAttempts = pensScored; // Assume 100% conversion when data is missing
         } else {
-          if (penRatio > 1) penRatio = penRatio / 100; // Zamiana 100 -> 1.0
+          if (penRatio > 1) penRatio = penRatio / 100; // Convert 100 -> 1.0
           penAttempts = Math.round(pensScored / penRatio);
         }
       }
 
-      // ZABEZPIECZENIE: Próby karne nie mogą przekraczać liczby wszystkich strzałów
-      // (Chroni przed błędami w danych FM, np. gdy Shots nie zliczyło karnego)
+      // GUARD: penalty attempts cannot exceed total shots
+      // (Protects against FM data errors, e.g. when Shots did not count a penalty)
       penAttempts = Math.min(penAttempts, totalShotsRaw);
 
-      // KROK 2: Obliczenie NP-xG (xG z gry)
-      // Odejmujemy penaltyXGFactor xG za każdą próbę karnego
+      // STEP 2: Compute NP-xG (non-penalty xG)
+      // Subtract penaltyXGFactor xG for each penalty attempt
       const penaltyFactor = useSettingsStore.getState().settings.penaltyXGFactor || 0.76;
       const npxG = Math.max(0, totalXG - penaltyFactor * penAttempts);
 
-      // KROK 3: Obliczenie NP-Shots (Strzały z gry)
-      // Odejmujemy próby karne od wszystkich strzałów
-      // Minimum 1 aby uniknąć dzielenia przez 0, ale jeśli totalShotsRaw - penAttempts <= 0, to nie obliczamy
+      // STEP 3: Compute NP-Shots (non-penalty shots)
+      // Subtract penalty attempts from total shots
+      // Minimum 1 to avoid division by 0, but if totalShotsRaw - penAttempts <= 0, no value is computed
       const npShots = Math.max(1, totalShotsRaw - penAttempts);
 
-      // KROK 4: Wynik
-      // Jeśli zawodnik oddał strzały z gry, dzielimy xG z gry przez strzały z gry
+      // STEP 4: Result
+      // If the player took non-penalty shots, divide non-penalty xG by non-penalty shots
       if (npShots > 0 && totalShotsRaw - penAttempts > 0) {
         const result = npxG / npShots;
-        // Walidacja końcowego wyniku: upewnić się że nie jest ujemny
+        // Validate the final result: make sure it is not negative
         if (result >= 0) {
           player['NP-xG/Shot'] = result.toFixed(2);
         }
@@ -108,10 +108,10 @@ export function applyAttackingDerivations({
     } else {
       const gls = getV('Gls');
       const shots = getV('Shots');
-      // Zabezpieczenie logiczne: Shots >= Gls (nie można strzelić więcej goli niż było strzałów)
+      // Logical guard: Shots >= Gls (a player cannot score more goals than shots taken)
       if (gls !== null && shots !== null && shots > 0 && shots >= gls) {
         const percentage = (gls / shots) * 100;
-        // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+        // Validation: the percentage must be within 0-100%
         if (percentage >= 0 && percentage <= 100) {
           player['Conv %'] = percentage.toFixed(2);
         }
@@ -124,29 +124,29 @@ export function applyAttackingDerivations({
     const goalsTotal = getV('Gls');
     let goalsOutside = getV('Gls Out');
 
-    // Jeśli Gls Out nie istnieje, sprawdź czy jest Goals Outside Box/90
+    // If Gls Out is missing, check for Goals Outside Box/90
     if (goalsOutside === null) {
       let goalsOutside90 = getV('Goals Outside Box/90');
       if (goalsOutside90 === null) goalsOutside90 = getV('Gls Out/90');
       if (goalsOutside90 !== null && mins > 0) {
-        // KROK 1: Odtworzenie liczby goli z dystansu z wartości "per 90"
+        // STEP 1: Rebuild the number of goals from outside the box from the "per 90" value
         const rawGoalsOutside = (goalsOutside90 * mins) / 90;
-        // KROK 2: Zaokrąglenie do liczby całkowitej, bo gole są dyskretne
+        // STEP 2: Round to an integer, because goals are discrete
         goalsOutside = Math.round(rawGoalsOutside);
       }
     }
 
     if (goalsTotal !== null && goalsOutside !== null && goalsTotal > 0) {
-      // KROK 3: Gole z dystansu nie mogą przekraczać sumy wszystkich goli
+      // STEP 3: Goals from outside the box cannot exceed total goals
       goalsOutside = Math.min(goalsOutside, goalsTotal);
 
       const goalsInside = goalsTotal - goalsOutside;
 
-      // Zabezpieczenie logiczne: goalsInside nie może być ujemne
+      // Logical guard: goalsInside cannot be negative
       if (goalsInside >= 0) {
         const percentage = (goalsInside / goalsTotal) * 100;
 
-        // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+        // Validation: the percentage must be within 0-100%
         if (percentage >= 0 && percentage <= 100) {
           player['Gls In Box %'] = percentage.toFixed(2);
         }
@@ -156,62 +156,62 @@ export function applyAttackingDerivations({
 
   // In Box Conv % (goalsInside / shotsInside) * 100
   if (!hasValue('In Box Conv %')) {
-    // 1. Obliczamy liczbę goli w polu karnym
+    // 1. Compute the number of goals inside the box
     const goalsTotal = getV('Gls');
     let goalsOutside = getV('Gls Out');
 
-    // Jeśli Gls Out nie istnieje, sprawdź czy jest Goals Outside Box/90
+    // If Gls Out is missing, check for Goals Outside Box/90
     if (goalsOutside === null) {
       let goalsOutside90 = getV('Goals Outside Box/90');
       if (goalsOutside90 === null) goalsOutside90 = getV('Gls Out/90');
       if (goalsOutside90 !== null && mins > 0) {
-        // KROK 1: Odtworzenie liczby goli z dystansu z wartości "per 90"
+        // STEP 1: Rebuild the number of goals from outside the box from the "per 90" value
         const rawGoalsOutside = (goalsOutside90 * mins) / 90;
-        // KROK 2: Zaokrąglenie do liczby całkowitej, bo gole są dyskretne
+        // STEP 2: Round to an integer, because goals are discrete
         goalsOutside = Math.round(rawGoalsOutside);
       }
     }
 
     if (goalsTotal !== null && goalsOutside !== null) {
-      // KROK 3: Gole z dystansu nie mogą przekraczać sumy wszystkich goli
+      // STEP 3: Goals from outside the box cannot exceed total goals
       goalsOutside = Math.min(goalsOutside, goalsTotal);
       const goalsInside = goalsTotal - goalsOutside;
 
-      // Walidacja: goalsInside nie może być ujemne
+      // Validation: goalsInside cannot be negative
       if (goalsInside >= 0) {
-        // 2. Obliczamy liczbę strzałów zza pola karnego (zamieniamy /90 na liczbę całkowitą)
+        // 2. Compute the number of shots from outside the box (convert /90 to an integer)
         let shotsOutside90 = getV('Shots Outside Box/90');
         if (shotsOutside90 === null) shotsOutside90 = getV('Shts Out/90');
         const shotsTotal = getV('Shots');
 
         if (shotsOutside90 !== null && mins > 0 && shotsTotal !== null && shotsTotal > 0) {
-          // KROK 1: Odtworzenie z wartości per-90
+          // STEP 1: Rebuild from the per-90 value
           const rawShotsOutside = (shotsOutside90 * mins) / 90;
-          // KROK 2: Zaokrąglenie do liczby całkowitej
+          // STEP 2: Round to an integer
           let shotsOutside = Math.round(rawShotsOutside);
-          // KROK 3: Zabezpieczenie (nie przekracza maksimum)
+          // STEP 3: Guard (do not exceed the maximum)
           shotsOutside = Math.min(shotsOutside, shotsTotal);
 
-          // 3. Obliczamy liczbę strzałów w polu karnym
+          // 3. Compute the number of shots inside the box
           const shotsInside = shotsTotal - shotsOutside;
 
-          // 4. Walidacja i wynik w % (zabezpieczenie przed dzieleniem przez 0 i ujemnymi wartościami)
+          // 4. Validation and result in % (guards against division by 0 and negative values)
           if (
             shotsInside > 0 &&
-            shotsInside <= shotsTotal && // ZABEZPIECZENIE LOGICZNE: liczba strzałów w polu karnym nie może być mniejsza niż liczba goli w polu karnym
-            // Jeśli shotsInside < goalsInside, oznacza to błąd w danych (np. rzuty karne wliczane jako gole, ale nie jako strzały)
+            shotsInside <= shotsTotal && // LOGICAL GUARD: shots inside the box cannot be fewer than goals inside the box
+            // shotsInside < goalsInside means a data error (e.g. penalties counted as goals but not as shots)
             shotsInside >= goalsInside
           ) {
             const percentage = (goalsInside / shotsInside) * 100;
 
-            // Walidacja: wynik procentowy powinien być w zakresie 0-100%
-            // 100% = zawodnik strzelił gol z każdego strzału w polu karnym (maksimum logiczne)
+            // Validation: the percentage must be within 0-100%
+            // 100% = the player scored from every shot inside the box (logical maximum)
             if (percentage >= 0 && percentage <= 100) {
               player['In Box Conv %'] = percentage.toFixed(2);
             }
-            // Jeśli wynik poza zakresem 0-100%, nie zapisujemy wartości (pozostaje null)
+            // If the result is outside 0-100%, no value is stored (it stays null)
           }
-          // Jeśli shotsInside < goalsInside, nie zapisujemy wartości (błąd danych)
+          // If shotsInside < goalsInside, no value is stored (data error)
         }
       }
     }
@@ -221,10 +221,10 @@ export function applyAttackingDerivations({
   if (!hasValue('ShT %') && getV('ShT') !== null && getV('Shots') !== null) {
     const shots = getV('Shots');
     const shT = getV('ShT');
-    // Zabezpieczenie logiczne: ShT <= Shots
+    // Logical guard: ShT <= Shots
     if (shots > 0 && shT !== null && shT <= shots) {
       const percentage = (shT / shots) * 100;
-      // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+      // Validation: the percentage must be within 0-100%
       if (percentage >= 0 && percentage <= 100) {
         player['ShT %'] = percentage.toFixed(2);
       }
@@ -237,21 +237,21 @@ export function applyAttackingDerivations({
     if (shotsOutside90 === null) shotsOutside90 = getV('Shts Out/90');
     const shotsTotal = getV('Shots');
     if (shotsOutside90 !== null && mins > 0 && shotsTotal !== null && shotsTotal > 0) {
-      // KROK 1: Odtworzenie z wartości per-90
+      // STEP 1: Rebuild from the per-90 value
       const rawShotsOutside = (shotsOutside90 * mins) / 90;
-      // KROK 2: Zaokrąglenie do liczby całkowitej
+      // STEP 2: Round to an integer
       let shotsOutside = Math.round(rawShotsOutside);
-      // KROK 3: Zabezpieczenie (nie przekracza maksimum)
+      // STEP 3: Guard (do not exceed the maximum)
       shotsOutside = Math.min(shotsOutside, shotsTotal);
 
-      // Wyliczamy strzały w polu karnym
+      // Compute shots inside the box
       const shotsInside = shotsTotal - shotsOutside;
 
-      // Zabezpieczenie logiczne: shotsInside nie może być ujemne
+      // Logical guard: shotsInside cannot be negative
       if (shotsInside >= 0 && shotsInside <= shotsTotal) {
         const percentage = (shotsInside / shotsTotal) * 100;
 
-        // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+        // Validation: the percentage must be within 0-100%
         if (percentage >= 0 && percentage <= 100) {
           player['Shts In %'] = percentage.toFixed(2);
         }
@@ -263,10 +263,10 @@ export function applyAttackingDerivations({
   if (!hasValue('Shts Out %') && getV('Shts Out') !== null && getV('Shots') !== null) {
     const shots = getV('Shots');
     const shtsOut = getV('Shts Out');
-    // Zabezpieczenie logiczne: Shts Out <= Shots
+    // Logical guard: Shts Out <= Shots
     if (shots > 0 && shtsOut !== null && shtsOut <= shots) {
       const percentage = (shtsOut / shots) * 100;
-      // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+      // Validation: the percentage must be within 0-100%
       if (percentage >= 0 && percentage <= 100) {
         player['Shts Out %'] = percentage.toFixed(2);
       }
@@ -276,9 +276,9 @@ export function applyAttackingDerivations({
   // Additional stats needed for STATS_CONFIG
   // xGP/90 (Expected Goals Prevented per 90) - for GK
   // Group 1: Skill/Role Specific - requires base value
-  // xGP to różnica (może być ujemne, dodatnie, zero), ale tylko jeśli są strzały
+  // xGP is a difference (it can be negative, positive or zero), but only when there were shots
   if (!hasValue('xGP/90')) {
-    // Sprawdź czy są strzały: suma Svh+Svt+Svp = 0 oznacza brak strzałów
+    // Check for shots: Svh+Svt+Svp = 0 means no shots faced
     const svh = getN('Svh');
     const svt = getN('Svt');
     const svp = getN('Svp');
@@ -286,23 +286,23 @@ export function applyAttackingDerivations({
     const hasShots = totalSaves > 0;
 
     if (hasShots) {
-      // Są strzały - sprawdź wartość xGP
+      // There were shots: check the xGP value
       const xGP = getV('xGP');
       if (xGP !== null) {
         player['xGP/90'] = (xGP * factor90).toFixed(2);
       } else if (isRawEmpty('xGP')) {
-        // Wartość źródłowa jest pusta/null, ale są strzały - może być null (brak danych)
+        // The source value is empty/null but there were shots: it may be null (no data)
         player['xGP/90'] = null;
       }
     } else {
-      // Brak strzałów - xGP nie może mieć wartości
+      // No shots: xGP cannot have a value
       player['xGP/90'] = null;
     }
   }
 
   // Aer A/90 (Aerial Challenges Attempted/90)
-  // Uwaga: W danych źródłowych nie ma 'Aer A', jest tylko 'Aer A/90' (które w praktyce jest Hdrs A/90)
-  // Obliczamy z Hdrs A, tak samo jak Hdrs A/90
+  // Note: the source data has no 'Aer A', only 'Aer A/90' (which in practice is Hdrs A/90)
+  // Computed from Hdrs A, the same way as Hdrs A/90
   if (!hasValue('Aer A/90') && getV('Hdrs A') !== null) {
     player['Aer A/90'] = (getN('Hdrs A') * factor90).toFixed(2);
   }
@@ -336,10 +336,10 @@ export function applyAttackingDerivations({
     const pasC = getV('Pas C');
     let pasA = getV('Pas A');
     if (pasA === null) pasA = getV('Ps A');
-    // Zabezpieczenie logiczne: Pas C <= Pas A
+    // Logical guard: Pas C <= Pas A
     if (pasC !== null && pasA !== null && pasA > 0 && pasC <= pasA) {
       const percentage = (pasC / pasA) * 100;
-      // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+      // Validation: the percentage must be within 0-100%
       if (percentage >= 0 && percentage <= 100) {
         player['Pas %'] = percentage.toFixed(2);
       }
@@ -350,10 +350,10 @@ export function applyAttackingDerivations({
   if (!hasValue('Hdr %') && getV('Hdrs') !== null && getV('Hdrs A') !== null) {
     const hdrs = getV('Hdrs'); // Hdrs = Headers Won
     const hdrsA = getV('Hdrs A');
-    // Zabezpieczenie logiczne: Hdrs <= Hdrs A
+    // Logical guard: Hdrs <= Hdrs A
     if (hdrsA > 0 && hdrs !== null && hdrs <= hdrsA) {
       const percentage = (hdrs / hdrsA) * 100;
-      // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+      // Validation: the percentage must be within 0-100%
       if (percentage >= 0 && percentage <= 100) {
         player['Hdr %'] = percentage.toFixed(2);
       }

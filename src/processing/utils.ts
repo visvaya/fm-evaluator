@@ -6,7 +6,7 @@ export function cleanValue(val: any, isWage = false): null | number | string {
   if (typeof val === 'number') return val;
 
   const s = val.toString().trim();
-  // Obsługa symboli braku danych (polskie i angielskie)
+  // Missing-data symbols (Polish and English)
   const missingSymbols = [
     '-',
     '',
@@ -25,7 +25,7 @@ export function cleanValue(val: any, isWage = false): null | number | string {
     return isWage ? 0 : null;
   }
 
-  // 1. Mapowanie siły nóg (tekst -> liczba 0-5)
+  // 1. Foot strength mapping (text -> number 0-5)
   const strengthMap: Record<string, number> = {
     'Bardzo mocna': 5,
     'Bardzo słaba': 0,
@@ -44,8 +44,8 @@ export function cleanValue(val: any, isWage = false): null | number | string {
     return strengthMap[s];
   }
 
-  // 2. Obsługa zakresów (np. "1K € - 6K €" lub "12-15")
-  // Jeśli zakres zawiera walutę lub jednostkę (K, M, tys, mln), zachowujemy go jako string dla czytelności w UI
+  // 2. Ranges (e.g. "1K € - 6K €" or "12-15")
+  // If the range contains a currency or unit (K, M, tys, mln), keep it as a string for readability in the UI
   if (
     (s.includes('-') || s.includes('–') || s.includes('\u2014')) &&
     s.length < 50 &&
@@ -53,10 +53,10 @@ export function cleanValue(val: any, isWage = false): null | number | string {
   ) {
     const hasCurrencyOrUnit = /[€$£KM]|p\/[aw]|tys|mln|mil/i.test(s);
     if (hasCurrencyOrUnit) {
-      return s; // Zachowaj jako string dla wyświetlania
+      return s; // Keep as a string for display
     }
 
-    // Dla prostych zakresów liczbowych (np. atrybuty 12-15) - parsuj i zwróć średnią
+    // For plain numeric ranges (e.g. attributes 12-15), parse and return the mean
     const rangeMatch = /^\s*(.+?)\s*[-–\u2014]\s*(.+?)\s*$/.exec(s);
     if (rangeMatch) {
       const v1 = parseNumber(rangeMatch[1]);
@@ -68,7 +68,7 @@ export function cleanValue(val: any, isWage = false): null | number | string {
   }
 
   const num = parseNumber(s);
-  return num === null ? s : num; // Zwróć liczbę jeśli się udało, w przeciwnym razie oryginał
+  return num === null ? s : num; // Return the number if parsing succeeded, otherwise the original
 }
 
 /**

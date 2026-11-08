@@ -182,8 +182,8 @@ export function deriveProcessorStats({
   }
 
   // 1. NP-xG/90 (Expected Non-penalty Goals per 90 minutes)
-  // Wzór: MAX(0, xG - penaltyXGFactor*Pens) * factor90
-  // Oblicz NP-xG raz z MAX(0, ...) aby uniknąć ujemnych wartości
+  // Formula: MAX(0, xG - penaltyXGFactor*Pens) * factor90
+  // Compute NP-xG once with MAX(0, ...) to avoid negative values
   const penaltyFactor = useSettingsStore.getState().settings.penaltyXGFactor || 0.76;
   let np_xG = getV('NP-xG');
   if (np_xG === null && getV('xG') !== null) {
@@ -197,8 +197,8 @@ export function deriveProcessorStats({
   }
 
   // 2. NP-Gls-NP-xG/90 = Non-penalty Goals minus Non-penalty Expected Goals per 90
-  // Wzór: ((Gls - Pens S) - MAX(0, xG - penaltyXGFactor*Pens)) * factor90
-  // Używamy tej samej wartości np_xG z MAX(0, ...) co w NP-xG/90 (obliczonej z penaltyXGFactor)
+  // Formula: ((Gls - Pens S) - MAX(0, xG - penaltyXGFactor*Pens)) * factor90
+  // Uses the same np_xG with MAX(0, ...) as NP-xG/90 (computed with penaltyXGFactor)
   // Group 1: Skill/Role Specific - requires base value (xG or Gls)
   if (!hasValue('NP-Gls-NP-xG/90')) {
     // Check if BOTH raw xG and Gls values are empty ('-' or 0) - inactivity penalty
@@ -208,12 +208,12 @@ export function deriveProcessorStats({
       const gls = getV('Gls');
       const xG = getV('xG');
 
-      // Jeśli zawodnik nie strzelił ani jednej bramki i nie ma xG, ustaw null
+      // If the player has no goals and no xG, set null
       if (gls === null && xG === null) {
         player['NP-Gls-NP-xG/90'] = null;
       } else {
-        const np_gls = getN('Gls') - getN('Pens S'); // Gole bez karnych
-        // Użyj tej samej wartości np_xG z MAX(0, ...) obliczonej powyżej
+        const np_gls = getN('Gls') - getN('Pens S'); // Non-penalty goals
+        // Use the same np_xG with MAX(0, ...) computed above
         if (np_xG !== null) {
           const diff = np_gls - np_xG;
           player['NP-Gls-NP-xG/90'] = (diff * factor90).toFixed(2);
@@ -223,24 +223,24 @@ export function deriveProcessorStats({
   }
 
   // 3. Poss+/-/90: Poss Won/90 - Poss Lost/90
-  // Uwaga: Poss Won i Poss Lost są zawsze wartościami per 90 w plikach źródłowych
+  // Note: Poss Won and Poss Lost are always per-90 values in the source files
   // Group 2: Volume/Difference - requires ANY activity on either side
   if (!hasValue('Poss+/-/90')) {
-    // Pobierz wartości per 90 (możliwe aliasy)
+    // Read the per-90 values (possible aliases)
     let possWon90 = getV('Poss Won/90');
     if (possWon90 === null) possWon90 = getV('Possession Won/90');
-    if (possWon90 === null) possWon90 = getV('Poss Won'); // Poss Won jest już per 90
+    if (possWon90 === null) possWon90 = getV('Poss Won'); // Poss Won is already per 90
     let possLost90 = getV('Poss Lost/90');
     if (possLost90 === null) possLost90 = getV('Possession Lost/90');
-    if (possLost90 === null) possLost90 = getV('Poss Lost'); // Poss Lost jest już per 90
+    if (possLost90 === null) possLost90 = getV('Poss Lost'); // Poss Lost is already per 90
 
-    // Warunek krytyczny: jeśli OBYDWA składniki są 0 lub null → zwróć NULL (bierność)
+    // Critical condition: if BOTH components are 0 or null, return NULL (inactivity)
     const wonValue = possWon90 ?? 0;
     const lostValue = possLost90 ?? 0;
     if (wonValue === 0 && lostValue === 0) {
       player['Poss+/-/90'] = null; // Penalty: no activity
     } else {
-      // Oblicz różnicę (przynajmniej jeden składnik > 0, więc to aktywne zero)
+      // Compute the difference (at least one component > 0, so a zero here is an active zero)
       player['Poss+/-/90'] = (wonValue - lostValue).toFixed(2);
     }
   }
@@ -248,15 +248,15 @@ export function deriveProcessorStats({
   // Net Fouls/90
   // Group 2: Volume/Difference - requires ANY activity on either side
   if (!hasValue('Net Fouls/90')) {
-    // Pobierz oczyszczone wartości numeryczne dla obu składników
+    // Read the cleaned numeric values of both components
     const fa = getV('FA') ?? 0;
     const fls = getV('Fls') ?? 0;
 
-    // Warunek krytyczny: jeśli OBYDWA składniki są 0 lub null → zwróć NULL (bierność)
+    // Critical condition: if BOTH components are 0 or null, return NULL (inactivity)
     if (fa === 0 && fls === 0) {
       player['Net Fouls/90'] = null; // Penalty: no activity
     } else {
-      // Oblicz różnicę (przynajmniej jeden składnik > 0, więc to aktywne zero)
+      // Compute the difference (at least one component > 0, so a zero here is an active zero)
       player['Net Fouls/90'] = ((fa - fls) * factor90).toFixed(2);
     }
   }
@@ -266,11 +266,11 @@ export function deriveProcessorStats({
     player['CCC/90'] = (getV('CCC') * factor90).toFixed(2);
 
   // 5. Shts In/90 & Shts Out/90
-  // Shts In/90 = (Shots * factor90) - (Shots Outside Box/90 lub Shts Out * factor90)
-  // 'Shots/90' nie istnieje w pierwotnym pliku, więc używamy 'Shots' i przeliczamy
+  // Shts In/90 = (Shots * factor90) - (Shots Outside Box/90 or Shts Out * factor90)
+  // 'Shots/90' does not exist in the original file, so 'Shots' is used and converted
   if (!hasValue('Shts In/90')) {
     let shots90 = getV('Shots/90');
-    // Jeśli Shots/90 nie istnieje, oblicz z Shots
+    // If Shots/90 is missing, compute it from Shots
     if (shots90 === null) {
       const shots = getV('Shots');
       if (shots !== null) {
@@ -280,7 +280,7 @@ export function deriveProcessorStats({
 
     let shtsOut90 = getV('Shots Outside Box/90');
     if (shtsOut90 === null) shtsOut90 = getV('Shts Out/90');
-    // Fallback: jeśli Shots Outside Box/90 nie istnieje, oblicz z Shts Out
+    // Fallback: if Shots Outside Box/90 is missing, compute it from Shts Out
     if (shtsOut90 === null) {
       const shtsOut = getV('Shts Out');
       if (shtsOut !== null) {
@@ -289,18 +289,18 @@ export function deriveProcessorStats({
     }
 
     if (shots90 !== null && shtsOut90 !== null) {
-      // ZABEZPIECZENIE: Strzały zza pola karnego nie mogą przekraczać wszystkich strzałów
-      // (Chroni przed błędami w danych źródłowych lub różnicami w jednostkach)
+      // GUARD: shots from outside the box cannot exceed total shots
+      // (Protects against errors in the source data or unit differences)
       shtsOut90 = Math.min(shtsOut90, shots90);
 
-      // Oblicz strzały w polu karnym (nie może być ujemne)
+      // Compute shots inside the box (cannot be negative)
       const shtsIn90 = Math.max(0, shots90 - shtsOut90);
 
       player['Shts In/90'] = shtsIn90.toFixed(2);
     }
   }
 
-  // Shts Out/90 = Shots Outside Box/90 (bezpośrednio z pliku)
+  // Shts Out/90 = Shots Outside Box/90 (directly from the file)
   if (!hasValue('Shts Out/90')) {
     const shtsOut90 = getV('Shots Outside Box/90');
     if (shtsOut90 !== null) {
@@ -308,11 +308,11 @@ export function deriveProcessorStats({
     }
   }
 
-  // 6. Dist/90 - Użyć 'Distance' (nie 'Dist/90' który jest zepsuty w plikach - zawsze '0.0km')
-  // Zawsze obliczamy z 'Distance', ignorując 'Dist/90' z pliku
-  // Distance może mieć sufiks 'km', cleanValue powinno to obsłużyć
+  // 6. Dist/90: use 'Distance' (not 'Dist/90', which is broken in the files: always '0.0km')
+  // Always computed from 'Distance', ignoring 'Dist/90' from the file
+  // Distance may have a 'km' suffix; cleanValue should handle it
   let dist = getV('Distance');
-  // Fallback na alternatywne klucze
+  // Fallback to alternative keys
   if (dist === null) dist = getV('Dist');
   if (dist === null) dist = getV('Distance Covered');
   if (dist !== null) {
@@ -324,28 +324,28 @@ export function deriveProcessorStats({
 
   // 7. CCC % (Conversion ratio of created chances into CCC)
   // CCC % = (CCC / Ch C) * 100
-  // Uwaga: W danych źródłowych nie ma 'Ch C', jest tylko 'Ch C/90'
-  // Obliczamy Ch C z Ch C/90: Ch C = Ch C/90 * (Mins/90)
-  // Walidacja: jeśli ccc > chC, ustawić 100%
+  // Note: the source data has no 'Ch C', only 'Ch C/90'
+  // Ch C is computed from Ch C/90: Ch C = Ch C/90 * (Mins/90)
+  // Validation: if ccc > chC, set 100%
   if (!hasValue('CCC %')) {
     const ccc = getV('CCC');
     let chC90 = getV('Ch C/90');
     if (chC90 === null) chC90 = getV('Chances Created/90');
     if (chC90 !== null && mins > 0) {
-      // KROK 1: Odtworzenie z wartości per-90
+      // STEP 1: Rebuild from the per-90 value
       const rawChC = chC90 * (mins / 90);
-      // KROK 2: Zaokrąglenie do liczby całkowitej, bo szanse są dyskretne
+      // STEP 2: Round to an integer, because chances are discrete
       const chC = Math.round(rawChC);
       if (ccc !== null && chC > 0) {
-        // Zabezpieczenie logiczne: CCC nie może być większe niż Ch C
+        // Logical guard: CCC cannot be greater than Ch C
         if (ccc <= chC) {
           const percentage = (ccc / chC) * 100;
-          // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+          // Validation: the percentage must be within 0-100%
           if (percentage >= 0 && percentage <= 100) {
             player['CCC %'] = percentage.toFixed(2);
           }
         } else {
-          // Jeśli ccc > chC (błąd danych), ustawić 100% jako maksimum
+          // If ccc > chC (data error), set 100% as the maximum
           player['CCC %'] = '100.00';
         }
       }
@@ -359,10 +359,10 @@ export function deriveProcessorStats({
     let pasA = getV('Pas A');
     if (pasA === null) pasA = getV('Ps A');
     if (pasA === null) pasA = getV('Passes Attempted');
-    // Zabezpieczenie logiczne: OP-KP <= Pas A
+    // Logical guard: OP-KP <= Pas A
     if (opkp !== null && pasA !== null && pasA > 0 && opkp <= pasA) {
       const percentage = (opkp / pasA) * 100;
-      // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+      // Validation: the percentage must be within 0-100%
       if (percentage >= 0 && percentage <= 100) {
         player['OP-KP %'] = percentage.toFixed(2);
       }
@@ -383,10 +383,10 @@ export function deriveProcessorStats({
       // Calculate from OP-Crs C and OP-Crs A
       const opCrsC = getV('OP-Crs C');
       const att = getV('OP-Crs A');
-      // Zabezpieczenie logiczne: OP-Crs C <= OP-Crs A
+      // Logical guard: OP-Crs C <= OP-Crs A
       if (att > 0 && opCrsC !== null && opCrsC <= att) {
         const percentage = (opCrsC / att) * 100;
-        // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+        // Validation: the percentage must be within 0-100%
         if (percentage >= 0 && percentage <= 100) {
           player['OP-Crs C %'] = percentage.toFixed(2);
         }
@@ -397,10 +397,10 @@ export function deriveProcessorStats({
   if (!hasValue('Pres C %') && getV('Pres C') !== null && getV('Pres A') !== null) {
     const presC = getV('Pres C');
     const presA = getV('Pres A');
-    // Zabezpieczenie logiczne: Pres C <= Pres A
+    // Logical guard: Pres C <= Pres A
     if (presA > 0 && presC !== null && presC <= presA) {
       const percentage = (presC / presA) * 100;
-      // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+      // Validation: the percentage must be within 0-100%
       if (percentage >= 0 && percentage <= 100) {
         player['Pres C %'] = percentage.toFixed(2);
       }
@@ -408,15 +408,15 @@ export function deriveProcessorStats({
   }
 
   // 10. Duels Win %
-  // Wzór: ((Hdrs + Tck C) / (Hdrs A + Tck A)) * 100
-  // Filtr wstępny: Minimum 10 Hdrs A & Minimum 10 Tck A, w przeciwnym razie '0.00'
+  // Formula: ((Hdrs + Tck C) / (Hdrs A + Tck A)) * 100
+  // Pre-filter: minimum 10 Hdrs A and minimum 10 Tck A, otherwise '0.00'
   if (!hasValue('Duels Win %')) {
     const hdrsA = getN('Hdrs A');
     let tckA = getV('Tck A');
     if (tckA === null) tckA = getV('Tackles Attempted');
     if (tckA === null) tckA = 0;
 
-    // Filtr wstępny
+    // Pre-filter
     if (hdrsA < 10 || tckA < 10) {
       player['Duels Win %'] = '0.00';
     } else {
@@ -428,10 +428,10 @@ export function deriveProcessorStats({
       const won = hdrs + tckC;
       const att = hdrsA + tckA;
 
-      // Zabezpieczenie logiczne: won <= att (wygrane nie mogą być więcej niż próby)
+      // Logical guard: won <= att (wins cannot exceed attempts)
       if (att > 0 && won <= att) {
         const percentage = (won / att) * 100;
-        // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+        // Validation: the percentage must be within 0-100%
         player['Duels Win %'] =
           percentage >= 0 && percentage <= 100 ? percentage.toFixed(2) : '0.00';
       }
@@ -502,13 +502,13 @@ export function deriveProcessorStats({
   if (!hasValue('Pr Pass Yield %')) {
     const prPasses = getV('Pr Passes');
     let pasA = getV('Pas A');
-    // Fallback dla Pas A
+    // Fallback for Pas A
     if (pasA === null) pasA = getV('Ps A');
     if (pasA === null) pasA = getV('Passes Attempted');
-    // Zabezpieczenie logiczne: Pr Passes <= Pas A (przebicia progresywne nie mogą być większe niż wszystkie próby podań)
+    // Logical guard: Pr Passes <= Pas A (progressive passes cannot exceed all pass attempts)
     if (pasA !== null && pasA > 0 && prPasses !== null && prPasses <= pasA) {
       const percentage = (prPasses / pasA) * 100;
-      // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+      // Validation: the percentage must be within 0-100%
       if (percentage >= 0 && percentage <= 100) {
         player['Pr Pass Yield %'] = percentage.toFixed(2);
       }
@@ -528,10 +528,10 @@ export function deriveProcessorStats({
     const tckC = getV('Tck C');
     let tckA = getV('Tck A');
     if (tckA === null) tckA = getV('Tackles Attempted');
-    // Zabezpieczenie logiczne: Tck C <= Tck A
+    // Logical guard: Tck C <= Tck A
     if (tckC !== null && tckA !== null && tckA > 0 && tckC <= tckA) {
       const percentage = (tckC / tckA) * 100;
-      // Walidacja: wynik procentowy powinien być w zakresie 0-100%
+      // Validation: the percentage must be within 0-100%
       if (percentage >= 0 && percentage <= 100) {
         player['Tck W %'] = percentage.toFixed(2);
       }
@@ -552,7 +552,7 @@ export function deriveProcessorStats({
     if (kHdrs !== null) player['K Hdrs/90'] = (kHdrs * factor90).toFixed(2);
   }
 
-  // Key Tackles/90 (K Tck/90) - użyć wartości bezpośrednio z pliku (już jest na 90 minut)
+  // Key Tackles/90 (K Tck/90): use the value directly from the file (it is already per 90 minutes)
   if (!hasValue('K Tck/90')) {
     let kTck90 = getV('K Tck/90');
     if (kTck90 === null) kTck90 = getV('Key Tackles/90');
