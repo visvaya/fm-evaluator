@@ -1,4 +1,6 @@
+import { IMPORT_LIMITS } from '@/config/importLimits';
 import { processor } from '@/data/dataProcessor';
+import { filesWithCutCells, formatCutCellColumns } from '@/data/importedCellText';
 import { runAnalysis as runImportedAnalysis } from '@/lib/analysisService';
 import { t as bridgeT } from '@/lib/i18nBridge';
 import { clearPlayerRuntimeRows, setPlayerRuntimeRows } from '@/lib/playerRuntimeCache';
@@ -10,9 +12,21 @@ import type { Player } from '@/ui/types';
 const UI_MESSAGE_FALLBACKS = {
   analysis_zero_rows_fallback:
     'Imported {count} player rows. Automatic analysis for {position} returned 0 rows, so the imported table is shown.',
+  import_cells_cut:
+    '{file}: cells longer than {limit} characters were cut. Columns (cut cells): {columns}',
   imported_player_rows: 'Imported {count} player rows.',
   no_player_data_after_import: 'No player data was produced from the imported files.'
 } as const;
+
+function describeCutCells(fileStack: readonly unknown[]): string[] {
+  return filesWithCutCells(fileStack).map(({ cutCells, name }) =>
+    t('import_cells_cut', {
+      columns: formatCutCellColumns(cutCells),
+      file: name,
+      limit: IMPORT_LIMITS.cellTextLengthChars
+    })
+  );
+}
 
 function formatFallbackMessage(
   template: string,
@@ -70,7 +84,7 @@ function finalizeImportedData() {
 
   state.setImportStatus({
     canRetry: false,
-    details: [],
+    details: describeCutCells(processor.fileStack),
     kind: 'success',
     message: t('imported_player_rows', { count: mergedPlayers.length })
   });
@@ -86,7 +100,7 @@ function finalizeImportedData() {
       setPlayerRuntimeRows(mergedPlayers);
       state.setImportStatus({
         canRetry: false,
-        details: [],
+        details: describeCutCells(processor.fileStack),
         kind: 'info',
         message: t('analysis_zero_rows_fallback', {
           count: mergedPlayers.length,

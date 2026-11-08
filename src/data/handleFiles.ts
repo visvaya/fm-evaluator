@@ -1,5 +1,6 @@
 // Phase 5E: handleFiles + file management migrated from app/main.js
 import { getEls } from '../config/columns';
+import { IMPORT_LIMITS } from '../config/importLimits';
 import { t, getCurrentLanguage } from '../lib/i18nBridge';
 import { continueImportFlowProcessing, rerunCurrentAnalysis } from '../lib/legacyActionBridge';
 import { persistUIState } from '../lib/uiBridge';
@@ -18,6 +19,7 @@ import { getFilteredData } from '../ui/filterData';
 import { changePage, runAnalysis, scheduleTableRender } from '../ui/tableOrchestrator';
 
 import { processor } from './dataProcessor';
+import { filesWithCutCells } from './importedCellText';
 import {
   applyPostImportLanguageDecision,
   continueImportAfterParsing,
@@ -39,6 +41,18 @@ function showLanguageChoiceModal(detected: string, current: string) {
 }
 function addAudit(event: string, data?: Record<string, unknown>, level?: string): void {
   (window as any).addAudit?.(event, data, level);
+}
+
+function auditCutCells(importedNames: ReadonlySet<string>): void {
+  for (const { cutCells, name } of filesWithCutCells(processor.fileStack)) {
+    if (importedNames.has(name)) {
+      addAudit(
+        'file_cells_cut',
+        { columns: cutCells, limitChars: IMPORT_LIMITS.cellTextLengthChars, name },
+        'warn'
+      );
+    }
+  }
 }
 
 let failedFiles: File[] = [];
@@ -196,6 +210,7 @@ export async function handleFiles(files: any, force = false) {
     processedCount = batchResult.processedCount;
     errors.push(...batchResult.errors);
     failedFiles.push(...batchResult.failedFiles);
+    auditCutCells(new Set(newFiles.map((file) => file.name)));
 
     // If user cancelled processing (Cancel All), stop here and keep status visible
     if (batchResult.cancelled) {

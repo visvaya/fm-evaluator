@@ -134,6 +134,28 @@ describe('FileManagerModal', () => {
     expect(container.textContent).toContain('players.html');
   });
 
+  it('shows the cut cell notice only for a file with cut cells', () => {
+    setProcessorStack([
+      { name: 'clean.html', rowCount: 1, type: 'complete' },
+      {
+        cutCells: [{ column: 'Notes', count: 2 }],
+        name: 'long.html',
+        rowCount: 1,
+        type: 'complete'
+      }
+    ]);
+    useWorkspaceStore.getState().openFileManager();
+
+    act(() => {
+      root.render(createElement(FileManagerModal));
+    });
+
+    const notices = [...container.querySelectorAll('article')].map((article) =>
+      article.textContent.includes('file_manager_cells_cut')
+    );
+    expect(notices).toEqual([false, true]);
+  });
+
   it('updates merge mode in store', () => {
     useWorkspaceStore.getState().openFileManager();
     act(() => {

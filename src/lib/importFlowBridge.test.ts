@@ -16,6 +16,7 @@ describe('importFlowBridge', () => {
     clearPlayerRuntimeRows();
     processor.mergedData = [];
     processor.calculatedScores = [];
+    processor.fileStack = [];
     processor.mergeData = vi.fn();
 
     useTableStore.setState({
@@ -76,6 +77,29 @@ describe('importFlowBridge', () => {
       })
     ]);
     expect(state.importStatus.kind).toBe('success');
+  });
+
+  it('lists the files with cut cells in the import status', () => {
+    processor.fileStack = [
+      { cutCells: [], name: 'clean.html' },
+      {
+        cutCells: [
+          { column: 'Notes', count: 2 },
+          { column: 'Name', count: 1 }
+        ],
+        name: 'long.html'
+      }
+    ];
+    processor.mergedData = [{ Name: 'Player', UID: 7 }];
+
+    (window as Window & { onContinueFileProcessing?: () => void }).onContinueFileProcessing?.();
+
+    const { details, kind } = useTableStore.getState().importStatus;
+    expect(kind).toBe('success');
+    expect(details).toHaveLength(1);
+    expect(details[0]).toContain('long.html');
+    expect(details[0]).toContain('Notes (2), Name (1)');
+    expect(details[0]).toContain('10000');
   });
 
   it('reruns analysis when a role is already selected', () => {

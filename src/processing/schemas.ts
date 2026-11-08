@@ -154,6 +154,8 @@ export const PlayerSchema = z.looseObject({
 
 // File Metadata Schema
 export const FileMetadataSchema = z.object({
+  // Cells cut to IMPORT_LIMITS.cellTextLengthChars, per column header
+  cutCells: z.array(z.object({ column: z.string(), count: z.int().positive() })).optional(),
   detectedLanguage: z.string().trim().optional(),
   // We keep the file reference generic as it might be a File object or proxy
   file: z.unknown().optional(),
