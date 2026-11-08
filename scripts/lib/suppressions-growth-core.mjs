@@ -47,14 +47,24 @@ function ruleSettings(config) {
   return settings;
 }
 
+/** JSON with object keys sorted, so reordered options do not count as a change. */
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(',')}]`;
+  if (value && typeof value === 'object') {
+    const entries = Object.keys(value)
+      .toSorted((a, b) => a.localeCompare(b, 'en'))
+      .map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`);
+    return `{${entries.join(',')}}`;
+  }
+  return JSON.stringify(value) ?? 'undefined';
+}
+
 /** Rules whose settings differ between two oxlint configs. */
 export function findChangedRules(baseConfig, headConfig) {
   const before = ruleSettings(baseConfig);
   const after = ruleSettings(headConfig);
   const rules = new Set([...before.keys(), ...after.keys()]);
   return new Set(
-    [...rules].filter(
-      (rule) => JSON.stringify(before.get(rule)) !== JSON.stringify(after.get(rule))
-    )
+    [...rules].filter((rule) => canonicalJson(before.get(rule)) !== canonicalJson(after.get(rule)))
   );
 }

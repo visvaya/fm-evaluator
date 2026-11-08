@@ -59,6 +59,12 @@ describe('findChangedRules', () => {
     expect(findChangedRules(config, config)).toEqual(new Set());
   });
 
+  it('ignores reordered option keys', () => {
+    const before = { rules: { 'no-unused-vars': ['error', { a: '^_', b: '^_' }] } };
+    const after = { rules: { 'no-unused-vars': ['error', { b: '^_', a: '^_' }] } };
+    expect(findChangedRules(before, after)).toEqual(new Set());
+  });
+
   it('finds a rule with new options, a new override and a new rule', () => {
     const head = {
       overrides: [
