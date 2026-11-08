@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
+import { IMPORT_LIMITS } from '@/config/importLimits';
+
 import {
   getTeamPossession,
   normalizeClubName,
@@ -115,6 +117,20 @@ describe('updatePossessionMapFromText', () => {
     updatePossessionMapFromText(map, 'Arsenal\t55\nChelsea\t45');
     expect(getTeamPossession(map, 'Arsenal')).toBe(55);
     expect(getTeamPossession(map, 'Chelsea')).toBe(45);
+  });
+
+  it('skips a line longer than the pasted line limit', () => {
+    const map = new Map<string, number>();
+    const longName = 'A'.repeat(IMPORT_LIMITS.pastedLineLengthChars);
+    updatePossessionMapFromText(map, `${longName}: 60\nChelsea: 45`);
+    expect(getTeamPossession(map, longName)).toBeNull();
+    expect(getTeamPossession(map, 'Chelsea')).toBe(45);
+  });
+
+  it('handles a long line without a separator quickly', () => {
+    const started = performance.now();
+    updatePossessionMapFromText(new Map<string, number>(), `A${' '.repeat(100_000)}B`);
+    expect(performance.now() - started).toBeLessThan(1000);
   });
 
   it('parses colon-separated lines', () => {

@@ -2,6 +2,8 @@
 
 import { getFeetStars } from '@/utils/helpers';
 
+import { readImportedCellText } from './importedCellText';
+
 interface FileMeta {
   html?: string;
   parsedData?: any[];
@@ -332,7 +334,7 @@ export function mergeProcessorData(
       const parsedRow = {} as Record<string, string>;
       for (const [index, header] of headers.entries()) {
         if (cells[index]) {
-          parsedRow[header] = cells[index].textContent?.trim() ?? '';
+          parsedRow[header] = readImportedCellText(cells[index]);
         }
       }
 

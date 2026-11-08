@@ -1,9 +1,15 @@
 /* eslint-disable fp/no-let, fp/no-mutation, regexp/no-obscure-range, regexp/no-dupe-disjunctions, sonarjs/regex-complexity -- Extracted legacy normalization keeps the existing regex-heavy behavior intact. */
 
+import { IMPORT_LIMITS } from '@/config/importLimits';
+
 export function normalizeLeagueNameForGrouping(leagueName: string): string {
   if (!leagueName) return '';
 
   let normalized = leagueName.trim();
+  // No real league name is this long; the patterns below are super-linear on such input.
+  if (normalized.length > IMPORT_LIMITS.leagueNameLengthChars) {
+    return collapseWhitespace(normalized);
+  }
 
   const afPatternInName = /\s*-\s*AF\s[A-ZÀ-ÿ\s]+/i;
   normalized = normalized.replace(afPatternInName, '');
@@ -28,7 +34,9 @@ export function normalizeLeagueNameForGrouping(leagueName: string): string {
     normalized = 'Divisões Regionais';
   }
 
-  normalized = normalized.replaceAll(/\s+/g, ' ').trim();
+  return collapseWhitespace(normalized);
+}
 
-  return normalized;
+function collapseWhitespace(text: string): string {
+  return text.replaceAll(/\s+/g, ' ').trim();
 }
