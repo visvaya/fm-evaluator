@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
 import { X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 import { defaultSettings, parseSettingsInput, type AppSettings } from '@/config/settingsModel';
 import { rerunCurrentAnalysis } from '@/lib/legacyActionBridge';
-import { persistUIState } from '@/lib/uiBridge';
 import { requestTableSync } from '@/lib/reactTableCompat';
+import { persistUIState } from '@/lib/uiBridge';
 import { saveSettings } from '@/storage/db';
 import { markFiltersDirty } from '@/store/tableStore';
 import { useSettingsStore } from '@/store/useSettingsStore';

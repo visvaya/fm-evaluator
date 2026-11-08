@@ -1,10 +1,12 @@
 import React from 'react';
+
 import { ENGINE_OPTIONS } from '@/config/engines';
 import { ALL_ROLES } from '@/config/scoreConfig';
 import { LdcModalCompat } from '@/features/ldc/LdcModalCompat';
-import { PossessionShell } from './PossessionShell';
 import { useUiText } from '@/hooks/useUiText';
+
 import { DiagnosticsShell } from './DiagnosticsShell';
+import { PossessionShell } from './PossessionShell';
 import { SettingsShell } from './SettingsShell';
 
 function HiddenCompatSelects() {

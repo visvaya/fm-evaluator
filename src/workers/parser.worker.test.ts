@@ -7,8 +7,8 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { UniversalParser } from '../parsing/universalParser.js';
 
-import type { ParserApi } from './parser.worker';
 import type { SchemaInfo } from '../parsing/parserTypes';
+import type { ParserApi } from './parser.worker';
 
 let workerApi: ParserApi | undefined;
 

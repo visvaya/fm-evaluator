@@ -1,10 +1,11 @@
 import { processor } from '@/data/dataProcessor';
-import { t as bridgeT } from '@/lib/i18nBridge';
 import { runAnalysis as runImportedAnalysis } from '@/lib/analysisService';
+import { t as bridgeT } from '@/lib/i18nBridge';
 import { clearPlayerRuntimeRows, setPlayerRuntimeRows } from '@/lib/playerRuntimeCache';
 import { markFiltersDirty, store as legacyTableStore } from '@/store/tableStore';
-import type { Player } from '@/ui/types';
 import { useTableStore } from '@/store/useTableStore';
+
+import type { Player } from '@/ui/types';
 
 const UI_MESSAGE_FALLBACKS = {
   analysis_zero_rows_fallback:

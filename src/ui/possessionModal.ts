@@ -1,6 +1,9 @@
 // Phase 5F: Possession Modal + OCR UI – migrated from main.js
 import { hasActivePlayerRows, hasAnalyzedPlayerRows } from '@/lib/playerRowsRuntime';
+
 import { rerunCurrentAnalysis } from '../lib/legacyActionBridge';
+import { getProcessor } from '../lib/processorBridge';
+import { persistUIState as bridgePersistUIState } from '../lib/uiBridge';
 import {
   currentSelectionStep,
   loadOCRAreas,
@@ -13,8 +16,7 @@ import {
   setPendingFiles
 } from '../ocr/ocrSettings';
 import { useSettingsStore } from '../store/useSettingsStore';
-import { getProcessor } from '../lib/processorBridge';
-import { persistUIState as bridgePersistUIState } from '../lib/uiBridge';
+
 import {
   getCurrentSelectedClub,
   removeClubPossession,
@@ -23,13 +25,13 @@ import {
   selectPossessionClub,
   setCurrentSelectedClub
 } from './possessionClubList';
-import { editOCRResult, refreshOCRResultsDisplay, removeOCRResult } from './possessionOCRDisplay';
 import {
   cancelCropArea,
   confirmCropArea,
   destroyCropper,
   setupAreaSelectionWithCropper
 } from './possessionCropper';
+import { editOCRResult, refreshOCRResultsDisplay, removeOCRResult } from './possessionOCRDisplay';
 import { processOCRFiles } from './possessionOCRPipeline';
 import { setupScrollInputPercent } from './scrollInputHelper';
 

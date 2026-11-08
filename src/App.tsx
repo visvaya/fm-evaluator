@@ -1,17 +1,17 @@
 import { AlertTriangle, Database, RefreshCw, Upload } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
-import Header from './components/Header';
 import { CompatibilityHost } from './components/CompatibilityHost';
 import { FileManagerModal } from './components/FileManagerModal';
+import Header from './components/Header';
 import { ImportStatusBanner } from './components/ImportStatusBanner';
 import { LeftRail } from './components/LeftRail';
 import PlayerTable from './components/PlayerTable';
 import { PlayerDetails } from './features/playerDetails/PlayerDetails';
-import { useWorkspaceSurfaceSync } from './features/workspace/useWorkspaceSurfaceSync';
 import { useAppShortcuts } from './features/workspace/shortcuts';
-import { useUiText } from './hooks/useUiText';
+import { useWorkspaceSurfaceSync } from './features/workspace/useWorkspaceSurfaceSync';
 import { useDataBoundary } from './hooks/useDataBoundary';
+import { useUiText } from './hooks/useUiText';
 import { initializeLegacyBootstrap } from './lib/legacyBootstrap';
 import { cn } from './lib/utils';
 import { useTableStore } from './store/useTableStore';

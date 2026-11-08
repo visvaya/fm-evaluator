@@ -6,5 +6,4 @@ import '../config/languageConfigLoader.js';
 import '../schema/schemaRegistry.js';
 import '../mapping/contextResolver.js';
 import '../mapping/smartHeaderMapper.js';
-
 import '../parsing/formatInspector.js';

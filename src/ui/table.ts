@@ -4,11 +4,12 @@ import {
   legacyCopyActionAttrs,
   legacyOpenDetailsActionAttrs
 } from '@/features/legacyRuntime/legacyActionAttributes';
-import { translatePosition, translateValue } from '../i18n/translate';
-import { formatPlayerValue } from '../utils/helpers';
 
+import { translatePosition, translateValue } from '../i18n/translate';
 import { t } from '../lib/i18nBridge';
 import { escapeHtmlAttribute as esc } from '../utils/escapeHtmlAttribute';
+import { formatPlayerValue } from '../utils/helpers';
+
 import type { Column, Player, VirtualState } from './types';
 
 // Global references that need to be injected

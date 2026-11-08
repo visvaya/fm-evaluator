@@ -42,6 +42,7 @@ vi.mock('../lib/filterRuntime', () => ({
 }));
 
 import { store } from '../store/tableStore';
+
 import { renderTableImmediate, runAnalysis, updateResultsMeta } from './tableOrchestrator';
 
 describe('tableOrchestrator', () => {

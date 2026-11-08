@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+
 import { getProcessor } from './processorBridge';
 
 describe('getProcessor', () => {

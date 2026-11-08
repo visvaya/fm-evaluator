@@ -2,8 +2,7 @@ import '../ui/modalQueue.js';
 import '../ui/formatVerificationModal.js';
 import '../ui/headerMappingModal.js';
 import '../../embedded-data.js';
-
-import { COUNTRY_CODE_MAP, FEET_MAPPING, mapCountryCode } from '@/config/constants';
+import { bootstrapUI } from '@/bootstrap';
 import {
   collator,
   COLUMNS,
@@ -15,8 +14,8 @@ import {
   VIRTUAL_MIN_ROWS,
   VIRTUAL_ROW_HEIGHT
 } from '@/config/columns';
+import { COUNTRY_CODE_MAP, FEET_MAPPING, mapCountryCode } from '@/config/constants';
 import { ldcComputationCache } from '@/config/ldcConfig';
-import { useSettingsStore } from '@/store/useSettingsStore';
 import {
   ALL_ROLES,
   ATTRIBUTE_COEFFS,
@@ -33,19 +32,19 @@ import { handleFiles } from '@/data/handleFiles';
 import i18n from '@/i18n';
 import { translatePosition, translateValue } from '@/i18n/translate';
 import { detectLanguage, setLanguage, updateUI } from '@/i18n/updateUi';
-import { registerLegacyActionBridge } from '@/lib/legacyActionBridge';
+import * as ldcStorage from '@/ldcStorage';
 import { runAnalysis as runImportedAnalysis } from '@/lib/analysisService';
 import { continueImportFlowProcessing, registerImportFlowBridge } from '@/lib/importFlowBridge';
+import { registerLegacyActionBridge } from '@/lib/legacyActionBridge';
 import { requestTableSync } from '@/lib/reactTableCompat';
-import * as ldcStorage from '@/ldcStorage';
+import { applyLegacyUIState } from '@/stateSync';
 import { addAudit, clearAll as clearAllDb, loadSettings } from '@/storage/db';
 import { clearAllState, loadUIState, loadUIStateSync, saveUIState } from '@/storage/state';
 import { markFiltersDirty, markHeadersDirty, store } from '@/store/tableStore';
+import { useSettingsStore } from '@/store/useSettingsStore';
 import { useTableStore } from '@/store/useTableStore';
 import * as tableState from '@/tableState';
-import { applyLegacyUIState } from '@/stateSync';
 import { uiAdapter } from '@/ui/adapter';
-import { calculatePercentile, getStatPercentile } from '@/ui/statPercentiles';
 import {
   buildActiveColumns,
   calculateColumnWidth,
@@ -65,6 +64,7 @@ import {
   togglePin
 } from '@/ui/columnManager';
 import { fileStack } from '@/ui/fileStack';
+import { getFilteredData, getSortedData } from '@/ui/filterData';
 import {
   applyFilter,
   bindFilterClickAway,
@@ -84,11 +84,14 @@ import {
   toggleShowActiveInFilter,
   updateFilterCounts
 } from '@/ui/filters';
-import { getFilteredData, getSortedData } from '@/ui/filterData';
 import { continueFileProcessing, showLanguageChoiceModal } from '@/ui/languageModal';
 import { addLeagueWithValues } from '@/ui/ldcMissing';
 import { showAlertModal, showConfirmModal, showModal } from '@/ui/ldcModalHelpers';
 import { loadLDCSettings, saveLDCSettings, updateLDCUI } from '@/ui/ldcSettings';
+import { removeClubPossession, selectPossessionClub } from '@/ui/possessionClubList';
+import { bindPossessionModalListeners, openPossessionModal } from '@/ui/possessionModal';
+import { editOCRResult, removeOCRResult } from '@/ui/possessionOCRDisplay';
+import { calculatePercentile, getStatPercentile } from '@/ui/statPercentiles';
 import {
   getBadge,
   getDataBadge,
@@ -104,9 +107,7 @@ import {
   updatePageInfo,
   updateResultsMeta
 } from '@/ui/tableOrchestrator';
-import { bindPossessionModalListeners, openPossessionModal } from '@/ui/possessionModal';
-import { editOCRResult, removeOCRResult } from '@/ui/possessionOCRDisplay';
-import { removeClubPossession, selectPossessionClub } from '@/ui/possessionClubList';
+import { bindLegacyUpload } from '@/upload';
 import { createFileMetaHelper } from '@/uploadMeta';
 import {
   debounce,
@@ -114,8 +115,6 @@ import {
   normalizeDiacritics,
   translateHeaderToInterfaceLang
 } from '@/utils/helpers';
-import { bootstrapUI } from '@/bootstrap';
-import { bindLegacyUpload } from '@/upload';
 
 let runtimeBridgePromise: null | Promise<void> = null;
 let compatMirrorsBound = false;

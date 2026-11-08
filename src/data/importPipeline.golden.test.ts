@@ -25,8 +25,9 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import type { BatchParseRequest } from '@/parsing/parserTypes';
 import { compareCodeUnits } from '@/utils/compareCodeUnits';
+
+import type { BatchParseRequest } from '@/parsing/parserTypes';
 import type { ParserApi } from '@/workers/parser.worker';
 
 // Plain paths: under jsdom the global URL is jsdom's, which node:fs rejects.

@@ -14,6 +14,7 @@ import {
 } from '@/ui/filterModel';
 
 import { persistUIState } from '../lib/uiBridge';
+
 import { markFiltersDirty, markHeadersDirty, store as legacyTableStore } from './tableStore';
 
 import type { EngineId, MergeMode } from '@/config/engines';

@@ -1,5 +1,7 @@
 import { beforeEach, describe, it, expect } from 'vitest';
+
 import { useOcrStore } from './useOcrStore';
+
 import type { OCRResult } from '../ocr/ocrParsing';
 
 function makeResult(id: string, extra: Partial<OCRResult> = {}): OCRResult {

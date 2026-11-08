@@ -1,21 +1,23 @@
 // Phase 5E: handleFiles + file management migrated from app/main.js
 import { getEls } from '../config/columns';
+import { t, getCurrentLanguage } from '../lib/i18nBridge';
 import { continueImportFlowProcessing, rerunCurrentAnalysis } from '../lib/legacyActionBridge';
+import { persistUIState } from '../lib/uiBridge';
 import { store } from '../store/tableStore';
 import { useTableStore } from '../store/useTableStore';
 import { fileStackTypeLabels, renderFileStackCards } from '../ui/fileStackCards';
-import { getFilteredData } from '../ui/filterData';
-import { reorderFileStackItems } from '../ui/fileStackState';
 import {
   getExistingFileStackNames,
   getFileStackItems,
   hasFileStackItems,
   shouldAppendToFileStack
 } from '../ui/fileStackRuntime';
+import { reorderFileStackItems } from '../ui/fileStackState';
 import { attachFileStackDragDrop, renderActiveFileStackState } from '../ui/fileStackUi';
+import { getFilteredData } from '../ui/filterData';
 import { changePage, runAnalysis, scheduleTableRender } from '../ui/tableOrchestrator';
-import { t, getCurrentLanguage } from '../lib/i18nBridge';
-import { persistUIState } from '../lib/uiBridge';
+
+import { processor } from './dataProcessor';
 import {
   applyPostImportLanguageDecision,
   continueImportAfterParsing,
@@ -25,8 +27,6 @@ import {
   processImportedFilesBatch,
   resolvePostImportLanguageDecision
 } from './importRuntime';
-
-import { processor } from './dataProcessor';
 
 // Lazy DOM accessor – calls getEls() on each property access to handle DOM not ready at module load
 const els = new Proxy({} as any, { get: (_: any, p: string) => (getEls() as any)[p] });

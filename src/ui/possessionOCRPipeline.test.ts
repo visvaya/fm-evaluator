@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, it, expect, vi } from 'vitest';
+
 import { processWithConcurrencyLimit } from './possessionOCRPipeline';
 
 // jsdom doesn't implement canvas – provide a no-op context globally for this file

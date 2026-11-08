@@ -10,12 +10,13 @@ import {
 } from 'lucide-react';
 
 import { ENGINE_OPTIONS, type EngineId } from '@/config/engines';
-import { runHardReset, useDiagnosticsStore } from '@/features/diagnostics/runtimeDiagnostics';
 import { ALL_ROLES } from '@/config/scoreConfig';
+import { runHardReset, useDiagnosticsStore } from '@/features/diagnostics/runtimeDiagnostics';
 import { useUiText } from '@/hooks/useUiText';
 import { cn } from '@/lib/utils';
 import { useTableStore } from '@/store/useTableStore';
 import { useWorkspaceStore } from '@/store/useWorkspaceStore';
+
 import { Button } from './ui/button';
 
 const Header = () => {

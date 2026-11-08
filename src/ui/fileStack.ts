@@ -1,6 +1,12 @@
 import i18n, { type TranslationCategory } from '../i18n';
 import { continueImportFlowProcessing } from '../lib/legacyActionBridge';
+
 import { fileStackTypeLabels, renderFileStackCards } from './fileStackCards';
+import {
+  buildUpdatedColumnMap,
+  extractHeadersForRemap,
+  requestUserMappings
+} from './fileStackRemap';
 import {
   finalizeFileStackMutation,
   getFileStackItems,
@@ -9,11 +15,6 @@ import {
   hasFileStackItems,
   hasRemappableHtml
 } from './fileStackRuntime';
-import {
-  buildUpdatedColumnMap,
-  extractHeadersForRemap,
-  requestUserMappings
-} from './fileStackRemap';
 import {
   removeFileStackItem,
   rebuildFileStackCollections,

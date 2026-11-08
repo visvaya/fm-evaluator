@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { store as legacyTableStore } from '@/store/tableStore';
 import { useTableStore } from '@/store/useTableStore';
 import { buildActiveColumns } from '@/ui/columnManager';
+
 import type { Player } from '@/ui/types';
 
 const columnHelper = createColumnHelper<Player>();
