@@ -2,14 +2,58 @@ import { describe, expect, it } from 'vitest';
 
 import { IMPORT_LIMITS } from '@/config/importLimits';
 
+import { allStrings, seededStrings } from '../utils/seededStrings';
+
 import {
   getTeamPossession,
   normalizeClubName,
   removeTeamPossession,
   resetTeamPossession,
   setTeamPossession,
+  splitPossessionLine,
   updatePossessionMapFromText
 } from './possessionUtils';
+
+// The pattern splitPossessionLine replaces, kept as the oracle for the equivalence tests.
+const OLD_POSSESSION_LINE_RE =
+  // oxlint-disable-next-line regexp/no-super-linear-backtracking, no-control-regex -- reference implementation under test
+  /^\s*(.+?)[\u000A-\u000D \u00A0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]*(?:\t|(?:\t\s*)?[-:;])\s*([\d.,]+)\s*(?:%\s*)?$/;
+
+const oracle = (line: string): null | readonly [string, string] => {
+  const match = OLD_POSSESSION_LINE_RE.exec(line);
+  return match ? [match[1] ?? '', match[2] ?? ''] : null;
+};
+
+const ch = (codePoint: number): string => String.fromCodePoint(codePoint);
+
+// Name letters, digits, every separator, the percent sign, tabs and other whitespace,
+// and line terminators that only a trimmed line can still hold inside.
+const LINE_ALPHABET = ['A', '5', '.', ',', ':', ';', '-', '%', ' ', ch(0x09), ch(0xa0), ch(0x0d)];
+
+// The function receives trimmed lines only, like the pattern did.
+const mismatches = (texts: readonly string[]): string[] =>
+  texts
+    .map((text) => text.trim())
+    .filter((line) => JSON.stringify(splitPossessionLine(line)) !== JSON.stringify(oracle(line)))
+    .map((line) => JSON.stringify(line));
+
+describe('splitPossessionLine', () => {
+  it('matches the old pattern on every trimmed string up to length 5', () => {
+    expect(mismatches(allStrings(LINE_ALPHABET, 5))).toEqual([]);
+  });
+
+  it('matches the old pattern on seeded random trimmed strings up to length 30', () => {
+    const texts = seededStrings({ alphabet: LINE_ALPHABET, count: 30_000, maxLength: 30, seed: 7 });
+    expect(mismatches(texts)).toEqual([]);
+  });
+
+  it('stays linear on a long whitespace run before the number', () => {
+    const started = performance.now();
+    expect(splitPossessionLine(`A${' '.repeat(30_000)}5`)).toBeNull();
+    expect(splitPossessionLine(`A${ch(0x09).repeat(30_000)}5`)).toEqual(['A', '5']);
+    expect(performance.now() - started).toBeLessThan(500);
+  });
+});
 
 describe('normalizeClubName', () => {
   it('lowercases and trims', () => {
