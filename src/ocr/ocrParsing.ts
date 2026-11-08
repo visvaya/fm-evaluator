@@ -1,6 +1,7 @@
 // Phase 5F: OCR text parsing – migrated from main.js
 import { getProcessor } from '../lib/processorBridge';
 
+import { matchPossessionLine } from './ocrLineMatch';
 import {
   type ClubData,
   correctCommonOCRErrors,
@@ -73,17 +74,6 @@ export function updateReferenceDatabase(): void {
   });
   referenceDatabase.initialized = true;
 }
-
-const POSSESSION_PATTERNS = [
-  /^\d+(st|nd|rd|th|\.)\s+(.+?)\s*[-:]\s*(\d{1,3}(?:[.,]\d+)?)\s?%$/,
-  /^\d+(st|nd|rd|th|\.)\s+(.+?)\s+(\d{1,3}(?:[.,]\d+)?)\s?%$/,
-  /^(\d{1,3}(?:[.,]\d+)?)\s?%\s+(.+)$/,
-  /^(.+?)\s*[-:]\s*(\d{1,3}(?:[.,]\d+)?)\s?%$/,
-  /^(.+?)\s+(\d{1,3}(?:[.,]\d+)?)\s?%$/,
-  /^(.+?)\s*[-:]\s*(\d{1,3}[.,]\d+)\s?%$/,
-  /^(.+?)\s*(?:[-:]\s*)?(\d{1,3}(?:[.,]\d+)?)$/,
-  /^(.+?)\s*\((\d{1,3}(?:[.,]\d+)?)\s?%?\)$/
-];
 
 export function parseOCRText(
   text: string,
@@ -167,40 +157,9 @@ export function parseOCRText(
     const cleanLine = line.trim();
     if (!cleanLine) return;
 
-    let match: null | RegExpMatchArray = null;
-    let clubName: null | string = null;
-    let possession: null | number = null;
-
-    for (const [patternIndex, POSSESSION_PATTERN] of POSSESSION_PATTERNS.entries()) {
-      match = POSSESSION_PATTERN.exec(cleanLine);
-      if (match) {
-        switch (patternIndex) {
-          case 0: {
-            clubName = match[2].trim();
-            possession = parsePossessionValue(match[3]);
-
-            break;
-          }
-          case 1: {
-            clubName = match[2].trim();
-            possession = parsePossessionValue(match[3]);
-
-            break;
-          }
-          case 2: {
-            possession = parsePossessionValue(match[1]);
-            clubName = match[2].trim();
-
-            break;
-          }
-          default: {
-            clubName = match[1].trim();
-            possession = parsePossessionValue(match[2]);
-          }
-        }
-        break;
-      }
-    }
+    const match = matchPossessionLine(cleanLine);
+    let clubName = match ? match[0].trim() : null;
+    const possession = match ? parsePossessionValue(match[1]) : null;
 
     if (
       !match ||
