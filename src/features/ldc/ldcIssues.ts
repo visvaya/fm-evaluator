@@ -1,5 +1,5 @@
 import { resolveMappingTargetLeague } from '@/computing/ldcMappings';
-import { formatLdcRaw, validateLeague } from '@/computing/ldcUtils';
+import { buildLeagueNameIndex, formatLdcRaw, validateLeague } from '@/computing/ldcUtils';
 
 import type { BasketProblem, LDCSettings, LeagueData, OrderProblem } from '@/config/ldcConfig';
 
@@ -89,9 +89,10 @@ function buildConfigurationIssues(settings: LDCSettings): ConfigurationIssue[] {
     });
   }
 
+  const nameIndex = buildLeagueNameIndex();
   settings.leagues.forEach((league, index) => {
     const validationErrors = [
-      ...validateLeague(league, index),
+      ...validateLeague(league, index, nameIndex),
       ...(settings.model === 'basket' && league.stars === null
         ? ['Brak gwiazdek; do czasu uzupełnienia liga jest liczona jak tier 0,5']
         : [])

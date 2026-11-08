@@ -49,6 +49,20 @@ describe('ldcTableModel', () => {
     clearPlayerRuntimeRows();
   });
 
+  it('validates a large league list quickly and still flags duplicates', () => {
+    const leagues = Array.from({ length: 5000 }, (_, index) =>
+      makeLeague({ id: `league-${index}`, name: `League ${index % 2500}`, rank: index + 1 })
+    );
+    const started = performance.now();
+
+    const rows = buildRows(makeSettings(leagues));
+
+    expect(performance.now() - started).toBeLessThan(1000);
+    expect(
+      rows.every((row) => row.validationErrors.some((error) => error.includes('Duplikat')))
+    ).toBe(true);
+  });
+
   it('preserves non-zero multiplier precision for very small values', () => {
     const rows = buildRows(
       makeSettings([

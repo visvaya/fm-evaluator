@@ -198,6 +198,13 @@ describe('ldcUtils', () => {
       expect(levenshteinDistance('kitten', 'sitting')).toBe(3);
       expect(levenshteinDistance('sunday', 'saturday')).toBe(3);
     });
+
+    it('compares two long strings quickly', () => {
+      const started = performance.now();
+
+      expect(levenshteinDistance('a'.repeat(6000), 'b'.repeat(6000))).toBe(6000);
+      expect(performance.now() - started).toBeLessThan(1000);
+    });
   });
 
   // -----------------------------------------------------------------------

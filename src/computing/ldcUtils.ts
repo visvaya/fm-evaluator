@@ -93,10 +93,33 @@ function normalizeDuplicateNationPart(value: string): string {
   return normalizeDuplicateKeyPart(canonicalizeNation(value));
 }
 
+/** Leagues grouped by normalized name, so a duplicate check reads one group instead of the list. */
+export type LeagueNameIndex = ReadonlyMap<string, readonly LeagueNameEntry[]>;
+
+interface LeagueNameEntry {
+  index: number;
+  name: string;
+  nation: string;
+  nationKey: string;
+}
+
+export function buildLeagueNameIndex(
+  leagues: readonly LeagueData[] = ldcSettings.leagues
+): LeagueNameIndex {
+  const entries = leagues.map((league, index) => ({
+    index,
+    name: league.name,
+    nation: league.nation ?? '',
+    nationKey: normalizeDuplicateNationPart(league.nation ?? '')
+  }));
+  return Map.groupBy(entries, (entry) => normalizeDuplicateKeyPart(entry.name));
+}
+
 export function checkAmbiguousDuplicateNames(
   leagueName: string,
   leagueNation: string,
-  excludeIndex = -1
+  excludeIndex = -1,
+  nameIndex: LeagueNameIndex = buildLeagueNameIndex()
 ): string[] {
   const normalizedName = normalizeDuplicateKeyPart(leagueName);
   const normalizedNation = normalizeDuplicateNationPart(leagueNation);
@@ -104,23 +127,18 @@ export function checkAmbiguousDuplicateNames(
     return [];
   }
 
-  return ldcSettings.leagues
-    .map((league, index) => ({ index, name: league.name, nation: league.nation ?? '' }))
-    .filter(
-      ({ index, name }) =>
-        index !== excludeIndex && normalizeDuplicateKeyPart(name) === normalizedName
-    )
-    .map(({ name, nation }) =>
-      normalizeDuplicateNationPart(nation).length === 0
-        ? `${name} (brak kraju)`
-        : `${name} (${nation})`
+  return (nameIndex.get(normalizedName) ?? [])
+    .filter(({ index }) => index !== excludeIndex)
+    .map(({ name, nation, nationKey }) =>
+      nationKey.length === 0 ? `${name} (brak kraju)` : `${name} (${nation})`
     );
 }
 
 export function checkDuplicateNames(
   leagueName: string,
   leagueNation = '',
-  excludeIndex = -1
+  excludeIndex = -1,
+  nameIndex: LeagueNameIndex = buildLeagueNameIndex()
 ): string[] {
   const normalizedName = normalizeDuplicateKeyPart(leagueName);
   const normalizedNation = normalizeDuplicateNationPart(leagueNation);
@@ -128,15 +146,9 @@ export function checkDuplicateNames(
     return [];
   }
 
-  return ldcSettings.leagues
-    .map((league, index) => ({ index, name: league.name, nation: league.nation ?? '' }))
-    .filter(
-      ({ index, name, nation }) =>
-        index !== excludeIndex &&
-        normalizeDuplicateKeyPart(name) === normalizedName &&
-        normalizeDuplicateNationPart(nation) === normalizedNation
-    )
-    .map((l) => l.name);
+  return (nameIndex.get(normalizedName) ?? [])
+    .filter(({ index, nationKey }) => index !== excludeIndex && nationKey === normalizedNation)
+    .map(({ name }) => name);
 }
 
 export function checkMappingConflicts(leagueName: string): string[] {
@@ -290,8 +302,12 @@ export function fuzzyMatchLeague(
 
   if (!bestMatch) {
     for (const league of countryLeagues) {
-      const distance = levenshteinDistance(normalizedName.toLowerCase(), league.name.toLowerCase());
+      const left = normalizedName.toLowerCase();
+      const right = league.name.toLowerCase();
       const maxLen = Math.max(normalizedName.length, league.name.length);
+      // The distance is at least the length difference, so such a pair cannot pass 0.7 similarity.
+      if (Math.abs(left.length - right.length) >= 0.3 * maxLen) continue;
+      const distance = levenshteinDistance(left, right);
       const similarity = 1 - distance / maxLen;
 
       if (similarity > 0.7 && similarity > 1 - bestScore) {
@@ -518,25 +534,32 @@ export function isLeagueMatched(leagueName: string, leagueNation = ''): boolean 
 }
 
 export function levenshteinDistance(str1: string, str2: string): number {
-  const m = str1.length;
-  const n = str2.length;
-  const dp: number[][] = Array.from({ length: m + 1 }, () =>
-    Array.from({ length: n + 1 }, () => 0)
-  );
+  // Two rows instead of the full matrix: same result, memory linear in the shorter string.
+  const [longer, shorter] = str1.length >= str2.length ? [str1, str2] : [str2, str1];
+  const longerUnits = toCodeUnits(longer);
+  const shorterUnits = toCodeUnits(shorter);
+  let previous = Uint32Array.from({ length: shorter.length + 1 }, (_, j) => j);
+  let current = new Uint32Array(shorter.length + 1);
 
-  for (let i = 0; i <= m; i++) dp[i][0] = i;
-  for (let j = 0; j <= n; j++) dp[0][j] = j;
-
-  for (let i = 1; i <= m; i++) {
-    for (let j = 1; j <= n; j++) {
-      dp[i][j] =
-        str1[i - 1] === str2[j - 1]
-          ? dp[i - 1][j - 1]
-          : Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + 1);
+  for (let i = 1; i <= longer.length; i++) {
+    const unit = longerUnits[i - 1];
+    current[0] = i;
+    for (let j = 1; j <= shorter.length; j++) {
+      current[j] =
+        unit === shorterUnits[j - 1]
+          ? previous[j - 1]
+          : Math.min(previous[j], current[j - 1], previous[j - 1]) + 1;
     }
+    [previous, current] = [current, previous];
   }
 
-  return dp[m][n];
+  return previous[shorter.length];
+}
+
+/** UTF-16 code units: the distance counts them, as indexing the string does. */
+function toCodeUnits(text: string): Uint16Array {
+  // eslint-disable-next-line unicorn/prefer-code-point -- code units on purpose, see above
+  return Uint16Array.from({ length: text.length }, (_, index) => text.charCodeAt(index));
 }
 
 // ---------------------------------------------------------------------------
@@ -603,10 +626,15 @@ export function suggestOrderFix(league1: LeagueData, league2: LeagueData): strin
   return `${suggestions.join('. ')}.`;
 }
 
-export function validateLeague(league: LeagueData, excludeIndex = -1): string[] {
+/** Pass one `buildLeagueNameIndex()` when validating many leagues; the default builds it per call. */
+export function validateLeague(
+  league: LeagueData,
+  excludeIndex = -1,
+  nameIndex: LeagueNameIndex = buildLeagueNameIndex()
+): string[] {
   const errors: string[] = [];
 
-  const duplicates = checkDuplicateNames(league.name, league.nation ?? '', excludeIndex);
+  const duplicates = checkDuplicateNames(league.name, league.nation ?? '', excludeIndex, nameIndex);
   if (duplicates.length > 0) {
     errors.push(`Duplikat nazwy: "${duplicates[0]}"`);
   }
@@ -614,7 +642,8 @@ export function validateLeague(league: LeagueData, excludeIndex = -1): string[] 
   const ambiguousDuplicates = checkAmbiguousDuplicateNames(
     league.name,
     league.nation ?? '',
-    excludeIndex
+    excludeIndex,
+    nameIndex
   );
   if (ambiguousDuplicates.length > 0) {
     errors.push('Powielona nazwa ligi bez przypisanego kraju');
