@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
+import { seededStrings } from '../utils/seededStrings';
+
 import { getNumericValue } from './getNumericValue';
 import { parseNumber, stripUnitWords } from './parseNumber';
 
@@ -38,17 +40,6 @@ const ALPHABET = [
   ch(0x0a)
 ];
 
-const mulberry32 = (seed: number) => {
-  let state = seed >>> 0;
-  return (): number => {
-    state = (state + 0x6d2b79f5) >>> 0;
-    let t = state;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4_294_967_296;
-  };
-};
-
 describe('parseNumber', () => {
   it('reads values with units, currencies and wage periods', () => {
     expect(parseNumber('12 km')).toBe(12);
@@ -60,13 +51,7 @@ describe('parseNumber', () => {
   });
 
   it('strips unit words like the former patterns on seeded random strings', () => {
-    const random = mulberry32(20_261_108);
-    const texts = Array.from({ length: 30_000 }, () =>
-      Array.from(
-        { length: Math.floor(random() * 25) },
-        () => ALPHABET[Math.floor(random() * ALPHABET.length)]
-      ).join('')
-    );
+    const texts = seededStrings({ alphabet: ALPHABET, count: 30_000, maxLength: 24, seed: 7 });
     const mismatches = texts.filter((text) => stripUnitWords(text) !== oldStripUnitWords(text));
     expect(mismatches.map((text) => JSON.stringify(text))).toEqual([]);
   });

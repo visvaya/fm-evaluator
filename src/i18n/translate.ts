@@ -1,4 +1,5 @@
 import { getCurrentLanguage, t } from '../lib/i18nBridge';
+import { splitTrailingParenthesis } from '../utils/splitTrailingParenthesis';
 
 // Phase 5A: translateValue + translatePosition migrated from main.js
 
@@ -53,9 +54,9 @@ export function translatePosition(
 
   // Combination positions with slash: "D/WB (L)" or "M/AM (C)"
   if (positionKey.includes('/')) {
-    const match = /^(.+?)\s*\(([^)]+)\)$/.exec(positionKey);
+    const match = splitTrailingParenthesis(positionKey);
     if (match) {
-      const [, types, side] = match;
+      const [types, side] = match;
       const normalizedTypes = types
         .split('/')
         .map((tp) => {
@@ -78,9 +79,9 @@ export function translatePosition(
   }
 
   // Format: 'X (Y)' where X is type, Y is side
-  const match = /^(.+?)\s*\(([^)]+)\)$/.exec(positionKey);
+  const match = splitTrailingParenthesis(positionKey);
   if (match) {
-    const [, type, side] = match;
+    const [type, side] = match;
     const tAbbr = TYPE_ABBREVIATION_MAP[lang]?.[type] || type;
     const sAbbr = SIDE_ABBREVIATION_MAP[lang]?.[side] || side;
     return `${tAbbr} (${sAbbr})`;

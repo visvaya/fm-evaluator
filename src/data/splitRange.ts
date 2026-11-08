@@ -1,3 +1,5 @@
+import { codeAt, isLineTerminator, isRegexWhitespace } from '../utils/regexCharClasses';
+
 /**
  * Splits a range such as "12-15" or "1K € - 6K €" at a hyphen, en dash or em dash.
  *
@@ -63,7 +65,7 @@ function scanText(text: string): TextScan {
   let lastNonTerminator = -1;
   for (let i = length - 1; i >= 0; i--) {
     const code = codeAt(text, i);
-    const space = isWhitespace(code);
+    const space = isRegexWhitespace(code);
     const terminator = isLineTerminator(code);
     spaceEnd[i] = space ? (spaceEnd[i + 1] ?? length) : i;
     terminatorAt[i] = terminator ? i : (terminatorAt[i + 1] ?? length);
@@ -78,31 +80,8 @@ function scanText(text: string): TextScan {
   };
 }
 
-// A code point above U+FFFF (or the end of the text) belongs to none of the classes below,
-// exactly like the lone surrogate code unit the former pattern saw.
-function codeAt(text: string, index: number): number {
-  return text.codePointAt(index) ?? -1;
-}
-
 const DASH_CODES = new Set([0x2d, 0x2013, 0x2014]);
-const LINE_TERMINATOR_CODES = new Set([0x0a, 0x0d, 0x2028, 0x2029]);
-// The code units matched by `\s` in a pattern without the `u` flag, apart from two ranges.
-const SINGLE_WHITESPACE_CODES = new Set([
-  0x20, 0xa0, 0x1680, 0x2028, 0x2029, 0x202f, 0x205f, 0x3000, 0xfeff
-]);
 
 function isDash(code: number): boolean {
   return DASH_CODES.has(code);
-}
-
-function isLineTerminator(code: number): boolean {
-  return LINE_TERMINATOR_CODES.has(code);
-}
-
-function isWhitespace(code: number): boolean {
-  return (
-    (code >= 0x09 && code <= 0x0d) ||
-    (code >= 0x2000 && code <= 0x200a) ||
-    SINGLE_WHITESPACE_CODES.has(code)
-  );
 }

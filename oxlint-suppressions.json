@@ -1459,12 +1459,6 @@
     }
   },
   "src/data/possessionUtils.ts": {
-    "no-control-regex": {
-      "count": 1
-    },
-    "regexp/no-super-linear-backtracking": {
-      "count": 7
-    },
     "typescript/no-base-to-string": {
       "count": 3
     }
@@ -2030,9 +2024,6 @@
     }
   },
   "src/i18n/translate.ts": {
-    "regexp/no-super-linear-backtracking": {
-      "count": 4
-    },
     "unicorn/no-negated-condition": {
       "count": 1
     }

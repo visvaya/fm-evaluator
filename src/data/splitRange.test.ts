@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
+import { allStrings, seededStrings } from '../utils/seededStrings';
+
 import { getNumericValue } from './getNumericValue';
 import { splitRange } from './splitRange';
 
@@ -37,27 +39,6 @@ const ALPHABET = [
   ch(0x10000)
 ];
 
-const mulberry32 = (seed: number) => {
-  let state = seed >>> 0;
-  return (): number => {
-    state = (state + 0x6d2b79f5) >>> 0;
-    let t = state;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4_294_967_296;
-  };
-};
-
-const allStrings = (alphabet: readonly string[], maxLength: number): string[] => {
-  const result: string[] = [''];
-  let previous: string[] = [''];
-  for (let length = 1; length <= maxLength; length++) {
-    previous = previous.flatMap((prefix) => alphabet.map((letter) => prefix + letter));
-    result.push(...previous);
-  }
-  return result;
-};
-
 describe('splitRange', () => {
   it('splits typical ranges like the old pattern', () => {
     expect(splitRange('12-15')).toEqual(['12', '15']);
@@ -73,13 +54,7 @@ describe('splitRange', () => {
   });
 
   it('matches the old pattern on seeded random strings up to length 40', () => {
-    const random = mulberry32(20_261_108);
-    const texts = Array.from({ length: 20_000 }, () =>
-      Array.from(
-        { length: Math.floor(random() * 41) },
-        () => ALPHABET[Math.floor(random() * ALPHABET.length)]
-      ).join('')
-    );
+    const texts = seededStrings({ alphabet: ALPHABET, count: 20_000, maxLength: 40, seed: 7 });
     expect(mismatches(texts)).toEqual([]);
   });
 
