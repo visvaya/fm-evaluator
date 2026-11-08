@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { store } from '@/store/tableStore';
 import { useTableStore } from '@/store/useTableStore';
 
-import { filterClubHasPossession, updateFilterCounts } from './filters';
+import { filterClubHasPossession, toggleAllVisible, updateFilterCounts } from './filters';
 
 describe('filters possession seam', () => {
   beforeEach(() => {
@@ -56,5 +56,38 @@ describe('filters possession seam', () => {
     expect(document.getElementById('filter-club-possession-text-club')?.textContent).toContain(
       '(1)'
     );
+  });
+});
+
+describe('toggleAllVisible', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <div id="list-club">
+        <label style="display:flex"><input type="checkbox" value="Legia"></label>
+        <label style="display:flex"><input type="checkbox" value="Lech"></label>
+        <label style="display:none"><input type="checkbox" value="Hidden"></label>
+      </div>
+    `;
+    store.activeFilters = { club: ['Hidden'] };
+    Object.assign(window, { persistUIState: vi.fn(), scheduleTableRender: vi.fn() });
+  });
+
+  it('selects every visible value once and keeps hidden selections', () => {
+    toggleAllVisible('club');
+
+    expect(store.activeFilters).toEqual({ club: ['Hidden', 'Legia', 'Lech'] });
+  });
+
+  it('clears visible values when all are checked and drops an empty filter', () => {
+    store.activeFilters = { club: ['Legia', 'Lech'] };
+    document
+      .querySelectorAll<HTMLInputElement>('label[style="display:flex"] input')
+      .forEach((input) => {
+        input.checked = true;
+      });
+
+    toggleAllVisible('club');
+
+    expect(store.activeFilters).toEqual({});
   });
 });

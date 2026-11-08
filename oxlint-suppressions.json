@@ -540,9 +540,6 @@
     "sonarjs/no-nested-conditional": {
       "count": 1
     },
-    "unicorn/no-array-reduce": {
-      "count": 1
-    },
     "unicorn/prefer-string-replace-all": {
       "count": 1
     }
@@ -3221,13 +3218,13 @@
       "count": 6
     },
     "typescript/no-unsafe-assignment": {
-      "count": 9
+      "count": 7
     },
     "typescript/no-unsafe-call": {
-      "count": 12
+      "count": 4
     },
     "typescript/no-unsafe-member-access": {
-      "count": 29
+      "count": 19
     },
     "typescript/no-unsafe-return": {
       "count": 1
@@ -3680,13 +3677,10 @@
       "count": 3
     },
     "typescript/no-explicit-any": {
-      "count": 10
-    },
-    "typescript/no-floating-promises": {
-      "count": 1
+      "count": 6
     },
     "typescript/no-unsafe-assignment": {
-      "count": 7
+      "count": 2
     },
     "typescript/no-unsafe-call": {
       "count": 4

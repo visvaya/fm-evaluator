@@ -83,6 +83,18 @@ describe('processWithConcurrencyLimit', () => {
     expect(results.find((r) => r.index === 2)?.result).toEqual(['C']);
   });
 
+  it('never runs more items at once than the limit', async () => {
+    const running = { now: 0, peak: 0 };
+    await processWithConcurrencyLimit([40, 0, 0, 0, 0, 0], 2, async (delayMs) => {
+      running.now += 1;
+      running.peak = Math.max(running.peak, running.now);
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+      running.now -= 1;
+      return [delayMs];
+    });
+    expect(running.peak).toBe(2);
+  });
+
   it('handles empty items array', async () => {
     const { results, errors } = await processWithConcurrencyLimit([], 2, async (item) => [item]);
     expect(results).toHaveLength(0);

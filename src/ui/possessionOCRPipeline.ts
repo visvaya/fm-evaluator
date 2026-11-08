@@ -1,3 +1,5 @@
+import pLimit from 'p-limit';
+
 import { getProcessor } from '../lib/processorBridge';
 import { cropImage, preprocessImageForOCRFromCanvas } from '../ocr/ocrImageProcessing';
 import { normalizeTextForMatching } from '../ocr/ocrMatching';
@@ -8,37 +10,37 @@ import { ocrWorkerPool } from '../ocr/ocrWorkerPool';
 import { renderPossessionClubList } from './possessionClubList';
 import { displayOCRResults } from './possessionOCRDisplay';
 
+type ItemOutcome =
+  | { error: unknown; index: number; kind: 'error' }
+  | { index: number; kind: 'result'; result: unknown };
+
 export async function processWithConcurrencyLimit<T>(
   items: T[],
   limit: number,
   proc: (item: T, index: number) => Promise<any>
 ): Promise<{ errors: { error: any; index: number }[]; results: { index: number; result: any }[] }> {
-  const results: { index: number; result: any }[] = [];
-  const errors: { error: any; index: number }[] = [];
-  const executing: Promise<any>[] = [];
-  const allPromises: Promise<any>[] = [];
+  const run = pLimit(Math.max(1, Math.floor(limit)));
+  const outcomes = await Promise.all(
+    items.map((item, index) =>
+      run(() =>
+        proc(item, index).then(
+          (result: unknown): ItemOutcome => ({ index, kind: 'result', result }),
+          (error: unknown): ItemOutcome => ({ error, index, kind: 'error' })
+        )
+      )
+    )
+  );
 
-  for (const [i, item] of items.entries()) {
-    const promise = proc(item, i).then(
-      (result) => ({ index: i, result, success: true }),
-      (error: unknown) => ({ error, index: i, success: false })
-    );
-    allPromises.push(promise);
-    executing.push(promise);
-    if (executing.length >= limit) {
-      await Promise.race(executing);
-      executing.shift();
-    }
-  }
-
-  const allResults = await Promise.all(allPromises);
-  allResults.forEach((item) => {
-    if (!item) return;
-    const { error, index, result, success } = item;
-    if (success && Array.isArray(result)) results.push({ index, result });
-    else if (!success) errors.push({ error, index });
-  });
-  return { errors, results };
+  return {
+    errors: outcomes.flatMap((outcome) =>
+      outcome.kind === 'error' ? [{ error: outcome.error, index: outcome.index }] : []
+    ),
+    results: outcomes.flatMap((outcome) =>
+      outcome.kind === 'result' && Array.isArray(outcome.result)
+        ? [{ index: outcome.index, result: outcome.result }]
+        : []
+    )
+  };
 }
 
 export async function processPossessionScreenshotWithAreas(

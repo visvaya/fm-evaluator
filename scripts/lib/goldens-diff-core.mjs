@@ -37,19 +37,10 @@ const leafChanges = (before, after, path = '') => {
 };
 
 /** Group leaf changes by path with array indices collapsed; keep the first as an example. */
-export const diffSnapshots = (before, after) => {
-  const groups = leafChanges(before, after).reduce((acc, change) => {
-    const key = collapseIndices(change.path);
-    const existing = acc.get(key);
-    return new Map(acc).set(
-      key,
-      existing
-        ? { ...existing, count: existing.count + 1 }
-        : { path: key, count: 1, example: change }
-    );
-  }, new Map());
-  return [...groups.values()];
-};
+export const diffSnapshots = (before, after) =>
+  [...Map.groupBy(leafChanges(before, after), (change) => collapseIndices(change.path))].map(
+    ([path, changes]) => ({ path, count: changes.length, example: changes[0] })
+  );
 
 const MAX_VALUE_CHARS = 80;
 
