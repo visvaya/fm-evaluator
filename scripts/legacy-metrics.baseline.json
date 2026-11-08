@@ -1,10 +1,10 @@
 {
   "metrics": {
-    "windowBridges": 153,
-    "windowBridgeWrites": 163,
+    "windowBridges": 152,
+    "windowBridgeWrites": 162,
     "windowGlobalReads": 171,
     "jsFilesInSrc": 16,
-    "innerHtmlWrites": 29,
+    "innerHtmlWrites": 25,
     "largestFileLines": 1039
   },
   "largestFile": "src/schema/schemaRegistry.js"
