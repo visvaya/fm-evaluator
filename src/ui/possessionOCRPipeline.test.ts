@@ -95,6 +95,28 @@ describe('processWithConcurrencyLimit', () => {
     expect(running.peak).toBe(2);
   });
 
+  it('keeps the limit when a fast item rejects', async () => {
+    const running = { now: 0, peak: 0 };
+    const { errors, results } = await processWithConcurrencyLimit(
+      [40, -1, 0, 0, 0],
+      2,
+      async (delayMs) => {
+        running.now += 1;
+        running.peak = Math.max(running.peak, running.now);
+        try {
+          if (delayMs < 0) throw new Error('unreadable screenshot');
+          await new Promise((resolve) => setTimeout(resolve, delayMs));
+          return [delayMs];
+        } finally {
+          running.now -= 1;
+        }
+      }
+    );
+    expect(running.peak).toBe(2);
+    expect(errors).toEqual([{ error: new Error('unreadable screenshot'), index: 1 }]);
+    expect(results).toHaveLength(4);
+  });
+
   it('handles empty items array', async () => {
     const { results, errors } = await processWithConcurrencyLimit([], 2, async (item) => [item]);
     expect(results).toHaveLength(0);
