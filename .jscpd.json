@@ -1,8 +1,8 @@
 {
-  "threshold": 5,
+  "threshold": 2,
   "reporters": ["console"],
-  "ignore": ["**/*.test.ts", "**/*.spec.ts", "src/parsing/**"],
-  "languages": ["typescript"],
+  "ignore": ["**/*.test.ts", "**/*.spec.ts"],
+  "format": ["typescript", "tsx", "javascript"],
   "minLines": 10,
   "minTokens": 50
 }
