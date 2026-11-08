@@ -1,8 +1,10 @@
 import {
   createColumnHelper,
-  getCoreRowModel,
+  columnVisibilityFeature,
+  rowSortingFeature,
   type SortingState,
-  useReactTable
+  tableFeatures,
+  useTable
 } from '@tanstack/react-table';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
@@ -15,7 +17,10 @@ import { buildActiveColumns } from '@/ui/columnManager';
 
 import type { Player } from '@/ui/types';
 
-const columnHelper = createColumnHelper<Player>();
+// Only the sorting state lives in the table; the app sorts and pages the data itself. Column
+// visibility provides row.getVisibleCells().
+const PLAYER_TABLE_FEATURES = tableFeatures({ columnVisibilityFeature, rowSortingFeature });
+const columnHelper = createColumnHelper<typeof PLAYER_TABLE_FEATURES, Player>();
 const IMPORT_COLUMN_IDS = new Set([
   'age',
   'club',
@@ -68,6 +73,13 @@ export function usePlayerTable() {
   } = useTableStore();
   const tableContainerRef = useRef<HTMLDivElement>(null);
   const [pageInput, setPageInput] = useState(String(currentPage));
+  // The page box shows the current page again whenever the page changes; adjusting state during
+  // render avoids the extra render an effect would cause.
+  const [pageInputSource, setPageInputSource] = useState(currentPage);
+  if (pageInputSource !== currentPage) {
+    setPageInputSource(currentPage);
+    setPageInput(String(currentPage));
+  }
 
   const visibleColumnDefs = useMemo(() => {
     const builtColumns = buildActiveColumns();
@@ -127,8 +139,7 @@ export function usePlayerTable() {
             );
           },
           header: () => column.name,
-          id: column.id,
-          size: getColumnWidth(column)
+          id: column.id
         })
       ),
     [visibleColumnDefs]
@@ -151,10 +162,6 @@ export function usePlayerTable() {
     }
   }, [currentPage, pageCount, setCurrentPage]);
 
-  useEffect(() => {
-    setPageInput(String(currentPage));
-  }, [currentPage]);
-
   const pagedTableData = useMemo(() => {
     const safePage = Math.min(Math.max(1, currentPage), pageCount);
     const startIndex = (safePage - 1) * rowsPerPage;
@@ -170,10 +177,10 @@ export function usePlayerTable() {
     [currentSort]
   );
 
-  const table = useReactTable({
+  const table = useTable({
     columns: activeColumns,
     data: pagedTableData,
-    getCoreRowModel: getCoreRowModel(),
+    features: PLAYER_TABLE_FEATURES,
     onSortingChange: (updater) => {
       const nextSorting = typeof updater === 'function' ? updater(sorting) : updater;
       if (nextSorting.length > 0) {
@@ -195,16 +202,15 @@ export function usePlayerTable() {
   );
 
   const pinnedOffsets = useMemo(() => {
+    const offsets: Record<string, number> = {};
     let leftOffset = 0;
-    return Object.fromEntries(
-      visibleColumnDefs.map((column) => {
-        const offset = leftOffset;
-        if (legacyTableStore.pinnedColumns.includes(column.id)) {
-          leftOffset += columnWidths[column.id] ?? 120;
-        }
-        return [column.id, offset];
-      })
-    );
+    for (const column of visibleColumnDefs) {
+      offsets[column.id] = leftOffset;
+      if (legacyTableStore.pinnedColumns.includes(column.id)) {
+        leftOffset += columnWidths[column.id] ?? 120;
+      }
+    }
+    return offsets;
   }, [columnWidths, compatRevision, visibleColumnDefs]);
 
   return {

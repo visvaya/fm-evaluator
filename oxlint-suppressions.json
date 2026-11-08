@@ -1998,9 +1998,6 @@
     "react-hooks/exhaustive-deps": {
       "count": 4
     },
-    "react/incompatible-library": {
-      "count": 1
-    },
     "typescript/no-unsafe-assignment": {
       "count": 1
     },
