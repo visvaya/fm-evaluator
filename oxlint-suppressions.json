@@ -2131,29 +2131,6 @@
       "count": 22
     }
   },
-  "src/import/dryRunImport.ts": {
-    "no-unused-vars": {
-      "count": 1
-    },
-    "sonarjs/no-dead-store": {
-      "count": 1
-    },
-    "sonarjs/no-nested-conditional": {
-      "count": 1
-    },
-    "typescript/no-base-to-string": {
-      "count": 1
-    },
-    "typescript/no-explicit-any": {
-      "count": 1
-    },
-    "typescript/no-unsafe-member-access": {
-      "count": 1
-    },
-    "unicorn/prefer-code-point": {
-      "count": 1
-    }
-  },
   "src/ldcStorage.ts": {
     "typescript/no-explicit-any": {
       "count": 2
