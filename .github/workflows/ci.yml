@@ -89,6 +89,10 @@ jobs:
         if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
         run: pnpm run jscpd
 
+      - name: Unreferenced public files
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run check:public-assets
+
       - name: Legacy metrics ratchet
         if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
         run: pnpm run legacy:metrics:check
