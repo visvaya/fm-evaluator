@@ -431,7 +431,7 @@ function postToServiceWorker(message: any) {
       const target = registration.active || navigator.serviceWorker.controller;
       target?.postMessage(message);
     })
-    .catch((error) => {
+    .catch((error: unknown) => {
       console.warn('[ServiceWorker] postMessage failed', error);
     });
 }
@@ -700,7 +700,7 @@ function registerServiceWorker() {
           requestSwHealth();
         });
       })
-      .catch((error) => console.error('[ServiceWorker] Registration failed', error));
+      .catch((error: unknown) => console.error('[ServiceWorker] Registration failed', error));
   });
 }
 

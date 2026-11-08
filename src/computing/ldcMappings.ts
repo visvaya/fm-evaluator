@@ -1,5 +1,7 @@
 /* eslint-disable fp/no-delete, fp/no-mutation */
 
+import { errorText } from '@/utils/errorText';
+
 import {
   type LdcLeagueReference,
   type LdcMappingTarget,
@@ -271,10 +273,10 @@ export function rollbackMappingsTransaction(): void {
 
 function persistLeagueMappings(normalizedMappings: LeagueMappings): void {
   if (canUseLdcStorageModule()) {
-    saveLdcStoredMappings(normalizedMappings).catch((error: any) => {
+    saveLdcStoredMappings(normalizedMappings).catch((error: unknown) => {
       console.warn('LDC mappings save (ldcStorage) error:', error);
       if ((window as any).addAudit) {
-        (window as any).addAudit('ldc_mappings_save_error', { error: String(error) }, 'warn');
+        (window as any).addAudit('ldc_mappings_save_error', { error: errorText(error) }, 'warn');
       }
     });
   }

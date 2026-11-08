@@ -1,8 +1,10 @@
+import { type Remote, wrap } from 'comlink';
+
 /**
  * ParserBridge - Bridge for communicating with ParserWorker
  * Provides a clean API for main thread to use parsing functionality
  */
-import { type Remote, wrap } from 'comlink';
+import { errorText } from '@/utils/errorText';
 
 import type {
   BatchParseRequest,
@@ -231,9 +233,9 @@ class ParserBridge {
           resolve(value);
           return value;
         })
-        .catch((error) => {
+        .catch((error: unknown) => {
           clearTimeout(timer);
-          reject(error instanceof Error ? error : new Error(String(error)));
+          reject(error instanceof Error ? error : new Error(errorText(error)));
         });
     });
   }

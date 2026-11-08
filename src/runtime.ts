@@ -189,11 +189,11 @@ function postToServiceWorker(message: any) {
 
 function requestPersistentStorage() {
   if (!navigator.storage?.persist) return;
-  navigator.storage.persist().catch((error) => {
+  navigator.storage.persist().catch((error: unknown) => {
     console.warn('[Storage] Persist request failed', error);
   });
 }
 
-bootRuntime().catch((error) => {
+bootRuntime().catch((error: unknown) => {
   console.error('[Runtime] boot failed', error);
 });

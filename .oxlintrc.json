@@ -200,6 +200,7 @@
     "typescript/no-unsafe-function-type": "error",
     "typescript/only-throw-error": "error",
     "typescript/prefer-promise-reject-errors": "error",
+    "typescript/use-unknown-in-catch-callback-variable": "error", // A rejection reason is unknown: narrow it before use.
     "typescript/require-await": "error",
     "typescript/restrict-plus-operands": "error",
     "typescript/adjacent-overload-signatures": "error",
@@ -906,10 +907,86 @@
               {
                 "group": ["**/ui", "**/ui/**", "@/ui", "@/ui/**"],
                 "message": "Computing modules must not import from the UI layer."
+              },
+              {
+                "group": [
+                  "react",
+                  "react-dom",
+                  "react-dom/*",
+                  "**/components/**",
+                  "@/components/**"
+                ],
+                "message": "Computing is pure logic: move React code to components or hooks and pass the data in."
+              },
+              {
+                "group": ["dexie", "**/storage", "**/storage/**", "@/storage", "@/storage/**"],
+                "message": "Computing takes its data as arguments: load and save in the caller, not here."
               }
             ]
           }
-        ]
+        ],
+        "no-restricted-globals": [
+          "error",
+          {
+            "name": "DOMParser",
+            "message": "Use htmlparser2 (streaming parser) instead of DOMParser."
+          },
+          {
+            "name": "window",
+            "message": "Computing is pure logic: pass what it needs from window in as an argument."
+          },
+          {
+            "name": "document",
+            "message": "Computing is pure logic: read the DOM in the caller and pass the values in."
+          },
+          {
+            "name": "localStorage",
+            "message": "Computing takes its data as arguments: read storage in the caller."
+          },
+          {
+            "name": "sessionStorage",
+            "message": "Computing takes its data as arguments: read storage in the caller."
+          },
+          {
+            "name": "indexedDB",
+            "message": "Computing takes its data as arguments: read storage in the caller."
+          },
+          {
+            "name": "fetch",
+            "message": "Computing takes its data as arguments: fetch in the caller."
+          }
+        ], // Repeats the root DOMParser entry: an override replaces the rule options.
+        "no-restricted-properties": [
+          "error",
+          {
+            "object": "z",
+            "property": "any",
+            "message": "z.any() turns off validation and typing; use z.unknown() and narrow, or a precise schema."
+          },
+          {
+            "object": "Date",
+            "property": "now",
+            "message": "Computing takes the clock as an argument (now: number)."
+          },
+          {
+            "object": "Math",
+            "property": "random",
+            "message": "Computing takes a seeded random source as an argument."
+          }
+        ] // Repeats the root z.any entry: an override replaces the rule options.
+      }
+    },
+    {
+      // Tests of computing modules set up the browser globals the code under test receives.
+      "files": ["src/computing/**/*.test.ts"],
+      "rules": {
+        "no-restricted-globals": [
+          "error",
+          {
+            "name": "DOMParser",
+            "message": "Use htmlparser2 (streaming parser) instead of DOMParser."
+          }
+        ] // Tests may set up window and storage; DOMParser stays banned as in the root config.
       }
     },
     {
