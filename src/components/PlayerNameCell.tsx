@@ -5,6 +5,7 @@ import { getPlayerRowModel } from '@/features/table/playerRowModel';
 import { useUiText } from '@/hooks/useUiText';
 import { copyTextToClipboard } from '@/lib/clipboard';
 import { cn } from '@/lib/utils';
+
 import { PlayerAvatar } from './PlayerAvatar';
 
 import type { Player } from '@/ui/types';

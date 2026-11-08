@@ -1,6 +1,6 @@
 import { POSITION_FILTERS } from '@/config/scoreConfig';
-import { useSettingsStore } from '@/store/useSettingsStore';
 import { processor } from '@/data/dataProcessor';
+import { useSettingsStore } from '@/store/useSettingsStore';
 
 export type ComparisonKind = 'attribute' | 'filter' | 'stat';
 

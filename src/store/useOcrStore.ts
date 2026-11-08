@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import type { OCRResult } from '../ocr/ocrParsing';
 
 interface OcrState {

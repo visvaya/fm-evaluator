@@ -1,7 +1,7 @@
+import { type AppSettings } from '@/config/settingsModel';
 import { createCleanValue } from '@/data/cleanValue';
 import { getNumericValue } from '@/data/getNumericValue';
 import { parseNumber } from '@/data/parseNumber';
-import { type AppSettings } from '@/config/settingsModel';
 import { useSettingsStore } from '@/store/useSettingsStore';
 import { useTableStore } from '@/store/useTableStore';
 

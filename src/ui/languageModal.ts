@@ -1,9 +1,9 @@
 // Phase 5A: showLanguageChoiceModal + continueFileProcessing migrated from main.js (L191-381)
 
+import { setLanguage } from '../i18n/updateUi';
+import { getCurrentLanguage, t, tNested } from '../lib/i18nBridge';
 import { continueImportFlowProcessing } from '../lib/legacyActionBridge';
 import { getProcessor } from '../lib/processorBridge';
-import { getCurrentLanguage, t, tNested } from '../lib/i18nBridge';
-import { setLanguage } from '../i18n/updateUi';
 import { useTableStore } from '../store/useTableStore';
 
 let pendingFileProcessing: ((selectedLang: string) => void) | null = null;

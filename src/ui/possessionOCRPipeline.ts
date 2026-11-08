@@ -1,11 +1,12 @@
+import { getProcessor } from '../lib/processorBridge';
 import { cropImage, preprocessImageForOCRFromCanvas } from '../ocr/ocrImageProcessing';
 import { normalizeTextForMatching } from '../ocr/ocrMatching';
 import { type OCRResult, parseOCRText, updateReferenceDatabase } from '../ocr/ocrParsing';
 import { ocrAreas, ocrSettings } from '../ocr/ocrSettings';
 import { ocrWorkerPool } from '../ocr/ocrWorkerPool';
-import { getProcessor } from '../lib/processorBridge';
-import { displayOCRResults } from './possessionOCRDisplay';
+
 import { renderPossessionClubList } from './possessionClubList';
+import { displayOCRResults } from './possessionOCRDisplay';
 
 export async function processWithConcurrencyLimit<T>(
   items: T[],

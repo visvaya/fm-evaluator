@@ -8,8 +8,8 @@ import {
   resetDiagnosticsStore,
   useDiagnosticsStore
 } from '@/features/diagnostics/runtimeDiagnostics';
-import { useWorkspaceStore } from '@/store/useWorkspaceStore';
 import { useTableStore } from '@/store/useTableStore';
+import { useWorkspaceStore } from '@/store/useWorkspaceStore';
 
 import { DiagnosticsShell } from './DiagnosticsShell';
 

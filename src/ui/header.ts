@@ -1,6 +1,7 @@
 // Header rendering logic extracted from main.js
 import { t } from '../lib/i18nBridge';
 import { escapeHtmlAttribute } from '../utils/escapeHtmlAttribute';
+
 import type { Column, SortState } from './types';
 
 /**

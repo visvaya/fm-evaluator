@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { useOcrStore } from '../store/useOcrStore';
 
 vi.mock('@/features/legacyRuntime/legacyActionAttributes', () => ({
@@ -23,6 +24,7 @@ import {
   refreshOCRResultsDisplay,
   removeOCRResult
 } from './possessionOCRDisplay';
+
 import type { OCRResult } from '../ocr/ocrParsing';
 
 function makeResult(overrides: Partial<OCRResult> = {}): OCRResult {

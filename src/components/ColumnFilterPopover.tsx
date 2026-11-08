@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
 import { RotateCcw } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { COLUMNS } from '@/config/columns';
 import { translatePosition, translateValue } from '@/i18n/translate';
@@ -7,12 +7,12 @@ import { getFilterRuntime } from '@/lib/filterRuntime';
 import { cn } from '@/lib/utils';
 import { store as legacyTableStore } from '@/store/tableStore';
 import { useTableStore } from '@/store/useTableStore';
-import { applyFilter, resetColumnFilter, setupScrollInput } from '@/ui/filters';
 import {
   isLdcMatchedLeague,
   sortPositionsIntelligently,
   STANDARD_POSITION_ORDER
 } from '@/ui/filterModel';
+import { applyFilter, resetColumnFilter, setupScrollInput } from '@/ui/filters';
 import { normalizeDiacritics } from '@/utils/helpers';
 
 const SCORE_RANGE_COLUMNS = new Set(['attrScore', 'statScore', 'totalScore']);

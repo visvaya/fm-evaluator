@@ -9,6 +9,9 @@
   "tabWidth": 2,
   "trailingComma": "none",
   "sortPackageJson": false,
+  "sortImports": {
+    "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "type", "unknown"]
+  },
   "ignorePatterns": [
     "dist/",
     "node_modules/",

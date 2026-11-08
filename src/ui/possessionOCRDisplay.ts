@@ -1,9 +1,11 @@
 import { legacyResultActionAttrs } from '@/features/legacyRuntime/legacyActionAttributes';
+
+import { getProcessor } from '../lib/processorBridge';
 import { correctCommonOCRErrors } from '../ocr/ocrMatching';
 import { type OCRResult } from '../ocr/ocrParsing';
 import { useOcrStore } from '../store/useOcrStore';
 import { escHtml as esc } from '../utils/escHtml';
-import { getProcessor } from '../lib/processorBridge';
+
 import { renderPossessionClubList } from './possessionClubList';
 
 export function formatOCRResult(r: OCRResult, resultIndex: number): string {
