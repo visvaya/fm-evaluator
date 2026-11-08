@@ -14,3 +14,11 @@ pmOnFail: ignore
 
 # Do not resolve package versions published less than 3 days ago (minutes).
 minimumReleaseAge: 4320
+
+# The lint plugins run inside oxlint, which does not need eslint itself. Remove their eslint
+# peer so pnpm does not install it (and its dependency tree) just to satisfy the declaration.
+overrides:
+  'eslint:peer': '-'
+  # GHSA-g3hv-75wg-m249 (moderate, development only): fixed only in minimatch 11. eslint-plugin-sonarjs
+  # and @typescript-eslint/typescript-estree still ask for ^10. Remove when both accept 11.
+  'minimatch@<11.0.1': '^11.0.1'
