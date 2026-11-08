@@ -5,6 +5,7 @@ import { calculateMissingColumns } from './calculateMissingColumns';
 import { computeStructureHash } from './computeStructureHash';
 import { detectFileType } from './detectFileType';
 import { extractAgeFromDob } from './extractAgeFromDob';
+import { readImportedCellText } from './importedCellText';
 import { normalizeHeader } from './normalizeHeader';
 
 export interface ParseSessionState {
@@ -319,7 +320,7 @@ export async function parseHTMLWithNewSystemData(
       const colIdx = parseInt(colIndexStr, 10);
       if (isNaN(colIdx)) continue;
       if (cells[colIdx]) {
-        rowData[colIdx] = cells[colIdx].textContent.trim();
+        rowData[colIdx] = readImportedCellText(cells[colIdx]);
       }
     }
     rowData.index = index;

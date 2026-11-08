@@ -1,3 +1,5 @@
+import { IMPORT_LIMITS } from '@/config/importLimits';
+
 import { normalizeDiacritics } from '../utils/helpers';
 
 export function normalizeClubName(name: unknown): string {
@@ -50,7 +52,8 @@ export function updatePossessionMapFromText(map: Map<string, number>, textData: 
   const lines = String(textData).split(/\r?\n/);
   for (const rawLine of lines) {
     const line = rawLine.trim();
-    if (!line) continue;
+    // No club name with its percentage is this long; POSSESSION_LINE_RE is super-linear on long lines.
+    if (!line || line.length > IMPORT_LIMITS.pastedLineLengthChars) continue;
     const match = POSSESSION_LINE_RE.exec(line);
     if (!match) continue;
     const clubName = match[1].trim();
