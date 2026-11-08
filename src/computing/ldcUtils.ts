@@ -545,15 +545,16 @@ export function levenshteinDistance(str1: string, str2: string): number {
     const unit = longerUnits[i - 1];
     current[0] = i;
     for (let j = 1; j <= shorter.length; j++) {
+      const diagonal = previous[j - 1] ?? 0;
       current[j] =
         unit === shorterUnits[j - 1]
-          ? previous[j - 1]
-          : Math.min(previous[j], current[j - 1], previous[j - 1]) + 1;
+          ? diagonal
+          : Math.min(previous[j] ?? 0, current[j - 1] ?? 0, diagonal) + 1;
     }
     [previous, current] = [current, previous];
   }
 
-  return previous[shorter.length];
+  return previous[shorter.length] ?? 0;
 }
 
 /** UTF-16 code units: the distance counts them, as indexing the string does. */
