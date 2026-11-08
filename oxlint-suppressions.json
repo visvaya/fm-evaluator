@@ -1928,9 +1928,6 @@
     "fp/no-mutation": {
       "count": 6
     },
-    "regexp/no-unused-capturing-group": {
-      "count": 2
-    },
     "typescript/no-explicit-any": {
       "count": 7
     },
@@ -2567,12 +2564,6 @@
   "src/parsing/parsers/wageParser.js": {
     "max-classes-per-file": {
       "count": 1
-    },
-    "no-unused-vars": {
-      "count": 1
-    },
-    "regexp/no-unused-capturing-group": {
-      "count": 3
     }
   },
   "src/parsing/universalParser.js": {

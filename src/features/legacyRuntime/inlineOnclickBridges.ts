@@ -57,7 +57,10 @@ function observeInlineOnclick({
 }
 
 export function parseInlineCopyToClipboard(onclick: string): null | string {
-  const match = /copyToClipboard\(\s*event\s*,\s*'((?:\\\\'|\\\\\\\\|[^'])*)'/.exec(onclick);
+  // The alternatives never match at the same position, so a long run of backslashes cannot make
+  // the engine try exponentially many splits.
+  const match =
+    /copyToClipboard\(\s*event\s*,\s*'((?:\\\\'|\\\\\\\\|[^'\\]|\\(?!\\'|\\\\\\))*)'/.exec(onclick);
   if (!match) return null;
 
   return match[1].replaceAll(String.raw`\\'`, "'").replaceAll('\\\\\\\\', '\\');

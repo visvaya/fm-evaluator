@@ -223,6 +223,12 @@ describe('importRuntime', () => {
     );
   });
 
+  it('removes style blocks and handlers that a first removal would join together', () => {
+    expect(sanitizeImportedHtml('<sty<style></style>le>x</style><b oonx=nclick=y>Ok</b>')).toBe(
+      '<b y>Ok</b>'
+    );
+  });
+
   it('parses imported html with batch info and progress callback', async () => {
     const parseHTML = vi.fn().mockResolvedValue({ type: 'stats' });
     const onStatus = vi.fn();

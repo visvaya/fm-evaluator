@@ -20,10 +20,20 @@ function toRepoRelative(file) {
   return path.relative(appDir, path.resolve(appDir, file)).replaceAll('\\', '/');
 }
 
+// Reads in one step instead of checking first, so a file removed or replaced in between is skipped
+// rather than read in a different state.
+function readFileOrNull(absolute) {
+  try {
+    return fs.readFileSync(absolute);
+  } catch (error) {
+    if (error.code === 'ENOENT' || error.code === 'EISDIR') return null;
+    throw error;
+  }
+}
+
 function issuesForFile(file) {
-  const absolute = path.join(appDir, file);
-  if (!fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) return [];
-  const buffer = fs.readFileSync(absolute);
+  const buffer = readFileOrNull(path.join(appDir, file));
+  if (buffer === null) return [];
   if (!isProbablyText(buffer)) return [];
   return findTypographyIssues(buffer.toString('utf-8')).map((issue) => ({ file, ...issue }));
 }
