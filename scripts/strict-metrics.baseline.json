@@ -1,5 +1,5 @@
 {
-  "total": 751,
+  "total": 749,
   "byCode": {
     "TS1294": 2,
     "TS18046": 1,
@@ -14,7 +14,7 @@
     "TS2379": 4,
     "TS2412": 1,
     "TS2531": 4,
-    "TS2532": 168,
+    "TS2532": 166,
     "TS2533": 7,
     "TS2538": 15,
     "TS2564": 8,
@@ -63,7 +63,6 @@
     "src/data/deriveStatsTail.ts": 1,
     "src/data/detectFileType.test.ts": 3,
     "src/data/extractAgeFromDob.ts": 1,
-    "src/data/getNumericValue.ts": 2,
     "src/data/handleFiles.test.ts": 4,
     "src/data/handleFiles.ts": 13,
     "src/data/importPipeline.golden.test.ts": 3,

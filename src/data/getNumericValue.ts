@@ -1,4 +1,5 @@
 import { parseNumber } from './parseNumber';
+import { splitRange } from './splitRange';
 
 const MISSING_SYMBOLS = new Set([
   '',
@@ -14,8 +15,6 @@ const MISSING_SYMBOLS = new Set([
   'none',
   'Unknown'
 ]);
-
-const RANGE_SPLIT_RE = /^\s*(.+?)\s*[-–\u2014]\s*(.+?)\s*$/;
 
 export function getNumericValue(
   val: unknown,
@@ -39,10 +38,10 @@ export function getNumericValue(
     !s.startsWith('–') &&
     !s.startsWith('\u2014')
   ) {
-    const rangeMatch = RANGE_SPLIT_RE.exec(s);
+    const rangeMatch = splitRange(s);
     if (rangeMatch) {
-      const leftVal = parseNumber(rangeMatch[1].trim());
-      const rightVal = parseNumber(rangeMatch[2].trim());
+      const leftVal = parseNumber(rangeMatch[0].trim());
+      const rightVal = parseNumber(rangeMatch[1].trim());
       if (leftVal !== null && rightVal !== null) {
         if (useAverageForRanges) {
           return Math.max(0, (leftVal + rightVal) / 2);
