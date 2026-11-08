@@ -28,7 +28,8 @@ new RuleTester().run('english-only', commentsPlugin.rules['english-only'], {
   valid: [
     ts('// Average of the last five matches\nconst a = 1;'),
     ts("const label = 'Średnia'; // Polish only in the string"),
-    ts('/* Price in € */ const price = 1;')
+    ts('/* Price in € */ const price = 1;'),
+    ts('// "1,5M zł" keeps its multiplier\nconst a = 1;')
   ],
   invalid: [
     invalid('// Średnia z meczów\nconst a = 1;'),

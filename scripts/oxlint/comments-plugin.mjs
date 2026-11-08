@@ -1,7 +1,8 @@
 // Local oxlint plugin: code comments are written in English. Polish letters are the cheap signal;
-// Polish written without them is not caught.
+// Polish written without them is not caught. The zloty sign "zł" is a currency, not language.
 
 const POLISH_LETTER = /[ąćęłńóśźż]/iu;
+const ZLOTY_SIGN = /zł/gu;
 
 const englishOnlyRule = {
   meta: {
@@ -13,7 +14,7 @@ const englishOnlyRule = {
     return {
       Program() {
         for (const comment of context.sourceCode.getAllComments()) {
-          if (POLISH_LETTER.test(comment.value)) {
+          if (POLISH_LETTER.test(comment.value.replaceAll(ZLOTY_SIGN, ''))) {
             context.report({ loc: comment.loc, messageId: 'polish' });
           }
         }
