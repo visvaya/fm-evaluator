@@ -516,4 +516,3 @@ pageNumberInput?.addEventListener(
 ['first', 'prev', 'next', 'last'].forEach((d) =>
   document.getElementById(`page-${d}`)?.addEventListener('click', () => changePage(d))
 );
-// Funkcja aktualizująca stan checkboxów normalizacji

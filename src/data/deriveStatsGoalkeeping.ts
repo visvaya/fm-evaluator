@@ -14,56 +14,56 @@ export function applyGoalkeepingDerivations({
   mins,
   player
 }: GoalkeepingDerivationArgs) {
-  // --- SYSTEM REKONSTRUKCJI STATYSTYK BRAMKARSKICH ---
-  // Zamiast naprawiać zepsute wartości z pliku, całkowicie je rekonstruujemy z surowych danych
+  // --- GOALKEEPING STATS RECONSTRUCTION ---
+  // Instead of fixing broken values from the file, rebuild them entirely from the raw data
 
-  // 1. Rekonstrukcja interwencji i strzałów
+  // 1. Rebuild saves and shots faced
   const svt = getN('Svt');
   const svp = getN('Svp');
   const svh = getN('Svh');
   const totalSaves = svt + svp + svh;
 
   const conc = getN('Conc');
-  // Shots Faced = Obrony + Puszczone Gole
+  // Shots Faced = saves + goals conceded
   const shotsFaced = totalSaves + conc;
 
-  // 2. NewSaves/90 (Obliczamy jako suma Svh + Svt + Svp * factor90, nadpisujemy wartość 'Saves/90' z pliku precyzyjnym wyliczeniem)
-  // W pliku wartości są zaokrąglone do liczb całkowitych (np. 1 lub 2), co jest mało dokładne.
+  // 2. NewSaves/90 (computed as (Svh + Svt + Svp) * factor90; overrides the file's 'Saves/90' with a precise value)
+  // The file rounds these values to integers (e.g. 1 or 2), which is imprecise.
   if (mins > 0 && totalSaves >= 0) {
-    player['Saves/90'] = (totalSaves * factor90).toFixed(2); // Zapisujemy jako 'Saves/90' dla kompatybilności
+    player['Saves/90'] = (totalSaves * factor90).toFixed(2); // Stored as 'Saves/90' for compatibility
   }
 
-  // 3. NewSv % (Obliczamy jako (Svt + Svp + Svh) / ((Svt + Svp + Svh) + Conc) * 100%, nadpisujemy wartość 'Sv %' z pliku)
-  // Wzór: NewSv % = totalSaves / shotsFaced * 100, gdzie shotsFaced = totalSaves + Conc
+  // 3. NewSv % (computed as (Svt + Svp + Svh) / ((Svt + Svp + Svh) + Conc) * 100%; overrides the file's 'Sv %')
+  // Formula: NewSv % = totalSaves / shotsFaced * 100, where shotsFaced = totalSaves + Conc
   if (shotsFaced > 0) {
     const calculatedSvPct = (totalSaves / shotsFaced) * 100;
-    player['Sv %'] = calculatedSvPct.toFixed(1); // Zapisujemy jako 'Sv %' dla kompatybilności, np. 77.4%
+    player['Sv %'] = calculatedSvPct.toFixed(1); // Stored as 'Sv %' for compatibility, e.g. 77.4%
   } else {
     player['Sv %'] = '0.0';
   }
 
-  // 4. xSv % (Obliczamy na podstawie xGP)
-  // Wzór: Expected Save % = (Expected Saves / Shots Faced) * 100
-  // Odtwarzamy xG Against: xG = Conc + xGP (bo xGP = xG - Conc)
+  // 4. xSv % (computed from xGP)
+  // Formula: Expected Save % = (Expected Saves / Shots Faced) * 100
+  // Rebuild xG Against: xG = Conc + xGP (because xGP = xG - Conc)
   // Expected Saves = Shots Faced - xG
 
   const xgpVal = getV('xGP');
 
   if (xgpVal !== null && shotsFaced > 0) {
-    // Odtwarzamy xG, z którym mierzył się bramkarz
+    // Rebuild the xG the goalkeeper faced
     const reconstructedXG = conc + xgpVal;
 
-    // Obliczamy oczekiwaną skuteczność
-    // Jeśli xG wynosiło 12.37 na 31 strzałów, to xSv% = (31 - 12.37) / 31 * 100
+    // Compute the expected save rate
+    // If xG was 12.37 from 31 shots, then xSv% = (31 - 12.37) / 31 * 100
     const expectedSaves = shotsFaced - reconstructedXG;
     const calculatedXSvPct = (expectedSaves / shotsFaced) * 100;
 
     player['xSv %'] = calculatedXSvPct.toFixed(1);
   }
-  // Jeśli brak xGP, xSv % pozostaje null (nie ma danych do obliczenia)
+  // Without xGP, xSv % stays null (no data to compute it from)
 
-  // 5. Save Efficiency (Ważona skuteczność interwencji)
-  // Pozostaje bez zmian, bo opiera się na surowych danych
+  // 5. Save Efficiency (weighted save quality)
+  // Unchanged, because it is based on raw data
   if (!hasValue('Save Efficiency') && totalSaves > 0) {
     const weightedScore = svh * 3 + svt * 2 + svp * 1;
     player['Save Efficiency'] = (weightedScore / totalSaves).toFixed(2);

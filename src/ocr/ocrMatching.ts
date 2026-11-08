@@ -83,7 +83,7 @@ export function findBestClubMatchWithLeague(
 ): ClubMatchResult | null {
   if (!ocrName || clubMap.size === 0) return null;
 
-  // KROK 0: korekta diakrytyków
+  // STEP 0: diacritics correction
   const normalizedOcr = normalizeTextForMatching(ocrName);
   let bestDiacriticMatch: ClubMatchResult | null = null;
   let bestDiacriticScore = 0;
@@ -112,7 +112,7 @@ export function findBestClubMatchWithLeague(
   }
   if (bestDiacriticMatch) return bestDiacriticMatch;
 
-  // KROK 1: dokładne dopasowanie
+  // STEP 1: exact match
   const exactMatch = findExactClubMatch(ocrName, clubMap);
   if (exactMatch) {
     exactMatch.leagueMatch = filterByLeague
@@ -127,7 +127,7 @@ export function findBestClubMatchWithLeague(
   const cleanOcrLeague = ocrLeague ? normalizeLeagueNameForOCR(ocrLeague) : '';
   const ocrNumbers = ocrName.match(/\d+/g);
 
-  // KROK 2: Priorytetyzacja klubów z pasującymi cyframi
+  // STEP 2: Prioritize clubs with matching digits
   let prioritizedClubsList: any[] | null = null;
   if (ocrNumbers && ocrNumbers.length > 0) {
     prioritizedClubsList = [];

@@ -121,7 +121,7 @@ export function parseOCRText(
   const results: OCRResult[] = [];
   const errors: string[] = [];
 
-  // KROK 1: Wykryj ligę z nagłówka
+  // STEP 1: Detect the league from the header
   const leagueCandidates: { position: number; score: number; text: string }[] = [];
   for (let i = 0; i < Math.min(lines.length, 10); i++) {
     const line = lines[i].trim();
@@ -147,7 +147,7 @@ export function parseOCRText(
     detectedLeague = correctCommonOCRErrors(leagueCandidates[0].text);
   }
 
-  // KROK 2: Wyciągnij kluby z danych
+  // STEP 2: Extract clubs from the data
   const clubMap = extractClubsWithLeagues();
   let filteredClubMap = clubMap;
   let useFilteredOnly = false;
@@ -165,7 +165,7 @@ export function parseOCRText(
     }
   }
 
-  // KROK 3: Parsuj każdą linię
+  // STEP 3: Parse each line
   lines.forEach((line, lineIndex) => {
     const cleanLine = line.trim();
     if (!cleanLine) return;
