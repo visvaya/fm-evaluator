@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# Pull request review settings. Defaults apply to everything not listed here.
+language: en-US
+reviews:
+  profile: chill
+  # The pull request description is the author's text; the summary goes to the walkthrough comment.
+  high_level_summary_in_walkthrough: true
+  poem: false
+  pre_merge_checks:
+    # The project has no docstring rule; the check only adds a warning to every pull request.
+    docstrings:
+      mode: 'off'
+  # Generated or frozen files: their diffs are reviewed through the change that produced them.
+  path_filters:
+    - '!**/pnpm-lock.yaml'
+    - '!oxlint-suppressions.json'
+    - '!scripts/strict-metrics.baseline.json'
+    - '!scripts/legacy-metrics.baseline.json'
+    - '!goldens/snapshots/**'
+  path_instructions:
+    - path: '**'
+      instructions: >-
+        Project rules: imported Football Manager data is local and sensitive, and no real export
+        belongs in the repository (tests use the fixtures under goldens/ and e2e/). No em dash
+        (U+2014) or emoji in code, comments or documents; comments in English. Lean code: reuse
+        existing helpers, no option or abstraction without a current user. No classes except
+        React error boundaries and Error subclasses. Prefix comments on problems this pull
+        request did not cause with "Pre-existing:". Do not comment on what the gate already
+        enforces: formatting (oxfmt), lint (oxlint, type-aware, frozen baseline that may only
+        shrink), types (tsc and the strict ratchet), dead code (knip), duplication (jscpd),
+        coverage floors, bundle budget (check:dist), text rules (check:typography), unreferenced
+        public files (check:public-assets).
+    - path: 'src/**'
+      instructions: >-
+        The Content Security Policy is strict: no eval, new Function or inline on* handlers
+        (use data-fm-action). User-facing text only in public/i18n/messages/en.json and pl.json,
+        every key in both. Imported text is escaped where it is rendered; regex HTML clean-up is a
+        parsing helper, not a security control.
+    - path: 'src/computing/**'
+      instructions: >-
+        Pure logic: it takes the clock, randomness, storage and network as arguments and reads no
+        browser globals; every behaviour change needs a unit test.
+    - path: 'goldens/**'
+      instructions: >-
+        Golden snapshots change only with an intended behaviour change explained in the same pull
+        request.
