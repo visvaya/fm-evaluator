@@ -65,6 +65,9 @@ vi.mock('./importRuntime', async (importOriginal) => {
   const actual = await importOriginal<typeof import('./importRuntime')>();
   return {
     ...actual,
+    // The real one waits up to 2 s for parsed collections that these mocks never produce, which
+    // outlived the test and touched window after teardown.
+    continueImportAfterParsing: vi.fn().mockResolvedValue(undefined),
     processImportedFilesBatch: processImportedFilesBatchMock
   };
 });
@@ -183,6 +186,11 @@ describe('handleFiles pagination bridge', () => {
 
   it('rewires duplicate retry button to re-trigger processing with force flag', async () => {
     processorMock.fileStack = [{ name: 'duplicate.html', type: 'attr' }];
+    const addAudit = vi.fn();
+    const auditWindow = window as unknown as { addAudit?: typeof addAudit };
+    auditWindow.addAudit = addAudit;
+    const finishedRuns = () =>
+      addAudit.mock.calls.filter(([event]) => event === 'files_processing_finished').length;
     const module = await import('./handleFiles');
 
     await module.handleFiles([
@@ -198,8 +206,11 @@ describe('handleFiles pagination bridge', () => {
     document
       .getElementById('retry-files-btn')
       ?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    await new Promise((resolve) => setTimeout(resolve, 0));
+    // The click starts handleFiles without returning its promise. Wait until the retried run has
+    // finished, so it cannot touch window after the test environment is torn down.
+    await vi.waitFor(() => expect(finishedRuns()).toBe(2));
 
     expect(processImportedFilesBatchMock).toHaveBeenCalledTimes(1);
+    delete auditWindow.addAudit;
   });
 });
