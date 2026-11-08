@@ -39,3 +39,18 @@ updates:
     groups:
       actions:
         patterns: ['*']
+  # The Semgrep image of the quality gate, pinned by tag and digest in this never-built Dockerfile.
+  - package-ecosystem: docker
+    directory: /.github/docker/semgrep
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Europe/Warsaw
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: ci
+      include: scope
+    groups:
+      docker:
+        patterns: ['*']
