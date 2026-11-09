@@ -43,9 +43,10 @@ const loadConfig = (language: string) => {
   return result.data;
 };
 
-const mapRow = (headers: string[]) => {
+const mapRow = (headers: string[], withContext = true) => {
   const mapper = new globals.SmartHeaderMapper();
-  const config = loadConfig(mapper.detectLanguage(headers));
+  const { ambiguous, ...rest } = loadConfig(mapper.detectLanguage(headers));
+  const config = withContext ? { ...rest, ambiguous } : rest;
   const { columnMap } = mapper.mapHeaders(headers, config, new globals.SchemaRegistry());
   return headers.map((_, index) => columnMap[String(index)] ?? null);
 };
@@ -60,6 +61,16 @@ describe('header mapping across export languages', () => {
   it('maps the English row to schema fields', () => {
     expect(english.filter(Boolean).length).toBeGreaterThan(120);
   });
+
+  // Without a context for a repeated header the resolver falls back to its category; that
+  // fallback already told the English "Nat" and the repeated Polish headers apart.
+  it.each(['English-UK', 'Polski'])(
+    'maps %s by category without the neighbour config',
+    (language) => {
+      const headers = HEADER_ROWS[language] ?? [];
+      expect(mapRow(headers, false)).toEqual(english);
+    }
+  );
 
   it.each(Object.keys(HEADER_ROWS))('maps every %s column like the English one', (language) => {
     const headers = HEADER_ROWS[language] ?? [];
