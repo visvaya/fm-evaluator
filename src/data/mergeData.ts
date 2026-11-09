@@ -41,6 +41,29 @@ function hasMeaningfulValue(row: any, key: string, cleanValue: (value: any) => a
   return cleanValue(row[key]) !== null;
 }
 
+const MONEY_RANGE_FIELDS = ['basic_transfer_value', 'basic_wage'] as const;
+
+// Each field is merged on its own, so the bounds of a money range could come from another export
+// than the value. Keep them only from a row whose value is the merged one.
+function keepRangeBoundsOfValue(
+  merged: Record<string, unknown>,
+  rows: readonly Record<string, unknown>[]
+): void {
+  for (const field of MONEY_RANGE_FIELDS) {
+    const source = rows.find(
+      (row) => row[field] === merged[field] && typeof row[`${field}_low`] === 'number'
+    );
+    for (const bound of ['low', 'high'] as const) {
+      const key = `${field}_${bound}`;
+      if (source) {
+        merged[key] = source[key];
+      } else {
+        Reflect.deleteProperty(merged, key);
+      }
+    }
+  }
+}
+
 export function mergeProcessorData(
   { attributes, cleanValue, fileStack, parseFeet, parsePositions, stats }: MergeDataDependencies,
   mergeMode = false
@@ -279,6 +302,9 @@ export function mergeProcessorData(
       if (merged.Wage || merged['Płaca'] || merged.basic_wage) {
         merged.basic_wage_display = merged.Wage || merged['Płaca'] || merged.basic_wage_display;
       }
+      const attrRows = attrList as Record<string, unknown>[];
+      const statRows = statList as Record<string, unknown>[];
+      keepRangeBoundsOfValue(merged as Record<string, unknown>, [...attrRows, ...statRows]);
 
       merged.positionArray = parsePositions(merged.Position || '');
       merged.pos2Array = parsePositions(merged['Sec. Position'] || '');

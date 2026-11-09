@@ -3,6 +3,47 @@ import { describe, expect, it } from 'vitest';
 import { createCleanValue } from './cleanValue';
 import { mergeProcessorData } from './mergeData';
 
+const plainNumber = (value: unknown) => {
+  if (value === null || value === undefined || value === '') return null;
+  const parsed = Number(value);
+  return Number.isNaN(parsed) ? null : parsed;
+};
+
+const mergeAttributeRows = (attributes: Record<string, unknown>[]): unknown[] =>
+  mergeProcessorData(
+    {
+      attributes,
+      cleanValue: plainNumber,
+      fileStack: [],
+      parseFeet: () => ({ left: 3, right: 4 }),
+      parsePositions: (position) => [position].filter(Boolean),
+      stats: []
+    },
+    true
+  );
+
+describe('mergeProcessorData money range bounds', () => {
+  const single = { UID: '7', basic_transfer_value: 1600 };
+  const ranged = {
+    UID: '7',
+    basic_transfer_value: 22_000,
+    basic_transfer_value_high: 35_000,
+    basic_transfer_value_low: 9000
+  };
+
+  it('drops the bounds of a range when the value comes from another export', () => {
+    const [merged] = mergeAttributeRows([single, ranged]);
+    expect(merged).toMatchObject({ basic_transfer_value: 1600 });
+    expect(merged).not.toHaveProperty('basic_transfer_value_low');
+    expect(merged).not.toHaveProperty('basic_transfer_value_high');
+  });
+
+  it('keeps the bounds of the export the value comes from', () => {
+    const [merged] = mergeAttributeRows([ranged, single]);
+    expect(merged).toMatchObject(ranged);
+  });
+});
+
 describe('mergeProcessorData', () => {
   it('aggregates merge-mode raw stats before deriving per-90 values', () => {
     const merged = mergeProcessorData(
