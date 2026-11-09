@@ -20,7 +20,10 @@ test.use({
 
 test('README screenshots', async ({ page }) => {
   await page.goto('/');
-  await page.locator('#files-input').setInputFiles(FIXTURE);
+  // The drop-zone input stays disabled until the app has finished booting.
+  const fileInput = page.locator('#drop-zone-container input[type="file"]');
+  await expect(fileInput).toBeEnabled();
+  await fileInput.setInputFiles(FIXTURE);
   const rows = page.locator('#table-body tr:not(.virtual-spacer)');
   await expect(rows.first()).toBeVisible({ timeout: 30_000 });
 
@@ -28,11 +31,14 @@ test('README screenshots', async ({ page }) => {
   await page.locator('#run-analysis').click();
   await expect(page.locator('th[data-col-id="totalScore"]')).toHaveCount(1);
   await page.mouse.move(0, 0);
-  await page.screenshot({ path: path.join(IMAGES_DIR, 'ranking.png') });
+  await page.screenshot({ animations: 'disabled', path: path.join(IMAGES_DIR, 'ranking.png') });
 
   await rows.first().click();
   const drawer = page.locator('[data-testid="player-details-drawer"]');
   await expect(drawer.locator('[data-testid="player-details-score-cards"]')).toBeVisible();
   await page.mouse.move(0, 0);
-  await page.screenshot({ path: path.join(IMAGES_DIR, 'player-details.png') });
+  await page.screenshot({
+    animations: 'disabled',
+    path: path.join(IMAGES_DIR, 'player-details.png')
+  });
 });
