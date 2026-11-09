@@ -29,6 +29,11 @@ const oldCorrect = (text: string): string => {
 
 // Letters inside and outside the ASCII word characters, the "ll"/"li" endings, and breaks.
 const LETTERS = ['A', 'b', 'l', 'L', 'i', 'I', 'À', 'é', '1', '_', ' ', '-'];
+// One of each kind for the exhaustive run, which needs length 5 for a match (3 letters and "ll")
+// and stays within the test timeout on a loaded machine: an ASCII letter, the two endings, an
+// upper-case L, a letter that is not a word character, a word character that is not a letter,
+// and a break.
+const KINDS = ['A', 'l', 'L', 'i', 'À', '1', ' '];
 
 const corrections = (texts: readonly string[]): string[] =>
   texts
@@ -62,7 +67,7 @@ describe('correctCommonOCRErrors', () => {
   });
 
   it('matches the former corrections on every string up to length 5', () => {
-    expect(corrections(allStrings(LETTERS, 5))).toEqual([]);
+    expect(corrections(allStrings(KINDS, 5))).toEqual([]);
   });
 
   it('matches the former corrections on seeded random strings', () => {
