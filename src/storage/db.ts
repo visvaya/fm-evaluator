@@ -287,6 +287,17 @@ export async function saveLdcMappingsDb(mappings: any) {
   emitDbEvent('ldc.mappings.updated');
 }
 
+// Named sets of league mappings, kept as a second row of the mappings table (no schema change).
+// Raw value: the caller parses it.
+export async function loadLdcMappingTemplatesDb(): Promise<unknown> {
+  const record = await db.ldcMappings.get('templates');
+  return record ? record.mappings : null;
+}
+
+export async function saveLdcMappingTemplatesDb(templates: unknown) {
+  await db.ldcMappings.put({ id: 'templates', mappings: templates, updatedAt: Date.now() });
+}
+
 // LDC settings/mappings
 export async function saveLdcSettingsDb(data: any) {
   if (!db.ldcSettings) return;

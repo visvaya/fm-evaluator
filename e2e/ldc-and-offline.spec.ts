@@ -296,6 +296,51 @@ test.describe('LDC missing-league mapping', () => {
     await expect(mappingsModal.getByText('Premier League')).toBeVisible();
     await expect(mappingsModal.getByText('Anglia')).toHaveCount(2);
   });
+
+  test('should save mappings as a template, load it back and keep it after a reload', async ({
+    page
+  }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    await uploadAndWaitForTable(page, syntheticLeagueFixture());
+
+    await page.locator('#ldc-btn').click();
+    await page.locator('#ldc-show-missing-btn').click();
+    const missingPanel = page.locator('#ldc-missing-leagues');
+    await missingPanel.locator('.ldc-country-checkbox').first().check();
+    await page.locator('#ldc-match-selected-btn').click();
+    const matchDialog = page
+      .locator('div.fixed.inset-0')
+      .filter({ has: page.getByPlaceholder('Wyszukaj ligę...') })
+      .last();
+    await matchDialog.getByPlaceholder('Wyszukaj ligę...').fill('Premier League');
+    await matchDialog
+      .getByText(/Premier League.*Anglia/)
+      .first()
+      .click();
+    await matchDialog.getByRole('button', { name: 'Wybierz', exact: true }).click();
+
+    await page.locator('#ldc-manage-mappings-btn').click();
+    const mappingsModal = page.locator('#ldc-mappings-modal');
+    await mappingsModal.locator('#ldc-template-name').fill('Sezon testowy');
+    await mappingsModal.locator('#ldc-save-template-btn').click();
+    await expect(mappingsModal.locator('#ldc-load-template')).toHaveValue('Sezon testowy');
+
+    await mappingsModal.locator('#ldc-mappings-select-all').check();
+    await mappingsModal.locator('#ldc-mappings-bulk-delete-btn').click();
+    await expect(mappingsModal.getByText('Synthetic English League')).toHaveCount(0);
+    await mappingsModal.locator('#ldc-load-template-btn').click();
+    await expect(mappingsModal.getByText('Synthetic English League')).toBeVisible();
+
+    // Templates live in IndexedDB, so they outlast a reload without another import.
+    await page.reload();
+    await page.waitForLoadState('networkidle');
+    await page.locator('#ldc-btn').click();
+    await page.locator('#ldc-manage-mappings-btn').click();
+    await expect(
+      page.locator('#ldc-mappings-modal #ldc-load-template option', { hasText: 'Sezon testowy' })
+    ).toHaveCount(1);
+  });
 });
 
 // ============================================================================

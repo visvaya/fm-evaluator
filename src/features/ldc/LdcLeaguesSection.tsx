@@ -233,6 +233,7 @@ export function LdcLeaguesSection() {
     orderProblems,
     searchTerm,
     selectedLeagueIds,
+    setGroupBy,
     setLeagueFilter,
     setLeaguesExpanded,
     setSearchTerm,
@@ -555,9 +556,11 @@ export function LdcLeaguesSection() {
 
       <div className="overflow-hidden rounded-xl border border-border bg-surface/35">
         <LdcLeaguesToolbar
+          groupBy={settings.groupBy}
           isExpanded={isLeaguesExpanded}
           leagueFilter={leagueFilter}
           onAddLeague={addLeague}
+          onGroupByChange={setGroupBy}
           onLeagueFilterChange={setLeagueFilter}
           onSearchTermChange={setSearchTerm}
           onToggleExpanded={() => {

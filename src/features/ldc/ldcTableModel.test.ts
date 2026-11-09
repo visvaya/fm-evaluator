@@ -138,3 +138,33 @@ describe('ldcTableModel', () => {
     ]);
   });
 });
+
+describe('ldcTableModel grouping', () => {
+  beforeEach(() => {
+    ldcMappingState.cache = {};
+    clearPlayerRuntimeRows();
+  });
+
+  const leagues = [
+    makeLeague({ id: 'a', name: 'A', nation: 'Niemcy', rank: 1, stars: 4 }),
+    makeLeague({ id: 'b', name: 'B', nation: 'Łotwa', rank: 2, stars: 2.5 }),
+    makeLeague({ id: 'c', name: 'C', nation: 'Niemcy', rank: 3, stars: null }),
+    makeLeague({ id: 'd', name: 'D', nation: '', rank: 4, stars: 4 }),
+    makeLeague({ id: 'e', name: 'E', nation: 'Litwa', rank: 5, stars: 2.5 })
+  ];
+  const groupedIds = (groupBy: LDCSettings['groupBy'], sortDirection: 'asc' | 'desc' = 'asc') =>
+    buildRows({ ...makeSettings(leagues), groupBy, sortDirection }).map((row) => row.rowId);
+
+  it('keeps the sorted order without grouping', () => {
+    expect(groupedIds(null)).toEqual(['a', 'b', 'c', 'd', 'e']);
+  });
+
+  it('groups by country in Polish alphabetical order, keeping the sort inside each group', () => {
+    expect(groupedIds('nation')).toEqual(['e', 'b', 'a', 'c', 'd']);
+    expect(groupedIds('nation', 'desc')).toEqual(['e', 'b', 'c', 'a', 'd']);
+  });
+
+  it('groups by stars from the strongest tier, with leagues without stars last', () => {
+    expect(groupedIds('stars')).toEqual(['a', 'd', 'b', 'e', 'c']);
+  });
+});

@@ -25,7 +25,7 @@ import { ldcComputationCache } from '@/config/ldcConfig';
 import { getPlayerRuntimeRows } from '@/lib/playerRuntimeCache';
 
 import type { LdcLeagueFilter } from './useLdcStore';
-import type { LdcSortColumn, LDCSettings, LeagueData } from '@/config/ldcConfig';
+import type { LdcGroupBy, LdcSortColumn, LDCSettings, LeagueData } from '@/config/ldcConfig';
 
 export interface LdcLeagueRowViewModel {
   errorClassName: string;
@@ -193,6 +193,27 @@ function compareLeagues(left: LeagueData, right: LeagueData, sortColumn: LdcSort
   }
 }
 
+const NATION_COLLATOR = new Intl.Collator('pl');
+
+// Groups keep the table's sort inside them. Countries follow Polish alphabetical order (they are
+// Polish exonyms), star tiers run from the strongest; a league without the value goes last.
+function compareGroups(left: LeagueData, right: LeagueData, groupBy: LdcGroupBy) {
+  if (groupBy === 'stars') {
+    if (left.stars === null || right.stars === null) {
+      return compareNullableNumbers(left.stars, right.stars);
+    }
+    return right.stars - left.stars;
+  }
+  if (!left.nation || !right.nation) {
+    return Number(!left.nation) - Number(!right.nation);
+  }
+  return NATION_COLLATOR.compare(left.nation, right.nation);
+}
+
+function groupLeagues(leagues: LeagueData[], groupBy: LdcGroupBy | null) {
+  return groupBy === null ? leagues : leagues.toSorted((l, r) => compareGroups(l, r, groupBy));
+}
+
 function matchesLeagueFilter(
   league: LeagueData,
   filter: LdcLeagueFilter,
@@ -264,6 +285,7 @@ export function buildLdcLeagueRows(
     );
   });
 
+  const groupedLeagues = groupLeagues(filteredLeagues, settings.groupBy);
   const { ldcRawPrecision: rawPrec, multiplierPrecision: multPrec } = getPrecisions(settings);
   const ldcRawPrecision = Math.min(rawPrec, 3);
   const multiplierPrecision = Math.max(3, multPrec);
@@ -275,7 +297,7 @@ export function buildLdcLeagueRows(
   const alpha = settings.model === 'basket' ? settings.alphaBasket : settings.alphaSimple;
   const matchedLeagues = getMatchedLeagues(settings);
 
-  return filteredLeagues.map<LdcLeagueRowViewModel>((league) => {
+  return groupedLeagues.map<LdcLeagueRowViewModel>((league) => {
     const originalIndex = originalIndices.get(league.id ?? league.name) ?? -1;
     const validationErrors = validateLeague(league, originalIndex, nameIndex);
     const hasErrors = validationErrors.length > 0;
