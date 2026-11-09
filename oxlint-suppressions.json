@@ -418,10 +418,10 @@
   },
   "playwright.config.ts": {
     "typescript/no-unsafe-assignment": {
-      "count": 3
+      "count": 1
     },
     "typescript/no-unsafe-member-access": {
-      "count": 6
+      "count": 1
     }
   },
   "public/service-worker.js": {
