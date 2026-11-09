@@ -35,6 +35,7 @@ describe('extractAgeFromDob', () => {
   it('returns null without an age in a closing parenthesis', () => {
     expect(extractAgeFromDob('16.9.1992')).toBeNull();
     expect(extractAgeFromDob('16.9.1992 (unknown)')).toBeNull();
+    expect(extractAgeFromDob('Junior (2024)')).toBeNull();
     expect(extractAgeFromDob('16.9.1992 (31 years old')).toBeNull();
     expect(extractAgeFromDob('(31) 16.9.1992')).toBeNull();
     expect(extractAgeFromDob('')).toBeNull();

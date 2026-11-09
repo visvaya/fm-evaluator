@@ -5,7 +5,8 @@
  */
 const OPENING = ['(', '（'] as const;
 const CLOSING = new Set([')', '）']);
-const LEADING_AGE = /^\s*(\d{1,3})/;
+// At most three digits: a year such as "(2024)" is not an age.
+const LEADING_AGE = /^\s*(\d{1,3})(?!\d)/;
 
 /**
  * Read the age from an FM date-of-birth cell, e.g. `16.9.1992 (31 years old)`.
