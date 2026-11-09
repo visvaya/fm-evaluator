@@ -141,7 +141,16 @@ export const ValueTranslationsSchema = z.record(
 
 export const MultipliersSchema = z.record(z.string(), z.number());
 
+// A header that names several columns ("Abs" in German: offsides, finishing and kicking), with
+// the neighbours that tell its columns apart. Without it in the schema, validation dropped it and
+// the context resolver could only guess by category.
+const AmbiguousHeadersSchema = z.record(
+  z.string(),
+  z.object({ context: z.record(z.string(), AnchorNeighborSchema) })
+);
+
 export const LanguageConfigSchema = z.object({
+  ambiguous: AmbiguousHeadersSchema.optional(),
   globalAnchors: GlobalAnchorsSchema.optional(),
   headers: z.record(z.string(), z.array(z.string().trim().min(1))),
   id: z.string().trim().min(1),
