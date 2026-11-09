@@ -553,6 +553,16 @@ export async function parseHTMLWithNewSystemData(
 
   await Promise.all(parsingPromises);
 
+  // English keys of the mapped columns. A localized header equal to one of them (Polish "Str" is
+  // Long Shots, English "Str" is Strength) is not written, so it cannot overwrite that column.
+  const legacyNames = new Map<string, null | string>(
+    Object.values(columnMap).map((schemaId: string) => [
+      schemaId,
+      schemaRegistry.getLegacyHeaderName(schemaId) as null | string
+    ])
+  );
+  const canonicalKeys = new Set([...legacyNames.values()].filter(Boolean));
+
   const data: any[] = [];
   for (const [i, row] of fileData.entries()) {
     const obj: Record<string, any> = {};
@@ -574,11 +584,10 @@ export async function parseHTMLWithNewSystemData(
         !isDate && parsedValue !== null && parsedValue !== undefined ? parsedValue : rawValue;
 
       const originalHeader = headers[colIdx];
-      if (originalHeader) {
+      const legacyName = legacyNames.get(String(schemaId)) ?? null;
+      if (originalHeader && (originalHeader === legacyName || !canonicalKeys.has(originalHeader))) {
         obj[originalHeader] = displayValue;
       }
-
-      const legacyName = schemaRegistry.getLegacyHeaderName(schemaId);
       if (legacyName && legacyName !== originalHeader) {
         obj[legacyName] = displayValue;
       }
