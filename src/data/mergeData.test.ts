@@ -84,6 +84,22 @@ describe('mergeProcessorData money range bounds', () => {
     expect(merged).not.toHaveProperty('basic_transfer_value_low');
   });
 
+  it('drops statistics bounds when a normal merge takes the attribute value', () => {
+    const [merged] = mergeProcessorData(
+      {
+        attributes: [single],
+        cleanValue: plainNumber,
+        fileStack: [],
+        parseFeet: () => ({ left: 3, right: 4 }),
+        parsePositions: (position) => [position].filter(Boolean),
+        stats: [ranged]
+      },
+      false
+    ) as unknown[];
+    expect(merged).toMatchObject({ basic_transfer_value: 1600 });
+    expect(merged).not.toHaveProperty('basic_transfer_value_low');
+  });
+
   it('keeps the bounds of the export the value comes from', () => {
     const [merged] = mergeAttributeRows([ranged, single]);
     expect(merged).toMatchObject(ranged);

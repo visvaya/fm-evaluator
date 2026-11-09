@@ -409,6 +409,12 @@ export function mergeProcessorData(
     const attr = attrMap.get(uid) || {};
     const stat = statMap.get(uid) || {};
     const merged = { ...stat, ...attr, UID: uid };
+    keepRangeBoundsOfValue(
+      merged as Record<string, unknown>,
+      [attr as Record<string, unknown>],
+      [stat as Record<string, unknown>],
+      cleanValue
+    );
     merged.positionArray = parsePositions(merged.Position || '');
     merged.pos2Array = parsePositions(merged['Sec. Position'] || '');
     const { left, right } = parseFeet(merged);
