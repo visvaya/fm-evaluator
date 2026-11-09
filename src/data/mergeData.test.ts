@@ -38,6 +38,24 @@ describe('mergeProcessorData money range bounds', () => {
     expect(merged).not.toHaveProperty('basic_transfer_value_high');
   });
 
+  it('keeps the bounds of a value that only a statistics export supplies', () => {
+    const [merged] = mergeProcessorData(
+      {
+        attributes: [],
+        cleanValue: plainNumber,
+        fileStack: [],
+        parseFeet: () => ({ left: 3, right: 4 }),
+        parsePositions: (position) => [position].filter(Boolean),
+        stats: [{ ...ranged, Mins: '900' }]
+      },
+      true
+    ) as unknown[];
+    expect(merged).toMatchObject({
+      basic_transfer_value_high: 35_000,
+      basic_transfer_value_low: 9000
+    });
+  });
+
   it('keeps the bounds of the export the value comes from', () => {
     const [merged] = mergeAttributeRows([ranged, single]);
     expect(merged).toMatchObject(ranged);

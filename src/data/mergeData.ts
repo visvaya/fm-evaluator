@@ -43,15 +43,26 @@ function hasMeaningfulValue(row: any, key: string, cleanValue: (value: any) => a
 
 const MONEY_RANGE_FIELDS = ['basic_transfer_value', 'basic_wage'] as const;
 
+const moneyNumber = (value: unknown): null | number =>
+  typeof value === 'string' && value.trim() !== ''
+    ? toFiniteNumber(Number(value))
+    : toFiniteNumber(value);
+
 // Each field is merged on its own, so the bounds of a money range could come from another export
-// than the value. Keep them only from a row whose value is the merged one.
+// than the value. Keep them only from a row whose value is the merged one. Values are compared as
+// numbers, because merge mode writes a statistics-only value as text; a value averaged over
+// several rows matches none of them and loses its bounds.
 function keepRangeBoundsOfValue(
   merged: Record<string, unknown>,
   rows: readonly Record<string, unknown>[]
 ): void {
   for (const field of MONEY_RANGE_FIELDS) {
+    const value = moneyNumber(merged[field]);
     const source = rows.find(
-      (row) => row[field] === merged[field] && typeof row[`${field}_low`] === 'number'
+      (row) =>
+        value !== null &&
+        moneyNumber(row[field]) === value &&
+        typeof row[`${field}_low`] === 'number'
     );
     for (const bound of ['low', 'high'] as const) {
       const key = `${field}_${bound}`;
