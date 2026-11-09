@@ -155,6 +155,9 @@ importers:
       lint-staged:
         specifier: ^17.6.0
         version: 17.6.0
+      oxc-parser:
+        specifier: 0.155.0
+        version: 0.155.0
       oxfmt:
         specifier: 0.76.0
         version: 0.76.0
@@ -167,6 +170,9 @@ importers:
       playwright:
         specifier: 1.64.1
         version: 1.64.1
+      recheck:
+        specifier: 4.6.2
+        version: 4.6.2
       tailwindcss:
         specifier: ^4.3.4
         version: 4.3.4
@@ -345,6 +351,9 @@ packages:
   '@csstools/css-tokenizer@4.0.2':
     resolution: {integrity: sha512-OoKoR0f76dCY666JlcbhmVTs2drYj1GUXZTYTcbUgJjh9Nv41aFfZ21bPQTERm5+L5cBDo466NltB2lplS5GBw==}
     engines: {node: '>=20.19.0'}
+
+  '@dual-bundle/import-meta-resolve@4.2.1':
+    resolution: {integrity: sha512-id+7YRUgoUX6CgV0DtuhirQWodeeA7Lf4i2x71JS/vtA5pRb/hIGWlw+G6MeXvsM+MXrz0VAydTGElX1rAfgPg==}
 
   '@emnapi/core@1.11.2':
     resolution: {integrity: sha512-TC8MkTuZUtcTSiFeuC0ksCh9QIJ5+F21MvZ4Wn4ORfYaFJ/0dsiudv5tVkejgwZlwQ39jL9WWDe2lz8x0WglOA==}
@@ -909,6 +918,10 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [win32]
+
+  '@pkgr/core@0.3.6':
+    resolution: {integrity: sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
 
   '@playwright/test@1.64.1':
     resolution: {integrity: sha512-IaYGml/nSOiZWROfPtuIL7neuu9qDOZ3TNvNljUIrhDMxiGTgPjzj/g9p9RxpS2tSepPDRY+UwAaEeiKtUvIAg==}
@@ -2134,6 +2147,35 @@ packages:
     resolution: {integrity: sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==}
     engines: {node: '>=0.10.0'}
 
+  recheck-linux-arm64@4.6.2:
+    resolution: {integrity: sha512-+RCQV4sCCQHNvOmyrWjYdDEExRZS0lzOvDWl0GLhkbXTWb2OBg2EhKtqkIwQPlc0ku1v0rqPmek9KZHtp6wvWQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  recheck-linux-x64@4.6.2:
+    resolution: {integrity: sha512-jOUS5qrMh6aZilbaiPdzQf97/DdiI/ZBZcD1mLrtfaLhJKuLeTOXSqDsyKdhHc2ElZW3KVBhLKzTr7zipoBABQ==}
+    cpu: [x64]
+    os: [linux]
+
+  recheck-macos-arm64@4.6.2:
+    resolution: {integrity: sha512-ngvCW6Uz581hKACiofmxzs5NynU5ntkp3yz4TpdXhUynEz0Ek8DfveYx8HvaCI1UEZ+eFD9M+cePsK5erTmc+w==}
+    cpu: [arm64]
+    os: [darwin]
+
+  recheck-macos-x64@4.6.2:
+    resolution: {integrity: sha512-iEN67CpluJLbd2XkEcdjelDSi2+vgp55TVvjjlKybUhuIWza0DMNo2zwdEG4ZsvLpvYR5vV6Y06x69ywBsrXkw==}
+    cpu: [x64]
+    os: [darwin]
+
+  recheck-windows-x64@4.6.2:
+    resolution: {integrity: sha512-HeREed9Ua++XDjqYavQO2/tWq7PO4wkRm70reVab//WNwzNu0ct0x3x3cj5sS+6sohd8N2XTWvcMKAHTZ5nAng==}
+    cpu: [x64]
+    os: [win32]
+
+  recheck@4.6.2:
+    resolution: {integrity: sha512-u4aJX9skFz5VLMwEGtNv4BavU4qo6dSds/NZiJhoJ0QP1OJ0/VLbztD4nC4mlRuVM+Tj9kssGky4ysrIzRTA2Q==}
+    engines: {node: '>=22'}
+
   refa@0.12.1:
     resolution: {integrity: sha512-J8rn6v4DBb2nnFqkqwy6/NnTYMcgLA+sLr0iIO41qpv0n+ngb7ksag2tMRl0inb1bbO/esUwzW1vbJi7K0sI0g==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
@@ -2241,6 +2283,10 @@ packages:
   supports-color@7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
     engines: {node: '>=8'}
+
+  synckit@0.12.3:
+    resolution: {integrity: sha512-U+/AXT6LWsxnj2vz9HeUuPWBNgdWxjyIEjEPdbJARC9txmgPzo2VEdqnFo4hHaNyMPtycyVJrSaQYeQv/PoyyA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
 
   tailwind-merge@3.7.0:
     resolution: {integrity: sha512-XPPUyAc+cvspz3lHTcR/QgPfW2A0lv/xQNIjX3HGhLR+Nq2lHaLq5MtTesHn8GUr3W3DguT2KT5x3NVgRtYwmA==}
@@ -2512,6 +2558,9 @@ packages:
       use-sync-external-store:
         optional: true
 
+ignoredOptionalDependencies:
+  - recheck-jar
+
 snapshots:
 
   '@asamuzakjp/css-color@7.1.9':
@@ -2699,6 +2748,8 @@ snapshots:
       css-tree: 3.2.1
 
   '@csstools/css-tokenizer@4.0.2': {}
+
+  '@dual-bundle/import-meta-resolve@4.2.1': {}
 
   '@emnapi/core@1.11.2':
     dependencies:
@@ -3011,6 +3062,8 @@ snapshots:
 
   '@oxlint/binding-win32-x64-msvc@1.91.0':
     optional: true
+
+  '@pkgr/core@0.3.6': {}
 
   '@playwright/test@1.64.1':
     dependencies:
@@ -4096,6 +4149,31 @@ snapshots:
 
   react@19.3.1: {}
 
+  recheck-linux-arm64@4.6.2:
+    optional: true
+
+  recheck-linux-x64@4.6.2:
+    optional: true
+
+  recheck-macos-arm64@4.6.2:
+    optional: true
+
+  recheck-macos-x64@4.6.2:
+    optional: true
+
+  recheck-windows-x64@4.6.2:
+    optional: true
+
+  recheck@4.6.2:
+    dependencies:
+      synckit: 0.12.3
+    optionalDependencies:
+      recheck-linux-arm64: 4.6.2
+      recheck-linux-x64: 4.6.2
+      recheck-macos-arm64: 4.6.2
+      recheck-macos-x64: 4.6.2
+      recheck-windows-x64: 4.6.2
+
   refa@0.12.1:
     dependencies:
       '@eslint-community/regexpp': 4.12.2
@@ -4197,6 +4275,11 @@ snapshots:
     dependencies:
       has-flag: 4.0.0
     optional: true
+
+  synckit@0.12.3:
+    dependencies:
+      '@dual-bundle/import-meta-resolve': 4.2.1
+      '@pkgr/core': 0.3.6
 
   tailwind-merge@3.7.0: {}
 

@@ -1,0 +1,38 @@
+[
+  {
+    "file": "src/computing/ldcNameNormalization.ts",
+    "source": "(?:(?<!\\s)\\s+)?-\\s*(grupa|group|série|serie|zone|zona|gr\\.|strefa|groupe|grupo|grupo)\\s*[0-9A-Z].*$",
+    "flags": "i",
+    "reason": "Input is cut to IMPORT_LIMITS.leagueNameLengthChars (200) before these patterns run, so the quadratic case stays on the order of 200 squared steps."
+  },
+  {
+    "file": "src/computing/ldcNameNormalization.ts",
+    "source": "(?:(?<!\\s)\\s+)?-\\s*(łódzka|wielkopolska|małopolska|śląska|mazowiecka|pomorska|zachodniopomorska|warmińsko-mazurska|podkarpacka|świętokrzyska|lubelska|dolnośląska|podlaska|kujawsko-pomorska|lubuskie|opolskie|zachodniopomorskie|wielkopolskie|mazowieckie|łódzkie|śląskie|małopolskie|pomorskie|warmińsko-mazurskie|podkarpackie|świętokrzyskie|lubelskie|dolnośląskie|podlaskie|kujawsko-pomorskie|lubuskie|opolskie).*$",
+    "flags": "i",
+    "reason": "Input is cut to IMPORT_LIMITS.leagueNameLengthChars (200) before these patterns run, so the quadratic case stays on the order of 200 squared steps."
+  },
+  {
+    "file": "src/computing/ldcNameNormalization.ts",
+    "source": "(?:(?<!\\s)\\s+)?\\([^)]*(grupa|group|groupe|grupo|série|serie|zone|zona|łódzka|wielkopolska|małopolska|śląska|mazowiecka|pomorska|zachodniopomorska|warmińsko-mazurska|podkarpacka|świętokrzyska|lubelska|dolnoslaska|podlaska|kujawsko-pomorska|lubuskie|opolskie|zachód|zachod|slaska|slaska 2)[^)]*\\)",
+    "flags": "gi",
+    "reason": "Input is cut to IMPORT_LIMITS.leagueNameLengthChars (200) before these patterns run, so the quadratic case stays on the order of 200 squared steps."
+  },
+  {
+    "file": "src/data/importRuntime.ts",
+    "source": "on\\w+=",
+    "flags": "g",
+    "reason": "Clean-up before DOMParser on the user's own imported file, quadratic only on a crafted file; the import parser is to move to a linear tokenizer, which removes this clean-up."
+  },
+  {
+    "file": "src/data/importRuntime.ts",
+    "source": "<style>.*?<\\/style>",
+    "flags": "g",
+    "reason": "Clean-up before DOMParser on the user's own imported file, quadratic only on a crafted file; the import parser is to move to a linear tokenizer, which removes this clean-up."
+  },
+  {
+    "file": "src/features/runtime/runtimePatches.ts",
+    "source": "<style[^>]*>[\\s\\S]*?<\\/style>",
+    "flags": "gi",
+    "reason": "Clean-up before DOMParser on the user's own imported file, quadratic only on a crafted file; the import parser is to move to a linear tokenizer, which removes this clean-up."
+  }
+]

@@ -12,6 +12,10 @@ engineStrict: true
 # pnpm/action-setup.
 pmOnFail: ignore
 
+# recheck (check:redos) uses its native binary; its Java backend (23 MB) is never needed.
+ignoredOptionalDependencies:
+  - recheck-jar
+
 # Do not resolve package versions published less than 3 days ago (minutes).
 minimumReleaseAge: 4320
 
