@@ -34,7 +34,7 @@ Everything runs in your browser. Your exports are read on your computer and neve
 An early prototype in a deep rebuild, not yet usable for decisions in a real save:
 
 - **Rebuild in progress.** The code is moving from a single-page prototype to a typed, modular React app. Parts of the old layer are still active, and behaviour can change from one commit to the next.
-- **Results not verified.** The scoring, the league coefficients, the possession adjustment and the import of exports have not yet been checked against a written specification or real saves. Rankings and suggestions can be wrong. Known gaps include columns of some older export layouts that are not recognised and dates always read as day before month.
+- **Results not verified.** The scoring, the league coefficients, the possession adjustment and the import of exports have not yet been checked against a written specification or real saves. Rankings and suggestions can be wrong. Known gaps include columns of some older export layouts that are not recognised and a date order that is not detected (dates are read as day before month unless month first is chosen in the format dialog).
 - **Before a redesign.** The current interface, including the screenshots above, is temporary. A new interface follows once the logic has been checked.
 - **Not published.** There is no hosted version and no release; run it locally with the steps below.
 
