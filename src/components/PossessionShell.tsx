@@ -255,12 +255,7 @@ export function PossessionShell() {
                   </div>
                 </div>
                 <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-black p-4">
-                  <img
-                    id="imageToCrop"
-                    src=""
-                    alt="Source"
-                    className="block max-h-full max-w-full"
-                  />
+                  <img id="imageToCrop" alt="Source" className="block max-h-full max-w-full" />
                 </div>
                 <div className="border-t border-border bg-background p-3 text-center text-xs text-text-secondary">
                   <span id="crop-instruction-text">
