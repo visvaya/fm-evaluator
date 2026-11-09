@@ -22,9 +22,11 @@ interface LdcMappingTemplatesProps {
   onLoadTemplate: (mappings: LegacyLeagueMappings) => void;
 }
 
+// A message key, translated at render so a language change also changes the shown status.
 interface TemplateStatus {
   isError: boolean;
-  text: string;
+  key: string;
+  name?: string;
 }
 
 const BUTTON_CLASS =
@@ -52,25 +54,25 @@ export function LdcMappingTemplates({
       if (result.kind === 'templates') {
         setTemplates(result.templates);
       } else {
-        setStatus({ isError: true, text: t('ldc_template_read_error') });
+        setStatus({ isError: true, key: 'ldc_template_read_error' });
       }
     };
     void read();
     return () => {
       controller.abort();
     };
-  }, [t]);
+  }, []);
 
   // Writes the whole set and shows the outcome; the shown list changes only after a write.
-  const store = async (next: MappingTemplates, message: string, nextSelected: string) => {
+  const store = async (next: MappingTemplates, success: TemplateStatus, nextSelected: string) => {
     const result = await saveMappingTemplates(next);
     if (result.kind === 'error') {
-      setStatus({ isError: true, text: t('ldc_template_save_error') });
+      setStatus({ isError: true, key: 'ldc_template_save_error' });
       return false;
     }
     setTemplates(next);
     setSelected(nextSelected);
-    setStatus({ isError: false, text: message });
+    setStatus(success);
     return true;
   };
 
@@ -79,8 +81,8 @@ export function LdcMappingTemplates({
     if (templates === null || trimmed.length === 0) return;
     const save = async () => {
       const next = withTemplate(templates, trimmed, getDraftMappings());
-      const message = t('ldc_template_saved', 'ui', { name: trimmed });
-      if (await store(next, message, trimmed)) setName('');
+      const success = { isError: false, key: 'ldc_template_saved', name: trimmed };
+      if (await store(next, success, trimmed)) setName('');
     };
     if (Object.hasOwn(templates, trimmed)) {
       showConfirmModal(
@@ -97,7 +99,7 @@ export function LdcMappingTemplates({
     const mappings = templates?.[selected];
     if (!mappings) return;
     onLoadTemplate(mappings);
-    setStatus({ isError: false, text: t('ldc_template_loaded', 'ui', { name: selected }) });
+    setStatus({ isError: false, key: 'ldc_template_loaded', name: selected });
   };
 
   const deleteTemplate = () => {
@@ -109,7 +111,7 @@ export function LdcMappingTemplates({
       () =>
         void store(
           withoutTemplate(templates, deleted),
-          t('ldc_template_deleted', 'ui', { name: deleted }),
+          { isError: false, key: 'ldc_template_deleted', name: deleted },
           ''
         )
     );
@@ -188,7 +190,7 @@ export function LdcMappingTemplates({
       <output
         className={`mt-2 block min-h-4 text-xs ${status?.isError ? 'text-negative' : 'text-text-muted'}`}
       >
-        {status?.text ?? ''}
+        {status ? t(status.key, 'ui', { name: status.name ?? '' }) : ''}
       </output>
     </section>
   );
