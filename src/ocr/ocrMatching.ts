@@ -22,58 +22,62 @@ export interface ClubMatchResult {
 
 export function correctCommonOCRErrors(text: string): string {
   if (!text) return '';
-  const ocrCorrections = [
-    { pattern: /\bIll\b/gi, replacement: 'III' },
-    { pattern: /\bIl\b/gi, replacement: 'II' },
-    {
-      pattern: /ll\b(?=\s*(?:Liga|liga|grupa|group|serie|série|division|IV|V|VI|VII|VIII|IX|X))/gi,
-      replacement: 'II'
-    },
-    { pattern: /([A-ZÀ-ÿ]{3,})ll\b/gi, replacement: '$1 II' },
-    { pattern: /([A-ZÀ-ÿ]{3,})li\b/gi, replacement: '$1 II' },
-    { pattern: /ll\b/gi, replacement: 'II' },
-    { pattern: /\bl\b(?=\s*(?:Liga|liga|grupa|group|serie|série|division))/gi, replacement: 'I' },
-    { pattern: /\bdo\s+(\d+)/gi, replacement: 'ão $1' },
-    { pattern: /\bao\s+(\d+)/gi, replacement: 'ão $1' },
-    { pattern: /\bdo\b/gi, replacement: 'ão' },
-    { pattern: /\bao\b/gi, replacement: 'ão' },
-    { pattern: /0(?=[A-Z])/gi, replacement: 'O' },
-    { pattern: /(?<=[A-Z])0(?=[A-Z])/gi, replacement: 'o' },
-    { pattern: /1(?=[A-Z])/gi, replacement: 'I' },
-    { pattern: /(?<=[A-Z])1(?=[A-Z])/gi, replacement: 'i' },
-    { pattern: /5(?=[A-Z])/gi, replacement: 'S' },
-    { pattern: /(?<=[A-Z])5(?=[A-Z])/gi, replacement: 's' },
-    { pattern: /\bao\b/gi, replacement: 'ą' },
-    { pattern: /\bce\b/gi, replacement: 'ć' },
-    { pattern: /\beo\b/gi, replacement: 'ę' },
-    { pattern: /\blo\b/gi, replacement: 'ł' },
-    { pattern: /\bno\b/gi, replacement: 'ń' },
-    { pattern: /\bso\b/gi, replacement: 'ś' },
-    { pattern: /\bzo\b/gi, replacement: 'ż' },
-    { pattern: /\bzz\b/gi, replacement: 'ź' },
-    { pattern: /\ba~o\b/gi, replacement: 'ão' },
-    { pattern: /\bao\b/gi, replacement: 'ão' },
-    { pattern: /\ba'\b/gi, replacement: 'á' },
-    { pattern: /\be'\b/gi, replacement: 'é' },
-    { pattern: /\bi'\b/gi, replacement: 'í' },
-    { pattern: /\bo'\b/gi, replacement: 'ó' },
-    { pattern: /\bu'\b/gi, replacement: 'ú' },
-    { pattern: /\ba`\b/gi, replacement: 'à' },
-    { pattern: /\be`\b/gi, replacement: 'è' },
-    { pattern: /\bi`\b/gi, replacement: 'ì' },
-    { pattern: /\bo`\b/gi, replacement: 'ò' },
-    { pattern: /\bu`\b/gi, replacement: 'ù' },
-    { pattern: /%20/g, replacement: ' ' },
-    { pattern: /&amp;/gi, replacement: '&' },
-    { pattern: /&lt;/gi, replacement: '<' },
-    { pattern: /&gt;/gi, replacement: '>' }
-  ];
   let corrected = text;
-  for (const { pattern, replacement } of ocrCorrections) {
+  for (const { pattern, replacement } of OCR_CORRECTIONS) {
     corrected = corrected.replace(pattern, replacement);
   }
   return corrected;
 }
+
+// Applied in order. The lookbehind in the two "ll"/"li" entries starts a match only at the start
+// of a letter run: a later start in the same run can never match where the first did not, and
+// trying each one made a long run quadratic.
+export const OCR_CORRECTIONS: readonly { pattern: RegExp; replacement: string }[] = [
+  { pattern: /\bIll\b/gi, replacement: 'III' },
+  { pattern: /\bIl\b/gi, replacement: 'II' },
+  {
+    pattern: /ll\b(?=\s*(?:Liga|liga|grupa|group|serie|série|division|IV|V|VI|VII|VIII|IX|X))/gi,
+    replacement: 'II'
+  },
+  { pattern: /(?<![A-Z\u00C0-\u00FF])([A-Z\u00C0-\u00FF]{3,})ll\b/gi, replacement: '$1 II' },
+  { pattern: /(?<![A-Z\u00C0-\u00FF])([A-Z\u00C0-\u00FF]{3,})li\b/gi, replacement: '$1 II' },
+  { pattern: /ll\b/gi, replacement: 'II' },
+  { pattern: /\bl\b(?=\s*(?:Liga|liga|grupa|group|serie|série|division))/gi, replacement: 'I' },
+  { pattern: /\bdo\s+(\d+)/gi, replacement: 'ão $1' },
+  { pattern: /\bao\s+(\d+)/gi, replacement: 'ão $1' },
+  { pattern: /\bdo\b/gi, replacement: 'ão' },
+  { pattern: /\bao\b/gi, replacement: 'ão' },
+  { pattern: /0(?=[A-Z])/gi, replacement: 'O' },
+  { pattern: /(?<=[A-Z])0(?=[A-Z])/gi, replacement: 'o' },
+  { pattern: /1(?=[A-Z])/gi, replacement: 'I' },
+  { pattern: /(?<=[A-Z])1(?=[A-Z])/gi, replacement: 'i' },
+  { pattern: /5(?=[A-Z])/gi, replacement: 'S' },
+  { pattern: /(?<=[A-Z])5(?=[A-Z])/gi, replacement: 's' },
+  { pattern: /\bao\b/gi, replacement: 'ą' },
+  { pattern: /\bce\b/gi, replacement: 'ć' },
+  { pattern: /\beo\b/gi, replacement: 'ę' },
+  { pattern: /\blo\b/gi, replacement: 'ł' },
+  { pattern: /\bno\b/gi, replacement: 'ń' },
+  { pattern: /\bso\b/gi, replacement: 'ś' },
+  { pattern: /\bzo\b/gi, replacement: 'ż' },
+  { pattern: /\bzz\b/gi, replacement: 'ź' },
+  { pattern: /\ba~o\b/gi, replacement: 'ão' },
+  { pattern: /\bao\b/gi, replacement: 'ão' },
+  { pattern: /\ba'\b/gi, replacement: 'á' },
+  { pattern: /\be'\b/gi, replacement: 'é' },
+  { pattern: /\bi'\b/gi, replacement: 'í' },
+  { pattern: /\bo'\b/gi, replacement: 'ó' },
+  { pattern: /\bu'\b/gi, replacement: 'ú' },
+  { pattern: /\ba`\b/gi, replacement: 'à' },
+  { pattern: /\be`\b/gi, replacement: 'è' },
+  { pattern: /\bi`\b/gi, replacement: 'ì' },
+  { pattern: /\bo`\b/gi, replacement: 'ò' },
+  { pattern: /\bu`\b/gi, replacement: 'ù' },
+  { pattern: /%20/g, replacement: ' ' },
+  { pattern: /&amp;/gi, replacement: '&' },
+  { pattern: /&lt;/gi, replacement: '<' },
+  { pattern: /&gt;/gi, replacement: '>' }
+];
 
 export function findBestClubMatchWithLeague(
   ocrName: string,

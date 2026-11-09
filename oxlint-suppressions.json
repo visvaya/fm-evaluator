@@ -2319,12 +2319,6 @@
     "regexp/no-dupe-disjunctions": {
       "count": 6
     },
-    "regexp/no-obscure-range": {
-      "count": 2
-    },
-    "regexp/no-super-linear-move": {
-      "count": 2
-    },
     "sonarjs/cognitive-complexity": {
       "count": 2
     },

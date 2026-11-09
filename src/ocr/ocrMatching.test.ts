@@ -2,7 +2,38 @@ import { describe, expect, it } from 'vitest';
 
 import { allStrings, seededStrings } from '../utils/seededStrings';
 
-import { withoutSerieSuffix } from './ocrMatching';
+import { OCR_CORRECTIONS, correctCommonOCRErrors, withoutSerieSuffix } from './ocrMatching';
+
+// The two letter-run corrections before they gained a lookbehind, kept as the oracle.
+/* oxlint-disable regexp/no-super-linear-move, regexp/no-obscure-range -- reference implementation under test */
+const OLD_LETTER_RUN_PATTERNS = new Map([
+  ['ll', /([A-ZÀ-ÿ]{3,})ll\b/gi],
+  ['li', /([A-ZÀ-ÿ]{3,})li\b/gi]
+]);
+/* oxlint-enable regexp/no-super-linear-move, regexp/no-obscure-range */
+
+// The corrections list with the two letter-run entries swapped back to their former patterns.
+const ORACLE_CORRECTIONS = OCR_CORRECTIONS.map(({ pattern, replacement }) => {
+  const old =
+    replacement === '$1 II' ? OLD_LETTER_RUN_PATTERNS.get(pattern.source.slice(-4, -2)) : undefined;
+  return { pattern: old ?? pattern, replacement };
+});
+
+const oldCorrect = (text: string): string => {
+  let corrected = text;
+  for (const { pattern, replacement } of ORACLE_CORRECTIONS) {
+    corrected = corrected.replace(pattern, replacement);
+  }
+  return corrected;
+};
+
+// Letters inside and outside the ASCII word characters, the "ll"/"li" endings, and breaks.
+const LETTERS = ['A', 'b', 'l', 'L', 'i', 'I', 'À', 'é', '1', '_', ' ', '-'];
+
+const corrections = (texts: readonly string[]): string[] =>
+  texts
+    .filter((text) => correctCommonOCRErrors(text) !== oldCorrect(text))
+    .map((text) => JSON.stringify(text));
 
 // The replacement withoutSerieSuffix took over, kept as the oracle for the equivalence tests.
 // oxlint-disable-next-line regexp/no-super-linear-move -- reference implementation under test
@@ -14,6 +45,37 @@ const differences = (texts: readonly string[]): string[] =>
   texts
     .filter((text) => withoutSerieSuffix(text) !== oldWithoutSerie(text))
     .map((text) => JSON.stringify(text));
+
+describe('correctCommonOCRErrors', () => {
+  it('splits a roman numeral glued to a league name', () => {
+    expect(correctCommonOCRErrors('Ligall')).toBe('Liga II');
+    expect(correctCommonOCRErrors('Seriell 2')).toBe('Serie II 2');
+  });
+
+  it('swaps exactly the two letter-run entries in the oracle', () => {
+    const swapped = ORACLE_CORRECTIONS.filter(
+      ({ pattern }, index) => pattern.source !== OCR_CORRECTIONS[index]?.pattern.source
+    );
+    expect(swapped.map(({ pattern }) => pattern.source)).toEqual(
+      [...OLD_LETTER_RUN_PATTERNS.values()].map((pattern) => pattern.source)
+    );
+  });
+
+  it('matches the former corrections on every string up to length 5', () => {
+    expect(corrections(allStrings(LETTERS, 5))).toEqual([]);
+  });
+
+  it('matches the former corrections on seeded random strings', () => {
+    const texts = seededStrings({ alphabet: LETTERS, count: 40_000, maxLength: 16, seed: 5 });
+    expect(corrections(texts)).toEqual([]);
+  });
+
+  it('stays linear on a long letter run', () => {
+    const started = performance.now();
+    expect(correctCommonOCRErrors('A'.repeat(20_000))).toBe('A'.repeat(20_000));
+    expect(performance.now() - started).toBeLessThan(500);
+  });
+});
 
 describe('withoutSerieSuffix', () => {
   it('removes the serie letter like the old pattern', () => {
