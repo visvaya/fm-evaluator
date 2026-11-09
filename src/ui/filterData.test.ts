@@ -36,6 +36,14 @@ function installProcessor(overrides: Record<string, unknown> = {}) {
   };
 }
 
+// Spanish "m" is a thousand: the displayed text alone would read as millions.
+const spanishRangePlayer = (name: string, low: number, high: number) => ({
+  basic_transfer_value_high: high,
+  basic_transfer_value_low: low,
+  name,
+  value: `${low / 1000}m € - ${high / 1000}m €`
+});
+
 describe('filterData', () => {
   beforeEach(() => {
     store.activeFilters = {};
@@ -89,6 +97,19 @@ describe('filterData', () => {
     store.activeFilters = { value: { max: 200, min: 100 } };
 
     expect(getFilteredData().map((player) => player.name)).toEqual(['inside']);
+  });
+
+  it('compares the range bounds kept at import instead of re-reading the text', () => {
+    installProcessor({
+      calculatedScores: [
+        spanishRangePlayer('inside', 14_000, 140_000),
+        spanishRangePlayer('too cheap', 9000, 140_000),
+        spanishRangePlayer('too expensive', 14_000, 350_000)
+      ]
+    });
+    store.activeFilters = { value: { max: 200_000, min: 10_000 } };
+
+    expect(getFilteredData()).toEqual([expect.objectContaining({ name: 'inside' })]);
   });
 
   it('supports position OR, AND and unknown-position filtering', () => {

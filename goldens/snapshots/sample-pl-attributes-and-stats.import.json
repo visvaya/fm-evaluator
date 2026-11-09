@@ -889,6 +889,8 @@
     "basic_second_nationality": "POR",
     "basic_transfer_value": 512500,
     "basic_transfer_value_display": "325K € - 700K €",
+    "basic_transfer_value_high": 700000,
+    "basic_transfer_value_low": 325000,
     "basic_uid": "80000005",
     "basic_wage": 120000
    }

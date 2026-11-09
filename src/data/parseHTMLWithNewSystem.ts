@@ -1,4 +1,5 @@
 import { NormalizationConfig } from '../parsing/normalizationConfig.js';
+import { CurrencyParser } from '../parsing/parsers/currencyParser.js';
 import { compareCodeUnits } from '../utils/compareCodeUnits';
 
 import { calculateMissingColumns } from './calculateMissingColumns';
@@ -7,6 +8,8 @@ import { detectFileType } from './detectFileType';
 import { extractAgeFromDob } from './extractAgeFromDob';
 import { readImportedRows, type CutCellCount } from './importedCellText';
 import { normalizeHeader } from './normalizeHeader';
+
+const moneyParser = new CurrencyParser();
 
 export interface ParseSessionState {
   bulkFormatSettings: any;
@@ -579,7 +582,8 @@ export async function parseHTMLWithNewSystemData(
       const parsedValue = colResults ? colResults[i] : null;
 
       // Dates: the schema field gets the ISO string, displayed columns keep the FM text.
-      const isDate = schemaRegistry.get(schemaId)?.type === 'date';
+      const schemaType: unknown = schemaRegistry.get(schemaId)?.type;
+      const isDate = schemaType === 'date';
       const displayValue =
         !isDate && parsedValue !== null && parsedValue !== undefined ? parsedValue : rawValue;
 
@@ -600,6 +604,17 @@ export async function parseHTMLWithNewSystemData(
         /\d/.test(rawValue)
       ) {
         obj[`${schemaId}_display`] = rawValue.trim();
+      }
+
+      // A money range keeps its bounds for the value and wage filters (lower bound for a
+      // minimum, upper bound for a maximum), read here with the export language's units.
+      const bounds =
+        schemaType === 'currency'
+          ? moneyParser.parseRangeBounds(rawValue, formatContext, languageConfig)
+          : null;
+      if (bounds) {
+        obj[`${schemaId}_low`] = bounds.low;
+        obj[`${schemaId}_high`] = bounds.high;
       }
 
       if (schemaId === 'basic_dob' && rawValue && !obj.basic_age) {

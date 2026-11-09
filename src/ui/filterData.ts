@@ -114,6 +114,27 @@ function getValueRangeNumber(
   return runtime.getNumericValue(value, false, isWage);
 }
 
+// Bounds the import kept for a money range, read with the units of the export language.
+function importedBounds(
+  player: Record<string, unknown>,
+  isWage: boolean
+): null | { high: number; low: number } {
+  const field = isWage ? 'basic_wage' : 'basic_transfer_value';
+  const low = player[`${field}_low`];
+  const high = player[`${field}_high`];
+  return typeof low === 'number' && typeof high === 'number' ? { high, low } : null;
+}
+
+// A minimum compares the lower bound of a range, a maximum the upper bound.
+function boundsMatch(
+  bounds: { high: number; low: number },
+  filterValue: { max?: number; min?: number }
+): boolean {
+  const aboveMin = filterValue.min === undefined || bounds.low >= filterValue.min;
+  const belowMax = filterValue.max === undefined || bounds.high <= filterValue.max;
+  return aboveMin && belowMax;
+}
+
 function matchesMoneyRange(
   runtime: ReturnType<typeof getFilterRuntime>,
   value: unknown,
@@ -175,7 +196,10 @@ function matchesRangeFilter(
   const value = player[key];
 
   if (key === 'value' || key === 'wage') {
-    return matchesMoneyRange(runtime, value, filterValue, key === 'wage');
+    const bounds = importedBounds(player as Record<string, unknown>, key === 'wage');
+    return bounds
+      ? boundsMatch(bounds, filterValue)
+      : matchesMoneyRange(runtime, value, filterValue, key === 'wage');
   }
 
   if (key === 'leftFootStars' || key === 'rightFootStars') {

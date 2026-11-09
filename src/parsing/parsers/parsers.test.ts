@@ -160,6 +160,8 @@ const languageConfig = (id: string): Record<string, unknown> =>
   >;
 const parse = (id: string, cell: string): unknown =>
   new CurrencyParser().parseCurrency(cell, EXPORT_FORMAT, languageConfig(id));
+const bounds = (id: string, cell: string): unknown =>
+  new CurrencyParser().parseRangeBounds(cell, EXPORT_FORMAT, languageConfig(id));
 const wage = (id: string, cell: string): unknown =>
   new WageParser().parse(cell, EXPORT_FORMAT, null, languageConfig(id));
 
@@ -200,6 +202,13 @@ describe('CurrencyParser with the language configs', () => {
   it('reads a range whose dash sits between non-breaking spaces', () => {
     const nbsp = String.fromCodePoint(0xa0);
     expect(parse('en', `9K${nbsp}€${nbsp}-${nbsp}35K${nbsp}€`)).toBe(22_000);
+  });
+
+  it('gives the bounds of a range in the units of its language', () => {
+    expect(bounds('es', '14m € - 140m €')).toEqual({ high: 140_000, low: 14_000 });
+    expect(bounds('ko', '1.4만 € - 14만 €')).toEqual({ high: 140_000, low: 14_000 });
+    expect(bounds('en', '1.5K €')).toBeNull();
+    expect(bounds('en', 'Unknown')).toBeNull();
   });
 
   it('keeps a minus after the currency sign negative', () => {
