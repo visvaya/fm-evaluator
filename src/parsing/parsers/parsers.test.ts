@@ -4,6 +4,10 @@
  *
  * The six value parsers and UniversalParser are imported directly.
  */
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import { beforeAll, describe, expect, it } from 'vitest';
 
 import { UniversalParser } from '../universalParser.js';
@@ -133,6 +137,82 @@ describe('CurrencyParser', () => {
     const currencyParser = new CurrencyParser();
     expect(currencyParser.parseCurrency('1,5M \u20AC', fmt, lang)).toBe(1500000);
     expect(currencyParser.parseCurrency('1.234,5 \u20AC', fmt, lang)).toBe(1234.5);
+  });
+});
+
+// Money cells of real exports, read with the shipped language configs. Every export used a dot
+// for decimals and a comma for thousands.
+const LANGUAGES_DIR = path.join(
+  fileURLToPath(import.meta.url),
+  '..',
+  '..',
+  '..',
+  '..',
+  'public',
+  'config',
+  'languages'
+);
+const EXPORT_FORMAT = { decimalSeparator: '.', thousandSeparator: ',' };
+const languageConfig = (id: string): Record<string, unknown> =>
+  JSON.parse(readFileSync(path.join(LANGUAGES_DIR, `${id}.json`), 'utf8')) as Record<
+    string,
+    unknown
+  >;
+const parse = (id: string, cell: string): unknown =>
+  new CurrencyParser().parseCurrency(cell, EXPORT_FORMAT, languageConfig(id));
+const wage = (id: string, cell: string): unknown =>
+  new WageParser().parse(cell, EXPORT_FORMAT, null, languageConfig(id));
+
+describe('CurrencyParser with the language configs', () => {
+  it.each([
+    ['en', '1.5K \u20AC', 1500],
+    ['da', '1.6K \u20AC', 1600],
+    ['el', '1.5\u03C7. \u20AC', 1500],
+    ['es', '1.6m \u20AC', 1600],
+    ['it', '1.5m \u20AC', 1500],
+    ['ja', '1.5\u5343 \u20AC', 1500],
+    ['ko', '1.4\uB9CC \u20AC', 14_000],
+    ['no', '1,600 \u20AC', 1600],
+    ['pl', '1.6 tys. \u20AC', 1600],
+    ['pt', '1.6m \u20AC', 1600],
+    ['ru', '1.5\u0442\u044B\u0441. \u20AC', 1500],
+    ['sv', '1.6t \u20AC', 1600],
+    ['tr', '1.5B \u20AC', 1500],
+    ['zh', '1.4\u4E07 \u20AC', 14_000]
+  ])('reads the %s thousands unit in %s', (id, cell, value) => {
+    expect(parse(id, cell)).toBe(value);
+  });
+
+  it.each([
+    ['en', '9K \u20AC - 35K \u20AC', 22_000],
+    ['en', '500 \u20AC - 6K \u20AC', 3250],
+    ['fr', '14K \u20AC - 140K \u20AC', 77_000],
+    ['ja', '9\u5343 \u20AC - 3.5\u4E07 \u20AC', 22_000],
+    ['ko', '0 \u20AC - 7\uB9CC \u20AC', 35_000],
+    ['ko', '1500 \u20AC - 4500 \u20AC', 3000],
+    ['no', '14,000 \u20AC - 140,000 \u20AC', 77_000],
+    ['pl', '14 tys. \u20AC - 140 tys. \u20AC', 77_000],
+    ['tr', '14B \u20AC - 140B \u20AC', 77_000]
+  ])('reads a %s range %s as its midpoint', (id, cell, value) => {
+    expect(parse(id, cell)).toBe(value);
+  });
+
+  it('reads a range whose dash sits between non-breaking spaces', () => {
+    const nbsp = String.fromCodePoint(0xa0);
+    expect(parse('en', `9K${nbsp}€${nbsp}-${nbsp}35K${nbsp}€`)).toBe(22_000);
+  });
+
+  it('keeps a minus after the currency sign negative', () => {
+    expect(parse('en', '\u20AC -500')).toBe(-500);
+  });
+
+  it.each([
+    ['en', '1,700 \u20AC p/a', 1700],
+    ['ko', '\uC5F0\uBD09 1.3\uB9CC \u20AC', 13_000],
+    ['tr', '1,700 \u20AC y\u0131ll\u0131k', 1700],
+    ['zh', '1.3\u4E07 \u20AC/\u5E74', 13_000]
+  ])('reads the %s yearly wage %s', (id, cell, value) => {
+    expect(wage(id, cell)).toBe(value);
   });
 });
 

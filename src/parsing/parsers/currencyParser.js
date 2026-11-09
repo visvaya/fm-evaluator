@@ -8,6 +8,29 @@
  * - €1,000- - minus at end (if not thousand separator)
  * - And more...
  */
+const NBSP = '\u00A0';
+const RANGE_SEPARATORS = [' - ', ' – '];
+const DIGIT = /\d/;
+
+function lastDigitIndex(text) {
+  for (let index = text.length - 1; index >= 0; index -= 1) {
+    if (DIGIT.test(text[index])) return index;
+  }
+  return -1;
+}
+
+// "9K € - 35K €" -> ["9K €", "35K €"]; null unless both sides hold a digit.
+function splitRange(text) {
+  for (const separator of RANGE_SEPARATORS) {
+    const at = text.indexOf(separator);
+    if (at === -1) continue;
+    const low = text.slice(0, at);
+    const high = text.slice(at + separator.length);
+    if (DIGIT.test(low) && DIGIT.test(high)) return [low, high];
+  }
+  return null;
+}
+
 export class CurrencyParser {
   /**
    * Parse currency value
@@ -30,8 +53,18 @@ export class CurrencyParser {
       return null;
     }
 
-    let str = rawString.trim();
+    // A range may be separated by non-breaking spaces, which the range split does not see.
+    let str = rawString.trim().replaceAll(NBSP, ' ');
     let isNegative = false;
+
+    // FM shows a scouted value as a range, "9K € - 35K €"; it counts as its midpoint, as an
+    // attribute range counts as its mean.
+    const range = splitRange(str);
+    if (range) {
+      const low = this.parseCurrency(range[0], formatContext, languageConfig);
+      const high = this.parseCurrency(range[1], formatContext, languageConfig);
+      return low === null || high === null ? null : (low + high) / 2;
+    }
 
     // Handle negative formats
     // 1. Parentheses: (1,000€) -> negative
@@ -69,19 +102,16 @@ export class CurrencyParser {
     // Remove currency symbols so that a multiplier suffix such as "1,5M zł" stays at the end
     str = str.replaceAll(/[€$£¥]|zł/g, '');
 
-    // Handle K/M multipliers (thousands/millions)
-    const multipliers = languageConfig.multipliers || {};
-    let multiplier = 1;
-
-    // Check for multiplier suffix
-    const upperStr = str.toUpperCase();
-    for (const [key, value] of Object.entries(multipliers)) {
-      if (upperStr.endsWith(key.toUpperCase())) {
-        multiplier = value;
-        str = str.slice(0, -key.length);
-        break;
-      }
-    }
+    // Unit of the export language right after the last digit ("1.5K", "1.6 tys.", "1.3万/年").
+    // Case matters: Spanish "m" is a thousand and "M" a million. A word that only ends with the
+    // same letter (Turkish "yıllık", yearly) is not a unit. Longer units are tried first.
+    const multipliers = Object.entries(languageConfig.multipliers || {}).toSorted(
+      ([left], [right]) => right.length - left.length
+    );
+    const afterDigits = lastDigitIndex(str) + 1;
+    const unit = multipliers.find(([key]) => str.startsWith(key, afterDigits));
+    const multiplier = unit ? unit[1] : 1;
+    str = str.slice(0, afterDigits);
 
     // Remove thousand separators first, so a dot that groups thousands cannot swallow the decimal
     // comma after it has become a dot ("1.234,5" -> "1234,5" -> "1234.5")

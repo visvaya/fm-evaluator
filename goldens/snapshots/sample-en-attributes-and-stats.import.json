@@ -557,7 +557,7 @@
     "Tck": 10,
     "Tea": 9,
     "Tec": 10,
-    "Transfer Value": -200525000,
+    "Transfer Value": 362500,
     "UID": "90000005",
     "Vis": 8,
     "Wage": 78000,
@@ -647,7 +647,7 @@
     "basic_right_foot": "Reasonable",
     "basic_sec_position": "AM (L)",
     "basic_second_nationality": "POR",
-    "basic_transfer_value": -200525000,
+    "basic_transfer_value": 362500,
     "basic_transfer_value_display": "200K € - 525K €",
     "basic_uid": "90000005",
     "basic_wage": 78000
