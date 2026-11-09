@@ -49,25 +49,28 @@ const moneyNumber = (value: unknown): null | number =>
     : toFiniteNumber(value);
 
 // Each field is merged on its own, so the bounds of a money range could come from another export
-// than the value. Keep them only from a row whose value is the merged one. Values are compared as
-// numbers, because merge mode writes a statistics-only value as text; a value averaged over
-// several rows matches none of them and loses its bounds.
+// than the value. Take them only from the row that supplied the value, picked as the merge picks
+// it: the first attribute row with a value, otherwise the only statistics row with one. A value
+// averaged over several statistics rows has no single source and loses its bounds. Values are
+// compared as numbers, because merge mode writes a statistics-only value as text.
 function keepRangeBoundsOfValue(
   merged: Record<string, unknown>,
-  rows: readonly Record<string, unknown>[]
+  attrRows: readonly Record<string, unknown>[],
+  statRows: readonly Record<string, unknown>[],
+  cleanValue: MergeDataDependencies['cleanValue']
 ): void {
   for (const field of MONEY_RANGE_FIELDS) {
+    const hasValue = (row: Record<string, unknown>) => hasMeaningfulValue(row, field, cleanValue);
+    const statSources = statRows.filter(hasValue);
+    const supplier = attrRows.find(hasValue) ?? (statSources.length === 1 ? statSources[0] : null);
     const value = moneyNumber(merged[field]);
-    const source = rows.find(
-      (row) =>
-        value !== null &&
-        moneyNumber(row[field]) === value &&
-        typeof row[`${field}_low`] === 'number'
-    );
+    const source =
+      supplier && value !== null && moneyNumber(supplier[field]) === value ? supplier : null;
     for (const bound of ['low', 'high'] as const) {
       const key = `${field}_${bound}`;
-      if (source) {
-        merged[key] = source[key];
+      const sourceBound = source?.[key];
+      if (typeof sourceBound === 'number') {
+        merged[key] = sourceBound;
       } else {
         Reflect.deleteProperty(merged, key);
       }
@@ -315,7 +318,7 @@ export function mergeProcessorData(
       }
       const attrRows = attrList as Record<string, unknown>[];
       const statRows = statList as Record<string, unknown>[];
-      keepRangeBoundsOfValue(merged as Record<string, unknown>, [...attrRows, ...statRows]);
+      keepRangeBoundsOfValue(merged as Record<string, unknown>, attrRows, statRows, cleanValue);
 
       merged.positionArray = parsePositions(merged.Position || '');
       merged.pos2Array = parsePositions(merged['Sec. Position'] || '');

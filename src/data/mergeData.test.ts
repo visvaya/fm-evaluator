@@ -56,6 +56,34 @@ describe('mergeProcessorData money range bounds', () => {
     });
   });
 
+  it('drops the bounds when a single value equals the midpoint of a later range', () => {
+    const [merged] = mergeAttributeRows([{ UID: '7', basic_transfer_value: 22_000 }, ranged]);
+    expect(merged).not.toHaveProperty('basic_transfer_value_low');
+  });
+
+  const statRow = (value: number) => ({
+    ...ranged,
+    Mins: '900',
+    basic_transfer_value: value,
+    basic_transfer_value_high: value + 1000,
+    basic_transfer_value_low: value - 1000
+  });
+
+  it('drops the bounds of a value averaged over several statistics rows', () => {
+    const [merged] = mergeProcessorData(
+      {
+        attributes: [],
+        cleanValue: plainNumber,
+        fileStack: [],
+        parseFeet: () => ({ left: 3, right: 4 }),
+        parsePositions: (position) => [position].filter(Boolean),
+        stats: [statRow(10_000), statRow(20_000), statRow(30_000)]
+      },
+      true
+    ) as unknown[];
+    expect(merged).not.toHaveProperty('basic_transfer_value_low');
+  });
+
   it('keeps the bounds of the export the value comes from', () => {
     const [merged] = mergeAttributeRows([ranged, single]);
     expect(merged).toMatchObject(ranged);
