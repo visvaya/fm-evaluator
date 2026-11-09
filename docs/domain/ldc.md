@@ -1,7 +1,7 @@
 # LDC domain contract (League Difficulty Coefficient)
 
 Status: Active  
-Last Reviewed: 2026-11-07  
+Last Reviewed: 2026-11-09  
 See also: `src/computing/ldcStatApplication.ts`, `src/computing/ldcNations.ts`
 
 This contract applies to every change in `src/features/ldc/`, `src/computing/ldc*.ts` and `src/ui/ldc*.ts`.
@@ -15,6 +15,8 @@ This contract applies to every change in `src/features/ldc/`, `src/computing/ldc
 - Tier stars: `0.5-5.0`. A missing value is diagnosed and counted as level `0.5`, never `0`; the simple model ignores stars without removing them. Stars are parsed and kept on import regardless of the active model. Detection of duplicate `ldcRaw` values works in both models, with suggestions that depend on the model.
 - Changing the model keeps leagues, IDs, countries, ranks and existing stars. Switching to the tier model fills in only missing stars, from the rank.
 - The main LDC modal is an editing session: `Anuluj` (Cancel), the backdrop and closing restore the state from when it opened; `Zastosuj` (Apply) saves and applies the draft. League mappings are transactional within the session (kept in memory until applied).
+- Mapping templates are named sets of league mappings, stored in Dexie as the `templates` row of the `ldcMappings` table and validated with Zod on read; they accept both mapping target shapes (a name, or a name and a country). Saving and deleting a template take effect at once; loading one replaces the draft of the mappings panel, so that panel's Apply keeps it and Cancel drops it. Saved templates that cannot be read are reported and never overwritten.
+- Grouping of the league table is a view setting, not persisted, like the league filter: by country in Polish alphabetical order or by star tier from the strongest, with leagues missing the value last, and the table sort kept inside each group.
 - `persistSettings()` (import and reset paths) is deferred while an editing session of the modal is active, as `commitEditSession` does; do not call it directly from a path that should wait for "Apply".
 - Validate imported and saved LDC data with Zod before changing shared state. Cache keys must include every field that affects matching or calculation.
 - Remaining debt: the mutable singleton `ldcSettings`, Dexie/localStorage compatibility and the synchronisation in `src/features/ldc/useLdcStore.ts`; remove these seams only behind parity tests.

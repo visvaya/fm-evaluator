@@ -383,11 +383,14 @@ describe('LdcModalCompat', () => {
     });
 
     expect(container.querySelector('#ldc-mappings-modal')).not.toBeNull();
-    expect(container.querySelector('#ldc-template-name')).toBeNull();
-    expect(container.querySelector('#ldc-load-template')).toBeNull();
-    expect(container.querySelector('#ldc-save-template-btn')).toBeNull();
-    expect(container.querySelector('#ldc-load-template-btn')).toBeNull();
-    expect(container.querySelector('#ldc-delete-template-btn')).toBeNull();
+    const templateControls = [
+      '#ldc-template-name',
+      '#ldc-load-template',
+      '#ldc-save-template-btn',
+      '#ldc-load-template-btn',
+      '#ldc-delete-template-btn'
+    ].map((selector) => container.querySelector(selector) !== null);
+    expect(templateControls).toEqual([true, true, true, true, true]);
   });
 
   it('stages mapping changes locally and saves them on apply', async () => {

@@ -3,7 +3,11 @@
 import { Redo2, Undo2, X } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
-import { loadLeagueMappings, saveLeagueMappings } from '@/computing/ldcMappings';
+import {
+  loadLeagueMappings,
+  normalizeLeagueMappings,
+  saveLeagueMappings
+} from '@/computing/ldcMappings';
 import { type LdcMappingTarget } from '@/config/ldcConfig';
 import { cn } from '@/lib/utils';
 import { checkMissingLeagues } from '@/ui/ldcMissing';
@@ -22,6 +26,7 @@ import {
   pushMappingHistory
 } from './ldcMappingsModel';
 import { LdcMappingTargetPicker } from './LdcMappingTargetPicker';
+import { LdcMappingTemplates } from './LdcMappingTemplates';
 import { useLdcStore } from './useLdcStore';
 
 import type { MappingFilterPopoverState } from './LdcMappingFilters';
@@ -249,6 +254,15 @@ export function LdcMappingsModal({ isOpen, onRequestClose }: Readonly<LdcMapping
         </div>
 
         <div className="custom-scroll flex-1 overflow-y-auto p-4">
+          <LdcMappingTemplates
+            getDraftMappings={() => buildMappingsFromRecords(draftMappings)}
+            hasDraftMappings={draftMappings.length > 0}
+            onLoadTemplate={(mappings) => {
+              updateDraftMappings(() =>
+                buildRecordsFromMappings(normalizeLeagueMappings(mappings))
+              );
+            }}
+          />
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-border bg-surface/20 px-4 py-2.5">
             <div className="flex flex-wrap items-center gap-3 text-xs text-text-muted">
               <span className="font-medium text-text-secondary">

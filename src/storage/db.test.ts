@@ -19,12 +19,14 @@ import {
   listDbBackups,
   listFiles,
   loadLdcMappingsDb,
+  loadLdcMappingTemplatesDb,
   loadLdcSettingsDb,
   loadSettings,
   loadUIStateDb,
   restoreDbBackup,
   saveFileMetadata,
   saveLdcMappingsDb,
+  saveLdcMappingTemplatesDb,
   saveLdcSettingsDb,
   saveSettings,
   saveUIStateDb
@@ -149,6 +151,15 @@ describe('storage/db', () => {
       await saveLdcMappingsDb(mappings);
       const loaded = await loadLdcMappingsDb();
       expect(loaded).toEqual(mappings);
+    });
+
+    it('keeps mapping templates in their own row, apart from the mappings', async () => {
+      const mappings = { 'Liga A||Polska': { name: 'Ekstraklasa', nation: 'Polska' } };
+      const templates = { Sezon: { 'Liga B||Polska': { name: 'I liga', nation: 'Polska' } } };
+      await saveLdcMappingsDb(mappings);
+      await saveLdcMappingTemplatesDb(templates);
+      expect(await loadLdcMappingTemplatesDb()).toEqual(templates);
+      expect(await loadLdcMappingsDb()).toEqual(mappings);
     });
   });
 

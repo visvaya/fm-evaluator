@@ -30,13 +30,16 @@ export type LdcSortColumn =
   | 'rank'
   | 'stars';
 
+/** View-only grouping of the league table; not persisted, like the league filter. */
+export type LdcGroupBy = 'nation' | 'stars';
+
 export interface LDCSettings {
   alphaBasket: number;
   alphaSimple: number;
   baseLeague: string;
   baseLeagueNation?: string;
   enabled: boolean;
-  groupBy: null | string;
+  groupBy: LdcGroupBy | null;
   leagues: LeagueData[];
   model: LDCModel;
   sortColumn: LdcSortColumn;

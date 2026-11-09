@@ -28,6 +28,7 @@ import type {
   LDCModel,
   LDCSettings,
   LeagueMappings,
+  LdcGroupBy,
   LdcSortColumn,
   LDCSnapshot,
   LeagueData,
@@ -76,7 +77,7 @@ interface LdcStoreState {
   setAlphaBasket: (value: number) => void;
   setAlphaSimple: (value: number) => void;
   setEnabled: (enabled: boolean) => void;
-  setGroupBy: (groupBy: null | string) => void;
+  setGroupBy: (groupBy: LdcGroupBy | null) => void;
   setLeagueFilter: (leagueFilter: LdcLeagueFilter) => void;
   setLeaguesExpanded: (isExpanded: boolean) => void;
   setModel: (model: LDCModel) => void;

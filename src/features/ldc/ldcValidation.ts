@@ -40,6 +40,12 @@ export const ldcSettingsPayloadSchema = z.object({
   sortDirection: z.enum(['asc', 'desc']).optional()
 });
 
+/** Saved mapping templates: template name to mappings, in the same shapes as saved mappings. */
+export const ldcMappingTemplatesSchema = z.record(
+  z.string().trim().min(1),
+  z.record(z.string(), mappingTargetSchema)
+);
+
 export function parseLdcSettingsPayload(payload: unknown) {
   return ldcSettingsPayloadSchema.safeParse(payload);
 }
