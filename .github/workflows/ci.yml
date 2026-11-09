@@ -107,6 +107,10 @@ jobs:
         if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
         run: pnpm run check:public-assets
 
+      - name: Super-linear patterns (recheck)
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
+        run: pnpm run check:redos
+
       - name: Subresource integrity of vendor files
         if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
         run: pnpm run sri:check
