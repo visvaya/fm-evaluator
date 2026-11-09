@@ -33,6 +33,22 @@ function splitRange(text) {
 
 export class CurrencyParser {
   /**
+   * Bounds of a money range such as "9K € - 35K €", read with the export language's units.
+   * @param {unknown} rawString - Raw cell
+   * @param {*} [formatContext] - Format context with separators
+   * @param {*} [languageConfig] - Language configuration with multipliers
+   * @returns {{ high: number, low: number } | null} null when the text is not a range of two amounts
+   */
+  parseRangeBounds(rawString, formatContext = {}, languageConfig = {}) {
+    if (typeof rawString !== 'string') return null;
+    const range = splitRange(rawString.trim().replaceAll(NBSP, ' '));
+    if (!range) return null;
+    const low = this.parseCurrency(range[0], formatContext, languageConfig);
+    const high = this.parseCurrency(range[1], formatContext, languageConfig);
+    return low === null || high === null ? null : { high, low };
+  }
+
+  /**
    * Parse currency value
    * @param rawString - Raw currency string
    * @param formatContext - Format context with separators
@@ -59,11 +75,9 @@ export class CurrencyParser {
 
     // FM shows a scouted value as a range, "9K € - 35K €"; it counts as its midpoint, as an
     // attribute range counts as its mean.
-    const range = splitRange(str);
-    if (range) {
-      const low = this.parseCurrency(range[0], formatContext, languageConfig);
-      const high = this.parseCurrency(range[1], formatContext, languageConfig);
-      return low === null || high === null ? null : (low + high) / 2;
+    if (splitRange(str)) {
+      const bounds = this.parseRangeBounds(str, formatContext, languageConfig);
+      return bounds === null ? null : (bounds.low + bounds.high) / 2;
     }
 
     // Handle negative formats

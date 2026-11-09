@@ -65,4 +65,23 @@ describe('parsed row keys', () => {
   it.each(FIXTURES)('keeps each English key equal to its schema field in %s', async (fixture) => {
     expect(await keyMismatches(fixture)).toEqual([]);
   });
+
+  it('keeps the bounds of a money range next to its midpoint', async () => {
+    const html = await readFile(
+      path.join(APP_DIR, 'goldens', 'fixtures', 'fm-export-en-uk.html'),
+      'utf8'
+    );
+    processor.fileStack = [];
+    await processor.parseHTML(html, null, false, new File([html], 'bounds.html'));
+    const entry = (processor.fileStack as unknown[])[0] as undefined | ParsedEntry;
+    // The fixture's "9K € - 35K €" range, whose midpoint is 22000.
+    const ranged = (entry?.parsedData ?? []).find(
+      ({ basic_transfer_value: value }) => value === 22_000
+    );
+    expect(ranged).toMatchObject({
+      basic_transfer_value: 22_000,
+      basic_transfer_value_high: 35_000,
+      basic_transfer_value_low: 9000
+    });
+  });
 });
