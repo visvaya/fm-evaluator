@@ -6,9 +6,11 @@ Find the players worth signing in your Football Manager save. Export player list
 
 Everything runs in your browser. Your exports are read on your computer and never uploaded anywhere.
 
+> **Not ready for real use yet.** The app is in a deep rebuild, its results have not been verified, and the interface shown below will be replaced. See [Status](#status).
+
 ![Player ranking for a chosen role](docs/images/ranking.png)
 
-## What it does for you
+## What it is built to do
 
 - **Ranks players for a role.** Choose a role and every player gets an attribute score, a statistics score and a total, plus the role each player suits best.
 - **Suggests what to do next.** A badge says whether a player looks worth buying, needs more scouting, is worth keeping an eye on, or can be skipped, based on how the player's numbers compare with the rest of the list.
@@ -29,7 +31,14 @@ Everything runs in your browser. Your exports are read on your computer and neve
 
 ## Status
 
-In active development. There is no hosted version yet; run it locally with the steps below. The interface is in Polish and English.
+An early prototype in a deep rebuild, not yet usable for decisions in a real save:
+
+- **Rebuild in progress.** The code is moving from a single-page prototype to a typed, modular React app. Parts of the old layer are still active, and behaviour can change from one commit to the next.
+- **Results not verified.** The scoring, the league coefficients, the possession adjustment and the import of exports have not yet been checked against a written specification or real saves. Rankings and suggestions can be wrong. Known gaps include columns of some older export layouts that are not recognised and dates always read as day before month.
+- **Before a redesign.** The current interface, including the screenshots above, is temporary. A new interface follows once the logic has been checked.
+- **Not published.** There is no hosted version and no release; run it locally with the steps below.
+
+Order of the work ahead: verify the logic, publish a first hosted version, then the redesign; the rebuild continues alongside. The interface is in Polish and English.
 
 ## Privacy
 
