@@ -8,6 +8,7 @@
  * - €1,000- - minus at end (if not thousand separator)
  * - And more...
  */
+const NBSP = '\u00A0';
 const RANGE_SEPARATORS = [' - ', ' – '];
 const DIGIT = /\d/;
 
@@ -52,7 +53,8 @@ export class CurrencyParser {
       return null;
     }
 
-    let str = rawString.trim();
+    // A range may be separated by non-breaking spaces, which the range split does not see.
+    let str = rawString.trim().replaceAll(NBSP, ' ');
     let isNegative = false;
 
     // FM shows a scouted value as a range, "9K € - 35K €"; it counts as its midpoint, as an

@@ -197,6 +197,11 @@ describe('CurrencyParser with the language configs', () => {
     expect(parse(id, cell)).toBe(value);
   });
 
+  it('reads a range whose dash sits between non-breaking spaces', () => {
+    const nbsp = String.fromCodePoint(0xa0);
+    expect(parse('en', `9K${nbsp}€${nbsp}-${nbsp}35K${nbsp}€`)).toBe(22_000);
+  });
+
   it('keeps a minus after the currency sign negative', () => {
     expect(parse('en', '\u20AC -500')).toBe(-500);
   });
