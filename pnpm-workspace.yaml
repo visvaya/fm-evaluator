@@ -16,6 +16,10 @@ pmOnFail: ignore
 ignoredOptionalDependencies:
   - recheck-jar
 
+# Direct dependencies use exact versions: package.json shows what runs, and every change arrives
+# as a reviewed pull request. `pnpm add` writes them exact too.
+saveExact: true
+
 # Do not resolve package versions published less than 3 days ago (minutes).
 minimumReleaseAge: 4320
 
