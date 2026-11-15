@@ -40,7 +40,7 @@ const query = <T extends Element>(
   type: new () => T
 ): T => {
   const element = container.querySelector(selector);
-  if (!(element instanceof type)) throw new Error(`${selector} not rendered`);
+  if (!(element instanceof type)) throw new TypeError(`${selector} not rendered`);
   return element;
 };
 

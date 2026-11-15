@@ -1,5 +1,3 @@
-/* eslint-disable sonarjs/no-nested-functions -- Dialog form updates intentionally keep row-edit handlers local to the modal component. */
-
 import { useMemo, useState } from 'react';
 
 import { addLeagueMapping } from '@/computing/ldcMappings';
