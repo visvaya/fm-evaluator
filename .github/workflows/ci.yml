@@ -258,7 +258,9 @@ jobs:
             "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-linux-x86_64"
           echo "${HADOLINT_SHA256}  $binary" | sha256sum --check --strict
           chmod +x "$binary"
-          mapfile -t dockerfiles < <(git ls-files '*Dockerfile' '*Containerfile')
+          # Suffixed names too (Dockerfile.dev); not the per-Dockerfile ignore files.
+          mapfile -t dockerfiles < <(git ls-files '*Dockerfile' '*Dockerfile.*' \
+            '*Containerfile' '*Containerfile.*' ':!:*.dockerignore')
           "$binary" "${dockerfiles[@]}"
 
       # Semgrep CE with public registry rulesets; no account or token needed.

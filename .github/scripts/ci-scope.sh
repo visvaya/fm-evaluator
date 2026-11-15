@@ -18,8 +18,8 @@ not_docs_pattern='^(public|e2e|goldens|src)/'
 # else, including any path added later, runs E2E.
 no_browser_pattern="$docs_pattern"'|^goldens/|^scripts/|^\.github/|^docker/|^\.husky/|^(\.oxlintrc|\.oxfmtrc|\.jscpd|oxlint-suppressions)\.json$|^\.markdownlint-cli2\.jsonc$|^\.hadolint\.yaml$|^knip\.config\.ts$|^commitlint\.config\.mjs$|^\.coderabbit\.yaml$|^\.git(ignore|attributes|-blame-ignore-revs)$|^LICENSE$'
 browser_exception_pattern='^(public|e2e|src)/|^\.github/workflows/ci\.yml$|^scripts/lib/sw-precache\.mjs$'
-# Dockerfile names match the hadolint step's file list (git ls-files '*Dockerfile' '*Containerfile').
-security_pattern='^\.github/|^docker/|(Dockerfile|Containerfile)$|^\.hadolint\.yaml$|^package\.json$|^pnpm-(lock|workspace)\.yaml$'
+# Dockerfile names match the hadolint step's file list in ci.yml (suffixed names included).
+security_pattern='^\.github/|^docker/|(Dockerfile|Containerfile)(\.[^/]+)?$|^\.hadolint\.yaml$|^package\.json$|^pnpm-(lock|workspace)\.yaml$'
 
 if [ -z "$changed" ]; then
   printf 'docs_only=false\ne2e=true\nsecurity=true\n'
