@@ -86,13 +86,15 @@ export const readPin = (text, pattern) => parseVersion(new RegExp(pattern, 'm').
 /**
  * The lowest version a range admits ("^26.12.1", ">=26.12.1 <27", "^24.12.0 || ^26.12.1"): within one
  * || branch every comparator must hold, so its floor is the highest lower bound; across branches the lowest
- * floor wins. Upper bounds (<, <=) do not limit it. Undefined when no full version is given.
+ * floor wins. Upper bounds (<, <=) do not limit it, and a hyphen range ("26.12.1 - 26.14.0") starts at its
+ * first end. Undefined when no full version is given.
  */
 export const engineFloor = (range) =>
   (range ?? '')
     .split('||')
     .map((branch) =>
       branch
+        .replace(/ - .*$/, '')
         .replaceAll(/([<>]=?) +/g, '$1')
         .split(' ')
         .filter((part) => part !== '' && !part.startsWith('<'))
