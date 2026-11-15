@@ -66,7 +66,7 @@ Read the definer and every reading file in full, not only the lines grep shows. 
 
 Run the checks one at a time and write long outputs to a log file outside the repository:
 
-1. `pnpm test:goldens`: byte-identical. A diff means the rewiring changed behaviour. Never run `test:goldens:update` to make it pass.
+1. `pnpm test:goldens`: byte-identical. A diff means the rewiring changed behaviour. Never run `test:goldens:update` to make it pass. When the bootstrap imports changed, also `pnpm test src/data/goldenLegacyGlobals.test.ts`.
 2. `pnpm exec vitest run <directories of definer and readers>`.
 3. `pnpm run typecheck`.
 4. `pnpm exec oxlint <touched files or directory>` (CI runs the full lint). Existing findings are frozen in `oxlint-suppressions.json`, so the command must pass: a new finding fails, and so does a frozen finding the change removed, until `pnpm exec oxlint --prune-suppressions <same paths>` lowers the baseline in the same commit. New files must be clean.
