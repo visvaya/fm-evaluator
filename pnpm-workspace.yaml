@@ -2,9 +2,9 @@ allowBuilds:
   '@swc/core': true
   tesseract.js: true
 
-# Refuse to install on a Node.js older than engines.node in package.json (the lowest release
-# with the latest security fixes).
-engineStrict: true
+# No engineStrict: the Dependabot npm updater runs an older Node.js and failed every job with it.
+# The preinstall script (scripts/check-node.mjs) refuses a local install below engines.node
+# instead; the updater skips install scripts.
 
 # With packageManager pinned, pnpm 12 writes its own version as a leading YAML document of
 # pnpm-lock.yaml, which GitHub's dependency graph cannot read (no Dependabot alerts).
