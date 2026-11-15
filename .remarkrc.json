@@ -1,3 +1,5 @@
 {
-  "plugins": ["remark-validate-links"]
+  "plugins": [
+    ["remark-validate-links", { "repository": "https://github.com/visvaya/fm-evaluator" }]
+  ]
 }
