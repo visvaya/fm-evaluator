@@ -1,0 +1,2 @@
+# hadolint settings for every Dockerfile (CI step "Dockerfiles (hadolint)").
+failure-threshold: warning

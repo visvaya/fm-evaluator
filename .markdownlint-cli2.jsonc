@@ -1,0 +1,19 @@
+{
+  "config": {
+    "default": true,
+    // Line length: prose and tables keep their lines.
+    "MD013": false,
+    // The same heading under different parents (dated sections, per-module notes).
+    "MD024": { "siblings_only": true },
+    // Tables: one changed cell changes one line.
+    "MD060": { "style": "compact" }
+  },
+  "ignores": [
+    "node_modules/**",
+    "dist/**",
+    "coverage/**",
+    "playwright-report/**",
+    "test-results/**",
+    "reports/**"
+  ]
+}

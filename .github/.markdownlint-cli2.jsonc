@@ -1,0 +1,6 @@
+{
+  // Pull request and issue templates start with a section heading, not a title.
+  "config": {
+    "MD041": false
+  }
+}
