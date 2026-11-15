@@ -48,18 +48,18 @@ export function deriveProcessorStats({
 
   // 0.1 Dynamic Passing Stats
   const pasC = getV('statistic_passes_completed');
-  const pasA = getV('statistic_passes_attempted');
-  if (pasA && pasA > 0) {
-    player['Pas %'] = ((pasC / pasA) * 100).toFixed(1);
-    player['Pas A/90'] = (pasA * factor90).toFixed(2);
+  const statPasA = getV('statistic_passes_attempted');
+  if (statPasA && statPasA > 0) {
+    player['Pas %'] = ((pasC / statPasA) * 100).toFixed(1);
+    player['Pas A/90'] = (statPasA * factor90).toFixed(2);
   }
 
   // 0.2 Dynamic Tackling Stats
-  const tckC = getV('statistic_tackles_completed');
-  const tckA = getV('statistic_tackles_attempted');
-  if (tckA && tckA > 0) {
-    player['Tck %'] = ((tckC / tckA) * 100).toFixed(1);
-    player['Tck A/90'] = (tckA * factor90).toFixed(2);
+  const statTckC = getV('statistic_tackles_completed');
+  const statTckA = getV('statistic_tackles_attempted');
+  if (statTckA && statTckA > 0) {
+    player['Tck %'] = ((statTckC / statTckA) * 100).toFixed(1);
+    player['Tck A/90'] = (statTckA * factor90).toFixed(2);
   }
 
   // 0.3 Dynamic Possession Balance

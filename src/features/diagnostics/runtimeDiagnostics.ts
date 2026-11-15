@@ -263,18 +263,14 @@ export function ratingLabel(rating: VitalSample['rating']) {
   }
 }
 
+const VITALS_MODE_LABELS: Record<WebVitalsMode, string> = {
+  'force-off': 'manual off',
+  'force-on': 'manual on',
+  none: 'auto'
+};
+
 export function modeLabelForVitals(mode = useDiagnosticsStore.getState().webVitalsManualOverride) {
-  switch (mode) {
-    case 'force-off': {
-      return 'manual off';
-    }
-    case 'force-on': {
-      return 'manual on';
-    }
-    case 'none': {
-      return 'auto';
-    }
-  }
+  return VITALS_MODE_LABELS[mode];
 }
 
 export function getLatestVitalSample() {

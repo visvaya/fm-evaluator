@@ -3,6 +3,9 @@
     "id-match": {
       "count": 2
     },
+    "no-underscore-dangle": {
+      "count": 2
+    },
     "playwright/no-conditional-expect": {
       "count": 4
     },
@@ -32,6 +35,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 5
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 23
     }
   },
   "e2e/criticalPath.spec.ts": {
@@ -49,10 +55,16 @@
     },
     "typescript/no-unsafe-return": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "e2e/drag-and-drop.spec.ts": {
     "id-match": {
+      "count": 2
+    },
+    "no-underscore-dangle": {
       "count": 2
     },
     "playwright/no-conditional-expect": {
@@ -81,10 +93,16 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 21
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "e2e/format-verification.spec.ts": {
     "id-match": {
+      "count": 2
+    },
+    "no-underscore-dangle": {
       "count": 2
     },
     "playwright/no-conditional-expect": {
@@ -122,6 +140,9 @@
     "id-match": {
       "count": 2
     },
+    "no-underscore-dangle": {
+      "count": 2
+    },
     "playwright/no-networkidle": {
       "count": 4
     },
@@ -146,6 +167,9 @@
   },
   "e2e/header-mapping.spec.ts": {
     "id-match": {
+      "count": 2
+    },
+    "no-underscore-dangle": {
       "count": 2
     },
     "playwright/no-conditional-expect": {
@@ -177,6 +201,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 7
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 6
     }
   },
   "e2e/i18n-switching.spec.ts": {
@@ -206,10 +233,16 @@
     },
     "typescript/no-unsafe-return": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "e2e/import-flow.spec.ts": {
     "id-match": {
+      "count": 2
+    },
+    "no-underscore-dangle": {
       "count": 2
     },
     "playwright/no-conditional-expect": {
@@ -235,6 +268,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "e2e/ldc-and-offline.spec.ts": {
@@ -255,6 +291,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 8
     }
   },
   "e2e/modals-ux.spec.ts": {
@@ -263,6 +302,9 @@
     },
     "no-console": {
       "count": 3
+    },
+    "no-underscore-dangle": {
+      "count": 2
     },
     "playwright/no-networkidle": {
       "count": 3
@@ -294,12 +336,18 @@
     "typescript/no-unsafe-return": {
       "count": 2
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 19
+    },
     "typescript/require-await": {
       "count": 1
     }
   },
   "e2e/multi-file-merge.spec.ts": {
     "id-match": {
+      "count": 2
+    },
+    "no-underscore-dangle": {
       "count": 2
     },
     "playwright/no-conditional-expect": {
@@ -328,6 +376,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 11
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 10
     }
   },
   "e2e/processor-pipeline.spec.ts": {
@@ -336,6 +387,9 @@
     },
     "max-nested-callbacks": {
       "count": 1
+    },
+    "no-underscore-dangle": {
+      "count": 2
     },
     "playwright/no-wait-for-timeout": {
       "count": 4
@@ -358,6 +412,9 @@
     "typescript/no-unsafe-return": {
       "count": 4
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
+    },
     "typescript/require-await": {
       "count": 1
     }
@@ -374,10 +431,16 @@
     },
     "typescript/no-unsafe-return": {
       "count": 4
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "e2e/settings-modal.spec.ts": {
     "id-match": {
+      "count": 2
+    },
+    "no-underscore-dangle": {
       "count": 2
     },
     "playwright/no-conditional-expect": {
@@ -409,6 +472,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 6
     }
   },
   "embedded-data.js": {
@@ -623,6 +689,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 8
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 10
     }
   },
   "src/cache/structureHashCache.test.ts": {
@@ -650,6 +719,9 @@
     },
     "typescript/no-unsafe-assignment": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/components/ColumnFilterPopover.tsx": {
@@ -668,6 +740,9 @@
     "react-hooks/exhaustive-deps": {
       "count": 1
     },
+    "react/memo-dependencies": {
+      "count": 1
+    },
     "react/set-state-in-effect": {
       "count": 1
     },
@@ -676,6 +751,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/components/CompatibilityHost.tsx": {
@@ -695,11 +773,17 @@
     },
     "typescript/no-unsafe-argument": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/components/DiagnosticsShell.tsx": {
     "i18next/no-literal-string": {
       "count": 39
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/components/ErrorBoundary.tsx": {
@@ -716,6 +800,9 @@
     },
     "typescript/no-unsafe-argument": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/components/FileManagerModal.tsx": {
@@ -729,6 +816,9 @@
       "count": 2
     },
     "jsx-a11y/no-static-element-interactions": {
+      "count": 1
+    },
+    "react/no-array-index-key": {
       "count": 1
     },
     "react/set-state-in-effect": {
@@ -747,6 +837,9 @@
   "src/components/Header.tsx": {
     "i18next/no-literal-string": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/components/PlayerTable.tsx": {
@@ -755,6 +848,15 @@
     },
     "react-hooks/exhaustive-deps": {
       "count": 1
+    },
+    "react/exhaustive-effect-dependencies": {
+      "count": 1
+    },
+    "typescript/no-unnecessary-type-conversion": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/components/PossessionShell.tsx": {
@@ -773,6 +875,11 @@
       "count": 1
     }
   },
+  "src/components/TableControls.tsx": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
+    }
+  },
   "src/computing/ldc.test.ts": {
     "typescript/no-explicit-any": {
       "count": 6
@@ -781,6 +888,9 @@
       "count": 4
     },
     "typescript/no-unsafe-member-access": {
+      "count": 5
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 5
     }
   },
@@ -809,6 +919,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/computing/ldcLoading.ts": {
@@ -826,6 +939,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/computing/ldcMappings.ts": {
@@ -846,11 +962,19 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 8
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 8
     }
   },
   "src/computing/ldcNameNormalization.ts": {
     "regexp/no-super-linear-move": {
       "count": 1
+    }
+  },
+  "src/computing/ldcStatApplication.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/computing/ldcUtils.ts": {
@@ -891,6 +1015,9 @@
     "typescript/no-unsafe-return": {
       "count": 1
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 9
+    },
     "typescript/require-await": {
       "count": 10
     },
@@ -899,6 +1026,9 @@
     }
   },
   "src/config/columns.ts": {
+    "no-underscore-dangle": {
+      "count": 1
+    },
     "typescript/no-unsafe-assignment": {
       "count": 2
     },
@@ -922,6 +1052,9 @@
       "count": 1
     },
     "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -952,10 +1085,16 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 7
     }
   },
   "src/config/languageConfigLoader.js": {
     "max-classes-per-file": {
+      "count": 1
+    },
+    "no-underscore-dangle": {
       "count": 1
     },
     "preserve-caught-error": {
@@ -979,6 +1118,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 5
     }
   },
   "src/data/calculateMarketEfficiency.test.ts": {
@@ -1004,6 +1146,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 5
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     },
     "unicorn/no-array-sort": {
       "count": 1
@@ -1033,6 +1178,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/data/calculateScores.test.ts": {
@@ -1058,6 +1206,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/data/calculateScoresForAllRoles.test.ts": {
@@ -1090,6 +1241,9 @@
     },
     "typescript/no-unsafe-assignment": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/data/computeStatScore.test.ts": {
@@ -1118,6 +1272,9 @@
     },
     "typescript/no-unsafe-assignment": {
       "count": 22
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 8
     }
   },
   "src/data/computeStructureHash.test.ts": {
@@ -1125,6 +1282,14 @@
       "count": 1
     },
     "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    }
+  },
+  "src/data/dataProcessor.cutCells.test.ts": {
+    "no-underscore-dangle": {
       "count": 1
     }
   },
@@ -1140,6 +1305,9 @@
     },
     "no-restricted-globals": {
       "count": 1
+    },
+    "no-underscore-dangle": {
+      "count": 5
     },
     "sonarjs/cognitive-complexity": {
       "count": 1
@@ -1161,6 +1329,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 8
     }
   },
   "src/data/deriveStats.test.ts": {
@@ -1256,6 +1427,9 @@
     },
     "typescript/no-unsafe-argument": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/data/detectFileType.ts": {
@@ -1289,6 +1463,9 @@
     }
   },
   "src/data/handleFiles.test.ts": {
+    "no-underscore-dangle": {
+      "count": 2
+    },
     "typescript/consistent-type-imports": {
       "count": 1
     },
@@ -1301,14 +1478,14 @@
     "typescript/no-unsafe-member-access": {
       "count": 2
     },
-    "typescript/no-unsafe-return": {
-      "count": 1
-    },
-    "unicorn/no-new-array": {
-      "count": 1
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/data/handleFiles.ts": {
+    "no-underscore-dangle": {
+      "count": 1
+    },
     "typescript/no-base-to-string": {
       "count": 2
     },
@@ -1329,9 +1506,18 @@
     },
     "typescript/no-unsafe-return": {
       "count": 5
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 33
     }
   },
   "src/data/importPipeline.golden.test.ts": {
+    "no-await-in-loop": {
+      "count": 2
+    },
+    "no-underscore-dangle": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 3
     },
@@ -1343,9 +1529,15 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 7
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 4
     }
   },
   "src/data/importRuntime.test.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    },
     "typescript/require-await": {
       "count": 4
     }
@@ -1354,7 +1546,13 @@
     "max-params": {
       "count": 1
     },
+    "no-await-in-loop": {
+      "count": 5
+    },
     "typescript/no-base-to-string": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     },
     "unicorn/no-array-sort": {
@@ -1390,10 +1588,37 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 7
     }
   },
   "src/data/normalizeHeader.test.ts": {
     "typescript/no-explicit-any": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    }
+  },
+  "src/data/normalizeHeader.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    }
+  },
+  "src/data/parseFeet.ts": {
+    "typescript/no-unnecessary-type-conversion": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
+    }
+  },
+  "src/data/parseHTMLWithNewSystem.keys.test.ts": {
+    "no-underscore-dangle": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -1439,6 +1664,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 13
     },
     "unicorn/filename-case": {
       "count": 1
@@ -1496,6 +1724,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/data/scorePostProcessing.ts": {
@@ -1536,6 +1767,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/export/deterministicExport.ts": {
@@ -1550,6 +1784,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 5
     },
     "typescript/restrict-template-expressions": {
       "count": 1
@@ -1607,6 +1844,9 @@
     "typescript/no-unsafe-member-access": {
       "count": 9
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 7
+    },
     "typescript/require-await": {
       "count": 1
     },
@@ -1647,11 +1887,17 @@
   "src/features/ldc/LdcLeaguesToolbar.tsx": {
     "i18next/no-literal-string": {
       "count": 9
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/features/ldc/LdcMappingFilters.tsx": {
     "i18next/no-literal-string": {
       "count": 6
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/features/ldc/LdcMappingTargetPicker.tsx": {
@@ -1659,6 +1905,9 @@
       "count": 7
     },
     "jsx-a11y/control-has-associated-label": {
+      "count": 1
+    },
+    "react/no-deriving-state-in-effects": {
       "count": 1
     },
     "react/set-state-in-effect": {
@@ -1697,6 +1946,14 @@
     },
     "react-hooks/rules-of-hooks": {
       "count": 9
+    },
+    "react/hooks": {
+      "count": 9
+    }
+  },
+  "src/features/ldc/LdcMissingPanel.test.tsx": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/features/ldc/LdcMissingPanel.tsx": {
@@ -1718,6 +1975,9 @@
       "count": 1
     },
     "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     },
     "unicorn/consistent-function-scoping": {
@@ -1746,10 +2006,16 @@
     "react-hooks/exhaustive-deps": {
       "count": 1
     },
+    "react/exhaustive-effect-dependencies": {
+      "count": 1
+    },
     "react/immutability": {
       "count": 2
     },
     "react/set-state-in-effect": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -1784,6 +2050,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/features/ldc/ldcRepairs.ts": {
@@ -1808,6 +2077,9 @@
     },
     "max-params": {
       "count": 2
+    },
+    "typescript/no-unnecessary-type-conversion": {
+      "count": 1
     }
   },
   "src/features/ldc/useLdcStore.test.ts": {
@@ -1822,6 +2094,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 7
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 8
     }
   },
   "src/features/legacyRuntime/inlineOnclickBridges.ts": {
@@ -1832,10 +2107,16 @@
   "src/features/legacyRuntime/legacyInteractions.test.ts": {
     "typescript/no-unsafe-call": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 6
     }
   },
   "src/features/legacyRuntime/legacyInteractions.ts": {
     "typescript/no-unsafe-call": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -1849,6 +2130,9 @@
   },
   "src/features/playerDetails/PlayerMetricComparison.tsx": {
     "i18next/no-literal-string": {
+      "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 2
     }
   },
@@ -1866,13 +2150,46 @@
       "count": 10
     }
   },
+  "src/features/playerDetails/marketValueModel.test.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
+    }
+  },
+  "src/features/playerDetails/marketValueModel.ts": {
+    "typescript/no-unnecessary-type-conversion": {
+      "count": 1
+    }
+  },
   "src/features/playerDetails/models.ts": {
+    "typescript/no-unnecessary-type-conversion": {
+      "count": 7
+    },
     "typescript/no-unsafe-argument": {
       "count": 1
     }
   },
+  "src/features/playerDetails/positionSummary.test.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    }
+  },
+  "src/features/playerDetails/positionSummary.ts": {
+    "typescript/no-unnecessary-type-conversion": {
+      "count": 1
+    }
+  },
+  "src/features/playerDetails/roleRequirementsModel.test.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
+    }
+  },
   "src/features/playerDetails/uiPrimitives.tsx": {
     "i18next/no-literal-string": {
+      "count": 1
+    }
+  },
+  "src/features/playerDetails/warningsModel.test.ts": {
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -1881,6 +2198,9 @@
       "count": 3
     },
     "typescript/no-unsafe-member-access": {
+      "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 3
     }
   },
@@ -1900,6 +2220,9 @@
     "typescript/no-unsafe-member-access": {
       "count": 2
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
+    },
     "typescript/require-await": {
       "count": 1
     },
@@ -1913,6 +2236,9 @@
     },
     "fp/no-mutation": {
       "count": 6
+    },
+    "no-underscore-dangle": {
+      "count": 4
     },
     "typescript/no-explicit-any": {
       "count": 7
@@ -1928,6 +2254,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 4
     }
   },
   "src/features/runtime/runtimeUiBindings.test.ts": {
@@ -1939,6 +2268,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 8
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 9
     }
   },
   "src/features/runtime/runtimeUiBindings.ts": {
@@ -1960,8 +2292,16 @@
     "typescript/no-unsafe-member-access": {
       "count": 5
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 10
+    },
     "unicorn/consistent-function-scoping": {
       "count": 1
+    }
+  },
+  "src/features/table/playerRowModel.ts": {
+    "typescript/no-unnecessary-type-conversion": {
+      "count": 3
     }
   },
   "src/features/workspace/shortcuts.test.ts": {
@@ -1973,16 +2313,30 @@
     },
     "typescript/no-unsafe-return": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/hooks/useDataBoundary.ts": {
     "typescript/no-unsafe-argument": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    }
+  },
+  "src/hooks/usePlayerTable.test.tsx": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/hooks/usePlayerTable.tsx": {
     "react-hooks/exhaustive-deps": {
       "count": 4
+    },
+    "react/memo-dependencies": {
+      "count": 3
     },
     "typescript/no-unsafe-assignment": {
       "count": 1
@@ -2003,11 +2357,17 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/i18n/index.ts": {
     "no-console": {
       "count": 4
+    },
+    "no-underscore-dangle": {
+      "count": 1
     },
     "sonarjs/cognitive-complexity": {
       "count": 2
@@ -2026,6 +2386,14 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 5
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 7
+    }
+  },
+  "src/i18n/messages.test.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/i18n/translate.ts": {
@@ -2038,6 +2406,9 @@
       "count": 9
     },
     "typescript/no-unsafe-member-access": {
+      "count": 9
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 9
     }
   },
@@ -2056,6 +2427,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 22
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 17
     }
   },
   "src/ldcStorage.ts": {
@@ -2078,6 +2452,9 @@
     },
     "typescript/no-unsafe-assignment": {
       "count": 4
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/lib/analysisService.ts": {
@@ -2086,6 +2463,9 @@
     },
     "typescript/no-unsafe-argument": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/lib/filterRuntime.ts": {
@@ -2111,6 +2491,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/lib/importFlowBridge.test.ts": {
@@ -2122,6 +2505,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/lib/importFlowBridge.ts": {
@@ -2136,6 +2522,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/lib/legacyActionBridge.ts": {
@@ -2149,6 +2538,9 @@
     }
   },
   "src/lib/legacyBootstrap.ts": {
+    "no-underscore-dangle": {
+      "count": 2
+    },
     "typescript/no-explicit-any": {
       "count": 2
     },
@@ -2157,9 +2549,15 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/lib/legacyRuntimeBridge.ts": {
+    "no-await-in-loop": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 9
     },
@@ -2174,6 +2572,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 8
     }
   },
   "src/lib/playerRowsRuntime.test.ts": {
@@ -2181,6 +2582,14 @@
       "count": 3
     },
     "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
+    }
+  },
+  "src/lib/playerRowsRuntime.ts": {
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -2207,6 +2616,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 4
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 4
     }
   },
   "src/lib/processorBridge.ts": {
@@ -2214,6 +2626,9 @@
       "count": 2
     },
     "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -2223,11 +2638,20 @@
     },
     "typescript/no-unsafe-assignment": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/lib/reactTableCompat.ts": {
+    "typescript/no-unnecessary-type-conversion": {
+      "count": 3
+    },
     "typescript/no-unsafe-assignment": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/lib/uiBridge.ts": {
@@ -2238,6 +2662,9 @@
       "count": 2
     },
     "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 2
     }
   },
@@ -2251,6 +2678,9 @@
     "no-console": {
       "count": 1
     },
+    "no-underscore-dangle": {
+      "count": 7
+    },
     "sonarjs/cognitive-complexity": {
       "count": 2
     },
@@ -2261,7 +2691,15 @@
       "count": 1
     }
   },
+  "src/mapping/exportHeaders.test.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
+    }
+  },
   "src/mapping/mapping.test.ts": {
+    "no-underscore-dangle": {
+      "count": 11
+    },
     "typescript/ban-ts-comment": {
       "count": 3
     },
@@ -2280,6 +2718,9 @@
     "typescript/no-unsafe-return": {
       "count": 1
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 4
+    },
     "vitest/no-duplicate-hooks": {
       "count": 1
     }
@@ -2294,12 +2735,18 @@
     "no-console": {
       "count": 3
     },
+    "no-underscore-dangle": {
+      "count": 2
+    },
     "sonarjs/cognitive-complexity": {
       "count": 2
     }
   },
   "src/ocr/ocrImageProcessing.ts": {
     "no-useless-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     },
     "typescript/require-await": {
@@ -2376,6 +2823,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 6
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 6
     }
   },
   "src/ocr/ocrWorkerPool.ts": {
@@ -2399,6 +2849,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 14
     }
   },
   "src/parsing/format.test.ts": {
@@ -2419,6 +2872,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 65
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/parsing/formatInspector.js": {
@@ -2449,6 +2905,9 @@
   "src/parsing/parsers/attributeParser.js": {
     "max-classes-per-file": {
       "count": 1
+    },
+    "no-underscore-dangle": {
+      "count": 2
     }
   },
   "src/parsing/parsers/currencyParser.js": {
@@ -2468,10 +2927,16 @@
   "src/parsing/parsers/dateParser.js": {
     "max-classes-per-file": {
       "count": 1
+    },
+    "no-underscore-dangle": {
+      "count": 1
     }
   },
   "src/parsing/parsers/distanceParser.js": {
     "max-classes-per-file": {
+      "count": 1
+    },
+    "no-underscore-dangle": {
       "count": 1
     },
     "regexp/no-unused-capturing-group": {
@@ -2493,6 +2958,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 105
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/parsing/parsers/statisticParser.js": {
@@ -2520,6 +2988,9 @@
     "max-params": {
       "count": 3
     },
+    "no-await-in-loop": {
+      "count": 1
+    },
     "no-console": {
       "count": 1
     },
@@ -2531,6 +3002,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/processing/schemas.test.ts": {
@@ -2538,6 +3012,9 @@
       "count": 2
     },
     "typescript/no-unsafe-member-access": {
+      "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 2
     },
     "vitest/require-to-throw-message": {
@@ -2598,6 +3075,9 @@
     "typescript/no-unsafe-member-access": {
       "count": 13
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 13
+    },
     "unicorn/prefer-top-level-await": {
       "count": 1
     }
@@ -2610,6 +3090,9 @@
       "count": 1
     },
     "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     },
     "vitest/no-conditional-expect": {
@@ -2627,6 +3110,9 @@
     },
     "max-classes-per-file": {
       "count": 1
+    },
+    "no-underscore-dangle": {
+      "count": 2
     },
     "sonarjs/max-lines": {
       "count": 1
@@ -2648,6 +3134,9 @@
     "typescript/no-unsafe-member-access": {
       "count": 88
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    },
     "vitest/no-conditional-expect": {
       "count": 1
     }
@@ -2667,9 +3156,15 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 30
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/storage/db.test.ts": {
+    "no-await-in-loop": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 1
     },
@@ -2678,6 +3173,9 @@
     },
     "typescript/no-unsafe-assignment": {
       "count": 8
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     },
     "vitest/no-conditional-expect": {
       "count": 1
@@ -2717,11 +3215,17 @@
     "typescript/no-unsafe-member-access": {
       "count": 2
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
+    },
     "unicorn/no-array-reverse": {
       "count": 1
     }
   },
   "src/storage/migrations.ts": {
+    "no-await-in-loop": {
+      "count": 2
+    },
     "typescript/no-explicit-any": {
       "count": 2
     },
@@ -2730,6 +3234,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 4
     },
     "unicorn/no-array-reverse": {
       "count": 1
@@ -2768,7 +3275,18 @@
       "count": 4
     }
   },
+  "src/store/useOcrStore.test.ts": {
+    "no-underscore-dangle": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    }
+  },
   "src/store/useOcrStore.ts": {
+    "no-underscore-dangle": {
+      "count": 2
+    },
     "typescript/no-explicit-any": {
       "count": 2
     }
@@ -2779,6 +3297,9 @@
     },
     "typescript/no-unsafe-assignment": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/tableState.test.ts": {
@@ -2786,6 +3307,9 @@
       "count": 5
     },
     "typescript/no-unsafe-member-access": {
+      "count": 5
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 5
     },
     "vitest/no-duplicate-hooks": {
@@ -2810,6 +3334,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/telemetry/webVitals.ts": {
@@ -2827,6 +3354,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 5
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/types/ambient.d.ts": {
@@ -2861,6 +3391,9 @@
     "typescript/no-unsafe-return": {
       "count": 1
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 8
+    },
     "typescript/require-await": {
       "count": 1
     }
@@ -2877,6 +3410,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/ui/columnManager.test.ts": {
@@ -2884,6 +3420,9 @@
       "count": 4
     },
     "typescript/no-unsafe-member-access": {
+      "count": 4
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 4
     }
   },
@@ -2905,6 +3444,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 9
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 39
     },
     "unicorn/consistent-function-scoping": {
       "count": 2
@@ -2929,6 +3471,9 @@
     "typescript/no-unsafe-return": {
       "count": 3
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 5
+    },
     "unicorn/consistent-function-scoping": {
       "count": 1
     },
@@ -2948,6 +3493,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/ui/fileStack.ts": {
@@ -2976,6 +3524,11 @@
       "count": 1
     }
   },
+  "src/ui/fileStackCards.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    }
+  },
   "src/ui/fileStackRemap.ts": {
     "max-params": {
       "count": 1
@@ -2993,6 +3546,9 @@
   },
   "src/ui/fileStackState.ts": {
     "max-params": {
+      "count": 1
+    },
+    "no-await-in-loop": {
       "count": 1
     }
   },
@@ -3013,6 +3569,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 8
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/ui/filterData.ts": {
@@ -3033,10 +3592,16 @@
     },
     "typescript/no-unsafe-return": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
     }
   },
   "src/ui/filterLegacyDom.ts": {
     "typescript/no-explicit-any": {
+      "count": 2
+    },
+    "typescript/no-unnecessary-type-conversion": {
       "count": 2
     },
     "typescript/no-unsafe-argument": {
@@ -3050,6 +3615,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 7
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/ui/filters.test.ts": {
@@ -3061,6 +3629,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 6
     }
   },
   "src/ui/filters.ts": {
@@ -3084,6 +3655,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 11
     }
   },
   "src/ui/focusTrap.ts": {
@@ -3095,6 +3669,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 5
     }
   },
   "src/ui/formatVerificationModal.js": {
@@ -3107,8 +3684,8 @@
     "no-console": {
       "count": 1
     },
-    "no-empty-function": {
-      "count": 1
+    "no-underscore-dangle": {
+      "count": 13
     },
     "sonarjs/cognitive-complexity": {
       "count": 1
@@ -3120,11 +3697,19 @@
       "count": 1
     }
   },
+  "src/ui/formatVerificationModal.test.ts": {
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
+    }
+  },
   "src/ui/header.test.ts": {
     "typescript/no-explicit-any": {
       "count": 1
     },
     "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -3148,6 +3733,9 @@
     },
     "no-console": {
       "count": 1
+    },
+    "no-underscore-dangle": {
+      "count": 11
     },
     "sonarjs/cognitive-complexity": {
       "count": 1
@@ -3195,6 +3783,9 @@
     "typescript/no-unsafe-member-access": {
       "count": 4
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
+    },
     "typescript/require-await": {
       "count": 3
     },
@@ -3214,6 +3805,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 13
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 5
     }
   },
   "src/ui/ldcMissing.ts": {
@@ -3221,6 +3815,9 @@
       "count": 1
     },
     "typescript/no-unsafe-member-access": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -3250,6 +3847,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/ui/ldcModalCalculation.ts": {
@@ -3258,10 +3858,16 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/ui/ldcModalImportExport.test.ts": {
     "typescript/no-deprecated": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -3294,8 +3900,14 @@
     "max-classes-per-file": {
       "count": 1
     },
+    "no-await-in-loop": {
+      "count": 2
+    },
     "no-console": {
       "count": 8
+    },
+    "no-underscore-dangle": {
+      "count": 1
     }
   },
   "src/ui/offlineIndicator.ts": {
@@ -3316,6 +3928,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/ui/possessionClubList.test.ts": {
@@ -3327,6 +3942,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 11
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 20
     },
     "typescript/unbound-method": {
       "count": 1
@@ -3370,6 +3988,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
     }
   },
   "src/ui/possessionCropper.ts": {
@@ -3391,6 +4012,9 @@
     "typescript/no-unsafe-member-access": {
       "count": 18
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 5
+    },
     "unicorn/prefer-add-event-listener": {
       "count": 1
     }
@@ -3404,6 +4028,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 3
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 6
     }
   },
   "src/ui/possessionModal.ts": {
@@ -3433,11 +4060,17 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 12
     }
   },
   "src/ui/possessionOCRDisplay.test.ts": {
     "no-empty-function": {
       "count": 2
+    },
+    "no-underscore-dangle": {
+      "count": 9
     },
     "typescript/no-explicit-any": {
       "count": 5
@@ -3447,9 +4080,15 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 5
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 6
     }
   },
   "src/ui/possessionOCRDisplay.ts": {
+    "no-underscore-dangle": {
+      "count": 3
+    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -3500,11 +4139,17 @@
     "typescript/no-unsafe-return": {
       "count": 3
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 15
+    },
     "typescript/require-await": {
       "count": 5
     }
   },
   "src/ui/possessionOCRPipeline.ts": {
+    "no-await-in-loop": {
+      "count": 2
+    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -3526,6 +4171,9 @@
     "typescript/no-unsafe-member-access": {
       "count": 7
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 3
+    },
     "unicorn/filename-case": {
       "count": 1
     },
@@ -3534,6 +4182,9 @@
     }
   },
   "src/ui/scrollInputHelper.ts": {
+    "no-underscore-dangle": {
+      "count": 20
+    },
     "typescript/no-explicit-any": {
       "count": 21
     },
@@ -3542,6 +4193,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 20
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 22
     }
   },
   "src/ui/table.test.ts": {
@@ -3549,6 +4203,9 @@
       "count": 1
     },
     "typescript/no-unsafe-argument": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     },
     "unicorn/consistent-function-scoping": {
@@ -3577,6 +4234,9 @@
     "typescript/no-unsafe-assignment": {
       "count": 3
     },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 2
+    },
     "typescript/restrict-template-expressions": {
       "count": 1
     },
@@ -3593,6 +4253,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/ui/tableOrchestrator.ts": {
@@ -3604,6 +4267,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 12
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 11
     },
     "unicorn/explicit-length-check": {
       "count": 1
@@ -3623,6 +4289,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 6
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 10
     }
   },
   "src/uploadMeta.ts": {
@@ -3642,6 +4311,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/workerBridge/circuitBreaker.test.ts": {
@@ -3658,6 +4330,9 @@
     },
     "max-classes-per-file": {
       "count": 1
+    },
+    "no-await-in-loop": {
+      "count": 2
     },
     "no-console": {
       "count": 4
@@ -3682,6 +4357,9 @@
     },
     "typescript/no-unsafe-member-access": {
       "count": 2
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 1
     }
   },
   "src/workerBridge/parserBridge.test.ts": {
@@ -3690,6 +4368,9 @@
     },
     "typescript/no-unsafe-return": {
       "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
+      "count": 7
     }
   },
   "src/workerBridge/parserBridge.ts": {
@@ -3709,6 +4390,9 @@
       "count": 1
     },
     "typescript/no-unsafe-return": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   },
@@ -3730,6 +4414,9 @@
       "count": 1
     },
     "typescript/no-unsafe-assignment": {
+      "count": 1
+    },
+    "typescript/no-unsafe-type-assertion": {
       "count": 1
     }
   }

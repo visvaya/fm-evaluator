@@ -25,8 +25,8 @@ export function setupFileStackDragAndDrop(
   let draggedElement: HTMLElement | null = null;
   let draggedIndex: null | number = null;
 
-  fileStackContainer.querySelectorAll('.file-card').forEach((card) => {
-    const dragHandle = card.querySelector('.drag-handle');
+  fileStackContainer.querySelectorAll('.file-card').forEach((fileCard) => {
+    const dragHandle = fileCard.querySelector('.drag-handle');
     if (!dragHandle) return;
 
     // Get the parent card element
@@ -58,7 +58,7 @@ export function setupFileStackDragAndDrop(
       draggedIndex = null;
     });
 
-    card.addEventListener('dragover', (e: Event) => {
+    fileCard.addEventListener('dragover', (e: Event) => {
       const dragEvent = e as DragEvent;
       dragEvent.preventDefault();
       dragEvent.stopPropagation();
@@ -76,7 +76,7 @@ export function setupFileStackDragAndDrop(
       }
     });
 
-    card.addEventListener('drop', (e: Event) => {
+    fileCard.addEventListener('drop', (e: Event) => {
       e.preventDefault();
       e.stopPropagation();
       if (draggedElement && draggedIndex !== null && fileStackContainer) {

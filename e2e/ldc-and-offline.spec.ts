@@ -481,7 +481,7 @@ test.describe('Service worker offline (production build)', () => {
         (name) => name.startsWith('fm-evaluator-static-') && !name.endsWith('-rollback')
       );
       const keys = staticName ? await (await caches.open(staticName)).keys() : [];
-      return keys.map((request) => new URL(request.url).pathname);
+      return keys.map((cachedRequest) => new URL(cachedRequest.url).pathname);
     });
     expect(cached).toContain('/i18n/messages/index.json');
     expect(cached.some((pathname) => pathname.startsWith('/assets/'))).toBe(true);

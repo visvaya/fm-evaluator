@@ -38,14 +38,14 @@ function createDeps(actions = createActions()) {
   };
 }
 
-function query<T extends Element = HTMLElement>(root: ParentNode, selector: string): T {
-  const element = root.querySelector<T>(selector);
-  if (!element) throw new Error(`Missing element: ${selector}`);
+function query<T extends Element>(root: ParentNode, selector: string, type: new () => T): T {
+  const element = root.querySelector(selector);
+  if (!(element instanceof type)) throw new Error(`Missing element: ${selector}`);
   return element;
 }
 
 function popupOf(columnId: string): HTMLElement {
-  return query(document, `#filter-${columnId}`);
+  return query(document, `#filter-${columnId}`, HTMLElement);
 }
 
 function pressEnter(element: Element) {
@@ -76,7 +76,7 @@ describe('openLegacyColumnFilter delegated events (strict CSP, no inline handler
     const popup = popupOf('club');
     expect(inlineHandlerElements(popup)).toEqual([]);
 
-    const search = query<HTMLInputElement>(popup, 'input[type="text"]');
+    const search = query(popup, 'input[type="text"]', HTMLInputElement);
     search.value = 'leg';
     fire(search, 'input');
     expect(actions.filterCheckboxList).toHaveBeenCalledWith('club', 'leg');
@@ -85,7 +85,7 @@ describe('openLegacyColumnFilter delegated events (strict CSP, no inline handler
     pressEnter(search);
     expect(actions.applyFilter).toHaveBeenCalledWith('club', 'complex');
 
-    fire(query(popup, '#filter-club-has-possession-club'), 'change');
+    fire(query(popup, '#filter-club-has-possession-club', HTMLElement), 'change');
     expect(actions.filterClubHasPossession).toHaveBeenCalledWith('club');
 
     const quoted = [...popup.querySelectorAll<HTMLInputElement>('#list-club input')].find(
@@ -118,7 +118,7 @@ describe('openLegacyColumnFilter delegated events (strict CSP, no inline handler
     const actions = createActions();
     openLegacyColumnFilter({ columnId: 'league' }, createDeps(actions));
 
-    fire(query(popupOf('league'), '#filter-show-ldc-matched-league'), 'change');
+    fire(query(popupOf('league'), '#filter-show-ldc-matched-league', HTMLElement), 'change');
 
     expect(actions.filterShowOnlyLDCMatched).toHaveBeenCalledWith('league');
   });
@@ -130,7 +130,7 @@ describe('openLegacyColumnFilter delegated events (strict CSP, no inline handler
     const popup = popupOf('position');
     expect(inlineHandlerElements(popup)).toEqual([]);
 
-    fire(query(popup, 'input[name="position-filter-mode"][value="and"]'), 'change');
+    fire(query(popup, 'input[name="position-filter-mode"][value="and"]', HTMLElement), 'change');
 
     expect(actions.setPositionFilterMode).toHaveBeenCalledWith('and');
     expect(actions.persistUIState).toHaveBeenCalledTimes(1);
@@ -141,13 +141,13 @@ describe('openLegacyColumnFilter delegated events (strict CSP, no inline handler
     const actions = createActions();
     openLegacyColumnFilter({ columnId: 'age' }, createDeps(actions));
     expect(inlineHandlerElements(popupOf('age'))).toEqual([]);
-    pressEnter(query(popupOf('age'), '#range-max-age'));
+    pressEnter(query(popupOf('age'), '#range-max-age', HTMLElement));
     expect(actions.applyFilter).toHaveBeenCalledWith('age', 'range');
 
     setupColumn('name', 'search');
     openLegacyColumnFilter({ columnId: 'name' }, createDeps(actions));
     expect(inlineHandlerElements(popupOf('name'))).toEqual([]);
-    pressEnter(query(popupOf('name'), '#filter-input-name'));
+    pressEnter(query(popupOf('name'), '#filter-input-name', HTMLElement));
     expect(actions.applyFilter).toHaveBeenCalledWith('name', 'search');
   });
 
@@ -156,7 +156,7 @@ describe('openLegacyColumnFilter delegated events (strict CSP, no inline handler
     const actions = createActions();
     openLegacyColumnFilter({ columnId: 'name' }, createDeps(actions));
 
-    query(popupOf('name'), '#filter-input-name').dispatchEvent(
+    query(popupOf('name'), '#filter-input-name', HTMLElement).dispatchEvent(
       new KeyboardEvent('keypress', { bubbles: true, key: 'a' })
     );
 
@@ -169,7 +169,7 @@ describe('openLegacyColumnFilter delegated events (strict CSP, no inline handler
     openLegacyColumnFilter({ columnId: 'club' }, createDeps(actions));
     openLegacyColumnFilter({ columnId: 'club' }, createDeps(actions));
 
-    pressEnter(query(popupOf('club'), 'input[type="text"]'));
+    pressEnter(query(popupOf('club'), 'input[type="text"]', HTMLElement));
 
     expect(actions.applyFilter).toHaveBeenCalledTimes(1);
   });

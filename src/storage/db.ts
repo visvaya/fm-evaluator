@@ -120,12 +120,12 @@ class AppDatabase extends Dexie {
   }
 }
 
-function decodePayload<T>(encoded: string): T {
+function decodePayload(encoded: string): unknown {
   const json =
     typeof atob === 'function'
       ? decodeURIComponent(escape(atob(encoded)))
       : Buffer.from(encoded, 'base64').toString('utf-8');
-  return JSON.parse(json) as T;
+  return JSON.parse(json);
 }
 
 function emitDbEvent(event: string, payload?: PrimitiveMap) {
@@ -244,7 +244,7 @@ export async function loadUIStateDb(): Promise<any | null> {
 }
 
 export async function restoreDbBackup(record: BackupRecord): Promise<void> {
-  const snapshot = decodePayload<BackupSnapshot>(record.payload);
+  const snapshot = decodePayload(record.payload) as BackupSnapshot;
   if (!snapshot || typeof snapshot.version !== 'number') {
     throw new Error('Nieprawidłowa kopia zapasowa');
   }

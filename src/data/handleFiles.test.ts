@@ -23,7 +23,7 @@ const {
   return {
     attachFileStackDragDropMock: vi.fn(),
     changePageMock: vi.fn(),
-    getFilteredDataMock: vi.fn(() => new Array(40).fill({})),
+    getFilteredDataMock: vi.fn(() => Array.from({ length: 40 }, () => ({}))),
     MockDataTransfer: MockDataTransferImpl,
     processImportedFilesBatchMock: vi.fn().mockResolvedValue({
       cancelled: false,
