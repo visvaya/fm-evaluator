@@ -103,7 +103,7 @@
     "eslint-plugin-regexp": "3.3.3",
     "eslint-plugin-security": "4.2.1",
     "eslint-plugin-sonarjs": "4.2.2",
-    "fake-indexeddb": "6.2.7",
+    "fake-indexeddb": "6.2.8",
     "globals": "17.14.0",
     "husky": "9.1.7",
     "jscpd": "5.4.3",
