@@ -28,11 +28,23 @@ export function configureRuleTester() {
  * lint. Returns the diagnostics of the given rule code.
  */
 export function lintWithProjectConfig(source, ruleCode) {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'oxlint-plugin-'));
+  return lintInside(os.tmpdir(), source).filter((diagnostic) => diagnostic.code === ruleCode);
+}
+
+/**
+ * Lints `source` as a file inside `dir` (relative to the app), so the config's directory overrides
+ * apply to it, and returns every diagnostic of the one oxlint run.
+ */
+export function lintInDirectory(source, dir) {
+  return lintInside(path.join(appDir, dir), source);
+}
+
+function lintInside(parent, source) {
+  const dir = fs.mkdtempSync(path.join(parent, 'oxlint-wiring-'));
   try {
     const fixture = path.join(dir, 'fixture.ts');
     fs.writeFileSync(fixture, source);
-    return runOxlint(fixture).diagnostics.filter((diagnostic) => diagnostic.code === ruleCode);
+    return runOxlint(fixture).diagnostics;
   } finally {
     fs.rmSync(dir, { force: true, recursive: true });
   }
