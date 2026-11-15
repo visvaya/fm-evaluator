@@ -33,10 +33,13 @@ check 'node line' '.nvmrc\n' 'docs_only=false e2e=true security=false '
 check 'unknown new file' 'some-new-config.json\n' 'docs_only=false e2e=true security=false '
 # Known not to reach the browser.
 check 'lint config' '.oxlintrc.json\noxlint-suppressions.json\n' 'docs_only=false e2e=false security=false '
+check 'markdown lint config' '.markdownlint-cli2.jsonc\n' 'docs_only=false e2e=false security=false '
 check 'goldens' 'goldens/snapshots/a.json\n' 'docs_only=false e2e=false security=false '
 check 'other workflow' '.github/workflows/secrets.yml\n' 'docs_only=false e2e=false security=true '
 # The Semgrep image pin: a new image runs the SAST step, not the browser.
 check 'semgrep image pin' 'docker/semgrep/Dockerfile\n' 'docs_only=false e2e=false security=true '
+# hadolint settings run the Dockerfile check, which is part of the security scope.
+check 'hadolint settings' '.hadolint.yaml\n' 'docs_only=false e2e=false security=true '
 check 'commit rules' 'commitlint.config.mjs\n.husky/commit-msg\n' 'docs_only=false e2e=false security=false '
 
 [ "$failures" -eq 0 ]

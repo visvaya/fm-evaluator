@@ -5,3 +5,6 @@ c92746ea69fa365055b01992064b57ec928786ea
 
 # style: sort imports with oxfmt (#18): import order in 37 files
 1a2b490686d085c573e138719aea53d3b3208dba
+
+# style(docs): write markdown tables in compact style (#94): tables in 8 documents
+24de8c2b61a9ef4a19eb76c124f86be2810170ad

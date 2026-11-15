@@ -59,6 +59,26 @@
       "howToBump": "update ZIZMOR_VERSION and ZIZMOR_SHA256 (the manylinux x86_64 wheel hash from PyPI) in .github/workflows/ci.yml"
     },
     {
+      "name": "ShellCheck",
+      "mechanism": "job",
+      "check": {
+        "file": ".github/workflows/ci.yml",
+        "pattern": "SHELLCHECK_VERSION:[ \"]*([0-9.]+)",
+        "github": "koalaman/shellcheck"
+      },
+      "howToBump": "update SHELLCHECK_VERSION and SHELLCHECK_SHA256 (the digest of the linux.x86_64.tar.xz release asset) in .github/workflows/ci.yml"
+    },
+    {
+      "name": "hadolint",
+      "mechanism": "job",
+      "check": {
+        "file": ".github/workflows/ci.yml",
+        "pattern": "HADOLINT_VERSION:[ \"]*([0-9.]+)",
+        "github": "hadolint/hadolint"
+      },
+      "howToBump": "update HADOLINT_VERSION and HADOLINT_SHA256 (the digest of the hadolint-linux-x86_64 release asset) in .github/workflows/ci.yml"
+    },
+    {
       "name": "tesseract (public/vendor/tesseract)",
       "mechanism": "manual",
       "where": "a hand copy of tesseract.js and tesseract.js-core 7.0.0, whose packages Dependabot updates: when it bumps them, copy the new files into public/vendor/tesseract and run pnpm run sri:update, until the files are loaded from the installed packages"
