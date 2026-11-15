@@ -19,7 +19,7 @@ const MECHANISMS = new Set(['dependabot', 'check-latest', 'job', 'manual']);
 
 /** Stable x.y.z inside a version or tag ("v1.2.3", "rust-v1.2.3"); undefined for pre-releases. */
 export const parseVersion = (text) => {
-  const match = /(?:^|[^0-9.])v?(\d+)\.(\d+)\.(\d+)(-[0-9A-Za-z.-]+)?(?![0-9.])/.exec(
+  const match = /(?:^|[^0-9.])v?(\d+)\.(\d+)\.(\d+)(-[0-9A-Za-z.-]+)?(?![0-9A-Za-z.])/.exec(
     ` ${text ?? ''}`
   );
   if (match === null || match[4] !== undefined) return undefined;
@@ -83,9 +83,18 @@ export const parseList = (raw) => {
 /** The pinned version of a job item, or undefined when the pattern no longer matches. */
 export const readPin = (text, pattern) => parseVersion(new RegExp(pattern, 'm').exec(text)?.[1]);
 
-/** The lowest version a range admits ("^26.12.1", ">=26.12.1 <27"), or undefined. */
-// Anchored at the first digit, so a long run of digits without dots stays linear.
-export const engineFloor = (range) => parseVersion(/^\D*(\d+\.\d+\.\d+)/.exec(range ?? '')?.[1]);
+/**
+ * The lowest version a range admits ("^26.12.1", ">=26.12.1 <27", "<27 >=26.12.1"): the smallest version
+ * among its lower bounds; upper bounds (<, <=) do not limit it. Undefined when no full version is given.
+ */
+export const engineFloor = (range) =>
+  (range ?? '')
+    .replaceAll(/([<>]=?) +/g, '$1')
+    .split(' ')
+    .filter((part) => part !== '' && !part.startsWith('<'))
+    .map(parseVersion)
+    .filter((version) => version !== undefined)
+    .toSorted(compareVersions)[0];
 
 /** Outcome of the Node floor check from .nvmrc, engines.node and nodejs.org/dist/index.json. */
 export const nodeFloorResult = ({ nvmrc, engines, index }) => {
@@ -158,7 +167,7 @@ const pypiReleases = async (fetchJson, name) => {
 };
 
 const npmReleases = async (fetchJson, name) => {
-  const doc = await fetchJson(`https://registry.npmjs.org/${name.replace('/', '%2F')}`);
+  const doc = await fetchJson(`https://registry.npmjs.org/${name.replaceAll('/', '%2F')}`);
   return Object.keys(doc.versions ?? {}).map((version) => ({
     version,
     publishedAt: doc.time?.[version]
