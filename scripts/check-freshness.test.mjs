@@ -63,7 +63,12 @@ const NODE_INDEX = [
 test('a floor below the newest security release of the .nvmrc line is outdated', () => {
   const result = nodeFloorResult({ nvmrc: '26\n', engines: '^26.12.1', index: NODE_INDEX });
   expect(result.status).toBe('outdated');
-  expect(result.text).toMatch(/set engines.node to \^26\.13\.1/);
+  expect(result.text).toMatch(/set engines.node to \^26\.13\.1 /);
+});
+
+test('the suggested range keeps the operator the project uses', () => {
+  const result = nodeFloorResult({ nvmrc: '26', engines: '>=26.12.1', index: NODE_INDEX });
+  expect(result.text).toMatch(/set engines.node to >=26\.13\.1 /);
 });
 
 test('a floor at the newest security release, or a line without one, is current', () => {
