@@ -2,7 +2,7 @@
  * WorkerParser - parses in the Web Worker and falls back to the main thread.
  * Both paths run the same shared UniversalParser.
  */
-import { getParserBridge } from '../workerBridge';
+import { getParserBridge } from '../workerBridge/parserBridge';
 
 import { UniversalParser } from './universalParser.js';
 

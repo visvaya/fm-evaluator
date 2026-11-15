@@ -206,7 +206,7 @@ async function installWorkerParser(): Promise<WorkerCalls> {
   if (!workerApi) throw new Error('parser.worker.ts did not expose its API');
   const api = workerApi;
 
-  vi.doMock('@/workerBridge', () => ({
+  vi.doMock('@/workerBridge/parserBridge', () => ({
     getParserBridge: () => ({
       getState: () => 'idle',
       init: () => Promise.resolve(),
@@ -325,7 +325,7 @@ describe('import pipeline goldens', () => {
     vi.restoreAllMocks();
     vi.unstubAllGlobals();
     vi.doUnmock('comlink');
-    vi.doUnmock('@/workerBridge');
+    vi.doUnmock('@/workerBridge/parserBridge');
     // vi.resetModules() does not reset jsdom's window: without this, a worker
     // case would leave window.WorkerParser for the fallback cases after it.
     delete (window as any).WorkerParser;
