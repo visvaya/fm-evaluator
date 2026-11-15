@@ -127,8 +127,8 @@ export const nodeFloorResult = ({ nvmrc, engines, index }) => {
     ? {
         status: 'outdated',
         text:
-          `floor ${show(floor)} is below the security release ${show(newestSecurity)}: set engines.node to ` +
-          `^${show(newestSecurity)} (the preinstall check refuses older Node), install it locally, then run the gate`
+          `floor ${show(floor)} is below the security release ${show(newestSecurity)}: raise the engines.node floor to ` +
+          `${show(newestSecurity)} (the preinstall check refuses older Node), install it locally, then run the gate`
       }
     : {
         status: 'ok',
