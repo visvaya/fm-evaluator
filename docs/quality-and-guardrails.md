@@ -3,7 +3,7 @@
 Status: Active  
 Scope: Quality policy, verification, enforcement, testing, linting, accessibility and documentation-to-tooling mapping  
 Owner: Project documentation  
-Last Reviewed: 2026-11-07  
+Last Reviewed: 2026-11-15  
 See also: `docs/README.md`, `docs/language.md`, `docs/adr/`, `.oxlintrc.json`
 
 ## 1. Purpose
@@ -186,10 +186,11 @@ Security is covered partly by tooling, but always needs human review on importan
 - JS bundle budget in `pnpm run check:dist` (after `pnpm run build`, in CI and `pnpm run ci`): prints the total size of `dist/assets/*.js` and the largest chunk on every run and fails above the limits in `scripts/lib/bundle-budget.mjs` (about 10% over the 2026-10-01 measurement: total 1,139,635 B, largest chunk 1,089,103 B). Raising a limit is deliberate: rebuild, read the printed sizes, change `BUNDLE_BUDGET` in the pull request that grows the bundle and give the reason in the commit body
 - typography check (`pnpm run check:typography`, in CI on every run including docs-only pull requests, in `pnpm run quality` and in lint-staged for staged files): fails on the em dash (U+2014) and emoji (`\p{Emoji_Presentation}` or U+FE0F) in tracked text files outside `goldens/`, `e2e/fixtures/` and `public/vendor/`. Code that must keep the em dash as data (range parsers, missing-value placeholders) writes it as the `\u2014` escape
 - workflow audit (zizmor, pedantic persona, pinned by wheel checksum) and SAST (Semgrep CE, `p/typescript` and `p/react`, image pinned by digest; fails only on ERROR severity; baseline 2026-10-01: 74 rules on 400 files, 0 findings of any severity) in the same job, on pull requests that touch `.github/`, `package.json` or the lockfile, and always on `main` and weekly; third-party actions pinned to commit SHAs and updated by Dependabot (weekly, grouped, 7-day cooldown)
-- SRI validation scripts (exist, but not run in CI or `pnpm run ci`: `sri:check` and `validate:all` are manual only, checked 2026-09-29)
-- config validation scripts (same: manual only)
+- SRI hashes of the vendor files in `index.html` (`pnpm run sri:check`) and the language and import configs (`pnpm run validate:configs:check`), both in `pnpm run quality` and CI
 - duplication/dependency audit scripts
-- git hooks: lint-staged (oxlint and oxfmt on staged files) before a commit, commitlint on the message, typecheck and `pnpm test` before a push
+- git hooks: lint-staged (oxlint, oxfmt and the typography check on staged files) before a commit, commitlint on the message (Conventional Commits, header at most 72 characters); no pre-push hook, CI runs typecheck and tests on every pull request
+- import order (oxfmt `sortImports` in `.oxfmtrc.json`)
+- naming of types, enum members, type parameters and parameters (local `naming/naming-convention` rule in `scripts/oxlint/`, next to `id-match` for variables and functions)
 
 ### Not enforced today
 
@@ -197,5 +198,3 @@ Security is covered partly by tooling, but always needs human review on importan
 - `rem` versus `px` policy
 - test timeouts
 - architectural heuristics such as RORO, guard clauses and minimal `useEffect`/`useState`
-- import order (`import-x/order` left with ESLint; oxfmt can sort imports, not enabled yet)
-- naming of types, parameters and enum members (`id-match` checks only variable and function names)
