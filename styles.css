@@ -44,6 +44,19 @@
   }
 }
 
+/* Users who ask for less motion get no animations, transitions or smooth scrolling (unlayered, so
+   it wins over the utility layer). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @layer components {
   .data-table {
     @apply w-full border-collapse text-left text-[13px];

@@ -125,6 +125,7 @@
     "graphics_disabled": "Graphics: off",
     "graphics_enabled": "Graphics: on",
     "hard_reset": "Hard Reset",
+    "hard_reset_confirm": "Hard Reset deletes everything this app has saved in this browser: LDC league mappings, templates and settings, app settings, team possession values, the list of imported files, saved backups and the audit log. It also removes the offline cache and the Service Worker. Your export files on disk are not touched. Continue?",
     "hide_analysis_settings": "Hide analysis settings",
     "hide_comparison": "Hide comparison",
     "import_cells_cut": "{file}: cells longer than {limit} characters were cut. Columns (cut cells): {columns}",

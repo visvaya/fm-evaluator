@@ -756,9 +756,12 @@ export function LdcMissingPanel() {
                 checkMissingLeagues();
                 const nextMissing = detectMissingLeagues();
                 finishRecheck(buildMissingLeagueRecheckSummary(previousMissing, nextMissing));
-                document
-                  .querySelector<HTMLElement>('#ldc-missing-leagues')
-                  ?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                document.querySelector<HTMLElement>('#ldc-missing-leagues')?.scrollIntoView({
+                  behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                    ? 'auto'
+                    : 'smooth',
+                  block: 'nearest'
+                });
               }, 100);
             }}
             type="button"
