@@ -40,6 +40,9 @@ check 'other workflow' '.github/workflows/secrets.yml\n' 'docs_only=false e2e=fa
 check 'semgrep image pin' 'docker/semgrep/Dockerfile\n' 'docs_only=false e2e=false security=true '
 # hadolint settings run the Dockerfile check, which is part of the security scope.
 check 'hadolint settings' '.hadolint.yaml\n' 'docs_only=false e2e=false security=true '
+# A Dockerfile anywhere runs hadolint; outside docker/ it may also reach the browser.
+check 'dockerfile at the root' 'Dockerfile\n' 'docs_only=false e2e=true security=true '
+check 'named containerfile' 'tools/build.Containerfile\n' 'docs_only=false e2e=true security=true '
 check 'commit rules' 'commitlint.config.mjs\n.husky/commit-msg\n' 'docs_only=false e2e=false security=false '
 
 [ "$failures" -eq 0 ]

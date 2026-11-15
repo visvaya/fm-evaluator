@@ -3,7 +3,8 @@
 # Reads changed file paths (one per line) on stdin and prints GITHUB_OUTPUT lines:
 #   docs_only  - true when every path is documentation (skip the heavy steps)
 #   e2e        - true unless every path is known not to reach the browser (unknown paths run E2E)
-#   security   - true when workflows, image pins, hadolint settings, dependencies or lockfiles change
+#   security   - true when workflows, image pins, Dockerfiles, hadolint settings, dependencies or
+#                lockfiles change
 # An empty list counts as code, so every flag is true (safe default).
 set -euo pipefail
 
@@ -17,7 +18,8 @@ not_docs_pattern='^(public|e2e|goldens|src)/'
 # else, including any path added later, runs E2E.
 no_browser_pattern="$docs_pattern"'|^goldens/|^scripts/|^\.github/|^docker/|^\.husky/|^(\.oxlintrc|\.oxfmtrc|\.jscpd|oxlint-suppressions)\.json$|^\.markdownlint-cli2\.jsonc$|^\.hadolint\.yaml$|^knip\.config\.ts$|^commitlint\.config\.mjs$|^\.coderabbit\.yaml$|^\.git(ignore|attributes|-blame-ignore-revs)$|^LICENSE$'
 browser_exception_pattern='^(public|e2e|src)/|^\.github/workflows/ci\.yml$|^scripts/lib/sw-precache\.mjs$'
-security_pattern='^\.github/|^docker/|^\.hadolint\.yaml$|^package\.json$|^pnpm-(lock|workspace)\.yaml$'
+# Dockerfile names match the hadolint step's file list (git ls-files '*Dockerfile' '*Containerfile').
+security_pattern='^\.github/|^docker/|(Dockerfile|Containerfile)$|^\.hadolint\.yaml$|^package\.json$|^pnpm-(lock|workspace)\.yaml$'
 
 if [ -z "$changed" ]; then
   printf 'docs_only=false\ne2e=true\nsecurity=true\n'

@@ -88,8 +88,7 @@ jobs:
         if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: pnpm run lint:md
 
-      # Pinned by hand with the release asset's digest; also put on PATH, where
-      # actionlint looks for it to check the run blocks of workflows.
+      # Pinned by hand with the release asset's digest.
       - name: Shell scripts (ShellCheck)
         if: ${{ !cancelled() && steps.scope.outputs.docs_only != 'true' }}
         env:
@@ -100,12 +99,9 @@ jobs:
           curl --fail --silent --show-error --location --retry 3 --output "$archive" \
             "https://github.com/koalaman/shellcheck/releases/download/v${SHELLCHECK_VERSION}/shellcheck-v${SHELLCHECK_VERSION}.linux.x86_64.tar.xz"
           echo "${SHELLCHECK_SHA256}  $archive" | sha256sum --check --strict
-          mkdir -p "$RUNNER_TEMP/bin"
           tar -xJf "$archive" -C "$RUNNER_TEMP" "shellcheck-v${SHELLCHECK_VERSION}/shellcheck"
-          mv "$RUNNER_TEMP/shellcheck-v${SHELLCHECK_VERSION}/shellcheck" "$RUNNER_TEMP/bin/"
-          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
           mapfile -t scripts < <(git ls-files '*.sh' .husky)
-          "$RUNNER_TEMP/bin/shellcheck" -x "${scripts[@]}"
+          "$RUNNER_TEMP/shellcheck-v${SHELLCHECK_VERSION}/shellcheck" -x "${scripts[@]}"
 
       - name: Lint
         if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.scope.outputs.docs_only != 'true' }}
@@ -232,8 +228,9 @@ jobs:
             test-results/
           retention-days: 7
 
-      # Security scans: on pull requests only when workflows, dependencies or
-      # lockfiles change; always on main, weekly and on manual runs. The secret
+      # Security scans: on pull requests only when workflows, docker/, Dockerfiles,
+      # .hadolint.yaml, dependencies or lockfiles change (.github/scripts/ci-scope.sh);
+      # always on main, weekly and on manual runs. The secret
       # scan (gitleaks) runs in secrets.yml on pushes to main, pull requests,
       # weekly and on manual runs.
       - name: Workflow audit (zizmor)

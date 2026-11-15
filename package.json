@@ -79,7 +79,7 @@
       "oxfmt --no-error-on-unmatched-pattern"
     ],
     "*.md": [
-      "markdownlint-cli2 --no-globs"
+      "markdownlint-cli2 --no-globs --"
     ],
     "*": [
       "node scripts/check-typography.mjs"
