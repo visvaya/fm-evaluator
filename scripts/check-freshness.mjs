@@ -84,16 +84,24 @@ export const parseList = (raw) => {
 export const readPin = (text, pattern) => parseVersion(new RegExp(pattern, 'm').exec(text)?.[1]);
 
 /**
- * The lowest version a range admits ("^26.12.1", ">=26.12.1 <27", "<27 >=26.12.1"): the smallest version
- * among its lower bounds; upper bounds (<, <=) do not limit it. Undefined when no full version is given.
+ * The lowest version a range admits ("^26.12.1", ">=26.12.1 <27", "^24.12.0 || ^26.12.1"): within one
+ * || branch every comparator must hold, so its floor is the highest lower bound; across branches the lowest
+ * floor wins. Upper bounds (<, <=) do not limit it. Undefined when no full version is given.
  */
 export const engineFloor = (range) =>
   (range ?? '')
-    .replaceAll(/([<>]=?) +/g, '$1')
-    .split(' ')
-    .filter((part) => part !== '' && !part.startsWith('<'))
-    .map(parseVersion)
-    .filter((version) => version !== undefined)
+    .split('||')
+    .map((branch) =>
+      branch
+        .replaceAll(/([<>]=?) +/g, '$1')
+        .split(' ')
+        .filter((part) => part !== '' && !part.startsWith('<'))
+        .map(parseVersion)
+        .filter((version) => version !== undefined)
+        .toSorted(compareVersions)
+        .at(-1)
+    )
+    .filter((floor) => floor !== undefined)
     .toSorted(compareVersions)[0];
 
 /** Outcome of the Node floor check from .nvmrc, engines.node and nodejs.org/dist/index.json. */

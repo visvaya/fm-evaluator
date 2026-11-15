@@ -226,6 +226,7 @@ test('pre-releases without a hyphen (PyPI rc, alpha, beta) are not stable', () =
 test('the floor of a range is its lowest lower bound, whatever the order', () => {
   expect(engineFloor('<27.0.0 >=26.12.1')?.join('.')).toBe('26.12.1');
   expect(engineFloor('>= 26.12.1 < 27')?.join('.')).toBe('26.12.1');
+  expect(engineFloor('>=26.13.1 >=26.12.1')?.join('.')).toBe('26.13.1');
   expect(engineFloor('^24.12.0 || ^26.12.1')?.join('.')).toBe('24.12.0');
   expect(engineFloor('26')).toBe(undefined);
 });
