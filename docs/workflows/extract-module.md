@@ -59,7 +59,7 @@ Read the definer and every reading file in full, not only the lines grep shows. 
 2. In each reader in `src/`, import the name and replace `window.X` with it. Keep existence guards unless they only restate the import; if you remove one, say so in the commit body.
 3. Keep the `window.X = ...` write while anything outside the rewired readers still uses it: test files, E2E specs (`page.evaluate`), `index.html`, documented console APIs. The codemap `TESTS` column and `--bridge` output list them.
 4. Move tests that read `window.X` to the import when they test the module itself. Do not delete assertions.
-5. When the last reader and test are gone, remove the write and its `interface Window` declaration in the same commit, together with the side-effect imports whose only job was to run the write: `src/lib/legacyBootstrap.ts` and `src/data/goldenLegacyGlobals.ts` (keep the two lists identical). Drop the matching `vi.doMock` entry in `src/lib/legacyBootstrap.test.ts`, whose list mirrors the bootstrap imports.
+5. When the last reader and test are gone, remove the write and its `interface Window` declaration in the same commit, together with the side-effect imports whose only job was to run the write: `src/lib/legacyBootstrap.ts` and `src/data/goldenLegacyGlobals.ts` (`src/data/goldenLegacyGlobals.test.ts` fails when the two lists differ). Drop the matching `vi.doMock` entry in `src/lib/legacyBootstrap.test.ts`, whose list mirrors the bootstrap imports.
 6. Do not convert `.js` to `.ts`, rename, reformat or fix lint findings in this commit.
 
 ## 5. Verify
@@ -72,11 +72,13 @@ Run the checks one at a time and write long outputs to a log file outside the re
 4. `pnpm exec oxlint <touched files or directory>` (CI runs the full lint). Existing findings are frozen in `oxlint-suppressions.json`, so the command must pass: a new finding fails, and so does a frozen finding the change removed, until `pnpm exec oxlint --prune-suppressions <same paths>` lowers the baseline in the same commit. New files must be clean.
 5. `pnpm legacy:metrics`: reads of the bridge must fall. Run `pnpm legacy:metrics:update` and commit the lower baseline in the same commit. If a value rose, the change added debt: fix it rather than raise the baseline.
 6. `pnpm legacy:codemap --bridge X`: the rewired readers are gone.
-7. Run the E2E specs that exercise the readers in a real browser, because the bundler evaluates modules in an order jsdom does not reproduce. For parsing and import: `pnpm run e2e:local -- e2e/import-flow.spec.ts e2e/processor-pipeline.spec.ts` (it starts its own server on a free port). Compare with the same specs on `main` on the same machine:
+7. Run the E2E specs that exercise the readers in a real browser, because the bundler evaluates modules in an order jsdom does not reproduce. Run them against the production build, whose module order can differ from the dev server: for parsing and import, `pnpm run build`, then `pnpm run e2e:local --preview -- e2e/import-flow.spec.ts e2e/processor-pipeline.spec.ts` (it serves the build with `vite preview` on a free port and stops it afterwards). Compare with the same specs on `main` on the same machine:
    - Browsers must be installed (`pnpm exec playwright install chromium`).
    - The first run after a cold start of the dev server can fail almost every test with `ERR_CONNECTION_REFUSED` or missing elements. Re-run before judging.
    - `import-flow.spec.ts` "should show profile banner based on COOP/COEP" is marked `test.fixme` (runtime profile timing).
    - `playwright.config.ts` starts its own dev server on port 5173 and stops with an error when the port is already in use (`reuseExistingServer: false`), for example by another project's dev server. Use `pnpm run e2e:local -- <spec>` instead: it starts its own server on a free port and points Playwright at it.
+
+8. For a bridge whose seam has side effects (storage, the worker, the runtime bridge, event listeners), ask a reviewer who has not seen the change for an independent read: give them the contract of `window.X`, the diff and the list of readers from `pnpm legacy:codemap --bridge X`, but not the claim that behaviour is unchanged.
 
 ## 6. Commit and PR
 
