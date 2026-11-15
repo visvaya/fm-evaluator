@@ -10,8 +10,8 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join, relative, sep } from 'node:path';
 
-import { parse } from '@typescript-eslint/typescript-estree';
 import globals from 'globals';
+import { parseSync } from 'oxc-parser';
 
 const GLOBAL_OBJECTS = new Set(['window', 'globalThis']);
 const SOURCE_EXTENSIONS = /\.(?:[cm]?[jt]sx?)$/;
@@ -22,7 +22,7 @@ const WRAPPER_TYPES = new Set([
   'TSSatisfiesExpression',
   'TSTypeAssertion'
 ]);
-const SKIPPED_KEYS = new Set(['loc', 'range', 'parent']);
+const SKIPPED_KEYS = new Set(['parent']);
 
 // Names that exist on `window` in every browser. Accessing them is platform
 // use, not a legacy bridge.
@@ -100,21 +100,38 @@ const objectKeyName = (property) => {
   return null;
 };
 
+/** Parses one file; the result carries the program and a lookup from an offset to its line. */
 export function parseSource(source, filePath) {
-  try {
-    return parse(source, { filePath, jsx: /x$/.test(filePath), loc: true, comment: false });
-  } catch (error) {
-    throw new Error(`Cannot parse ${filePath}: ${error.message}`, { cause: error });
+  const { program, errors } = parseSync(filePath, source, { preserveParens: false });
+  if (errors.length > 0) throw new Error(`Cannot parse ${filePath}: ${errors[0]?.message}`);
+  return { program, lineAt: lineLookup(source) };
+}
+
+// oxc-parser gives UTF-16 offsets (node.start), the same unit as string indexes.
+function lineLookup(source) {
+  const starts = [0];
+  for (let index = source.indexOf('\n'); index !== -1; index = source.indexOf('\n', index + 1)) {
+    starts.push(index + 1);
   }
+  return (offset) => {
+    let low = 0;
+    let high = starts.length - 1;
+    while (low < high) {
+      const middle = Math.ceil((low + high) / 2);
+      if (starts[middle] <= offset) low = middle;
+      else high = middle - 1;
+    }
+    return low + 1;
+  };
 }
 
 /**
  * Collects global accesses, innerHTML writes and module imports of one file.
  * Aliases such as `const w: any = window as any` are followed by name.
  */
-export function scanAst(ast) {
+export function scanAst({ program, lineAt }) {
   const nodes = [];
-  walk(ast, (node) => nodes.push(node));
+  walk(program, (node) => nodes.push(node));
 
   const aliases = new Set(GLOBAL_OBJECTS);
   for (const node of nodes) {
@@ -136,7 +153,7 @@ export function scanAst(ast) {
   const accesses = [];
   const innerHtmlWrites = [];
   const record = (name, kind, node) => {
-    if (name) accesses.push({ name, kind, line: node.loc.start.line });
+    if (name) accesses.push({ name, kind, line: lineAt(node.start) });
   };
 
   for (const node of nodes) {
@@ -148,7 +165,7 @@ export function scanAst(ast) {
         if (node.operator !== '=' && isGlobalObject(target.object)) {
           record(propertyName(target), 'read', node);
         }
-        if (propertyName(target) === 'innerHTML') innerHtmlWrites.push(node.loc.start.line);
+        if (propertyName(target) === 'innerHTML') innerHtmlWrites.push(lineAt(node.start));
       }
     } else if (node.type === 'UpdateExpression') {
       writeTargets.add(unwrap(node.argument));
@@ -189,7 +206,7 @@ export function scanAst(ast) {
     }
   }
 
-  return { accesses, innerHtmlWrites, imports: collectImports(nodes) };
+  return { accesses, innerHtmlWrites, imports: collectImports(nodes, lineAt) };
 }
 
 const MODULE_SOURCE_TYPES = new Set([
@@ -207,14 +224,14 @@ const isImportMetaUrl = (node) =>
 // Runtime module edges: static and dynamic imports, re-exports and
 // `new URL('./x.worker.ts', import.meta.url)`. Type-only imports are skipped
 // because they vanish at build time.
-function collectImports(nodes) {
+function collectImports(nodes, lineAt) {
   const imports = [];
   for (const node of nodes) {
     if (MODULE_SOURCE_TYPES.has(node.type)) {
       const typeOnly = node.importKind === 'type' || node.exportKind === 'type';
       const specifier = node.source?.type === 'Literal' ? node.source.value : null;
       if (!typeOnly && typeof specifier === 'string') {
-        imports.push({ specifier, line: node.loc.start.line });
+        imports.push({ specifier, line: lineAt(node.start) });
       }
     } else if (
       node.type === 'NewExpression' &&
@@ -224,7 +241,7 @@ function collectImports(nodes) {
       typeof node.arguments[0].value === 'string' &&
       isImportMetaUrl(node.arguments[1])
     ) {
-      imports.push({ specifier: node.arguments[0].value, line: node.loc.start.line });
+      imports.push({ specifier: node.arguments[0].value, line: lineAt(node.start) });
     }
   }
   return imports;
