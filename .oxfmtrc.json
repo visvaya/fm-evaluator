@@ -25,6 +25,7 @@
     "test-results/",
     "pnpm-lock.yaml",
     "*.csv",
+    "*.md",
     "e2e/fixtures/*.html",
     "oxlint-suppressions.json",
     "goldens/"

@@ -19,10 +19,10 @@ Operational guidance, current architecture shape and migration planning belong i
 
 ## Active ADRs
 
-| ADR                                         | Status | Purpose                                                                                        |
+| ADR | Status | Purpose |
 | ------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------- |
 | `001-runtime-isolation-and-self-hosting.md` | Active | Runtime isolation (COOP/COEP), self-hosting, degraded profiles, production hosting requirement |
-| `004-csp-sri-and-local-assets.md`           | Active | SRI, strict CSP (restored 2026-09-30) and local-asset discipline                               |
+| `004-csp-sri-and-local-assets.md` | Active | SRI, strict CSP (restored 2026-09-30) and local-asset discipline |
 
 ## Removed ADRs
 

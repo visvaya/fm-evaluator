@@ -461,16 +461,16 @@ Use these as navigation hints, not as a substitute for tracing the actual call p
 
 ## 12. Current vs Target Summary
 
-| Area                  | Current state                                             | Target state                                                                    |
+| Area | Current state | Target state |
 | --------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| UI runtime            | React-first but partially hybrid                          | React-first with cleaner module ownership                                       |
-| Main orchestration    | Several large modules still carry too much responsibility | Smaller orchestrators with clearer collaborators                                |
-| Parsing and mapping   | Mixed TS and legacy JS                                    | More explicit and more consistently typed boundaries                            |
-| Computation logic     | Partly modular, partly entangled with orchestration       | More pure, smaller, easier-to-test modules                                      |
-| Storage               | Dexie-based with some mixed persistence concerns          | Clearer persistence boundary                                                    |
-| Cloud or auth posture | No active backend dependency in core runtime              | Optional Supabase layer only if auth or sync becomes a real product requirement |
-| Worker model          | Present but unevenly distributed                          | Intentional off-main-thread use where justified                                 |
-| Compatibility layer   | Still visible and necessary in places                     | Thinner and steadily shrinking                                                  |
+| UI runtime | React-first but partially hybrid | React-first with cleaner module ownership |
+| Main orchestration | Several large modules still carry too much responsibility | Smaller orchestrators with clearer collaborators |
+| Parsing and mapping | Mixed TS and legacy JS | More explicit and more consistently typed boundaries |
+| Computation logic | Partly modular, partly entangled with orchestration | More pure, smaller, easier-to-test modules |
+| Storage | Dexie-based with some mixed persistence concerns | Clearer persistence boundary |
+| Cloud or auth posture | No active backend dependency in core runtime | Optional Supabase layer only if auth or sync becomes a real product requirement |
+| Worker model | Present but unevenly distributed | Intentional off-main-thread use where justified |
+| Compatibility layer | Still visible and necessary in places | Thinner and steadily shrinking |
 
 ## 13. Architecture Review Questions
 

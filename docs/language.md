@@ -39,12 +39,12 @@ These two concerns must stay separate in both code and documentation.
 
 ## 4. Active Ownership
 
-| Concern                     | Owner path                                              | Notes                              |
+| Concern | Owner path | Notes |
 | --------------------------- | ------------------------------------------------------- | ---------------------------------- |
-| UI i18n runtime             | `src/i18n`                                              | Active implementation              |
-| UI message catalogs         | `public/i18n/messages`                                  | Translation content                |
-| File-language configs       | `public/config/languages`                               | Parsing and header-mapping support |
-| Localization quality policy | `docs/language.md` and `docs/quality-and-guardrails.md` | Governance and gap tracking        |
+| UI i18n runtime | `src/i18n` | Active implementation |
+| UI message catalogs | `public/i18n/messages` | Translation content |
+| File-language configs | `public/config/languages` | Parsing and header-mapping support |
+| Localization quality policy | `docs/language.md` and `docs/quality-and-guardrails.md` | Governance and gap tracking |
 
 ## 5. Localization Quality Policy
 

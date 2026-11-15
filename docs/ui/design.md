@@ -71,16 +71,16 @@ Typography may still target Inter-like clarity, but the implementation assumptio
 
 ### Suggested scale
 
-| Element                   | Size        | Weight | Line height | Notes                                        |
+| Element | Size | Weight | Line height | Notes |
 | ------------------------- | ----------- | ------ | ----------- | -------------------------------------------- |
-| H1 player or screen title | `1.75rem`   | 700    | 1.2         | For names and major analytical surfaces only |
-| H2 section title          | `1.125rem`  | 600    | 1.3         | Compact section headers                      |
-| H3 sub-section title      | `0.875rem`  | 600    | 1.4         | Dense cards and side panels                  |
-| Body                      | `0.875rem`  | 400    | 1.5         | Default application copy                     |
-| Body small                | `0.8125rem` | 400    | 1.5         | Secondary explanations                       |
-| Table cell                | `0.8125rem` | 500    | 1.4         | Dense but legible                            |
-| Caption or label          | `0.6875rem` | 600    | 1.3         | Usually uppercase with tracking              |
-| Large KPI number          | `2rem`      | 700    | 1.0         | Used sparingly                               |
+| H1 player or screen title | `1.75rem` | 700 | 1.2 | For names and major analytical surfaces only |
+| H2 section title | `1.125rem` | 600 | 1.3 | Compact section headers |
+| H3 sub-section title | `0.875rem` | 600 | 1.4 | Dense cards and side panels |
+| Body | `0.875rem` | 400 | 1.5 | Default application copy |
+| Body small | `0.8125rem` | 400 | 1.5 | Secondary explanations |
+| Table cell | `0.8125rem` | 500 | 1.4 | Dense but legible |
+| Caption or label | `0.6875rem` | 600 | 1.3 | Usually uppercase with tracking |
+| Large KPI number | `2rem` | 700 | 1.0 | Used sparingly |
 
 ### Typographic rules
 
@@ -114,37 +114,37 @@ Typography may still target Inter-like clarity, but the implementation assumptio
 
 ### Suggested light-first tokens
 
-| Token                | Value                   | Usage                                  |
+| Token | Value | Usage |
 | -------------------- | ----------------------- | -------------------------------------- |
-| `--background`       | `oklch(0.985 0 0)`      | Page background                        |
-| `--surface`          | `oklch(1 0 0)`          | Cards, panels, tables                  |
-| `--surface-elevated` | `oklch(1 0 0)`          | Dropdowns, tooltips, elevated overlays |
-| `--border`           | `oklch(0.905 0 0)`      | Primary borders                        |
-| `--border-subtle`    | `oklch(0.95 0 0)`       | Row separators, soft dividers          |
-| `--text-primary`     | `oklch(0.145 0 0)`      | Main text                              |
-| `--text-secondary`   | `oklch(0.435 0 0)`      | Secondary copy                         |
-| `--text-muted`       | `oklch(0.705 0 0)`      | Placeholder and weak emphasis          |
-| `--accent`           | `oklch(0.58 0.233 260)` | Primary action and focus color         |
-| `--accent-hover`     | `oklch(0.48 0.2 260)`   | Accent hover                           |
-| `--positive`         | `oklch(0.68 0.16 160)`  | Good or high values                    |
-| `--warning`          | `oklch(0.76 0.17 70)`   | Caution and middling values            |
-| `--negative`         | `oklch(0.63 0.21 25)`   | Negative or weak values                |
-| `--info`             | `oklch(0.62 0.19 285)`  | Neutral informational states           |
+| `--background` | `oklch(0.985 0 0)` | Page background |
+| `--surface` | `oklch(1 0 0)` | Cards, panels, tables |
+| `--surface-elevated` | `oklch(1 0 0)` | Dropdowns, tooltips, elevated overlays |
+| `--border` | `oklch(0.905 0 0)` | Primary borders |
+| `--border-subtle` | `oklch(0.95 0 0)` | Row separators, soft dividers |
+| `--text-primary` | `oklch(0.145 0 0)` | Main text |
+| `--text-secondary` | `oklch(0.435 0 0)` | Secondary copy |
+| `--text-muted` | `oklch(0.705 0 0)` | Placeholder and weak emphasis |
+| `--accent` | `oklch(0.58 0.233 260)` | Primary action and focus color |
+| `--accent-hover` | `oklch(0.48 0.2 260)` | Accent hover |
+| `--positive` | `oklch(0.68 0.16 160)` | Good or high values |
+| `--warning` | `oklch(0.76 0.17 70)` | Caution and middling values |
+| `--negative` | `oklch(0.63 0.21 25)` | Negative or weak values |
+| `--info` | `oklch(0.62 0.19 285)` | Neutral informational states |
 
 ### Optional alternate dark-mode tokens
 
 Dark mode is not the primary target, but if implemented later it should stay restrained rather than decorative.
 
-| Token                | Value                   |
+| Token | Value |
 | -------------------- | ----------------------- |
-| `--background`       | `oklch(0.14 0 0)`       |
-| `--surface`          | `oklch(0.21 0.006 285)` |
+| `--background` | `oklch(0.14 0 0)` |
+| `--surface` | `oklch(0.21 0.006 285)` |
 | `--surface-elevated` | `oklch(0.27 0.006 285)` |
-| `--border`           | `oklch(0.27 0.006 285)` |
-| `--border-subtle`    | `oklch(0.24 0.006 285)` |
-| `--text-primary`     | `oklch(0.985 0 0)`      |
-| `--text-secondary`   | `oklch(0.71 0.008 285)` |
-| `--text-muted`       | `oklch(0.44 0.008 285)` |
+| `--border` | `oklch(0.27 0.006 285)` |
+| `--border-subtle` | `oklch(0.24 0.006 285)` |
+| `--text-primary` | `oklch(0.985 0 0)` |
+| `--text-secondary` | `oklch(0.71 0.008 285)` |
+| `--text-muted` | `oklch(0.44 0.008 285)` |
 
 ### Value legend
 
@@ -160,15 +160,15 @@ Heatmaps, progress bars and score badges should reuse the same semantic legend r
 
 Base spacing should follow a `0.25rem` rhythm.
 
-| Token        | Value     | Usage                   |
+| Token | Value | Usage |
 | ------------ | --------- | ----------------------- |
-| `--space-1`  | `0.25rem` | Micro gaps              |
-| `--space-2`  | `0.5rem`  | Tight internal spacing  |
-| `--space-3`  | `0.75rem` | Compact control padding |
-| `--space-4`  | `1rem`    | Default gaps            |
-| `--space-6`  | `1.5rem`  | Card or panel padding   |
-| `--space-8`  | `2rem`    | Section spacing         |
-| `--space-12` | `3rem`    | Large page sections     |
+| `--space-1` | `0.25rem` | Micro gaps |
+| `--space-2` | `0.5rem` | Tight internal spacing |
+| `--space-3` | `0.75rem` | Compact control padding |
+| `--space-4` | `1rem` | Default gaps |
+| `--space-6` | `1.5rem` | Card or panel padding |
+| `--space-8` | `2rem` | Section spacing |
+| `--space-12` | `3rem` | Large page sections |
 
 Prefer consistent spacing tokens over one-off pixel values. Dense UI is acceptable, but cramped UI is not.
 
