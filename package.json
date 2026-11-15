@@ -18,6 +18,7 @@
     "dev": "vite",
     "build": "vite build",
     "check:dist": "node scripts/check-dist.mjs",
+    "check:freshness": "node scripts/check-freshness.mjs",
     "check:public-assets": "node scripts/check-public-assets.mjs",
     "check:redos": "node scripts/check-redos.mjs",
     "check:typography": "node scripts/check-typography.mjs",
