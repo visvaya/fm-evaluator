@@ -1,5 +1,3 @@
-/* eslint-disable sonarjs/no-nested-functions -- Filter controls use local checkbox updaters. */
-
 import { ChevronDown, ChevronUp, ChevronsUpDown, Filter } from 'lucide-react';
 import {
   type MouseEvent as ReactMouseEvent,
