@@ -45,7 +45,7 @@ updates:
         patterns: ['*']
   # The Semgrep image of the quality gate, pinned by tag and digest in this never-built Dockerfile.
   - package-ecosystem: docker
-    directory: /.github/docker/semgrep
+    directory: /docker/semgrep
     schedule:
       interval: weekly
       day: monday
