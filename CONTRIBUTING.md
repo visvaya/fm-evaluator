@@ -36,7 +36,8 @@ More detail: `docs/README.md` (documentation index) and `docs/quality-and-guardr
 
 - Commit messages and pull request titles follow [Conventional Commits](https://www.conventionalcommits.org/): `type(scope): subject`, imperative, lower case, no trailing period, for example `fix(import): keep the club name when a column is empty`.
 - Pull requests are squash-merged, so the pull request title becomes the commit on `main`.
-- The required check is "Quality gate"; a pull request is merged after it passes and the maintainer has reviewed the change.
+- The required checks are "Quality gate" and "CodeRabbit"; a pull request is merged after both pass and the maintainer has reviewed the change.
+- CodeRabbit, an automated review service, comments on each pull request (settings in `.coderabbit.yaml`). Its comments are suggestions; the maintainer decides which to apply.
 
 ## Reporting a security problem
 

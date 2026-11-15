@@ -11,6 +11,10 @@ reviews:
   high_level_summary_in_walkthrough: true
   poem: false
   in_progress_fortune: false
+  # CodeRabbit is a required check on main: a review that stops on an error must fail it instead
+  # of turning green.
+  commit_status: true
+  fail_commit_status: true
   # One maintainer: no reviewer suggestions.
   suggested_reviewers: false
   pre_merge_checks:
