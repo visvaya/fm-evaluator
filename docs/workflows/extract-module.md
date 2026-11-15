@@ -8,14 +8,14 @@ The method rests on golden fixtures, a metrics ratchet that may only fall and a 
 
 ## Tools
 
-| Command                          | What it answers                                                                                          |
+| Command | What it answers |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `pnpm legacy:codemap`            | Which bridges exist, who defines and reads them, in what order to take them (depth, leaves first).       |
-| `pnpm legacy:codemap --bridge X` | Every write and read site of `window.X`, plus test, E2E and HTML files that mention it.                  |
-| `pnpm legacy:metrics`            | Ratchet values (bridges, writes, reads, `.js` files, `innerHTML` writes, legacy HTML/CSS, largest file). |
-| `pnpm legacy:metrics:check`      | Fails if a value rose, or fell without the baseline being updated. Runs in CI.                           |
-| `pnpm test:goldens`              | Import, scoring and table goldens (`goldens/README.md`). Must stay byte-identical.                       |
-| `pnpm run goldens:diff [<ref>]`  | Structural diff of changed snapshots: leaf paths with collapsed indices, counts, one example each.       |
+| `pnpm legacy:codemap` | Which bridges exist, who defines and reads them, in what order to take them (depth, leaves first). |
+| `pnpm legacy:codemap --bridge X` | Every write and read site of `window.X`, plus test, E2E and HTML files that mention it. |
+| `pnpm legacy:metrics` | Ratchet values (bridges, writes, reads, `.js` files, `innerHTML` writes, legacy HTML/CSS, largest file). |
+| `pnpm legacy:metrics:check` | Fails if a value rose, or fell without the baseline being updated. Runs in CI. |
+| `pnpm test:goldens` | Import, scoring and table goldens (`goldens/README.md`). Must stay byte-identical. |
+| `pnpm run goldens:diff [<ref>]` | Structural diff of changed snapshots: leaf paths with collapsed indices, counts, one example each. |
 
 The codemap matches syntax, not scope. Verify every site in the code before acting on it.
 

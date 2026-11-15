@@ -74,7 +74,7 @@
       "oxlint --no-error-on-unmatched-pattern",
       "oxfmt --no-error-on-unmatched-pattern"
     ],
-    "*.{json,md,yml,yaml}": [
+    "*.{json,yml,yaml}": [
       "oxfmt --no-error-on-unmatched-pattern"
     ],
     "*": [

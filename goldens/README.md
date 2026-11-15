@@ -13,10 +13,10 @@ Every case runs on two parse paths. Both use the shared `UniversalParser`; only 
 
 No parser returns a `Date` today: date schema fields (`basic_dob`, `basic_expires`) hold `YYYY-MM-DD` strings and the displayed columns keep the FM text. If one ever does, the harness writes it as `<Date YYYY-MM-DDTHH:mm:ss.sss>` in local calendar fields instead of `{}`.
 
-| File                   | Content                                                                                                              |
+| File | Content |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `<case>.import.json`   | per file: detected language, column map, format context, parsed rows, import result                                  |
-| `<case>.merged.json`   | merged player records before scoring                                                                                 |
+| `<case>.import.json` | per file: detected language, column map, format context, parsed rows, import result |
+| `<case>.merged.json` | merged player records before scoring |
 | `<case>.analysis.json` | one line per engine and role (table order by UID), then one line per player with the fields scoring added or changed |
 
 Per-stat details (`filters`, `statDetails`, `attrDetails`) are kept only for the Default engine of `fm-export-en-uk` and the two `sample-*` cases, because they dominate the file size.

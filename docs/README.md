@@ -50,17 +50,17 @@ Also true today:
 
 ## 3. Source of Truth Matrix
 
-| Scope                               | Primary source of truth                                                                          | Supporting documents                                          | Notes                                                                  |
+| Scope | Primary source of truth | Supporting documents | Notes |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Documentation index                 | `docs/README.md`                                                                                 | `README.md`                                                   | Central document index                                                 |
-| UI and UX direction                 | `docs/ui/design.md`                                                                              | `docs/ui/mockup/`, `docs/quality-and-guardrails.md`           | Light-first, self-hosted, accessibility-aware direction                |
-| Frontend architecture               | `docs/ui/code.md`                                                                                | `docs/ui/react-functional-parity-matrix.md`                   | Current vs target architecture and refactor direction                  |
-| Legacy bridge reduction             | `docs/workflows/extract-module.md`                                                               | `docs/ui/code.md`, `goldens/README.md`                        | Procedure for replacing one `window.*` bridge at a time                |
-| League difficulty coefficient (LDC) | `docs/domain/ldc.md`                                                                             | `src/computing/ldcStatApplication.ts`                         | Domain contract for every LDC change                                   |
-| Quality and enforcement             | `docs/quality-and-guardrails.md`                                                                 | `.oxlintrc.json`, `.github/workflows/ci.yml`                  | Testing, linting, verification, enforcement map                        |
-| Localization                        | `docs/language.md`                                                                               | `src/i18n`, `public/i18n/messages`, `public/config/languages` | UI language, file-language configs, completeness policy                |
-| Security and self-hosting           | `docs/adr/001-runtime-isolation-and-self-hosting.md`, `docs/adr/004-csp-sri-and-local-assets.md` | `security_headers.json`                                       | Hard constraints                                                       |
-| Persistence and future sync posture | `docs/ui/code.md`                                                                                | `docs/README.md`                                              | Dexie now; Supabase later only if auth/sync is introduced deliberately |
+| Documentation index | `docs/README.md` | `README.md` | Central document index |
+| UI and UX direction | `docs/ui/design.md` | `docs/ui/mockup/`, `docs/quality-and-guardrails.md` | Light-first, self-hosted, accessibility-aware direction |
+| Frontend architecture | `docs/ui/code.md` | `docs/ui/react-functional-parity-matrix.md` | Current vs target architecture and refactor direction |
+| Legacy bridge reduction | `docs/workflows/extract-module.md` | `docs/ui/code.md`, `goldens/README.md` | Procedure for replacing one `window.*` bridge at a time |
+| League difficulty coefficient (LDC) | `docs/domain/ldc.md` | `src/computing/ldcStatApplication.ts` | Domain contract for every LDC change |
+| Quality and enforcement | `docs/quality-and-guardrails.md` | `.oxlintrc.json`, `.github/workflows/ci.yml` | Testing, linting, verification, enforcement map |
+| Localization | `docs/language.md` | `src/i18n`, `public/i18n/messages`, `public/config/languages` | UI language, file-language configs, completeness policy |
+| Security and self-hosting | `docs/adr/001-runtime-isolation-and-self-hosting.md`, `docs/adr/004-csp-sri-and-local-assets.md` | `security_headers.json` | Hard constraints |
+| Persistence and future sync posture | `docs/ui/code.md` | `docs/README.md` | Dexie now; Supabase later only if auth/sync is introduced deliberately |
 
 ## 4. Active Document Map
 
