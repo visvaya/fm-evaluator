@@ -25,18 +25,26 @@ export function configureRuleTester() {
 /**
  * Lints `source` as a TypeScript file with the real oxlint binary and the project config, so a
  * plugin that stops loading after an oxlint upgrade fails a test instead of passing as a clean
- * lint. Returns the diagnostics of the given rule code. With `insideDir` (relative to the app) the
- * fixture is written there, so directory overrides of the config apply to it.
+ * lint. Returns the diagnostics of the given rule code.
  */
-export function lintWithProjectConfig(source, ruleCode, insideDir) {
-  const dir =
-    insideDir === undefined
-      ? fs.mkdtempSync(path.join(os.tmpdir(), 'oxlint-plugin-'))
-      : fs.mkdtempSync(path.join(appDir, insideDir, 'oxlint-wiring-'));
+export function lintWithProjectConfig(source, ruleCode) {
+  return lintInside(os.tmpdir(), source).filter((diagnostic) => diagnostic.code === ruleCode);
+}
+
+/**
+ * Lints `source` as a file inside `dir` (relative to the app), so the config's directory overrides
+ * apply to it, and returns every diagnostic of the one oxlint run.
+ */
+export function lintInDirectory(source, dir) {
+  return lintInside(path.join(appDir, dir), source);
+}
+
+function lintInside(parent, source) {
+  const dir = fs.mkdtempSync(path.join(parent, 'oxlint-wiring-'));
   try {
     const fixture = path.join(dir, 'fixture.ts');
     fs.writeFileSync(fixture, source);
-    return runOxlint(fixture).diagnostics.filter((diagnostic) => diagnostic.code === ruleCode);
+    return runOxlint(fixture).diagnostics;
   } finally {
     fs.rmSync(dir, { force: true, recursive: true });
   }
