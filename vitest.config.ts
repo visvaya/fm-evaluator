@@ -1,7 +1,6 @@
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
 
-// @ts-expect-error Vitest native config loading resolves the TS file directly.
 import { createSharedViteConfig } from './vite.shared.ts';
 
 export default defineConfig(

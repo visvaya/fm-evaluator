@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, mergeConfig } from 'vite';
 
 import { buildPrecacheManifest, injectPrecacheManifest } from './scripts/lib/sw-precache.mjs';
-import { createSharedViteConfig } from './vite.shared';
+import { createSharedViteConfig } from './vite.shared.ts';
 
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
 
