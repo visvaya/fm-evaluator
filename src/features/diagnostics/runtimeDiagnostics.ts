@@ -692,7 +692,10 @@ function registerServiceWorker() {
   whenDocumentLoaded(() => {
     navigator.serviceWorker
       .register('/service-worker.js', { scope: '/' })
-      .then((reg) => {
+      // A browser that blocks service workers (Playwright's serviceWorkers: 'block') resolves
+      // without a registration.
+      .then((reg: ServiceWorkerRegistration | undefined) => {
+        if (!reg) return;
         console.log('[ServiceWorker] Registered', reg.scope);
 
         // No automatic activation or reload: see attachServiceWorkerLifecycle.
