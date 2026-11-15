@@ -19,6 +19,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "allowImportingTsExtensions": true,
     "noEmit": true
   },
   "include": ["src/**/*", "e2e/**/*", "vite.config.ts", "vite.shared.ts", "vitest.config.ts"],
