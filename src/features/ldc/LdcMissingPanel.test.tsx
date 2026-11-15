@@ -74,11 +74,14 @@ const sampleState = {
 describe('LdcMissingPanel', () => {
   let container: HTMLDivElement;
   let root: Root;
+  let scrollIntoView: ReturnType<typeof vi.fn<(arg?: boolean | ScrollIntoViewOptions) => void>>;
 
   beforeEach(() => {
     vi.useFakeTimers();
     globalThis.IS_REACT_ACT_ENVIRONMENT = true;
-    Element.prototype.scrollIntoView = vi.fn();
+    scrollIntoView = vi.fn<(arg?: boolean | ScrollIntoViewOptions) => void>();
+    Element.prototype.scrollIntoView = scrollIntoView;
+    window.matchMedia = vi.fn((query: string) => ({ matches: false, media: query })) as never;
     useLdcMissingStore.setState({
       groups: sampleState.groups,
       hasCheckedMissingLeagues: false,
@@ -296,5 +299,33 @@ describe('LdcMissingPanel', () => {
     expect(container.querySelector('#ldc-recheck-result')?.textContent).toContain(
       'Wszystkie ligi zostały dodane'
     );
+    expect(scrollIntoView).toHaveBeenCalledWith({
+      behavior: 'smooth',
+      block: 'nearest'
+    });
+  });
+
+  it('scrolls without animation when the user prefers reduced motion', () => {
+    window.matchMedia = vi.fn((query: string) => ({
+      matches: query === '(prefers-reduced-motion: reduce)',
+      media: query
+    })) as never;
+    vi.mocked(detectMissingLeagues)
+      .mockReturnValueOnce(sampleState.missingLeagues)
+      .mockReturnValueOnce([]);
+
+    act(() => {
+      root.render(<LdcMissingPanel />);
+      useLdcMissingStore.getState().showPanel();
+    });
+    act(() => {
+      container.querySelector<HTMLButtonElement>('#ldc-recheck-missing-btn')?.click();
+      vi.advanceTimersByTime(100);
+    });
+
+    expect(scrollIntoView).toHaveBeenCalledWith({
+      behavior: 'auto',
+      block: 'nearest'
+    });
   });
 });

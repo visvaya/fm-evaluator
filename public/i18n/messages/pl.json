@@ -125,6 +125,7 @@
     "graphics_disabled": "Grafiki: wyłączone",
     "graphics_enabled": "Grafiki: włączone",
     "hard_reset": "Hard Reset",
+    "hard_reset_confirm": "Hard Reset usunie wszystko, co aplikacja zapisała w tej przeglądarce: mapowania lig LDC, szablony i ustawienia LDC, ustawienia aplikacji, wartości posiadania piłki drużyn, listę zaimportowanych plików, zapisane kopie zapasowe i dziennik audytu. Usunie też pamięć offline i Service Worker. Pliki eksportu na dysku pozostaną nietknięte. Kontynuować?",
     "hide_analysis_settings": "Ukryj ustawienia analizy",
     "hide_comparison": "Ukryj porównanie",
     "import_cells_cut": "{file}: komórki dłuższe niż {limit} znaków zostały przycięte. Kolumny (przycięte komórki): {columns}",

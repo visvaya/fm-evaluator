@@ -120,7 +120,7 @@ const Header = () => {
             aria-label={t('hard_reset')}
             disabled={tabRole !== 'primary'}
             onClick={() => {
-              void runHardReset();
+              void runHardReset(t('hard_reset_confirm'));
             }}
           >
             <RefreshCcw className="h-4 w-4" />

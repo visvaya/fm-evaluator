@@ -1,10 +1,28 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   buildDiagnosticsSnapshot,
   resetDiagnosticsStore,
+  runHardReset,
   useDiagnosticsStore
 } from './runtimeDiagnostics';
+
+describe('runHardReset', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('asks with the caller-supplied message and changes nothing when declined', async () => {
+    const confirm = vi.fn(() => false);
+    const reload = vi.fn();
+    vi.stubGlobal('window', { confirm, location: { reload } });
+
+    await runHardReset('Deletes the saved LDC mappings. Continue?');
+
+    expect(confirm).toHaveBeenCalledWith('Deletes the saved LDC mappings. Continue?');
+    expect(reload).not.toHaveBeenCalled();
+  });
+});
 
 describe('runtimeDiagnostics', () => {
   beforeEach(() => {

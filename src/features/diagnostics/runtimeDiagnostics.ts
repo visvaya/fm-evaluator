@@ -731,8 +731,9 @@ export async function triggerRollback() {
   postToServiceWorker({ type: 'REQUEST_SW_ROLLBACK' });
 }
 
-export async function runHardReset() {
-  const confirmed = window.confirm('Hard Reset wyczyści cache i Service Worker. Kontynuować?');
+/** `confirmMessage` is the translated text that names everything the reset deletes. */
+export async function runHardReset(confirmMessage: string) {
+  const confirmed = window.confirm(confirmMessage);
   if (!confirmed) return;
 
   try {
