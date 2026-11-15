@@ -1943,12 +1943,6 @@
     },
     "jsx-a11y/no-autofocus": {
       "count": 1
-    },
-    "react-hooks/rules-of-hooks": {
-      "count": 9
-    },
-    "react/hooks": {
-      "count": 9
     }
   },
   "src/features/ldc/LdcMissingPanel.test.tsx": {
