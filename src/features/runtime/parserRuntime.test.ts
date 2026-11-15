@@ -36,10 +36,13 @@ vi.mock('@/config/featureFlags', () => ({
   isFeatureEnabled
 }));
 
-vi.mock('@/workerBridge', () => ({
+vi.mock('@/workerBridge/circuitBreaker', () => ({
   CircuitBreaker: MockCircuitBreaker,
-  getParserBridge,
   Watchdog: MockWatchdog
+}));
+
+vi.mock('@/workerBridge/parserBridge', () => ({
+  getParserBridge
 }));
 
 describe('parserRuntime', () => {

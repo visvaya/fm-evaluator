@@ -296,6 +296,7 @@
     "import/export": "error",
     "promise/no-return-in-finally": "error",
     "unicorn/no-useless-iterator-to-array": "error",
+    "oxc/no-barrel-file": ["error", { "threshold": 0 }], // No `export *` barrels: import from the defining module (the rule does not see named re-exports, so review keeps index files out).
     "typescript/no-useless-default-assignment": "off", // Needs strictNullChecks, which is off (tsconfig strict ratchet); turn on with strictNullChecks.
     "typescript/no-unnecessary-boolean-literal-compare": "off", // Needs strictNullChecks, which is off (tsconfig strict ratchet): it reports a config error on every file; turn on with strict.
     "unicorn/require-post-message-target-origin": "off", // postMessage is called only on service workers, workers and clients, which take no target origin; the rule cannot tell them from window.

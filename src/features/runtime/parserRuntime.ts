@@ -3,7 +3,8 @@ import {
   appendDiagnosticsLog,
   getCurrentProfileReport
 } from '@/features/diagnostics/runtimeDiagnostics';
-import { CircuitBreaker, getParserBridge, type ParserBridge, Watchdog } from '@/workerBridge';
+import { CircuitBreaker, Watchdog } from '@/workerBridge/circuitBreaker';
+import { getParserBridge, type ParserBridge } from '@/workerBridge/parserBridge';
 
 let parserBridge: null | ParserBridge = null;
 let parserCircuitBreaker: CircuitBreaker | null = null;
