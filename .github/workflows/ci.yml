@@ -8,8 +8,11 @@ on:
     - cron: '0 6 * * 1' # Monday 06:00 UTC: security scans and the full gate
   workflow_dispatch:
 
+# A new push supersedes a pull request's running check. Every other run (main, schedule, manual)
+# gets a group of its own, so it neither waits for nor cancels another: each run on main is the
+# only check of that merge on top of the previous one.
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ci-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
   cancel-in-progress: true
 
 permissions:
@@ -40,14 +43,22 @@ jobs:
         env:
           EVENT_NAME: ${{ github.event_name }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          CHANGED_FILES: ${{ github.event.pull_request.changed_files }}
           GH_TOKEN: ${{ github.token }}
         run: |
           if [ "$EVENT_NAME" != "pull_request" ]; then
             printf 'docs_only=false\ne2e=true\nsecurity=true\n' | tee -a "$GITHUB_OUTPUT"
             exit 0
           fi
-          files="$(gh api --paginate "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/files" --jq '.[] | .filename, (.previous_filename // empty)')"
-          bash .github/scripts/ci-scope.sh <<< "$files" | tee -a "$GITHUB_OUTPUT"
+          # One line per file: its path, a tab, and the previous path of a rename (or nothing).
+          listed="$(gh api --paginate "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/files" --jq '.[] | .filename + "\t" + (.previous_filename // "")')"
+          # The files API lists at most 3000 files: a longer pull request runs everything.
+          # Compared as text, so a missing count also selects the full run.
+          if [ "$(grep -c . <<< "$listed")" != "$CHANGED_FILES" ]; then
+            printf 'docs_only=false\ne2e=true\nsecurity=true\n' | tee -a "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          tr '\t' '\n' <<< "$listed" | grep . | bash .github/scripts/ci-scope.sh | tee -a "$GITHUB_OUTPUT"
 
       - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
 
@@ -200,7 +211,8 @@ jobs:
 
       # Security scans: on pull requests only when workflows, dependencies or
       # lockfiles change; always on main, weekly and on manual runs. The secret
-      # scan (gitleaks) runs on every push and pull request in secrets.yml.
+      # scan (gitleaks) runs in secrets.yml on pushes to main, pull requests,
+      # weekly and on manual runs.
       - name: Workflow audit (zizmor)
         if: ${{ !cancelled() && steps.scope.outputs.security == 'true' }}
         env:

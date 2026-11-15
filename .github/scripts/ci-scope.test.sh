@@ -24,5 +24,17 @@ check 'lockfile' 'pnpm-lock.yaml\n' 'docs_only=false e2e=true security=true '
 check 'scripts only' 'scripts/check-docs.mjs\n' 'docs_only=false e2e=false security=false '
 # A rename lists the new and the previous path (previous_filename from the API).
 check 'rename code to docs' 'docs/old-parser.md\nsrc/parser.ts\n' 'docs_only=false e2e=true security=false '
+# Files outside src/ that still change what the browser runs.
+check 'stylesheet' 'styles.css\n' 'docs_only=false e2e=true security=false '
+check 'embedded data' 'embedded-data.js\n' 'docs_only=false e2e=true security=false '
+check 'shared vite config' 'vite.shared.ts\n' 'docs_only=false e2e=true security=false '
+check 'precache builder' 'scripts/lib/sw-precache.mjs\n' 'docs_only=false e2e=true security=false '
+check 'node line' '.nvmrc\n' 'docs_only=false e2e=true security=false '
+check 'unknown new file' 'some-new-config.json\n' 'docs_only=false e2e=true security=false '
+# Known not to reach the browser.
+check 'lint config' '.oxlintrc.json\noxlint-suppressions.json\n' 'docs_only=false e2e=false security=false '
+check 'goldens' 'goldens/snapshots/a.json\n' 'docs_only=false e2e=false security=false '
+check 'other workflow' '.github/workflows/secrets.yml\n' 'docs_only=false e2e=false security=true '
+check 'commit rules' 'commitlint.config.mjs\n.husky/commit-msg\n' 'docs_only=false e2e=false security=false '
 
 [ "$failures" -eq 0 ]

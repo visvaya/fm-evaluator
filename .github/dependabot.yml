@@ -18,11 +18,13 @@ updates:
       prefix: build
       prefix-development: build
       include: scope
+    # Short group names: a title such as "build(deps-dev): bump the dev group across 1 directory
+    # with 30 updates" must stay within the 72-character title rule.
     groups:
-      production-minor-patch:
+      prod:
         dependency-type: production
         update-types: [minor, patch]
-      development-minor-patch:
+      dev:
         dependency-type: development
         update-types: [minor, patch]
   - package-ecosystem: github-actions
