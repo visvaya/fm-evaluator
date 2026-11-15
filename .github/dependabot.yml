@@ -12,6 +12,8 @@ updates:
       day: monday
       timezone: Europe/Warsaw
     open-pull-requests-limit: 5
+    # Exact versions in package.json: raise the pinned version instead of widening a range.
+    versioning-strategy: increase
     cooldown:
       default-days: 7
     commit-message:

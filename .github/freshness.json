@@ -1,0 +1,77 @@
+{
+  "minimumReleaseAgeDays": 7,
+  "items": [
+    {
+      "name": "npm packages",
+      "mechanism": "dependabot",
+      "where": "npm, / (exact versions, versioning-strategy: increase)"
+    },
+    {
+      "name": "GitHub Actions",
+      "mechanism": "dependabot",
+      "where": "github-actions, / (pinned by commit)"
+    },
+    {
+      "name": "Semgrep image",
+      "mechanism": "dependabot",
+      "where": "docker, /.github/docker/semgrep (tag and digest)"
+    },
+    {
+      "name": "Node patch release",
+      "mechanism": "check-latest",
+      "where": ".nvmrc holds the major line; setup-node check-latest"
+    },
+    {
+      "name": "Node floor (engines.node)",
+      "mechanism": "job",
+      "check": {
+        "nodeFloor": true
+      }
+    },
+    {
+      "name": "pnpm (packageManager)",
+      "mechanism": "job",
+      "check": {
+        "file": "package.json",
+        "pattern": "\"packageManager\": \"pnpm@([0-9.]+)\"",
+        "npm": "pnpm"
+      },
+      "howToBump": "set packageManager to the new version, run pnpm install, then the gate"
+    },
+    {
+      "name": "gitleaks",
+      "mechanism": "job",
+      "check": {
+        "file": ".github/workflows/secrets.yml",
+        "pattern": "GITLEAKS_VERSION:[ \"]*([0-9.]+)",
+        "github": "gitleaks/gitleaks"
+      },
+      "howToBump": "update GITLEAKS_VERSION and GITLEAKS_SHA256 in .github/workflows/secrets.yml from the release checksums file"
+    },
+    {
+      "name": "zizmor",
+      "mechanism": "job",
+      "check": {
+        "file": ".github/workflows/ci.yml",
+        "pattern": "ZIZMOR_VERSION:[ \"]*([0-9.]+)",
+        "pypi": "zizmor"
+      },
+      "howToBump": "update ZIZMOR_VERSION and ZIZMOR_SHA256 (the manylinux x86_64 wheel hash from PyPI) in .github/workflows/ci.yml"
+    },
+    {
+      "name": "tesseract (public/vendor/tesseract)",
+      "mechanism": "manual",
+      "where": "a hand copy of tesseract.js and tesseract.js-core 7.0.0, whose packages Dependabot updates: when it bumps them, copy the new files into public/vendor/tesseract and run pnpm run sri:update, until the files are loaded from the installed packages"
+    },
+    {
+      "name": "Cropper.js 1.6.2 (public/vendor/cropper)",
+      "mechanism": "manual",
+      "where": "hand copy; until it is loaded from the cropperjs package, check its releases when the vendor files are touched"
+    },
+    {
+      "name": "Font Awesome Free 6.5.2 (public/vendor/fontawesome)",
+      "mechanism": "manual",
+      "where": "hand copy; until the icons come from a package, check its releases when the vendor files are touched"
+    }
+  ]
+}
