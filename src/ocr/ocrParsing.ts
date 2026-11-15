@@ -272,5 +272,5 @@ export function parseOCRText(
 }
 
 function parsePossessionValue(val: string): number {
-  return parseFloat(String(val).replace(',', '.'));
+  return parseFloat(val.replace(',', '.'));
 }

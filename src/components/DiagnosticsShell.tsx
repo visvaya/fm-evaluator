@@ -62,7 +62,7 @@ export function DiagnosticsShell() {
   const panelRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen) return undefined;
     const handleClickOutside = (e: MouseEvent) => {
       if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
         closeDiagnostics();

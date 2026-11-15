@@ -372,7 +372,7 @@ function renderCellContent(c: Column, p: Player, isBestModeActive = false): stri
 
     case 'leftFootStars':
     case 'rightFootStars': {
-      const starsValue = esc(String(p[c.id] ?? '-'));
+      const starsValue = esc(p[c.id] ?? '-');
       return `<span class="text-yellow-500 font-bold">${starsValue}</span>`;
     }
 

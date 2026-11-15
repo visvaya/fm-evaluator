@@ -87,7 +87,7 @@ export function LdcModalCompat() {
 
   useEffect(() => {
     if (!isHydrated || !isLdcOpen) {
-      return;
+      return undefined;
     }
 
     const renderTimer = window.setTimeout(() => {
@@ -115,7 +115,7 @@ export function LdcModalCompat() {
 
   useEffect(() => {
     if (!isImportMenuOpen) {
-      return;
+      return undefined;
     }
 
     const handlePointerDown = (event: MouseEvent) => {
@@ -169,7 +169,7 @@ export function LdcModalCompat() {
 
   useEffect(() => {
     if (!isLdcOpen) {
-      return;
+      return undefined;
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -301,7 +301,7 @@ export function LdcModalCompat() {
 
   useLayoutEffect(() => {
     if (!isBaseLeagueDropdownOpen || baseLeagueMatches.length === 0) {
-      return;
+      return undefined;
     }
 
     updateBaseLeagueDropdownPosition();
@@ -339,7 +339,7 @@ export function LdcModalCompat() {
 
   useLayoutEffect(() => {
     if (!isImportMenuOpen) {
-      return;
+      return undefined;
     }
 
     updateImportMenuPosition();

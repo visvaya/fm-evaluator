@@ -63,8 +63,8 @@ export function bindPossessionModalListeners(): void {
   });
 
   document.querySelector('#reset-club-selection-value')?.addEventListener('click', () => {
-    const proc = getProcessor();
-    proc.teamPossessionMap.delete(proc.normalizeClubName(getCurrentSelectedClub()));
+    const processor = getProcessor();
+    processor.teamPossessionMap.delete(processor.normalizeClubName(getCurrentSelectedClub()));
     const vi = document.querySelector<HTMLInputElement>('#possession-club-value');
     if (vi) vi.value = '';
     renderPossessionClubList(

@@ -30,10 +30,10 @@ export function formatRoleRequirements(player: Player): RoleRequirementItem[] {
       chartValue: getChartValue(item.val),
       label: item.name,
       limit: item.limit,
-      passed: Boolean(item.passed),
-      skipped: Boolean(item.skipped),
+      passed: item.passed ?? false,
+      skipped: item.skipped ?? false,
       sourceKey: item.name,
-      value: String(item.val ?? '–')
+      value: item.val ?? '–'
     }));
   }
 

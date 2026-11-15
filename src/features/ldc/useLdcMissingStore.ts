@@ -8,19 +8,19 @@ import type {
   MissingLeagueRecheckSummary
 } from './missingLeaguesModel';
 
-interface LdcMissingAddDialogPayload {
+export interface LdcMissingAddDialogPayload {
   league: MissingLeagueCandidate;
   mode: 'add';
 }
 
-interface LdcMissingBulkAddDialogPayload {
+export interface LdcMissingBulkAddDialogPayload {
   country: string;
   leagues: MissingLeagueCandidate[];
   mode: 'bulk-add';
   title: string;
 }
 
-interface LdcMissingMatchDialogPayload {
+export interface LdcMissingMatchDialogPayload {
   country: string;
   leagues: MissingLeagueCandidate[];
   mode: 'match';

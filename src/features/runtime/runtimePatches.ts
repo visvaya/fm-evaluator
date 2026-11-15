@@ -1,7 +1,7 @@
 import { removeUntilStable } from '@/utils/removeUntilStable';
 
 export function sanitizeHtmlForParsing(input: string): string {
-  return removeUntilStable(String(input), [
+  return removeUntilStable(input, [
     /<style[^>]*>[\s\S]*?<\/style>/gi,
     /\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi,
     /\sstyle\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi

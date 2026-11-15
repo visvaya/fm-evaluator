@@ -129,7 +129,7 @@ function isSkippedStat(player: PlayerLike, statName: string) {
   }
 
   const statDetail = statDetails.find((detail) => detail.name === statName);
-  return Boolean(statDetail?.skipped);
+  return statDetail?.skipped ?? false;
 }
 
 export function buildFilterResults({

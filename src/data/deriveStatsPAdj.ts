@@ -57,8 +57,7 @@ export function applyPAdjDerivations({
 
   // Keep the possession used as auxiliary information (integer %)
   if (!hasValue('Team Poss')) {
-    const possNumber = Number(basePossession);
-    const formatted = isNaN(possNumber) ? '' : possNumber.toFixed(0);
+    const formatted = isNaN(basePossession) ? '' : basePossession.toFixed(0);
     player['Team Poss'] = formatted ? `${formatted}%` : null;
   }
 }

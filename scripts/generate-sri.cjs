@@ -150,7 +150,7 @@ function printHashes() {
   console.log('SRI Hashes for vendor files:\n');
   const hashes = generateAllHashes();
   for (const [file, hash] of Object.entries(hashes)) {
-    console.log(`${file}`);
+    console.log(file);
     console.log(`  ${hash}\n`);
   }
 }
