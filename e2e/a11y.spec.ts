@@ -80,6 +80,17 @@ async function blockingViolations(page: Page, include?: string) {
     .map((violation) => `${violation.id} (${violation.impact}): ${violation.nodes.length} nodes`);
 }
 
+test.describe('Accessibility (axe) before an import', () => {
+  test('start screen has no serious or critical violations', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('header')).toBeVisible();
+    await expect(page.locator('#files-input')).toBeAttached();
+    await expect(page.locator('#table-body tr:not(.virtual-spacer)')).toHaveCount(0);
+
+    expect(await blockingViolations(page)).toEqual([]);
+  });
+});
+
 test.describe('Accessibility (axe)', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
@@ -99,4 +110,24 @@ test.describe('Accessibility (axe)', () => {
 
     expect(await blockingViolations(page, drawer)).toEqual([]);
   });
+
+  // Each dialog: open it from the header, check that it is shown, then scan only the dialog.
+  const dialogs = [
+    { name: 'settings dialog', opener: '#settings-btn', root: '#settings-modal' },
+    { name: 'LDC dialog', opener: '#ldc-btn', root: '#ldc-modal' },
+    {
+      name: 'file manager',
+      opener: '#manage-files-btn',
+      root: '[data-testid="file-manager-modal"]'
+    }
+  ] as const;
+
+  for (const { name, opener, root } of dialogs) {
+    test(`${name} has no serious or critical violations`, async ({ page }) => {
+      await page.locator(opener).click();
+      await expect(page.locator(root)).toBeVisible();
+
+      expect(await blockingViolations(page, root)).toEqual([]);
+    });
+  }
 });
