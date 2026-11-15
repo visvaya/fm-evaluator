@@ -8,6 +8,7 @@
   },
   "type": "module",
   "scripts": {
+    "preinstall": "node scripts/check-node.mjs",
     "dev": "vite",
     "build": "vite build",
     "check:dist": "node scripts/check-dist.mjs",
