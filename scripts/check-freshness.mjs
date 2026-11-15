@@ -123,12 +123,14 @@ export const nodeFloorResult = ({ nvmrc, engines, index }) => {
     .at(-1);
   if (newestSecurity === undefined)
     return { status: 'ok', text: `floor ${show(floor)}, no security release of Node ${major} yet` };
+  // The suggestion keeps the project's operator: a preinstall check may accept only one form.
+  const operator = /^ *(\^|~|>=)/.exec(engines)?.[1] ?? '>=';
   return compareVersions(floor, newestSecurity) < 0
     ? {
         status: 'outdated',
         text:
-          `floor ${show(floor)} is below the security release ${show(newestSecurity)}: raise the engines.node floor to ` +
-          `${show(newestSecurity)} (the preinstall check refuses older Node), install it locally, then run the gate`
+          `floor ${show(floor)} is below the security release ${show(newestSecurity)}: set engines.node to ` +
+          `${operator}${show(newestSecurity)} (the preinstall check refuses older Node), install it locally, then run the gate`
       }
     : {
         status: 'ok',
