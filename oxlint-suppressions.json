@@ -1,5 +1,8 @@
 {
   "e2e/column-persistence.spec.ts": {
+    "complexity": {
+      "count": 1
+    },
     "id-match": {
       "count": 2
     },
@@ -166,6 +169,9 @@
     }
   },
   "e2e/header-mapping.spec.ts": {
+    "complexity": {
+      "count": 1
+    },
     "id-match": {
       "count": 2
     },
@@ -274,6 +280,9 @@
     }
   },
   "e2e/ldc-and-offline.spec.ts": {
+    "complexity": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 6
     },
@@ -344,6 +353,9 @@
     }
   },
   "e2e/multi-file-merge.spec.ts": {
+    "complexity": {
+      "count": 1
+    },
     "id-match": {
       "count": 2
     },
@@ -437,6 +449,9 @@
     }
   },
   "e2e/settings-modal.spec.ts": {
+    "complexity": {
+      "count": 1
+    },
     "id-match": {
       "count": 2
     },
@@ -604,6 +619,9 @@
     }
   },
   "scripts/lib/legacy-scan.mjs": {
+    "complexity": {
+      "count": 1
+    },
     "max-depth": {
       "count": 2
     },
@@ -652,6 +670,9 @@
     }
   },
   "scripts/validate-configs.cjs": {
+    "complexity": {
+      "count": 1
+    },
     "max-depth": {
       "count": 1
     },
@@ -725,6 +746,9 @@
     }
   },
   "src/components/ColumnFilterPopover.tsx": {
+    "complexity": {
+      "count": 1
+    },
     "i18next/no-literal-string": {
       "count": 15
     },
@@ -779,6 +803,9 @@
     }
   },
   "src/components/DiagnosticsShell.tsx": {
+    "complexity": {
+      "count": 1
+    },
     "i18next/no-literal-string": {
       "count": 39
     },
@@ -843,6 +870,9 @@
     }
   },
   "src/components/PlayerTable.tsx": {
+    "complexity": {
+      "count": 1
+    },
     "i18next/no-literal-string": {
       "count": 3
     },
@@ -978,6 +1008,9 @@
     }
   },
   "src/computing/ldcUtils.ts": {
+    "complexity": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 2
     },
@@ -1059,6 +1092,9 @@
     }
   },
   "src/config/featureFlags.ts": {
+    "complexity": {
+      "count": 1
+    },
     "max-classes-per-file": {
       "count": 1
     },
@@ -1192,6 +1228,9 @@
     }
   },
   "src/data/calculateScores.ts": {
+    "complexity": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 13
     },
@@ -1217,6 +1256,9 @@
     }
   },
   "src/data/calculateScoresForAllRoles.ts": {
+    "complexity": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 5
     },
@@ -1258,6 +1300,9 @@
     }
   },
   "src/data/computeStatScore.ts": {
+    "complexity": {
+      "count": 2
+    },
     "sonarjs/no-duplicated-branches": {
       "count": 2
     },
@@ -1294,6 +1339,9 @@
     }
   },
   "src/data/dataProcessor.ts": {
+    "complexity": {
+      "count": 1
+    },
     "max-classes-per-file": {
       "count": 1
     },
@@ -1343,6 +1391,9 @@
     }
   },
   "src/data/deriveStats.ts": {
+    "complexity": {
+      "count": 1
+    },
     "max-depth": {
       "count": 1
     },
@@ -1366,6 +1417,9 @@
     }
   },
   "src/data/deriveStatsAttacking.ts": {
+    "complexity": {
+      "count": 1
+    },
     "max-depth": {
       "count": 3
     },
@@ -1405,6 +1459,9 @@
     }
   },
   "src/data/deriveStatsTail.ts": {
+    "complexity": {
+      "count": 1
+    },
     "oxc/const-comparisons": {
       "count": 1
     },
@@ -1436,6 +1493,9 @@
     }
   },
   "src/data/detectFileType.ts": {
+    "complexity": {
+      "count": 1
+    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -1458,6 +1518,9 @@
     }
   },
   "src/data/getNumericValue.ts": {
+    "complexity": {
+      "count": 1
+    },
     "sonarjs/cognitive-complexity": {
       "count": 1
     },
@@ -1486,6 +1549,9 @@
     }
   },
   "src/data/handleFiles.ts": {
+    "complexity": {
+      "count": 1
+    },
     "no-restricted-globals": {
       "count": 35
     },
@@ -1589,6 +1655,9 @@
     }
   },
   "src/data/mergeData.ts": {
+    "complexity": {
+      "count": 1
+    },
     "max-depth": {
       "count": 14
     },
@@ -1625,6 +1694,9 @@
     }
   },
   "src/data/parseFeet.ts": {
+    "complexity": {
+      "count": 1
+    },
     "typescript/no-unnecessary-type-conversion": {
       "count": 1
     },
@@ -1641,6 +1713,9 @@
     }
   },
   "src/data/parseHTMLWithNewSystem.ts": {
+    "complexity": {
+      "count": 1
+    },
     "max-depth": {
       "count": 1
     },
@@ -1697,6 +1772,9 @@
     }
   },
   "src/data/parseNumber.ts": {
+    "complexity": {
+      "count": 1
+    },
     "regexp/no-dupe-disjunctions": {
       "count": 4
     },
@@ -1972,6 +2050,9 @@
     }
   },
   "src/features/ldc/LdcMissingPanel.tsx": {
+    "complexity": {
+      "count": 1
+    },
     "i18next/no-literal-string": {
       "count": 38
     },
@@ -2087,6 +2168,9 @@
     }
   },
   "src/features/ldc/missingLeaguesModel.ts": {
+    "complexity": {
+      "count": 1
+    },
     "max-depth": {
       "count": 2
     },
@@ -2542,6 +2626,11 @@
       "count": 1
     }
   },
+  "src/lib/importStatusDom.ts": {
+    "complexity": {
+      "count": 1
+    }
+  },
   "src/lib/legacyActionBridge.ts": {
     "typescript/no-explicit-any": {
       "count": 2
@@ -2684,6 +2773,9 @@
     }
   },
   "src/mapping/contextResolver.js": {
+    "complexity": {
+      "count": 2
+    },
     "max-classes-per-file": {
       "count": 1
     },
@@ -2744,6 +2836,9 @@
     }
   },
   "src/mapping/smartHeaderMapper.js": {
+    "complexity": {
+      "count": 1
+    },
     "max-classes-per-file": {
       "count": 1
     },
@@ -2778,6 +2873,9 @@
     }
   },
   "src/ocr/ocrMatching.ts": {
+    "complexity": {
+      "count": 2
+    },
     "max-depth": {
       "count": 1
     },
@@ -2807,6 +2905,9 @@
     }
   },
   "src/ocr/ocrParsing.ts": {
+    "complexity": {
+      "count": 2
+    },
     "regexp/no-obscure-range": {
       "count": 1
     },
@@ -2899,6 +3000,9 @@
     }
   },
   "src/parsing/formatInspector.js": {
+    "complexity": {
+      "count": 1
+    },
     "max-classes-per-file": {
       "count": 1
     },
@@ -2935,6 +3039,9 @@
     }
   },
   "src/parsing/parsers/currencyParser.js": {
+    "complexity": {
+      "count": 1
+    },
     "max-classes-per-file": {
       "count": 1
     },
@@ -3608,6 +3715,9 @@
     }
   },
   "src/ui/filterData.ts": {
+    "complexity": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 13
     },
@@ -3708,6 +3818,9 @@
     }
   },
   "src/ui/formatVerificationModal.js": {
+    "complexity": {
+      "count": 1
+    },
     "max-classes-per-file": {
       "count": 1
     },
@@ -3758,6 +3871,9 @@
     }
   },
   "src/ui/headerMappingModal.js": {
+    "complexity": {
+      "count": 1
+    },
     "max-classes-per-file": {
       "count": 1
     },
@@ -3827,6 +3943,9 @@
     }
   },
   "src/ui/languageModal.ts": {
+    "complexity": {
+      "count": 1
+    },
     "typescript/no-explicit-any": {
       "count": 3
     },
@@ -4067,6 +4186,9 @@
     }
   },
   "src/ui/possessionModal.ts": {
+    "complexity": {
+      "count": 1
+    },
     "sonarjs/max-lines-per-function": {
       "count": 1
     },
@@ -4119,6 +4241,9 @@
     }
   },
   "src/ui/possessionOCRDisplay.ts": {
+    "complexity": {
+      "count": 1
+    },
     "no-underscore-dangle": {
       "count": 3
     },
@@ -4180,6 +4305,9 @@
     }
   },
   "src/ui/possessionOCRPipeline.ts": {
+    "complexity": {
+      "count": 2
+    },
     "no-await-in-loop": {
       "count": 2
     },
@@ -4246,6 +4374,9 @@
     }
   },
   "src/ui/table.ts": {
+    "complexity": {
+      "count": 1
+    },
     "max-params": {
       "count": 2
     },

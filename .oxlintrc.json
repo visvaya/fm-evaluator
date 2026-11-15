@@ -521,6 +521,7 @@
         "maximum": 800
       }
     ],
+    "complexity": ["error", { "max": 20 }], // Measured 2026-11-15: 2082 functions, median 3, p99 28, max 205 (deriveProcessorStats); 48 findings above 20 frozen. Tighten, never loosen.
     "max-depth": ["error", { "max": 4 }], // Limits from the 2026-11-08 measurement (32 findings at 4, frozen); tighten, never loosen.
     "max-params": ["error", { "max": 4 }], // More parameters go into one object (RORO); 30 findings at 4, frozen.
     "max-nested-callbacks": ["error", { "max": 3 }], // 1 finding outside tests at 3, frozen.
