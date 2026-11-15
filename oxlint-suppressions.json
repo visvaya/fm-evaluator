@@ -1301,6 +1301,9 @@
       "count": 1
     },
     "no-restricted-globals": {
+      "count": 11
+    },
+    "no-restricted-properties": {
       "count": 1
     },
     "no-underscore-dangle": {
@@ -1480,6 +1483,12 @@
     }
   },
   "src/data/handleFiles.ts": {
+    "no-restricted-globals": {
+      "count": 35
+    },
+    "no-restricted-imports": {
+      "count": 6
+    },
     "no-underscore-dangle": {
       "count": 1
     },
@@ -1511,6 +1520,9 @@
   "src/data/importPipeline.golden.test.ts": {
     "no-await-in-loop": {
       "count": 2
+    },
+    "no-restricted-imports": {
+      "count": 1
     },
     "no-underscore-dangle": {
       "count": 1
@@ -1545,6 +1557,12 @@
     },
     "no-await-in-loop": {
       "count": 5
+    },
+    "no-restricted-globals": {
+      "count": 1
+    },
+    "no-restricted-properties": {
+      "count": 2
     },
     "typescript/no-base-to-string": {
       "count": 1
@@ -1627,6 +1645,9 @@
       "count": 40
     },
     "no-restricted-globals": {
+      "count": 17
+    },
+    "no-restricted-properties": {
       "count": 1
     },
     "no-useless-assignment": {
@@ -2669,6 +2690,9 @@
     "no-console": {
       "count": 1
     },
+    "no-restricted-globals": {
+      "count": 2
+    },
     "no-underscore-dangle": {
       "count": 7
     },
@@ -2725,6 +2749,9 @@
     },
     "no-console": {
       "count": 3
+    },
+    "no-restricted-globals": {
+      "count": 4
     },
     "no-underscore-dangle": {
       "count": 2
@@ -2878,6 +2905,9 @@
     "max-params": {
       "count": 1
     },
+    "no-restricted-globals": {
+      "count": 2
+    },
     "regexp/no-unused-capturing-group": {
       "count": 8
     },
@@ -2985,6 +3015,9 @@
     "no-console": {
       "count": 1
     },
+    "no-restricted-globals": {
+      "count": 3
+    },
     "typescript/no-explicit-any": {
       "count": 3
     },
@@ -3074,6 +3107,9 @@
     }
   },
   "src/schema/contracts.test.ts": {
+    "no-restricted-properties": {
+      "count": 9
+    },
     "typescript/no-explicit-any": {
       "count": 1
     },
@@ -3100,6 +3136,9 @@
       "count": 1
     },
     "max-classes-per-file": {
+      "count": 1
+    },
+    "no-restricted-globals": {
       "count": 1
     },
     "no-underscore-dangle": {

@@ -905,8 +905,17 @@
       }
     },
     {
-      // Layer boundary: computing must not depend on the UI layer.
-      "files": ["src/computing/**"],
+      // Layer boundary: logic (computing, parsing, processing, mapping, schema, data) stays free of
+      // the UI, React, storage and I/O globals. Existing findings are frozen in oxlint-suppressions.json
+      // and may only shrink.
+      "files": [
+        "src/computing/**",
+        "src/parsing/**",
+        "src/processing/**",
+        "src/mapping/**",
+        "src/schema/**",
+        "src/data/**"
+      ],
       "rules": {
         "no-restricted-imports": [
           "error",
@@ -914,7 +923,7 @@
             "patterns": [
               {
                 "group": ["**/ui", "**/ui/**", "@/ui", "@/ui/**"],
-                "message": "Computing modules must not import from the UI layer."
+                "message": "Logic modules must not import from the UI layer."
               },
               {
                 "group": [
@@ -924,11 +933,11 @@
                   "**/components/**",
                   "@/components/**"
                 ],
-                "message": "Computing is pure logic: move React code to components or hooks and pass the data in."
+                "message": "Logic is pure: move React code to components or hooks and pass the data in."
               },
               {
                 "group": ["dexie", "**/storage", "**/storage/**", "@/storage", "@/storage/**"],
-                "message": "Computing takes its data as arguments: load and save in the caller, not here."
+                "message": "Logic takes its data as arguments: load and save in the caller, not here."
               }
             ]
           }
@@ -941,27 +950,27 @@
           },
           {
             "name": "window",
-            "message": "Computing is pure logic: pass what it needs from window in as an argument."
+            "message": "Logic is pure: pass what it needs from window in as an argument."
           },
           {
             "name": "document",
-            "message": "Computing is pure logic: read the DOM in the caller and pass the values in."
+            "message": "Logic is pure: read the DOM in the caller and pass the values in."
           },
           {
             "name": "localStorage",
-            "message": "Computing takes its data as arguments: read storage in the caller."
+            "message": "Logic takes its data as arguments: read storage in the caller."
           },
           {
             "name": "sessionStorage",
-            "message": "Computing takes its data as arguments: read storage in the caller."
+            "message": "Logic takes its data as arguments: read storage in the caller."
           },
           {
             "name": "indexedDB",
-            "message": "Computing takes its data as arguments: read storage in the caller."
+            "message": "Logic takes its data as arguments: read storage in the caller."
           },
           {
             "name": "fetch",
-            "message": "Computing takes its data as arguments: fetch in the caller."
+            "message": "Logic takes its data as arguments: fetch in the caller."
           }
         ], // Repeats the root DOMParser entry: an override replaces the rule options.
         "no-restricted-properties": [
@@ -974,19 +983,26 @@
           {
             "object": "Date",
             "property": "now",
-            "message": "Computing takes the clock as an argument (now: number)."
+            "message": "Logic takes the clock as an argument (now: number)."
           },
           {
             "object": "Math",
             "property": "random",
-            "message": "Computing takes a seeded random source as an argument."
+            "message": "Logic takes a seeded random source as an argument."
           }
         ] // Repeats the root z.any entry: an override replaces the rule options.
       }
     },
     {
-      // Tests of computing modules set up the browser globals the code under test receives.
-      "files": ["src/computing/**/*.test.ts"],
+      // Tests of logic modules set up the browser globals the code under test receives.
+      "files": [
+        "src/computing/**/*.test.ts",
+        "src/parsing/**/*.test.ts",
+        "src/processing/**/*.test.ts",
+        "src/mapping/**/*.test.ts",
+        "src/schema/**/*.test.ts",
+        "src/data/**/*.test.ts"
+      ],
       "rules": {
         "no-restricted-globals": [
           "error",
