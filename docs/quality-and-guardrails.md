@@ -188,7 +188,7 @@ Security is covered partly by tooling, but always needs human review on importan
 - workflow audit (zizmor, pedantic persona, pinned by wheel checksum) and SAST (Semgrep CE, `p/typescript` and `p/react`, image pinned by digest; fails only on ERROR severity; baseline 2026-10-01: 74 rules on 400 files, 0 findings of any severity) in the same job, on pull requests that touch `.github/`, `package.json` or the lockfile, and always on `main` and weekly; third-party actions pinned to commit SHAs and updated by Dependabot (weekly, grouped, 7-day cooldown)
 - SRI hashes of the vendor files in `index.html` (`pnpm run sri:check`) and the language and import configs (`pnpm run validate:configs:check`), both in `pnpm run quality` and CI
 - duplication/dependency audit scripts
-- git hooks: lint-staged (oxlint, oxfmt and the typography check on staged files) before a commit, commitlint on the message (Conventional Commits, header at most 72 characters); no pre-push hook, CI runs typecheck and tests on every pull request
+- git hooks: lint-staged (oxlint, oxfmt and the typography check on staged files) before a commit, commitlint on the message (Conventional Commits, header at most 72 characters); no pre-push hook, CI runs typecheck and tests on every pull request that is not documentation only
 - import order (oxfmt `sortImports` in `.oxfmtrc.json`)
 - naming of types, enum members, type parameters and parameters (local `naming/naming-convention` rule in `scripts/oxlint/`, next to `id-match` for variables and functions)
 
