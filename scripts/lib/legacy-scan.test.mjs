@@ -22,6 +22,38 @@ describe('scanAst', () => {
     ]);
   });
 
+  it('counts every ECMAScript line terminator, and CR LF once', () => {
+    const [lf, cr, lineSeparator, paragraphSeparator] = [0x0a, 0x0d, 0x2028, 0x2029].map((code) =>
+      String.fromCodePoint(code)
+    );
+    const source = [
+      'window.A = 1;',
+      'window.B = 2;',
+      'window.C = 3;',
+      'window.D = 4;',
+      'window.E = 5;'
+    ];
+    const joined =
+      source[0] +
+      cr +
+      source[1] +
+      cr +
+      lf +
+      source[2] +
+      lineSeparator +
+      source[3] +
+      paragraphSeparator +
+      source[4] +
+      lf;
+    expect(summary(joined)).toEqual([
+      'write:A@1',
+      'write:B@2',
+      'write:C@3',
+      'write:D@4',
+      'write:E@5'
+    ]);
+  });
+
   it('follows aliases of window by name', () => {
     expect(summary('const w: any = window as any;\nw.store.x = 1;\nw.COLUMNS = [];')).toEqual([
       'read:store@2',

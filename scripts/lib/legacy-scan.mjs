@@ -107,11 +107,19 @@ export function parseSource(source, filePath) {
   return { program, lineAt: lineLookup(source) };
 }
 
+const LF = 0x0a;
+const CR = 0x0d;
+// The line terminators of ECMAScript: LF, CR, LINE SEPARATOR, PARAGRAPH SEPARATOR.
+const LINE_TERMINATORS = new Set([LF, CR, 0x2028, 0x2029]);
+
 // oxc-parser gives UTF-16 offsets (node.start), the same unit as string indexes.
 function lineLookup(source) {
   const starts = [0];
-  for (let index = source.indexOf('\n'); index !== -1; index = source.indexOf('\n', index + 1)) {
-    starts.push(index + 1);
+  for (let index = 0; index < source.length; index += 1) {
+    const code = source.codePointAt(index);
+    // CR LF is one break; LF, a lone CR, LINE SEPARATOR and PARAGRAPH SEPARATOR are one each.
+    if (code === CR && source.codePointAt(index + 1) === LF) continue;
+    if (LINE_TERMINATORS.has(code)) starts.push(index + 1);
   }
   return (offset) => {
     let low = 0;
