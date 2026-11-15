@@ -4,7 +4,12 @@ import { useMemo, useState } from 'react';
 
 import { addLeagueMapping } from '@/computing/ldcMappings';
 import { ldcSettings } from '@/config/ldcConfig';
-import { useLdcMissingStore } from '@/features/ldc/useLdcMissingStore';
+import {
+  useLdcMissingStore,
+  type LdcMissingAddDialogPayload,
+  type LdcMissingBulkAddDialogPayload,
+  type LdcMissingMatchDialogPayload
+} from '@/features/ldc/useLdcMissingStore';
 import { checkMissingLeagues, addLeagueWithValues } from '@/ui/ldcMissing';
 
 function buildSelectableLeagues() {
@@ -28,14 +33,8 @@ function getDefaultBasketStars() {
   return '0.5';
 }
 
-function AddLeagueDialog() {
+function AddLeagueDialog({ payload }: { payload: LdcMissingAddDialogPayload }) {
   const closeDialog = useLdcMissingStore((state) => state.closeDialog);
-  const payload = useLdcMissingStore((state) => state.activeDialog);
-
-  if (payload?.mode !== 'add') {
-    return null;
-  }
-
   const { league } = payload;
   const [name, setName] = useState(league.name);
   const [nameError, setNameError] = useState<null | string>(null);
@@ -145,14 +144,8 @@ function AddLeagueDialog() {
   );
 }
 
-function BulkAddDialog() {
+function BulkAddDialog({ payload }: { payload: LdcMissingBulkAddDialogPayload }) {
   const closeDialog = useLdcMissingStore((state) => state.closeDialog);
-  const payload = useLdcMissingStore((state) => state.activeDialog);
-
-  if (payload?.mode !== 'bulk-add') {
-    return null;
-  }
-
   const [linkValues, setLinkValues] = useState(true);
   const [linkedRank, setLinkedRank] = useState('');
   const [linkedStars, setLinkedStars] = useState('');
@@ -305,16 +298,11 @@ function BulkAddDialog() {
   );
 }
 
-function MatchDialog() {
+function MatchDialog({ payload }: { payload: LdcMissingMatchDialogPayload }) {
   const closeDialog = useLdcMissingStore((state) => state.closeDialog);
-  const payload = useLdcMissingStore((state) => state.activeDialog);
   const selectableLeagues = useMemo(() => buildSelectableLeagues(), []);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLeagueKey, setSelectedLeagueKey] = useState<null | string>(null);
-
-  if (payload?.mode !== 'match') {
-    return null;
-  }
 
   const normalizedQuery = searchTerm.trim().toLowerCase();
   const matches = selectableLeagues.filter(
@@ -414,13 +402,24 @@ export function LdcMissingDialogs() {
     return null;
   }
 
+  // The key gives each opened dialog fresh form state: a dialog opened for other leagues while one
+  // is still shown would otherwise keep the previous leagues' values.
+  const key = `${activeDialog.mode}:${dialogLeagueKeys(activeDialog)}`;
+
   if (activeDialog.mode === 'add') {
-    return <AddLeagueDialog />;
+    return <AddLeagueDialog key={key} payload={activeDialog} />;
   }
 
   if (activeDialog.mode === 'bulk-add') {
-    return <BulkAddDialog />;
+    return <BulkAddDialog key={key} payload={activeDialog} />;
   }
 
-  return <MatchDialog />;
+  return <MatchDialog key={key} payload={activeDialog} />;
+}
+
+function dialogLeagueKeys(
+  dialog: LdcMissingAddDialogPayload | LdcMissingBulkAddDialogPayload | LdcMissingMatchDialogPayload
+): string {
+  const leagues = dialog.mode === 'add' ? [dialog.league] : dialog.leagues;
+  return leagues.map((league) => `${league.name}||${league.nation}`).join('|');
 }
