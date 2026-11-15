@@ -232,7 +232,7 @@ jobs:
         if: ${{ !cancelled() && steps.scope.outputs.security == 'true' }}
         run: |
           # The image is pinned in a Dockerfile that Dependabot keeps current.
-          image=$(sed -n 's/^FROM //p' .github/docker/semgrep/Dockerfile)
+          image=$(sed -n 's/^FROM //p' docker/semgrep/Dockerfile)
           if ! [[ "$image" =~ ^semgrep/semgrep:[0-9]+\.[0-9]+\.[0-9]+@sha256:[0-9a-f]{64}$ ]]; then
             echo "Unexpected Semgrep image reference: '$image'" >&2
             exit 1

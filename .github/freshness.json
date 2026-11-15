@@ -14,7 +14,7 @@
     {
       "name": "Semgrep image",
       "mechanism": "dependabot",
-      "where": "docker, /.github/docker/semgrep (tag and digest)"
+      "where": "docker, /docker/semgrep (tag and digest)"
     },
     {
       "name": "Node patch release",

@@ -35,6 +35,8 @@ check 'unknown new file' 'some-new-config.json\n' 'docs_only=false e2e=true secu
 check 'lint config' '.oxlintrc.json\noxlint-suppressions.json\n' 'docs_only=false e2e=false security=false '
 check 'goldens' 'goldens/snapshots/a.json\n' 'docs_only=false e2e=false security=false '
 check 'other workflow' '.github/workflows/secrets.yml\n' 'docs_only=false e2e=false security=true '
+# The Semgrep image pin: a new image runs the SAST step, not the browser.
+check 'semgrep image pin' 'docker/semgrep/Dockerfile\n' 'docs_only=false e2e=false security=true '
 check 'commit rules' 'commitlint.config.mjs\n.husky/commit-msg\n' 'docs_only=false e2e=false security=false '
 
 [ "$failures" -eq 0 ]
