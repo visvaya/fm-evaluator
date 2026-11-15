@@ -636,9 +636,6 @@
     },
     "unicorn/no-array-sort": {
       "count": 2
-    },
-    "unicorn/prefer-string-starts-ends-with": {
-      "count": 1
     }
   },
   "scripts/lib/strict-metrics-core.mjs": {
