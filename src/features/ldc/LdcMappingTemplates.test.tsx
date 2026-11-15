@@ -34,9 +34,13 @@ import type { LegacyLeagueMappings } from '@/config/ldcConfig';
 const DRAFT = { 'Liga A||Polska': { name: 'Ekstraklasa', nation: 'Polska' } };
 const SAVED = { 'Liga B': 'I liga' };
 
-const query = <T extends Element>(container: HTMLElement, selector: string): T => {
-  const element = container.querySelector<T>(selector);
-  if (!element) throw new Error(`${selector} not rendered`);
+const query = <T extends Element>(
+  container: HTMLElement,
+  selector: string,
+  type: new () => T
+): T => {
+  const element = container.querySelector(selector);
+  if (!(element instanceof type)) throw new Error(`${selector} not rendered`);
   return element;
 };
 
@@ -106,12 +110,12 @@ describe('LdcMappingTemplates', () => {
     });
     await flush();
     return {
-      deleteButton: query<HTMLButtonElement>(container, '#ldc-delete-template-btn'),
-      loadButton: query<HTMLButtonElement>(container, '#ldc-load-template-btn'),
-      nameInput: query<HTMLInputElement>(container, '#ldc-template-name'),
-      saveButton: query<HTMLButtonElement>(container, '#ldc-save-template-btn'),
-      select: query<HTMLSelectElement>(container, '#ldc-load-template'),
-      status: query<HTMLOutputElement>(container, 'output')
+      deleteButton: query(container, '#ldc-delete-template-btn', HTMLButtonElement),
+      loadButton: query(container, '#ldc-load-template-btn', HTMLButtonElement),
+      nameInput: query(container, '#ldc-template-name', HTMLInputElement),
+      saveButton: query(container, '#ldc-save-template-btn', HTMLButtonElement),
+      select: query(container, '#ldc-load-template', HTMLSelectElement),
+      status: query(container, 'output', HTMLOutputElement)
     };
   };
 

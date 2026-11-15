@@ -11,7 +11,7 @@
     "./scripts/oxlint/naming-plugin.mjs",
     "./scripts/oxlint/comments-plugin.mjs"
   ],
-  "categories": { "correctness": "error" },
+  "categories": { "correctness": "error", "suspicious": "error", "perf": "error" },
   "options": { "typeAware": true, "denyWarnings": true, "reportUnusedDisableDirectives": "error" },
   "env": { "builtin": true, "browser": true, "es2026": true },
   "ignorePatterns": ["public/vendor/**"],
@@ -297,6 +297,10 @@
     "promise/no-return-in-finally": "error",
     "unicorn/no-useless-iterator-to-array": "error",
     "typescript/no-useless-default-assignment": "off", // Needs strictNullChecks, which is off (tsconfig strict ratchet); turn on with strictNullChecks.
+    "typescript/no-unnecessary-boolean-literal-compare": "off", // Needs strictNullChecks, which is off (tsconfig strict ratchet): it reports a config error on every file; turn on with strict.
+    "unicorn/require-post-message-target-origin": "off", // postMessage is called only on service workers, workers and clients, which take no target origin; the rule cannot tell them from window.
+    "import/no-unassigned-import": "off", // Side-effect imports are the bootstrap design (legacyBootstrap, goldenLegacyGlobals, CSS in main.tsx).
+    "oxc/no-map-spread": "off", // It asks to mutate objects inside map, against the immutability rule (fp/*); the copies are small.
     "sonarjs/void-use": "off", // Needs type information that JS plugins do not get; `void promise` is the sanctioned pattern (no-floating-promises ignoreVoid).
     "sonarjs/array-callback-without-return": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
     "sonarjs/deprecation": "off", // Needs type information, which JS plugins do not get, so it never reports; return when oxlint passes types to JS plugins or with a native rule.
@@ -624,6 +628,7 @@
         "playwright/valid-test-tags": "error",
         "playwright/valid-title": "error",
         "typescript/no-unnecessary-type-assertion": "off", // Locator and evaluate() results are asserted on purpose.
+        "no-await-in-loop": "off", // Test steps run in order on purpose.
         "max-classes-per-file": "off", // Class-based test doubles (mocks, stubs) are acceptable.
         "fp/no-let": "off", // Tests set up and reset fixtures imperatively.
         "fp/no-mutation": "off", // Tests set up and reset fixtures imperatively.
@@ -760,6 +765,7 @@
       "rules": {
         "no-console": "off", // The console is the output channel of a CLI.
         "unicorn/no-process-exit": "off", // CLIs report their result through the exit code.
+        "no-await-in-loop": "off", // Script steps run in order on purpose.
         "unicorn/filename-case": [
           "error",
           {
@@ -788,7 +794,8 @@
       "plugins": ["react"],
       "rules": {
         "react/rules-of-hooks": "error",
-        "react/unsupported-syntax": "error"
+        "react/unsupported-syntax": "error",
+        "react/react-in-jsx-scope": "off" // The automatic JSX runtime (jsx: react-jsx) needs no React in scope.
       }
     },
     {

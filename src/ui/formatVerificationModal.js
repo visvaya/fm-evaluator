@@ -18,8 +18,6 @@ class FormatVerificationModal {
 
   resolveCallback = null;
 
-  constructor() {}
-
   /**
    * Create modal HTML
    * @param formatContext - Format context

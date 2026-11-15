@@ -1,4 +1,3 @@
-/* eslint-disable fp/no-let, fp/no-mutation */
 import { scaleLinear } from '@visx/scale';
 import { useMemo } from 'react';
 
@@ -106,7 +105,7 @@ function layoutPoints(
   const sorted = points.toSorted(
     (left, right) => left.value - right.value || left.id.localeCompare(right.id)
   );
-  let placed: BeeswarmLayoutPoint[] = [];
+  const placed: BeeswarmLayoutPoint[] = [];
 
   for (const point of sorted) {
     const x = xScale(point.value);
@@ -122,7 +121,8 @@ function layoutPoints(
       y: centerY
     };
 
-    placed = [...placed, candidate];
+    // eslint-disable-next-line fp/no-mutating-methods -- local buffer owned by this function; copying it per point is quadratic
+    placed.push(candidate);
   }
 
   return placed;

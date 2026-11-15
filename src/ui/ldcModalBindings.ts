@@ -27,7 +27,6 @@ export async function loadDefaultLeaguesAction(
               'Błąd',
               'Nie udało się załadować domyślnych lig. Sprawdź konsolę przeglądarki (F12).'
             );
-            resolve();
             return;
           }
 

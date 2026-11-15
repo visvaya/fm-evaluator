@@ -123,7 +123,7 @@ export function FileManagerModal() {
 
   useEffect(() => {
     if (!isFileManagerOpen) {
-      return;
+      return undefined;
     }
 
     refreshStack();
@@ -133,7 +133,7 @@ export function FileManagerModal() {
 
   useEffect(() => {
     if (!isFileManagerOpen) {
-      return;
+      return undefined;
     }
 
     const onKeyDown = (event: KeyboardEvent) => {

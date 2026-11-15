@@ -281,12 +281,12 @@ export function LdcLeaguesSection() {
 
   useEffect(() => {
     if (!isLeaguesExpanded || pendingFocusLeagueId === null) {
-      return;
+      return undefined;
     }
 
     const rowIndex = rows.findIndex((row) => row.rowId === pendingFocusLeagueId);
     if (rowIndex === -1) {
-      return;
+      return undefined;
     }
 
     if (shouldVirtualize) {
